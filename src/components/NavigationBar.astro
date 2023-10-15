@@ -1,0 +1,263 @@
+---
+import NavigationLink from "./NavigationLink.astro";
+
+interface NavigationLink {
+	id: string;
+	href: string;
+	colorstyle: string;
+	ionicon: string;
+	text: string;
+}
+const navigationInfo: Array<NavigationLink> = [
+	{
+		id: "home",
+		href: "/",
+		colorstyle: "#f44336",
+		ionicon: "home-outline",
+		text: "Home",
+	},
+	{
+		id: "hobby",
+		href: "/hobby",
+		colorstyle: "#ffa117",
+		ionicon: "game-controller-outline",
+		text: "Hobby",
+	},
+	{
+		id: "skills",
+		href: "/skills",
+		colorstyle: "#0fc70f",
+		ionicon: "logo-tux",
+		text: "Skills",
+	},
+	{
+		id: "projects",
+		href: "/projects",
+		colorstyle: "#2196f3",
+		ionicon: "images-outline",
+		text: "Projects",
+	},
+	{
+		id: "experience",
+		href: "/experience",
+		colorstyle: "#b145e9",
+		ionicon: "sparkles-outline",
+		text: "Experience",
+	},
+	{
+		id: "contacts",
+		href: "/contacts",
+		colorstyle: "#e91e63",
+		ionicon: "call-outline",
+		text: "Contacts",
+	},
+	{
+		id: "blog",
+		href: "/blog",
+		colorstyle: "#F2C83B",
+		ionicon: "newspaper-outline",
+		text: "My Blog",
+	},
+	{
+		id: "about",
+		href: "/about",
+		colorstyle: "#006994",
+		ionicon: "information-circle-outline",
+		text: "About",
+	},
+];
+---
+
+<style>
+	:root {
+		--clr: #1d232a;
+		--clr2: #191e24;
+		--base-text: #a6adb9;
+	}
+</style>
+<div
+	class="relative overflow-hidden sidebar w-100 flex-shrink-0"
+	data-source="https://www.youtube.com/watch?v=PuLujpkLRUM"
+	transition:persist
+>
+	<ul>
+		<li class="closable-button" style="--bg:#333;">
+			<a class="menutoggle">
+				<div class="icon">
+					<div class="menuToggle"></div>
+				</div>
+				<div class="text">
+					<div class="text"></div>
+				</div>
+			</a>
+		</li>
+		<div class="Menulist">
+			{
+				navigationInfo.map((link) => (
+					<NavigationLink
+						id={link.id}
+						text={link.text}
+						href={link.href}
+						color={link.colorstyle}
+						iconName={link.ionicon}
+					/>
+				))
+			}
+		</div>
+		<NavigationLink
+			id="extra padding"
+			text=""
+			href=""
+			color="#333"
+			iconName=""
+			class:list={"min-h-screen"}
+			isNotTabbable={true}
+		/>
+	</ul>
+</div>
+<script
+	defer
+	type="module"
+	src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script
+	defer
+	nomodule
+	src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Script to toggle Navbar -->
+<script>
+	const active_item = document.querySelector(
+		".Menulist li a[href='" + window.location.pathname + "']"
+	)?.parentElement;
+	active_item?.classList.add("active");
+	let menuToggle = document.querySelector(".menuToggle") as HTMLElement;
+	let sidebar = document.querySelector(".sidebar") as HTMLElement;
+	menuToggle.onclick = function () {
+		menuToggle.classList.toggle("active");
+		sidebar.classList.toggle("active");
+	};
+</script>
+<style is:inline>
+	.sidebar ul li {
+		z-index: 10;
+		border-right: 2px solid var(--bg);
+	}
+	.sidebar ul li.active + li {
+		z-index: 10;
+		border-top-right-radius: 20px;
+	}
+</style>
+<style>
+	.sidebar {
+		width: 80px;
+		height: 100vh;
+		background: var(--clr2);
+		transition: 0.5s;
+		padding-left: 10px;
+		min-width: 80px;
+	}
+
+	.sidebar.active {
+		width: 28vh;
+		min-width: 220px;
+	}
+
+	.sidebar ul {
+		position: relative;
+		height: 100vh;
+	}
+
+	li.logo .icon {
+		font-size: 2em;
+		color: var(--clr);
+	}
+
+	li.logo .text {
+		font-size: 1.2em;
+		font-weight: 500;
+	}
+
+	li a {
+		position: relative;
+		display: flex;
+		white-space: nowrap;
+		text-decoration: none;
+	}
+	li a .icon {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 60px;
+		padding-left: 10px;
+		height: 70px;
+		font-size: 1.5em;
+		color: #333;
+		transition: 0.5s;
+	}
+
+	li a .text {
+		position: relative;
+		height: 70px;
+		display: flex;
+		align-items: center;
+		font-size: 1em;
+		color: var(--base-text);
+		padding-left: 15px;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		transition: 0.5s;
+	}
+
+	.menuToggle {
+		width: 50px;
+		height: 50px;
+		background: var(--clr);
+		z-index: 1000;
+		cursor: pointer;
+	}
+
+	.menuToggle:hover {
+		opacity: 0.6;
+		transition: 0.5s;
+	}
+
+	.menuToggle::before:hover {
+		opacity: 1;
+		transition: 0.5s;
+	}
+
+	.menuToggle::before {
+		content: "";
+		position: absolute;
+		top: 30px;
+		right: 10px;
+		width: 30px;
+		height: 3px;
+		background: yellow;
+		transform: translateY(-9px);
+		transition: 0.5s;
+		box-shadow: 0 9px 0 #fff;
+	}
+
+	.menuToggle::after {
+		content: "";
+		position: absolute;
+		top: 30px;
+		right: 10px;
+		width: 30px;
+		height: 3px;
+		background: salmon;
+		transform: translateY(9px);
+		transition: 0.5s;
+	}
+
+	.menuToggle.active::before {
+		transform: translateY(0px) rotate(45deg);
+		box-shadow: 0 0 0 #fff;
+	}
+
+	.menuToggle.active::after {
+		transform: translateY(0px) rotate(-45deg);
+	}
+</style>

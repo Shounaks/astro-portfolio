@@ -1,0 +1,450 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<div class="min-w-full min-h-full">
+		<div class="pb-2">
+			<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
+				Skills Acquired - Talent Tree
+			</h2>
+			<p
+				class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
+			>
+				In the production environment, skill is your most formidable weapon.
+			</p>
+			<hr class="border-green-500 pb-2" />
+		</div>
+		<div class="pt-2">
+			<div class="grid grid-cols-3 grid-rows-3 gap-2">
+				<div
+					class="row-span-2 border-dashed border-cyan-600 border-2 p-4 gap-2 grid transition-colors hover:bg-cyan-600 hover:border-cyan-950 group"
+					onmouseenter="transformCard(event, this)"
+					onmouseleave="resetCard(event,this)"
+					onmousemove="transformCard(event,this)"
+				>
+					<div
+						class="text-zinc-400 uppercase text-sm tracking-widest font-extralight pb-3 m-auto min-w-full text-center group-hover:text-white"
+					>
+						CLOUD
+					</div>
+					<div
+						class="border-dashed border-orange-600 border-2 transition-colors hover:bg-orange-600 hover:border-orange-950 hover:bg-opacity-80 group"
+					>
+						<div
+							class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight text-center border-dashed border-orange-600 border-2 group-hover:text-orange-950 group-hover:border-b-transparent"
+						>
+							AMAZON WEB SERVICES
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/aws/amazon-web-services.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/aws/awslambda.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
+					<div
+						class="row-span-2 border-dashed border-sky-600 border-2 transition-colors hover:bg-sky-600 hover:border-sky-950 group"
+					>
+						<div
+							class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-sky-600 border-2 group-hover:text-sky-950"
+						>
+							MICROSOFT AZURE CLOUD
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/azure/API-Management-Services.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/azure/Application-Gateways.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/azure/Azure-Cosmos-DB.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/azure/Azure-Database-MySQL-Server.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/azure/azure-storage-connection.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
+					<div
+						class="row-span-2 border-dashed border-emerald-500 border-2 transition-colors hover:bg-emerald-500 hover:border-emerald-950 group"
+					>
+						<div
+							class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-emerald-500 border-2 group-hover:text-emerald-950"
+						>
+							Google Cloud Platform
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/gcp/cloud-storage.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/gcp/google-compute-engine.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/gcp/google-firebase.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+							<div class="">
+								<img
+									src="/skills/gcp/kubernetes.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="row-span-2 border-dashed border-yellow-500 border-2 p-4 gap-2 flex flex-col align-middle hover:bg-yellow-500 hover:border-yellow-950 group"
+					onmouseenter="transformCard(event, this)"
+					onmouseleave="resetCard(event,this)"
+					onmousemove="transformCard(event,this)"
+				>
+					<div
+						class="text-zinc-400 uppercase text-sm tracking-widest font-extralight pb-3 m-auto min-w-full text-center group-hover:text-yellow-950"
+					>
+						FRONTEND
+					</div>
+					<div class="grid grid-cols-4 gap-2">
+						<div class="border-dashed border-transparent border-2 col-span-4">
+							<div
+								class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight text-center border-dashed border-transparent border-2"
+							>
+							</div>
+							<div class="flex flex-row justify-center gap-3 p-4"></div>
+						</div>
+						<div
+							class="border-dashed border-gray-700 border-2 col-span-3 hover:bg-gray-700 hover:border-gray-950 group"
+						>
+							<div
+								class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-gray-700 border-2 group-hover:text-gray-950"
+							>
+								Basics
+							</div>
+							<div class="flex flex-row justify-center gap-3 p-4">
+								<div class="">
+									<img src="/skills/html-5.svg" class="m-auto h-full" alt="" />
+								</div>
+								<div class="">
+									<img src="/skills/css3.svg" class="m-auto h-full" alt="" />
+								</div>
+								<div class="">
+									<img
+										src="/skills/javascript.svg"
+										class="m-auto h-full"
+										alt=""
+									/>
+								</div>
+								<div class="">
+									<img
+										src="/skills/typescript.svg"
+										class="m-auto h-full"
+										alt=""
+									/>
+								</div>
+							</div>
+						</div>
+						<div
+							class="border-dashed border-cyan-600 border-2 max-w-fit col-span-1 min-w-full hover:bg-cyan-600 hover:border-cyan-950 group"
+						>
+							<div
+								class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-cyan-600 border-2 group-hover:text-cyan-950"
+							>
+								Tailwind
+							</div>
+							<div class="flex flex-row justify-center gap-3 p-4">
+								<div class="">
+									<img
+										src="/skills/tailwindcss.svg"
+										class="m-auto h-full"
+										alt=""
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="row-span-2 border-dashed border-red-500 border-2 hover:bg-red-500 hover:border-red-950 hover:bg-opacity-40 group"
+					>
+						<div
+							class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-red-500 border-2 group-hover:text-red-950 group-hover:border-b-transparent"
+						>
+							Frameworks
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img src="/skills/angularjs.svg" class="m-auto h-full" alt="" />
+							</div>
+							<div class="">
+								<img src="/skills/vue-js.svg" class="m-auto h-full" alt="" />
+							</div>
+							<div class="">
+								<img src="/skills/astro2.svg" class="m-auto h-[48px]" alt="" />
+							</div>
+							<div class="">
+								<img src="/skills/solidjs.svg" class="m-auto h-[48px]" alt="" />
+							</div>
+							<div class="">
+								<img
+									src="/skills/solidstart.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="row-span-2 border-dashed border-indigo-700 border-2 p-4 gap-2 flex flex-col align-middle hover:bg-indigo-700 hover:border-indigo-950 group"
+					onmouseenter="transformCard(event, this)"
+					onmouseleave="resetCard(event,this)"
+					onmousemove="transformCard(event,this)"
+				>
+					<div
+						class="text-zinc-400 uppercase text-sm tracking-widest font-extralight pb-3 m-auto min-w-full text-center group-hover:text-indigo-950"
+					>
+						Backend
+					</div>
+					<div class="grid grid-cols-4 gap-2">
+						<div
+							class="border-dashed border-purple-500 border-2 col-span-2 hover:bg-purple-500 hover:border-purple-950 group"
+						>
+							<div
+								class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-purple-500 border-2 group-hover:text-purple-950"
+							>
+								JVM Languages
+							</div>
+							<div class="flex flex-row justify-center gap-3 p-4">
+								<div class="">
+									<img src="java.svg" class="m-auto h-full" alt="" />
+								</div>
+								<div class="">
+									<img src="kotlin.svg" class="m-auto h-full" alt="" />
+								</div>
+							</div>
+						</div>
+						<div
+							class="border-dashed border-emerald-600 border-2 col-span-2 row-span-2 hover:bg-emerald-600 hover:border-emerald-950 group"
+						>
+							<div
+								class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-emerald-600 border-2 group-hover:text-emerald-950"
+							>
+								Spring Framework
+							</div>
+							<div class="flex flex-row justify-center gap-3 p-4">
+								<div class="">
+									<img
+										src="skills/spring-boot.svg"
+										class="m-auto h-full"
+										alt=""
+									/>
+								</div>
+								<div class="">
+									<img
+										src="skills/hibernate.svg"
+										class="m-auto h-[48px]"
+										alt="hibernate"
+									/>
+								</div>
+							</div>
+						</div>
+						<div
+							class="border-dashed border-teal-500 border-2 max-w-fit col-span-2 min-w-full hover:bg-teal-500 hover:border-teal-950 group"
+						>
+							<div
+								class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-teal-500 border-2 group-hover:text-teal-950"
+							>
+								E-L-K
+							</div>
+							<div class="flex flex-row justify-center gap-3 p-4">
+								<div class="">
+									<img
+										src="/skills/elasticsearch.svg"
+										class="m-auto h-full"
+										alt=""
+									/>
+								</div>
+								<div class="">
+									<img
+										src="/skills/logstash.svg"
+										class="m-auto h-full"
+										alt=""
+									/>
+								</div>
+								<div class="">
+									<img src="/skills/kibana.svg" class="m-auto h-full" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="row-span-2 border-dashed border-rose-600 border-2 hover:bg-rose-600 hover:border-rose-950 group"
+					>
+						<div
+							class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-rose-600 border-2 group-hover:text-rose-950"
+						>
+							Databases
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img src="skills/mysql.svg" class="m-auto h-full" alt="" />
+							</div>
+							<div class="">
+								<img src="skills/mongodb.svg" class="m-auto h-full" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-span-3 border-dashed border-gray-600a-800 border-2 p-4 gap-2 flex flex-col align-middle"
+				>
+					<div
+						class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight text-center border-dashed border-transparent border-2"
+					>
+						UTILITY
+					</div>
+					<div class="flex flex-row justify-around">
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="w-full h-full">
+								<img src="/skills/bitbucket.svg" class="m-auto h-full" alt="" />
+							</div>
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img src="/skills/docker.svg" class="m-auto h-full" alt="" />
+							</div>
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/confluence.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img src="/skills/github.svg" class="m-auto h-full" alt="" />
+							</div>
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/intellij-idea.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img src="/skills/jenkins.svg" class="m-auto h-full" alt="" />
+							</div>
+						</div>
+						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img src="/skills/git.svg" class="m-auto h-full" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="border-dashed border-gray-600a-800 border-2 gap-2 flex flex-col align-middle mt-2"
+			>
+				<div
+					class="text-zinc-400 uppercase text-sm tracking-widest border-t-0 border-x-0 font-extralight min-w-full text-center border-dashed border-gray-700 border-2"
+				>
+					Certifications
+				</div>
+				<div
+					class="text-zinc-400 capitalize text-sm tracking-widest border-t-0 text-center"
+				>
+					will be added later 😀
+				</div>
+			</div>
+		</div>
+	</div>
+</MainLayout>
+<script is:inline>
+const tiltEffectSettings = {
+    max: 25,
+    perspective: 1000,
+    scale: 1.0,
+};
+function resetCard(event, card) {
+    console.log("Mouse Leave Called");
+    card.style.transition = `all 0.2s`;
+    card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(0deg) rotateY(0deg)`;
+    // card.style.transition = '';//TODO: reset transition after animation ends
+}
+
+function transformCard(event, card) {
+    const cardWidth = card.offsetWidth;
+    const cardHeight = card.offsetHeight;
+
+    const centerX = card.offsetLeft + cardWidth / 2;
+    const centerY = card.offsetTop + cardHeight / 2;
+
+    const mouseX = event.clientX - centerX;
+    const mouseY = event.clientY - centerY;
+
+    const rotateX = (
+        (+0.3 * tiltEffectSettings.max * mouseY) /
+        (cardHeight / 2)
+    ).toFixed(2);
+    const rotateY = (
+        (-0.3 * tiltEffectSettings.max * mouseX) /
+        (cardWidth / 2)
+    ).toFixed(2);
+
+    // card.style.transform = ``;
+    card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+}
+</script>

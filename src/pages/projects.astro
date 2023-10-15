@@ -1,0 +1,257 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<div class="min-w-full min-h-full px-2">
+		<div class="col-span-4 pb-2" style="perspective: 1000px;">
+			<h2
+				class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white text-right"
+			>
+				Project Section
+			</h2>
+			<p
+				class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap text-right w-full"
+			>
+				A showcase of my official as well as personal project repository!
+				<hr class="border-blue-500" />
+			</p>
+		</div>
+		<div class="flex flex-row gap-10 pb-6">
+			<div
+				class="text-white bg-gradient-to-b from-blue-500 -mt-2 pt-2"
+				style="writing-mode: vertical-rl;"
+			>
+				Official Projects
+			</div>
+			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
+				<img src="/project/sabreico.png" alt="" class="logo" />
+				<img src="/project/plane.png" class="front-image" />
+				<img src="/project/planebg.jpeg" class="bg-image" />
+			</div>
+			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
+				<img src="/project/manulife.png" alt="" class="logo" />
+				<img src="/project/finance.png" class="front-image" />
+				<img src="/project/financebg.webp" class="bg-image" />
+			</div>
+			<div
+				class="text-white bg-gradient-to-b from-transparent text-right pb-4 to-orange-400 -mt-2 pt-2 -mb-6"
+				style="writing-mode: vertical-rl;"
+			>
+				Personal Projects
+			</div>
+			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
+				<img src="/project/khamangicon.png" class="logo" />
+				<img src="/project/food.png" class="front-image" />
+				<img src="/project/foodbg.jpg" class="" />
+			</div>
+			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
+				<img src="/project/arcadia.png" alt="" class="logo" />
+				<img src="/project/element.webp" class="front-image" />
+				<img src="/project/arcadiabg.jpg" class="bg-image" />
+			</div>
+			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
+				<img src="/project/suvidha.png" alt="" class="logo" />
+				<img src="/project/bloodicon.png" class="front-image" />
+				<img src="/project/blooddonorbg.jpg" class="bg-image" />
+			</div>
+		</div>
+		<!-- <hr class="border border-orange-400"> -->
+		<div
+			class="bg-gradient-to-r from-orange-700 via-orange-400 min-w-full max-w-fit rounded-md px-2 text-white uppercase rounded-t-none"
+		>
+			Other Projects
+		</div>
+		<div class="mt-2 px-2 grid grid-rows-1 grid-cols-4 min-w-full min-h-fit">
+			<div class="w-[400px] min-h-full">
+				<!-- START -->
+				<div
+					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/project/school.jpg')] bg-cover group transition-all ease-linear duration-700"
+				>
+					<div
+						class="px-4 h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
+					>
+						<div class="font-bold text-xl">
+							PresenT-Attendance Management System
+						</div>
+						<p class="text-gray-700 text-base">
+							Created a system which is able to take attendance of Students,
+							process it, and store the report in XLS Format.
+						</p>
+						<div class="py-2">
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#JavaEE</span
+							>
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#HTML/#CSS/#JS</span
+							>
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#CSS</span
+							>
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#JS</span
+							>
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#ApachePOI</span
+							>
+						</div>
+					</div>
+				</div>
+				<!-- END -->
+			</div>
+			<div class="w-[400px] min-h-full">
+				<!-- START -->
+				<div
+					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/project/gladiator.webp')] group bg-cover"
+				>
+					<div
+						class="px-4 min-h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
+					>
+						<div class="font-bold text-xl">
+							Gladiator-Console based Dungeon crawler game
+						</div>
+						<p class="text-gray-700 text-base">
+							Gladiatoris an angband clonepurely built using C
+						</p>
+						<div class="py-2">
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#C</span
+							>
+						</div>
+					</div>
+				</div>
+				<!-- END -->
+			</div>
+			<div class="w-[400px] min-h-full">
+				<!-- START -->
+				<div
+					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/project/brainfuck.png')] group bg-cover"
+				>
+					<div
+						class="px-4 min-h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
+					>
+						<div class="font-bold text-xl">BrainFuck Interpreter</div>
+						<p class="text-white text-base">
+							Esoteric Language Interpreter written using basic C
+						</p>
+						<div class="py-2">
+							<span
+								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+								>#C</span
+							>
+						</div>
+					</div>
+				</div>
+				<!-- END -->
+			</div>
+		</div>
+	</div>
+</MainLayout>
+<style is:inline>
+	:root {
+		--timing: 400ms;
+		--rotation: 20deg;
+	}
+
+	html {
+		color-scheme: dark;
+	}
+	img {
+		max-width: 100%;
+	}
+
+	#card {
+		width: 200px;
+		aspect-ratio: 9 / 16;
+		position: relative;
+		transform-style: preserve-3d;
+		transition: rotate var(--timing) ease;
+	}
+
+	#card:hover {
+		rotate: x var(--rotation);
+	}
+
+	#card::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 100;
+		background-image: radial-gradient(circle, transparent 150px, black);
+		opacity: 0;
+		transition: opacity var(--timing);
+	}
+
+	#card:hover::before {
+		opacity: 1;
+	}
+
+	#card::after {
+		content: "";
+		position: absolute;
+		inset: 80% 0.5rem 0.5rem;
+		translate: 0;
+		transform: translateZ(-100px);
+		background: black;
+		filter: blur(1rem);
+		z-index: 1;
+		transition:
+			rotate var(--timing),
+			translate var(--timing);
+	}
+
+	#card:hover::after {
+		rotate: x calc(var(--rotation) * -1);
+		translate: 0 60px;
+	}
+
+	.bg-image {
+		position: absolute;
+		z-index: 10;
+		height: 100%;
+		object-fit: cover;
+		object-position: -250px center;
+	}
+
+	.logo,
+	.front-image {
+		position: absolute;
+	}
+
+	.logo {
+		z-index: 1000;
+		/* filter: invert(1); */
+		width: 65%;
+		margin-inline: auto;
+		inset: auto 0 2rem;
+		bottom: 1vh;
+		transform: translateY(0rem) translateZ(20px);
+		transition: var(--timing);
+	}
+
+	#card:hover .logo {
+		transform: translateY(-2rem) translateZ(20px);
+		rotate: x calc(var(--rotation) * -1);
+	}
+
+	.front-image {
+		bottom: 10vh;
+		scale: 1.25;
+		transform-origin: bottom;
+		opacity: 0;
+		z-index: 100;
+		transition: var(--timing);
+	}
+
+	#card:hover .front-image {
+		opacity: 1;
+		transform: translateY(-2rem) translateZ(-10px);
+		rotate: x calc(var(--rotation) * -1);
+	}
+</style>

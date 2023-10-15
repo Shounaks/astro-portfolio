@@ -1,0 +1,141 @@
+---
+interface Props {
+	id: string;
+	text: string;
+	href: string;
+	color: string; //#123456
+	iconName: string;
+	classes?: string;
+	isNotTabbable?: Boolean;
+}
+const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
+	Astro.props as Props;
+---
+
+<li {id} style={"--bg: " + color + ";"}>
+	<a {href} class:list={[classes]} {...rest} tabindex={isNotTabbable? "-1" : "1"}>
+		<div class="icon">
+			<ion-icon name={iconName}></ion-icon>
+		</div>
+		<div class="text">{text}</div>
+	</a>
+</li>
+<style>
+	li {
+		position: relative;
+		list-style: none;
+		/* border-right: 2px solid var(--bg); */
+	}
+
+	li.active {
+		background: var(--clr);
+		border-top-left-radius: 50px;
+		border-bottom-left-radius: 50px;
+		border-top: 2px solid var(--bg);
+		border-bottom: 2px solid var(--bg);
+		border-right: 0px;
+		border-left: 2px solid var(--bg);
+	}
+
+	li.active::before {
+		content: "";
+		position: absolute;
+		top: -20px;
+		right: 0px;
+		width: 20px;
+		height: 20px;
+		border-bottom-right-radius: 20px;
+		box-shadow: 5px 5px 0 5px var(--clr);
+		background: transparent;
+		border-right: 2px solid var(--bg);
+		border-bottom: 2px solid var(--bg);
+	}
+
+	li.active::after {
+		content: "";
+		position: absolute;
+		bottom: -20px;
+		right: 0px;
+		width: 20px;
+		height: 20px;
+		border-top-right-radius: 20px;
+		box-shadow: 5px -5px 0 0px var(--clr);
+		background: transparent;
+		border-top: 2px solid var(--bg);
+		border-right: 2px solid var(--bg);
+	}
+
+	li.logo {
+		margin-bottom: 50px;
+	}
+
+	li.logo .icon {
+		font-size: 2em;
+		color: var(--clr);
+	}
+
+	li.logo .text {
+		font-size: 1.2em;
+		font-weight: 500;
+	}
+
+	li a {
+		position: relative;
+		display: flex;
+		white-space: nowrap;
+		text-decoration: none;
+	}
+
+	li a .icon {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 60px;
+		padding-left: 10px;
+		height: 70px;
+		font-size: 1.5em;
+		color: #333;
+		transition: 0.5s;
+	}
+
+	li a .text {
+		position: relative;
+		height: 70px;
+		display: flex;
+		align-items: center;
+		font-size: 1em;
+		color: var(--base-text);
+		padding-left: 15px;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		transition: 0.5s;
+	}
+
+	li.active a .icon {
+		color: #fff;
+	}
+
+	li.active a .text {
+		color: var(--bg);
+	}
+
+	li:hover a .icon,
+	li:hover a .text {
+		color: var(--bg);
+	}
+
+	li.active a .icon::before {
+		content: "";
+		position: absolute;
+		inset: 5px;
+		width: 60px;
+		background: var(--bg);
+		border-radius: 50%;
+		transition: 0.5s;
+	}
+
+	li:hover a .icon::before {
+		background: #fff;
+	}
+</style>
