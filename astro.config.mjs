@@ -8,5 +8,10 @@ import solidJs from "@astrojs/solid-js";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://shounaks.github.io',
-  integrations: [mdx(), sitemap(), tailwind(), solidJs()]
+  integrations: [mdx(), sitemap(), tailwind(), solidJs()],
+  output: 'static',
+  outDir: './docs',
+  build: {
+    assets: 'astro'
+  }
 });
