@@ -261,10 +261,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 							</div>
 							<div class="flex flex-row justify-center gap-3 p-4">
 								<div class="">
-									<img src="java.svg" class="m-auto h-full" alt="" />
+									<img src="/java.svg" class="m-auto h-full" alt="" />
 								</div>
 								<div class="">
-									<img src="kotlin.svg" class="m-auto h-full" alt="" />
+									<img src="/kotlin.svg" class="m-auto h-full" alt="" />
 								</div>
 							</div>
 						</div>
@@ -279,14 +279,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 							<div class="flex flex-row justify-center gap-3 p-4">
 								<div class="">
 									<img
-										src="skills/spring-boot.svg"
+										src="/skills/spring-boot.svg"
 										class="m-auto h-full"
 										alt=""
 									/>
 								</div>
 								<div class="">
 									<img
-										src="skills/hibernate.svg"
+										src="/skills/hibernate.svg"
 										class="m-auto h-[48px]"
 										alt="hibernate"
 									/>
@@ -332,10 +332,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 						</div>
 						<div class="flex flex-row justify-center gap-3 p-4">
 							<div class="">
-								<img src="skills/mysql.svg" class="m-auto h-full" alt="" />
+								<img src="/skills/mysql.svg" class="m-auto h-full" alt="" />
 							</div>
 							<div class="">
-								<img src="skills/mongodb.svg" class="m-auto h-full" alt="" />
+								<img src="/skills/mongodb.svg" class="m-auto h-full" alt="" />
 							</div>
 						</div>
 					</div>
@@ -414,37 +414,37 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 <script is:inline>
 const tiltEffectSettings = {
-    max: 25,
-    perspective: 1000,
-    scale: 1.0,
+	max: 25,
+	perspective: 1000,
+	scale: 1.0,
 };
 function resetCard(event, card) {
-    console.log("Mouse Leave Called");
-    card.style.transition = `all 0.2s`;
-    card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(0deg) rotateY(0deg)`;
-    // card.style.transition = '';//TODO: reset transition after animation ends
+	console.log("Mouse Leave Called");
+	card.style.transition = `all 0.2s`;
+	card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(0deg) rotateY(0deg)`;
+	// card.style.transition = '';//TODO: reset transition after animation ends
 }
 
 function transformCard(event, card) {
-    const cardWidth = card.offsetWidth;
-    const cardHeight = card.offsetHeight;
+	const cardWidth = card.offsetWidth;
+	const cardHeight = card.offsetHeight;
 
-    const centerX = card.offsetLeft + cardWidth / 2;
-    const centerY = card.offsetTop + cardHeight / 2;
+	const centerX = card.offsetLeft + cardWidth / 2;
+	const centerY = card.offsetTop + cardHeight / 2;
 
-    const mouseX = event.clientX - centerX;
-    const mouseY = event.clientY - centerY;
+	const mouseX = event.clientX - centerX;
+	const mouseY = event.clientY - centerY;
 
-    const rotateX = (
-        (+0.3 * tiltEffectSettings.max * mouseY) /
-        (cardHeight / 2)
-    ).toFixed(2);
-    const rotateY = (
-        (-0.3 * tiltEffectSettings.max * mouseX) /
-        (cardWidth / 2)
-    ).toFixed(2);
+	const rotateX = (
+		(+0.3 * tiltEffectSettings.max * mouseY) /
+		(cardHeight / 2)
+	).toFixed(2);
+	const rotateY = (
+		(-0.3 * tiltEffectSettings.max * mouseX) /
+		(cardWidth / 2)
+	).toFixed(2);
 
-    // card.style.transform = ``;
-    card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+	// card.style.transform = ``;
+	card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
 </script>
