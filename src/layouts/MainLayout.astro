@@ -29,7 +29,7 @@ import { fade } from "astro:transitions";
 			</div>
 		</main>
 		<script is:inline defer>
-		var pathstring = "#" + window.document.location.pathname.replace("/", "");
+		var pathstring = "#" + window.document.location.pathname.replaceAll("/", "");
 		var container =
 		    pathstring === "#"
 		        ? document.querySelector("#home")
