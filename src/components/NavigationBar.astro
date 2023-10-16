@@ -18,49 +18,49 @@ const navigationInfo: Array<NavigationLink> = [
 	},
 	{
 		id: "hobby",
-		href: "/hobby",
+		href: "/hobby/",
 		colorstyle: "#ffa117",
 		ionicon: "game-controller-outline",
 		text: "Hobby",
 	},
 	{
 		id: "skills",
-		href: "/skills",
+		href: "/skills/",
 		colorstyle: "#0fc70f",
 		ionicon: "logo-tux",
 		text: "Skills",
 	},
 	{
 		id: "projects",
-		href: "/projects",
+		href: "/projects/",
 		colorstyle: "#2196f3",
 		ionicon: "images-outline",
 		text: "Projects",
 	},
 	{
 		id: "experience",
-		href: "/experience",
+		href: "/experience/",
 		colorstyle: "#b145e9",
 		ionicon: "sparkles-outline",
 		text: "Experience",
 	},
 	{
 		id: "contacts",
-		href: "/contacts",
+		href: "/contacts/",
 		colorstyle: "#e91e63",
 		ionicon: "call-outline",
 		text: "Contacts",
 	},
 	{
 		id: "blog",
-		href: "/blog",
+		href: "/blog/",
 		colorstyle: "#F2C83B",
 		ionicon: "newspaper-outline",
 		text: "My Blog",
 	},
 	{
 		id: "about",
-		href: "/about",
+		href: "/about/",
 		colorstyle: "#006994",
 		ionicon: "information-circle-outline",
 		text: "About",
@@ -127,7 +127,7 @@ const navigationInfo: Array<NavigationLink> = [
 <!-- Script to toggle Navbar -->
 <script is:inline defer>
 const active_item = document.querySelector(
-	".Menulist li a[href='" + window.location.pathname.replace(".*/", "") + "']"
+	".Menulist li a[href='" + window.location.pathname + "']"
 )?.parentElement;
 active_item?.classList.add("active");
 let menuToggle = document.querySelector(".menuToggle");
