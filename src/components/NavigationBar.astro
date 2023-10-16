@@ -125,17 +125,17 @@ const navigationInfo: Array<NavigationLink> = [
 	src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <!-- Script to toggle Navbar -->
-<script is:inline>
-	const active_item = document.querySelector(
-		".Menulist li a[href='" + window.location.pathname + "']"
-	)?.parentElement;
-	active_item?.classList.add("active");
-	let menuToggle = document.querySelector(".menuToggle");
-	let sidebar = document.querySelector(".sidebar");
-	menuToggle.onclick = function () {
-		menuToggle.classList.toggle("active");
-		sidebar.classList.toggle("active");
-	};
+<script is:inline defer>
+const active_item = document.querySelector(
+	".Menulist li a[href='" + window.location.pathname + "']"
+)?.parentElement;
+active_item?.classList.add("active");
+let menuToggle = document.querySelector(".menuToggle");
+let sidebar = document.querySelector(".sidebar");
+menuToggle.onclick = function () {
+	menuToggle.classList.toggle("active");
+	sidebar.classList.toggle("active");
+};
 </script>
 <style is:inline>
 	.sidebar ul li {
