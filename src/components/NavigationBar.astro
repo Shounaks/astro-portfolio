@@ -127,7 +127,7 @@ const navigationInfo: Array<NavigationLink> = [
 <!-- Script to toggle Navbar -->
 <script is:inline defer>
 const active_item = document.querySelector(
-	".Menulist li a[href='" + window.location.pathname + "']"
+	".Menulist li a[href='" + window.location.pathname.replace(".*/", "") + "']"
 )?.parentElement;
 active_item?.classList.add("active");
 let menuToggle = document.querySelector(".menuToggle");
