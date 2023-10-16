@@ -78,7 +78,6 @@ const navigationInfo: Array<NavigationLink> = [
 <div
 	class="relative overflow-hidden sidebar w-100 flex-shrink-0"
 	data-source="https://www.youtube.com/watch?v=PuLujpkLRUM"
-	transition:persist
 >
 	<ul>
 		<li class="closable-button" style="--bg:#333;">
@@ -125,17 +124,21 @@ const navigationInfo: Array<NavigationLink> = [
 	src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <!-- Script to toggle Navbar -->
-<script is:inline defer>
-const active_item = document.querySelector(
-	".Menulist li a[href='" + window.location.pathname + "']"
-)?.parentElement;
-active_item?.classList.add("active");
-let menuToggle = document.querySelector(".menuToggle");
-let sidebar = document.querySelector(".sidebar");
-menuToggle.onclick = function () {
-	menuToggle.classList.toggle("active");
-	sidebar.classList.toggle("active");
-};
+<script>
+	function updateNav() {
+		const active_item = document.querySelector(
+			".Menulist li a[href='" + window.location.pathname + "']"
+		)?.parentElement;
+		active_item?.classList.add("active");
+		let menuToggle = document.querySelector(".menuToggle") as HTMLElement;
+		let sidebar = document.querySelector(".sidebar") as HTMLElement;
+		menuToggle.onclick = function () {
+			menuToggle.classList.toggle("active");
+			sidebar.classList.toggle("active");
+		};
+	}
+	document.addEventListener("astro:after-swap", updateNav);
+	updateNav();
 </script>
 <style is:inline>
 	.sidebar ul li {
