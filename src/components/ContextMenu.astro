@@ -1,0 +1,42 @@
+---
+import { navigationInfo } from "../consts";
+import NavigationLink from "./NavigationLink.astro";
+---
+
+<div id="contextMenu" class="absolute" style="display: none">
+	<ul class="flex flex-col bg-[#333] rounded p-2 text-white bg-opacity-70">
+        <span class="text-zinc-400 uppercase text-md tracking-widest font-extralight col-span-1 hover:text-white">Navigation:</span>
+		{
+			navigationInfo.map((link) => (
+				<NavigationLink class:list={'hover:bg-slate-950 hover:bg-opacity-60 rounded-xl px-2'}
+					id={link.id}
+					text={link.text}
+					href={link.href}
+					color={link.colorstyle}
+					iconName={link.ionicon}
+				/>
+			))
+		}
+	</ul>
+</div>
+<script is:inline>
+document.onclick = hideMenu;
+document.oncontextmenu = rightClick;
+
+function hideMenu() {
+    document.getElementById("contextMenu").style.display = "none";
+}
+
+function rightClick(e) {
+    e.preventDefault();
+
+    if (document.getElementById("contextMenu").style.display == "block") {
+        hideMenu();
+    } else {
+        var menu = document.getElementById("contextMenu");
+        menu.style.display = "block";
+        menu.style.left = e.pageX + "px";
+        menu.style.top = e.pageY + "px";
+    }
+}
+</script>

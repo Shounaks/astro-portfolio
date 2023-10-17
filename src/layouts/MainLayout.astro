@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import NavigationBar from "../components/NavigationBar.astro";
 import { fade } from "astro:transitions";
+import ContextMenu from "../components/ContextMenu.astro";
 ---
 
 <!doctype html>
@@ -37,7 +38,7 @@ import { fade } from "astro:transitions";
 				: document.querySelector(pathstring);
 
 		/* ---- particles.js config ---- */
-		particlesJS("particles-js", {
+		const initializeParticles = () => particlesJS("particles-js", {
 			particles: {
 				number: {
 					value: 50,
@@ -147,6 +148,9 @@ import { fade } from "astro:transitions";
 			},
 			retina_detect: true,
 		});
+		document.addEventListener("astro:after-swap", initializeParticles);
+		initializeParticles();
 		</script>
+		<ContextMenu />
 	</body>
 </html>
