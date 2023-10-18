@@ -141,7 +141,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 				</div>
 				<div
 					class="row-span-2 border-dashed border-yellow-500 border-2 p-4 gap-2 flex flex-col align-middle hover:bg-yellow-500 hover:border-yellow-950 group"
-					onmouseenter="transformCard(event, this)"
+					onmouseenter=";transformCard(event, this)"
 					onmouseleave="resetCard(event,this)"
 					onmousemove="transformCard(event,this)"
 				>
@@ -241,7 +241,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 				</div>
 				<div
 					class="row-span-2 border-dashed border-indigo-700 border-2 p-4 gap-2 flex flex-col align-middle hover:bg-indigo-700 hover:border-indigo-950 group"
-					onmouseenter="transformCard(event, this)"
+					onmouseenter=";transformCard(event, this)"
 					onmouseleave="resetCard(event,this)"
 					onmousemove="transformCard(event,this)"
 				>
@@ -413,15 +413,16 @@ import MainLayout from "../layouts/MainLayout.astro";
 	</div>
 </MainLayout>
 <script is:inline>
-const tiltEffectSettings = {
-	max: 25,
-	perspective: 1000,
-	scale: 1.0,
+function tiltEffectSettings() {
+	return {
+		max: 25,
+		perspective: 1000,
+		scale: 1.0,
+	}
 };
 function resetCard(event, card) {
-	console.log("Mouse Leave Called");
 	card.style.transition = `all 0.2s`;
-	card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(0deg) rotateY(0deg)`;
+	card.style.transform = `perspective(${tiltEffectSettings().perspective}px) rotateX(0deg) rotateY(0deg)`;
 	// card.style.transition = '';//TODO: reset transition after animation ends
 }
 
@@ -436,15 +437,15 @@ function transformCard(event, card) {
 	const mouseY = event.clientY - centerY;
 
 	const rotateX = (
-		(+0.3 * tiltEffectSettings.max * mouseY) /
+		(+0.3 * tiltEffectSettings().max * mouseY) /
 		(cardHeight / 2)
 	).toFixed(2);
 	const rotateY = (
-		(-0.3 * tiltEffectSettings.max * mouseX) /
+		(-0.3 * tiltEffectSettings().max * mouseX) /
 		(cardWidth / 2)
 	).toFixed(2);
 
 	// card.style.transform = ``;
-	card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+	card.style.transform = `perspective(${tiltEffectSettings().perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
 </script>

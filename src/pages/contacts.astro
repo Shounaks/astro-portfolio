@@ -14,7 +14,8 @@ import MainLayout from "../layouts/MainLayout.astro";
 				>
 					<div class="w-full bg-blue-400 flex flex-row justify-end gap-1">
 						<div class="mr-auto text-md">
-							<ion-icon name="terminal-outline" class="h-[12px] w-[12px] pl-2"></ion-icon>
+							<ion-icon name="terminal-outline" class="h-[12px] w-[12px] pl-2"
+							></ion-icon>
 							 connect_with_me.exe
 						</div>
 						<div>
@@ -52,89 +53,72 @@ import MainLayout from "../layouts/MainLayout.astro";
 						class="absolute bottom-0 min-w-full flex flex-row justify-center gap-5"
 					>
 						<div onmouseover="; onEmail()">
-													<ion-icon
-								id="mail"
-								name="mail-outline"
-								class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"
-							></ion-icon>
+							<a href="mailto:shounakbhalerao777@gmail.com"><ion-icon id="mail" name="mail-outline" class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"></ion-icon></a>
 						</div>
 						<div onmouseover="; onPhone()">
-													<ion-icon
-								id="call"
-								name="call-outline"
-								class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"
-							></ion-icon>
+							<a href="#"><ion-icon id="call" name="call-outline" class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"></ion-icon></a>
 						</div>
 						<div onmouseover="; onLinkedIn()">
-													<ion-icon
-								id="linkedin"
-								name="logo-linkedin"
-								class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"
-							></ion-icon>
+							<a href="https://www.linkedin.com/in/shounak-bhalerao/"><ion-icon id="linkedin" name="logo-linkedin" class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"></ion-icon></a>
 						</div>
 						<div onmouseover="; onGithub()">
-													<ion-icon
-								id="github"
-								name="logo-github"
-								class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"
-							></ion-icon>
+							<a href="https://github.com/Shounaks"><ion-icon id="github" name="logo-github" class="cursor-pointer border-gray-800 invert rounded-xl w-[48px] h-[48px]"></ion-icon></a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div
-				class="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]"
-			>
-				<div
-					class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"
-				>
+			<div class="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
+				<div class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800">
 				</div>
 			</div>
 		</div>
 	</div>
 </MainLayout>
-<script is:inline>
-let subtext = document.getElementById("subtext");
-let link = document.getElementById("link");
+<script is:inline defer>
+function initializeContacts() {
+	let subtext = document.getElementById("subtext");
+	let link = document.getElementById("link");
+}
+initializeContacts();
 function onEmail() {
-    subtext.innerText =
-        "If you want to contact me via Email for Employment \n oppurtunities or collaboration, please reach me at:";
-    link.innerText = "shounakbhalerao777@gmail.com";
-    link.setAttribute("href", "mailto:shounakbhalerao777@gmail.com");
-    //set this reset others
-    document.getElementById("mail").setAttribute("name", "mail");
-    document.getElementById("call").setAttribute("name", "call-outline");
-    document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
-    document.getElementById("github").setAttribute("name", "logo-github");
+	subtext.innerText =
+		"If you want to contact me via Email for Employment \n oppurtunities or collaboration, please reach me at:";
+	link.innerText = "shounakbhalerao777@gmail.com";
+	link.setAttribute("href", "mailto:shounakbhalerao777@gmail.com");
+	//set this reset others
+	document.getElementById("mail").setAttribute("name", "mail");
+	document.getElementById("call").setAttribute("name", "call-outline");
+	document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
+	document.getElementById("github").setAttribute("name", "logo-github");
 }
 function onPhone() {
-    subtext.innerText = "Sure, you can just mail me to get that. 🙂";
-    link.innerText = "[+91] _ _ _   _ _ _   _ _ _ _";
-    link.setAttribute("href", "dont_try_to_act_smart_🙂_mr_hacker");
-    //set this reset others
-    document.getElementById("mail").setAttribute("name", "mail-outline");
-    document.getElementById("call").setAttribute("name", "call");
-    document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
-    document.getElementById("github").setAttribute("name", "logo-github");
+	subtext.innerText = "Sure, you can just mail me to get that. 🙂";
+	link.innerText = "[+91] _ _ _   _ _ _   _ _ _ _";
+	link.setAttribute("href", "dont_try_to_act_smart_🙂_mr_hacker");
+	//set this reset others
+	document.getElementById("mail").setAttribute("name", "mail-outline");
+	document.getElementById("call").setAttribute("name", "call");
+	document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
+	document.getElementById("github").setAttribute("name", "logo-github");
 }
 function onLinkedIn() {
-    subtext.innerText = "Here is my Linkedin Profile";
-    link.innerText = "linkedin.com/shounak-bhalerao/";
-    link.setAttribute("href", "https://www.linkedin.com/in/shounak-bhalerao/");
-    //set this reset others
-    document.getElementById("mail").setAttribute("name", "mail-outline");
-    document.getElementById("call").setAttribute("name", "call-outline");
-    document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
-    document.getElementById("github").setAttribute("name", "logo-github");
+	subtext.innerText = "Here is my Linkedin Profile";
+	link.innerText = "linkedin.com/shounak-bhalerao/";
+	link.setAttribute("href", "https://www.linkedin.com/in/shounak-bhalerao/");
+	//set this reset others
+	document.getElementById("mail").setAttribute("name", "mail-outline");
+	document.getElementById("call").setAttribute("name", "call-outline");
+	document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
+	document.getElementById("github").setAttribute("name", "logo-github");
 }
 function onGithub() {
-    subtext.innerText = "If you want a link to my github page.";
-    link.innerText = "github.com/Shounaks";
-    link.setAttribute("href", "https://github.com/Shounaks");
-    //set this reset others
-    document.getElementById("mail").setAttribute("name", "mail-outline");
-    document.getElementById("call").setAttribute("name", "call-outline");
-    document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
-    document.getElementById("github").setAttribute("name", "logo-github");
+	subtext.innerText = "If you want a link to my github page.";
+	link.innerText = "github.com/Shounaks";
+	link.setAttribute("href", "https://github.com/Shounaks");
+	//set this reset others
+	document.getElementById("mail").setAttribute("name", "mail-outline");
+	document.getElementById("call").setAttribute("name", "call-outline");
+	document.getElementById("linkedin").setAttribute("name", "logo-linkedin");
+	document.getElementById("github").setAttribute("name", "logo-github");
 }
 </script>

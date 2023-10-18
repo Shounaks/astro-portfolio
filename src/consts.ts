@@ -7,7 +7,7 @@ export interface NavigationLink {
     ionicon: string;
     text: string;
 }
-export const SITE_TITLE = 'Astro Blog';
+export const SITE_TITLE = 'Shounak Bhalerao';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
 export const navigationInfo: Array<NavigationLink> = [
     {

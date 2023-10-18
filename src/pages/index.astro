@@ -38,10 +38,19 @@ import MainLayout from "../layouts/MainLayout.astro";
 					like incantations, they summon intricate spells of code to mend the
 					fractured tapestry of a crumbling digital realm.
 				</p>
-				<a href="resume/Shounak_Bhalerao_Resume.pdf" target="_blank" class="text-zinc-400 hover:text-zinc-200 underline text-sm"
+				<a
+					href="resume/Shounak_Bhalerao_Resume.pdf"
+					target="_blank"
+					class="text-zinc-400 hover:text-zinc-200 underline text-sm"
 					>Read Full History</a
 				>
-				<span class="invisible group-hover:visible "> 👈<span class="text-sm font-bold sm:text-xs text-md uppercase bg-gradient-to-r from-orange-300 via-emerald-400 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap"> (download resume button)</span></span>
+				<span class="invisible group-hover:visible">
+					👈<span
+						class="text-sm font-bold sm:text-xs text-md uppercase bg-gradient-to-r from-orange-300 via-emerald-400 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap"
+					>
+						(download resume button)</span
+					></span
+				>
 			</div>
 			<div class="pt-10 h-full">
 				<p
@@ -183,27 +192,32 @@ import MainLayout from "../layouts/MainLayout.astro";
 						</div>
 					</div>
 				</div>
-				<div class="pt-8" onclick="updateRecommendation()">
+				<div class="pt-8">
 					<div
 						class="text-zinc-400 uppercase text-sm tracking-widest font-extralight pb-3"
 					>
 						Recommendations
 					</div>
-					<div class="pl-6 text-justify w-3/4">
-						<div
-							id="recommendation-text"
-							class="text-white uppercase text-xs tracking-widest overflow-hidden"
-							style="line-clamp: 2;-webkit-line-clamp: 2;"
-						>
-							DUMMY TEXT
+					<div data-recommendation-id="-1" class="flex flex-row gap-x-4">
+						<ion-icon name="chevron-back-outline" onclick="before()" class="cursor-pointer"></ion-icon>
+						<div class="text-justify w-3/4">
+							<div
+								id="recommendation-text"
+								class="text-white uppercase text-xs tracking-widest overflow-hidden"
+								style="line-clamp: 2;-webkit-line-clamp: 2;"
+							>
+								DUMMY TEXT
+							</div>
+							<p id="recommendation-name" class="text-right">~ DUMMY NAME</p>
+							<p
+								id="recommendation-occupation"
+								class="text-right text-teal-500 uppercase text-xs tracking-widest whitespace-nowrap"
+							>
+								DUMMY OCCUPATION
+							</p>
 						</div>
-						<p id="recommendation-name" class="text-right">~ DUMMY NAME</p>
-						<p
-							id="recommendation-occupation"
-							class="text-right text-teal-500 uppercase text-xs tracking-widest whitespace-nowrap"
-						>
-							DUMMY OCCUPATION
-						</p>
+						<ion-icon name="chevron-forward-outline" onclick="after()" class="cursor-pointer"
+						></ion-icon>
 					</div>
 				</div>
 			</div>
@@ -266,46 +280,68 @@ import MainLayout from "../layouts/MainLayout.astro";
 		</div>
 	</section>
 </MainLayout>
-<script is:inline>
-let recommendationData = [
-    {
-        id: 1,
-        name: "Aashiya Singhal",
-        occupation: "Software Developer",
-        text: "Shounak and I started working in the project together 2 years back . He has amazing technical skills. He is definitely a team player , always ready to help other and resolve their doubts .",
-    },
-    {
-        id: 2,
-        name: "Agrim Maheshwari",
-        occupation: "Specialist Programmer",
-        text: "Shounak Bhalerao is a fantastic person to work with, and is not only a multi-skilled and insightful colleague, but also an inspiring strategist. Very good person. Great employee with a very strong problem solving skills. Shounak Bhalerao is an asset to any company.",
-    },
-    {
-        id: 3,
-        name: "Ayush Kumar",
-        occupation: "SAP Consultant",
-        text: "I and Shounak worked together during our training when we started our careers. Shounak was one of the most valuable member in the group we had back then with unmatched skills is Java and SQL. Although post training we were assigned to different projects and technologies, but his domain skills can only be matched by how good a friend he is outside work.",
-    },
-];
-function updateRecommendation() {
-    var text = document.getElementById("recommendation-text");
-    var name = document.getElementById("recommendation-name");
-    var occupation = document.getElementById("recommendation-occupation");
-    var newData =
-        recommendationData[Math.floor(Math.random() * recommendationData.length)];
-    const wordLimit = 35;
-    const addEllipse = newData.text.split(" ").length > wordLimit ? "..." : "";
-    text.innerText =
-        newData.text
-            .split(" ")
-            .slice(0, wordLimit)
-            .reduce((a, b) => a + " " + b, "") +
-        " " +
-        addEllipse;
-    name.innerText = newData.name;
-    occupation.innerText = newData.occupation;
+<script defer is:inline>
+function recommendationData() {
+	return [
+		{
+			name: "Aashiya Singhal",
+			occupation: "Software Developer",
+			text: "Shounak and I started working in the project together 2 years back . He has amazing technical skills. He is definitely a team player , always ready to help other and resolve their doubts .",
+		},
+		{
+			name: "Agrim Maheshwari",
+			occupation: "Specialist Programmer",
+			text: "Shounak Bhalerao is a fantastic person to work with, and is not only a multi-skilled and insightful colleague, but also an inspiring strategist. Very good person. Great employee with a very strong problem solving skills. Shounak Bhalerao is an asset to any company.",
+		},
+		{
+			name: "Ayush Kumar",
+			occupation: "SAP Consultant",
+			text: "I and Shounak worked together during our training when we started our careers. Shounak was one of the most valuable member in the group we had back then with unmatched skills is Java and SQL. Although post training we were assigned to different projects and technologies, but his domain skills can only be matched by how good a friend he is outside work.",
+		},
+	];
 }
-updateRecommendation();
+function before() {
+	var id = document.querySelector("div[data-recommendation-id]");
+	var text = document.getElementById("recommendation-text");
+	var name = document.getElementById("recommendation-name");
+	var occupation = document.getElementById("recommendation-occupation");
+
+	var currentId = parseInt(id.getAttribute("data-recommendation-id").toString());
+	var nextId = (currentId + recommendationData().length - 1) % recommendationData().length;
+	var newData = recommendationData()[nextId];
+	text.innerText = minimizeRecommendation(newData.text);
+	name.innerText = newData.name;
+	occupation.innerText = newData.occupation;
+	id.setAttribute("data-recommendation-id", nextId.toString());
+}
+
+
+function after() {
+	var id = document.querySelector("div[data-recommendation-id]");
+	var text = document.getElementById("recommendation-text");
+	var name = document.getElementById("recommendation-name");
+	var occupation = document.getElementById("recommendation-occupation");
+
+	if(!id || !text || !name || !occupation){return;}
+	var currentId = parseInt(id.getAttribute("data-recommendation-id").toString());
+	var nextId = (currentId + 1)%recommendationData().length;
+	var newData = recommendationData()[nextId];
+	text.innerText = minimizeRecommendation(newData.text);
+	name.innerText = newData.name;
+	occupation.innerText = newData.occupation;
+	id.setAttribute("data-recommendation-id",nextId.toString());
+}
+
+function minimizeRecommendation(item) {
+	const wordLimit = 35;
+	const addEllipse = item.split(" ").length > wordLimit ? "..." : "";
+	return item.split(" ").slice(0, wordLimit).reduce((a, b) => a + " " + b, "") + " " + addEllipse;
+}
+
+//Initialize Data after first page load
+after();
+//Initialize Data after astro swaps between page
+document.addEventListener("astro:after-swap", after);
 </script>
 <style>
 	.skillicon {
