@@ -1,6 +1,26 @@
 ---
 import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import sabreico from "./project/sabreico.png";
+import sabreplane from "./project/plane.png";
+import sabrebgplane from "./project/planebg.jpeg";
+
+import manulife from "./project/manulife.png";
+import manulifeicon from "./project/finance.png";
+import manulifebg from "./project/financebg.webp";
+
+import khamangimage from "./project/khamangicon.png";
+import khamangfood from "./project/food.png";
+import khamangfoodbg from "./project/foodbg.jpg";
+
+import arcadia from "./project/arcadia.png";
+import arcadiaelement from "./project/element.webp";
+import arcadiabg from "./project/arcadiabg.jpg";
+
+import suvidha from "./project/suvidha.png";
+import suvidhaicon from "./project/bloodicon.png";
+import suvidhabg from "./project/blooddonorbg.jpg";
 ---
 
 <MainLayout>
@@ -26,14 +46,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 				Official Projects
 			</div>
 			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<img src="/project/sabreico.png" alt="" class="logo" />
-				<img src="/project/plane.png" class="front-image" />
-				<img src="/project/planebg.jpeg" class="bg-image" />
+				<Image src={sabreico} alt="" class="logo" />
+				<Image src={sabreplane} alt="" class="front-image" />
+				<Image src={sabrebgplane} alt="" class="bg-image" />
 			</div>
 			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<img src="/project/manulife.png" alt="" class="logo" />
-				<img src="/project/finance.png" class="front-image" />
-				<img src="/project/financebg.webp" class="bg-image" />
+				<Image src={manulife} alt="" class="logo" />
+				<Image src={manulifeicon} alt="" class="front-image" />
+				<Image src={manulifebg} alt="" class="bg-image" />
 			</div>
 			<div
 				class="text-white bg-gradient-to-b from-transparent text-right pb-4 to-orange-400 -mt-2 pt-2 -mb-6"
@@ -42,19 +62,19 @@ import MainLayout from "../layouts/MainLayout.astro";
 				Personal Projects
 			</div>
 			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<img src="/project/khamangicon.png" class="logo" />
-				<img src="/project/food.png" class="front-image" />
-				<img src="/project/foodbg.jpg" class="" />
+				<Image src={khamangimage} alt="" class="logo" />
+				<Image src={khamangfood} alt="" class="front-image" />
+				<Image src={khamangfoodbg} alt="" class="" />
 			</div>
 			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<img src="/project/arcadia.png" alt="" class="logo" />
-				<img src="/project/element.webp" class="front-image" />
-				<img src="/project/arcadiabg.jpg" class="bg-image" />
+				<Image src={arcadia} alt="" class="logo" />
+				<Image src={arcadiaelement} alt="" class="front-image" />
+				<Image src={arcadiabg} alt="" class="bg-image" />
 			</div>
 			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<img src="/project/suvidha.png" alt="" class="logo" />
-				<img src="/project/bloodicon.png" class="front-image" />
-				<img src="/project/blooddonorbg.jpg" class="bg-image" />
+				<Image src={suvidha} alt="" class="logo" />
+				<Image src={suvidhaicon} alt="" class="front-image" />
+				<Image src={suvidhabg} alt="" class="bg-image" />
 			</div>
 		</div>
 		<!-- <hr class="border border-orange-400"> -->
@@ -64,10 +84,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 			Other Projects
 		</div>
 		<div class="mt-2 px-2 grid grid-rows-1 grid-cols-3 min-w-full min-h-fit">
-			<div class=" min-h-full">
+			<div class="min-h-full">
 				<!-- START -->
 				<div
-					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/project/school.jpg')] bg-cover group transition-all ease-linear duration-700"
+					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/src/pages/project/school.jpg')] bg-cover group transition-all ease-linear duration-700"
 				>
 					<div
 						class="px-4 h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
@@ -108,7 +128,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 			<div class="min-h-full">
 				<!-- START -->
 				<div
-					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/project/gladiator.webp')] group bg-cover"
+					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/src/pages/project/gladiator.webp')] group bg-cover"
 				>
 					<div
 						class="px-4 min-h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
@@ -132,7 +152,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 			<div class="min-h-full">
 				<!-- START -->
 				<div
-					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/project/brainfuck.png')] group bg-cover"
+					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/src/pages/project/brainfuck.png')] group bg-cover"
 				>
 					<div
 						class="px-4 min-h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
