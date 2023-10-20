@@ -1,13 +1,18 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+const posts = (await getCollection("blog")).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
+	Astro.props;
 ---
 
 <html lang="en">
@@ -18,15 +23,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				width: calc(100% - 2em);
 				max-width: 100%;
 				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
 			}
 			.prose {
 				width: 720px;
@@ -46,7 +42,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
 			}
 			.last-updated-on {
 				font-style: italic;
@@ -58,25 +53,91 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+				<div class="md:grid md:grid-cols-10">
+					<div class="col-span-7">
+						<div class="prose">
+							<a href="/blog/" class="text-gray-800">
+								<div
+									class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md"
+								>
+									<img
+										src="/icons/arrow-back-outline.svg"
+										alt="⬅️"
+										class="w-[30px] h-[30px]"
+									/>
+									<span class="align-middle text-center group-hover:text-black"
+										>Blog Catalog</span
+									>
+								</div>
+							</a>
+							<div class="title">
+								<div class="text-gray-500">
+									<FormattedDate date={pubDate} />
+									{
+										updatedDate && (
+											<div class="last-updated-on">
+												Last updated on <FormattedDate date={updatedDate} />
+											</div>
+										)
+									}
+								</div>
+								<h1>{title}</h1>
+								<hr />
+							</div>
+							<slot />
 						</div>
-						<h1>{title}</h1>
-						<hr />
 					</div>
-					<slot />
+					<div class="col-span-3 pt-40">
+						<div class="md:sticky md:top-10">
+							<div id="minute-read" class="">
+								<p>Minutes Read</p>
+								<div class="inline-flex gap-2 pl-5">
+									<img src="/icons/timer.svg" class="w-[30px]" alt="" />
+									<p class="pl-1">{readTime? readTime : "N/A"}</p>
+								</div>
+							</div>
+							<div id="other_links" class="pb-4">
+								<span> Other Posts:</span>
+								<ul
+									class="pl-6 list-disc text-zinc-400 tracking-widest font-extralight pb-4"
+								>
+									{
+										posts.map((post) =>
+											post.data.title === title ? (
+												<li class="text-black">
+													<a
+														class="group-hover:text-black underline underline-offset-4 hover:text-black"
+														href=""
+													>
+														{post.data.title}
+													</a>
+												</li>
+											) : (
+												<li class="group hover:marker:text-black">
+													<a
+														class="group-hover:text-black"
+														href={`/blog/${post.slug}/`}
+													>
+														{post.data.title}
+													</a>
+												</li>
+											)
+										)
+									}
+								</ul>
+							</div>
+							<div id="tags">
+								<p class="pb-2">Tags:</p>
+								<div class="inline-flex gap-3 pl-5">
+									{
+										tags ? tags.map(tag => (
+											<span class="bg-slate-400 p-1 px-3 rounded-xl"># {tag}</span>
+										)) : <span class="">N / A</span>
+									}
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</article>
 		</main>
