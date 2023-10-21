@@ -128,10 +128,10 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 							</div>
 							<div id="tags">
 								<p class="pb-2">Tags:</p>
-								<div class="inline-flex gap-3 pl-5">
+								<div class="flex gap-3 pl-5 flex-wrap">
 									{
 										tags ? tags.map(tag => (
-											<span class="bg-slate-400 p-1 px-3 rounded-xl"># {tag}</span>
+											<a href={`/blog/tags/${tag}`}><span class="bg-slate-400 p-1 px-3 rounded-xl"># {tag}</span></a>
 										)) : <span class="">N / A</span>
 									}
 								</div>

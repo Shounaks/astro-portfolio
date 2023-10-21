@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import TagLayout from "../../../layouts/TagLayout.astro";
+
+const posts = (await getCollection("blog"));
+export async function getStaticPaths() {
+	const tags = (await getCollection("blog"))
+		.map((item) => item.data.tags)
+		.flat();
+	return tags.map((tag) => ({ params: { tag: tag } }));
+}
+const { tag } = Astro.params;
+---
+
+<TagLayout>
+	<p class="text-white p-2">Posts tagged with {tag}</p>
+	<div class="p-2">
+		<ul class="pl-5 flex flex-col gap-2">
+			{
+				posts.filter(post => tag && post.data.tags.includes(tag)).map(post => (<a href={`/blog/${post.slug}/`} class="hover:underline underline-offset-8"><li class="text-white">🥹 {post.data.title}</li></a>))
+			}
+		</ul>
+	</div>
+</TagLayout>
