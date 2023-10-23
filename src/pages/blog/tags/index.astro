@@ -5,6 +5,6 @@ import { posts } from "../../../collection";
 
 <TagLayout>
 	<div class="text-white p-4">
-		{posts.map(post => (<a href={`/blog/${post.slug}/`} class="hover:underline underline-offset-8"><li class="text-white">🥹 {post.data.title}</li></a>))}
+		{posts.map(post => (<a href={`/blog/${post.slug}/`} class="hover:underline underline-offset-8"><li class="text-white">{post.data.title}</li></a>))}
 	</div>
 </TagLayout>

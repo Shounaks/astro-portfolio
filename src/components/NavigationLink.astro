@@ -13,7 +13,12 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 ---
 
 <li {id} style={"--bg: " + color + ";"}>
-	<a {href} class:list={[classes]} {...rest} tabindex={isNotTabbable? "-1" : "1"}>
+	<a
+		{href}
+		class:list={[classes]}
+		{...rest}
+		tabindex={isNotTabbable ? "-1" : "1"}
+	>
 		<div class="icon">
 			<ion-icon name={iconName}></ion-icon>
 		</div>
@@ -36,14 +41,18 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 		border-left: 2px solid var(--bg);
 	}
 
-	li[id='extra-padding']{
+	li[id="extra-padding"] {
 		visibility: hidden;
 	}
 
-	li.active[id='extra-padding']{
+	li.active[id="extra-padding"] {
 		visibility: visible;
 		background: transparent;
 		border-bottom-left-radius: 100px;
+	}
+
+	li.active[id="extra-padding"]::before {
+		box-shadow: 5px 5px 0 5px #191e24;
 	}
 
 	li.active::before {
@@ -60,8 +69,6 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 		border-bottom: 2px solid var(--bg);
 		background-color: transparent;
 	}
-
-
 
 	li.active::after {
 		content: "";
@@ -134,11 +141,11 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 		color: var(--bg);
 	}
 
-	li:hover a .icon{
+	li:hover a .icon {
 		color: var(--bg);
 	}
 	li:hover a .text {
-		color: #FFF;
+		color: #fff;
 	}
 
 	li.active a .icon::before {
