@@ -199,7 +199,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 						Recommendations
 					</div>
 					<div data-recommendation-id="-1" class="flex flex-row gap-x-4">
-						<ion-icon name="chevron-back-outline" onclick="before()" class="cursor-pointer"></ion-icon>
+						<ion-icon
+							name="chevron-back-outline"
+							onclick="before()"
+							class="cursor-pointer"></ion-icon>
 						<div class="text-justify w-3/4">
 							<div
 								id="recommendation-text"
@@ -216,68 +219,289 @@ import MainLayout from "../layouts/MainLayout.astro";
 								DUMMY OCCUPATION
 							</p>
 						</div>
-						<ion-icon name="chevron-forward-outline" onclick="after()" class="cursor-pointer"
-						></ion-icon>
+						<ion-icon
+							name="chevron-forward-outline"
+							onclick="after()"
+							class="cursor-pointer"></ion-icon>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="hidden flex-col justify-center text-center gap-10 min-h-full min-w-full lg:col-span-2 lg:flex">
+		<div
+			class="hidden flex-col justify-center text-center gap-10 min-h-full min-w-full lg:col-span-2 lg:flex"
+		>
 			<div class="">
 				<div class="row-span-3 flex justify-center">
 					<img
-						src="archer.png"
+						src="angraoutline.png"
 						alt=""
-						class="-scale-x-100 h-[800px] bg-gradient-to-tr via-slate-600 from-emerald-800"
+						class=" bg-[#ddd] object-contain"
 					/>
 				</div>
 			</div>
-			<div class="relative bottom-24">
+			<div class="relative bottom-24" id="ability-tooltips">
 				<p class="text-white uppercase text-sm tracking-widest min-w-full">
 					Abilities
 				</p>
 				<div class="flex flex-row gap-2 justify-center bg-blend-darken">
 					<img
+						id="fod"
 						src="/skillicon/lion_finger_of_death.png"
 						class="h-[60px] w-[60px] shadow-xl hover:scale-110 hover:transition-all duration-700 skillicon"
 						alt=""
 						srcset=""
 					/>
 					<img
+						id="cogs"
 						src="/skillicon/rattletrap_power_cogs.png"
 						class="h-[60px] w-[60px] shadow-xl hover:scale-110 hover:transition-all duration-700 skillicon"
 						alt=""
 						srcset=""
 					/>
 					<img
+						id="track"
 						src="/skillicon/bounty_hunter_track.png"
 						class="h-[60px] w-[60px] shadow-xl hover:scale-110 hover:transition-all duration-700 skillicon"
 						alt=""
 						srcset=""
 					/>
 					<img
+						id="jingu"
 						src="/skillicon/monkey_king_jingu_mastery.png"
 						class="h-[60px] w-[60px] shadow-xl hover:scale-110 hover:transition-all duration-700 skillicon"
 						alt=""
 						srcset=""
 					/>
 					<img
+						id="refactor"
 						src="/skillicon/wisp_relocate.png"
 						class="h-[60px] w-[60px] shadow-xl hover:scale-110 hover:transition-all duration-700 skillicon"
 						alt=""
 						srcset=""
 					/>
 					<img
+						id="stand"
 						src="/skillicon/meepo_divided_we_stand.png"
 						class="h-[60px] w-[60px] shadow-xl hover:scale-110 hover:transition-all duration-700 skillicon"
 						alt=""
 						srcset=""
 					/>
+					<div class="hidden">
+						<div id="fod_data">
+							<div
+								class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+							>
+								<img
+									src="/skillicon/lion_finger_of_death.png"
+									class="w-full shadow-2xl shadow-black"
+									alt=""
+								/>
+								<hr class="" />
+								<div class="object-center">
+									<div
+										class="text-center uppercase font-extrabold pb-2 text-white"
+									>
+										git blame
+									</div>
+									<div class="text-xs p-2 text-zinc-400">
+										Mastering Git is like being a Programmer who adeptly
+										maintains and upgrades the Imperium's vast arsenal, ensuring
+										seamless collaboration and control over technology.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="cogs_data">
+							<div
+								class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+							>
+								<img
+									src="/skillicon/rattletrap_power_cogs.png"
+									class="w-full shadow-2xl shadow-black"
+									alt=""
+								/>
+								<hr class="" />
+								<div class="object-center">
+									<div
+										class="text-center uppercase font-extrabold pb-2 text-white"
+									>
+										Low Level Design
+									</div>
+									<div class="text-xs p-2 text-zinc-400">
+										Understanding Low-level design is akin to comprehending the
+										intricate workings of advanced weaponry, armor, and tech,
+										enabling effective innovation and customization for the
+										Imperium's war machines.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="track_data">
+							<div
+								class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+							>
+								<img
+									src="/skillicon/bounty_hunter_track.png"
+									class="w-full shadow-2xl shadow-black"
+									alt=""
+								/>
+								<hr class="" />
+								<div class="object-center">
+									<div
+										class="text-center uppercase font-extrabold pb-2 text-white"
+									>
+										Template - Early Start
+									</div>
+									<div class="text-xs p-2 text-zinc-400">
+										Templating involves creating standardized blueprints for
+										building powerful war engines and fortifications,
+										facilitating efficient replication and customization of
+										complex technology across the Imperium.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="jingu_data">
+							<div
+								class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+							>
+								<img
+									src="/skillicon/monkey_king_jingu_mastery.png"
+									class="w-full shadow-2xl shadow-black"
+									alt=""
+								/>
+								<hr class="" />
+								<div class="object-center">
+									<div
+										class="text-center uppercase font-extrabold pb-2 text-white"
+									>
+										Java Mastery
+									</div>
+									<div class="text-xs p-2 text-zinc-400">
+										Mastery in Java is akin to being a Tech-Priest adept,
+										creating efficient, adaptable code structures, ensuring ease
+										of development and scalability in the digital realm.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="refactor_data">
+							<div
+								class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+							>
+								<img
+									src="/skillicon/wisp_relocate.png"
+									class="w-full shadow-2xl shadow-black"
+									alt=""
+								/>
+								<hr class="" />
+								<div class="object-center">
+									<div
+										class="text-center uppercase font-extrabold pb-2 text-white"
+									>
+										Refactor
+									</div>
+									<div class="text-xs p-2 text-zinc-400">
+										Refining and optimizing the incantations of machine spirits,
+										enhancing software efficiency and maintainability within the
+										Desing's digital scriptures.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="stand_data">
+							<div
+								class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+							>
+								<img
+									src="/skillicon/meepo_divided_we_stand.png"
+									class="w-full shadow-2xl shadow-black"
+									alt=""
+								/>
+								<hr class="" />
+								<div class="object-center">
+									<div
+										class="text-center uppercase font-extrabold pb-2 text-white"
+									>
+										Multitasking
+									</div>
+									<div class="text-xs p-2 text-zinc-400">
+										Orchestrating brutal, simultaneous battles across Codebases,
+										optimizing chaos/features while maintaining relentless
+										"combat fervor" (read up-time).
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </MainLayout>
+<script>
+	import tippy, { roundArrow } from "tippy.js";
+	import "tippy.js/dist/tippy.css";
+	import "tippy.js/dist/svg-arrow.css";
+
+	// data
+	const git_blame_data = document.getElementById("fod_data");
+	const low_level_design_data = document.getElementById("cogs_data");
+	const track_bugs_data = document.getElementById("track_data");
+	const jingu_data = document.getElementById("jingu_data");
+	const refactor_data = document.getElementById("refactor_data");
+	const track_data = document.getElementById("stand_data");
+
+	const _fod = () =>
+		tippy("#fod", {
+			content: git_blame_data!.innerHTML,
+			allowHTML: true,
+			arrow: roundArrow,
+			delay: 0,
+		});
+	const _cogs = () =>
+		tippy("#cogs", {
+			content: low_level_design_data!.innerHTML,
+			allowHTML: true,
+			arrow: true,
+		});
+	const _track = () =>
+		tippy("#track", {
+			content: track_bugs_data!.innerHTML,
+			allowHTML: true,
+			arrow: true,
+		});
+	const _jingu = () =>
+		tippy("#jingu", {
+			content: jingu_data!.innerHTML,
+			allowHTML: true,
+			arrow: true,
+		});
+	const _refactor = () =>
+		tippy("#refactor", {
+			content: refactor_data!.innerHTML,
+			allowHTML: true,
+			arrow: true,
+		});
+	const _stand = () =>
+		tippy("#stand", {
+			content: track_data!.innerHTML,
+			allowHTML: true,
+			arrow: true,
+		});
+	function initializeTippy() {
+		if (document.getElementById("ability-tooltips")) {
+			_fod();
+			_cogs();
+			_track();
+			_jingu();
+			_refactor();
+			_stand();
+		}
+	}
+	document.addEventListener("astro:after-swap", initializeTippy);
+	initializeTippy();
+</script>
 <script defer is:inline>
 function recommendationData() {
 	return [
@@ -304,8 +528,12 @@ function before() {
 	var name = document.getElementById("recommendation-name");
 	var occupation = document.getElementById("recommendation-occupation");
 
-	var currentId = parseInt(id.getAttribute("data-recommendation-id").toString());
-	var nextId = (currentId + recommendationData().length - 1) % recommendationData().length;
+	var currentId = parseInt(
+		id.getAttribute("data-recommendation-id").toString()
+	);
+	var nextId =
+		(currentId + recommendationData().length - 1) %
+		recommendationData().length;
 	var newData = recommendationData()[nextId];
 	text.innerText = minimizeRecommendation(newData.text);
 	name.innerText = newData.name;
@@ -313,27 +541,38 @@ function before() {
 	id.setAttribute("data-recommendation-id", nextId.toString());
 }
 
-
 function after() {
+	if (document.querySelector('div[data-recommendation-id])' === null)) return;
 	var id = document.querySelector("div[data-recommendation-id]");
 	var text = document.getElementById("recommendation-text");
 	var name = document.getElementById("recommendation-name");
 	var occupation = document.getElementById("recommendation-occupation");
 
-	if(!id || !text || !name || !occupation){return;}
-	var currentId = parseInt(id.getAttribute("data-recommendation-id").toString());
-	var nextId = (currentId + 1)%recommendationData().length;
+	if (!id || !text || !name || !occupation) {
+		return;
+	}
+	var currentId = parseInt(
+		id.getAttribute("data-recommendation-id").toString()
+	);
+	var nextId = (currentId + 1) % recommendationData().length;
 	var newData = recommendationData()[nextId];
 	text.innerText = minimizeRecommendation(newData.text);
 	name.innerText = newData.name;
 	occupation.innerText = newData.occupation;
-	id.setAttribute("data-recommendation-id",nextId.toString());
+	id.setAttribute("data-recommendation-id", nextId.toString());
 }
 
 function minimizeRecommendation(item) {
 	const wordLimit = 35;
 	const addEllipse = item.split(" ").length > wordLimit ? "..." : "";
-	return item.split(" ").slice(0, wordLimit).reduce((a, b) => a + " " + b, "") + " " + addEllipse;
+	return (
+		item
+			.split(" ")
+			.slice(0, wordLimit)
+			.reduce((a, b) => a + " " + b, "") +
+		" " +
+		addEllipse
+	);
 }
 
 //Initialize Data after first page load

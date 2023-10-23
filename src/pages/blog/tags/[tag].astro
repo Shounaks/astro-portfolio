@@ -1,10 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import TagLayout from "../../../layouts/TagLayout.astro";
+import { posts } from "../../../collection";
 
-const posts = (await getCollection("blog"));
 export async function getStaticPaths() {
-	const tags = (await getCollection("blog"))
+	const tags = posts
 		.map((item) => item.data.tags)
 		.flat();
 	return tags.map((tag) => ({ params: { tag: tag } }));

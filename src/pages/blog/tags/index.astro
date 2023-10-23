@@ -1,11 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import TagLayout from "../../../layouts/TagLayout.astro";
-
+import { posts } from "../../../collection";
 ---
 
 <TagLayout>
 	<div class="text-white p-4">
-		INDEX TEXT add all the links here for all tags. in a big screen mode. that would look cool
+		{posts.map(post => (<a href={`/blog/${post.slug}/`} class="hover:underline underline-offset-8"><li class="text-white">🥹 {post.data.title}</li></a>))}
 	</div>
 </TagLayout>

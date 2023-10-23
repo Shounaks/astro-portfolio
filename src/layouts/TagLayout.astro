@@ -1,10 +1,6 @@
 ---
 import MainLayout from "./MainLayout.astro";
-import { getCollection } from "astro:content";
-
-const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+import { posts } from "../collection";
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
@@ -22,14 +18,34 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 			<hr class="border-amber-500 pb-2" />
 		</div>
 		<section class="pb-5">
-			<!-- <span class="bg-slate-400 p-1 px-3 rounded-xl"></span> -->
 			<ul class="flex flex-row flex-wrap gap-3">
+				<span class="text-white align-middle h-full py-1 px-3 uppercase"
+					>Tags :</span
+				>
+				<a href={`/blog/tags/`}>
+					<li
+						class="text-black uppercase bg-gradient-to-r from-orange-300 via-sky-300 to-purple-300 py-1 px-3 rounded-xl border-2 border-transparent hover:border-white"
+					>
+						# All
+					</li>
+				</a>
+				<div class="border-r-2 border-white"></div>
 				{
-					tags.sort().map((tag) => (
-						<li class="text-white bg-slate-400 p-1 px-3 rounded-xl">
-							<a href={`/blog/tags/${tag}`}>#{tag}</a>
-						</li>
-					))
+					tags == null || tags.length !== 0 ? (
+						tags.sort().map((tag) => (
+							<a
+								href={`/blog/tags/${tag}`}
+								class="py-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 bg-white"
+							>
+								<li>
+									<span class="border-r-2 border-black text-black"># </span>
+									<span class="text-slate-400 pl-2 group-hover:text-black"> {tag}</span>
+								</li>
+							</a>
+						))
+					) : (
+						<span>"N/A"</span>
+					)
 				}
 			</ul>
 		</section>

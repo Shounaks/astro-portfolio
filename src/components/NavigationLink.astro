@@ -24,7 +24,6 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 	li {
 		position: relative;
 		list-style: none;
-		/* border-right: 2px solid var(--bg); */
 	}
 
 	li.active {
@@ -35,6 +34,16 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 		border-bottom: 2px solid var(--bg);
 		border-right: 0px;
 		border-left: 2px solid var(--bg);
+	}
+
+	li[id='extra-padding']{
+		visibility: hidden;
+	}
+
+	li.active[id='extra-padding']{
+		visibility: visible;
+		background: transparent;
+		border-bottom-left-radius: 100px;
 	}
 
 	li.active::before {
@@ -49,7 +58,10 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 		background: transparent;
 		border-right: 2px solid var(--bg);
 		border-bottom: 2px solid var(--bg);
+		background-color: transparent;
 	}
+
+
 
 	li.active::after {
 		content: "";
@@ -63,6 +75,7 @@ const { id, text, href, color, iconName, classes, isNotTabbable, ...rest } =
 		background: transparent;
 		border-top: 2px solid var(--bg);
 		border-right: 2px solid var(--bg);
+		background-color: transparent;
 	}
 
 	li.logo {

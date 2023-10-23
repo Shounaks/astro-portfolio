@@ -1,7 +1,6 @@
 ---
 import { navigationInfo } from "../consts";
 import NavigationLink from "./NavigationLink.astro";
-
 ---
 
 <style>
@@ -40,11 +39,11 @@ import NavigationLink from "./NavigationLink.astro";
 			}
 		</div>
 		<NavigationLink
-			id="extra padding"
+			id="extra-padding"
 			text=""
 			href=""
 			color="#333"
-			iconName=""
+			iconName="apps-outline"
 			class:list={"min-h-screen"}
 			isNotTabbable={true}
 		/>
@@ -65,13 +64,17 @@ import NavigationLink from "./NavigationLink.astro";
 		const active_item = document.querySelector(
 			".Menulist li a[href='" + window.location.pathname + "']"
 		)?.parentElement;
-		active_item?.classList.add("active");
+		if (active_item == null)
+			document.querySelector("#extra-padding")?.classList.add("active");
+		else active_item?.classList.add("active");
 		let menuToggle = document.querySelector(".menuToggle") as HTMLElement;
 		let sidebar = document.querySelector(".sidebar") as HTMLElement;
-		menuToggle.onclick = function () {
-			menuToggle.classList.toggle("active");
-			sidebar.classList.toggle("active");
-		};
+		if (menuToggle) {
+			menuToggle.onclick = function () {
+				menuToggle.classList.toggle("active");
+				sidebar.classList.toggle("active");
+			};
+		}
 	}
 	document.addEventListener("astro:after-swap", updateNav);
 	updateNav();
@@ -84,6 +87,9 @@ import NavigationLink from "./NavigationLink.astro";
 	.sidebar ul li.active + li {
 		z-index: 10;
 		border-top-right-radius: 20px;
+	}
+	.sidebar.active ul li.active[id="extra-padding"] {
+		border-top-left-radius: 30px;
 	}
 </style>
 <style>

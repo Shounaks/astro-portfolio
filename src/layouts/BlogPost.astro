@@ -1,13 +1,10 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { type CollectionEntry } from "astro:content";
+import { posts } from '../collection'
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-
-const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -58,7 +55,7 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 						<div class="prose">
 							<a href="/blog/" class="text-gray-800">
 								<div
-									class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md"
+									class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black " tabindex="0"
 								>
 									<img
 										src="/icons/arrow-back-outline.svg"
@@ -93,7 +90,7 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 								<p>Minutes Read</p>
 								<div class="inline-flex gap-2 pl-5">
 									<img src="/icons/timer.svg" class="w-[30px]" alt="" />
-									<p class="pl-1">{readTime? readTime : "N/A"}</p>
+									<p class="pl-1">{readTime ? readTime : "N/A"}</p>
 								</div>
 							</div>
 							<div id="other_links" class="pb-4">
@@ -104,7 +101,8 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 									{
 										posts.map((post) =>
 											post.data.title === title ? (
-												<li class="text-black">
+												// PAGE▶▷▹▸►▻⇒ 
+												<li class="text-black list-[upper-roman]" style="">
 													<a
 														class="group-hover:text-black underline underline-offset-4 hover:text-black"
 														href=""
@@ -130,9 +128,23 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 								<p class="pb-2">Tags:</p>
 								<div class="flex gap-3 pl-5 flex-wrap">
 									{
-										tags ? tags.map(tag => (
-											<a href={`/blog/tags/${tag}`}><span class="bg-slate-400 p-1 px-3 rounded-xl"># {tag}</span></a>
-										)) : <span class="">N / A</span>
+										tags != null && tags.length !== 0 ? (
+											tags.map((tag) => (
+												<a
+													href={`/blog/tags/${tag}`}
+													class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400"
+												>
+													<>
+														<span class="border-r-2 border-black text-black">
+															#{" "}
+														</span>
+														<span class="text-slate-400 pl-2 group-hover:text-slate-600"> {tag}</span>
+													</>
+												</a>
+											))
+										) : (
+											<span class="">N / A</span>
+										)
 									}
 								</div>
 							</div>
