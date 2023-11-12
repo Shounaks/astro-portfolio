@@ -1,0 +1,22 @@
+---
+title: "LC#1 : Two Sum"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "25 Oct 2023"
+heroImage: "/blog-placeholder-3.jpg"
+readTime: 5 minutes
+tags: ["Leet Code","Java"]
+---
+
+# <b> LeetCode Problem #1 : Two Sum </b>
+
+<br>
+
+## Question: <br/>
+
+<p class="pl-6">
+    Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+    You may assume that each input would have exactly one solution, and you may not use the same element twice.
+    You can return the answer in any order.
+</p>
+
+## Solution: <br/>

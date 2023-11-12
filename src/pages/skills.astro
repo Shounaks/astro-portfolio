@@ -37,8 +37,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 							AMAZON WEB SERVICES
 						</div>
 						<div class="flex flex-row justify-center gap-3 p-4">
-							<div class="">
+							<div id="skills-tooltips" class="">
 								<img
+									id="aws"
 									src="/skills/aws/amazon-web-services.svg"
 									class="m-auto h-full"
 									alt=""
@@ -162,7 +163,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 				</div>
 				<div
 					class="row-span-2 border-dashed border-yellow-500 border-2 p-4 gap-2 flex flex-col align-middle hover:bg-yellow-500 hover:border-yellow-950 group"
-					onmouseenter=";transformCard(event, this)"
+					onmouseenter="; transformCard(event, this)"
 					onmouseleave="resetCard(event,this)"
 					onmousemove="transformCard(event,this)"
 				>
@@ -262,7 +263,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 				</div>
 				<div
 					class="row-span-2 border-dashed border-indigo-700 border-2 p-4 gap-2 flex flex-col align-middle hover:bg-indigo-700 hover:border-indigo-950 group"
-					onmouseenter=";transformCard(event, this)"
+					onmouseenter="; transformCard(event, this)"
 					onmouseleave="resetCard(event,this)"
 					onmousemove="transformCard(event,this)"
 				>
@@ -430,43 +431,93 @@ import MainLayout from "../layouts/MainLayout.astro";
 					will be added later 😀
 				</div>
 			</div>
+			<div class="hidden">
+				<div id="aws_data">
+					<div
+						class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+					>
+						<img
+							src="/skillicon/lion_finger_of_death.png"
+							class="w-full shadow-2xl shadow-black"
+							alt=""
+						/>
+						<hr class="" />
+						<div class="object-center">
+							<div class="text-center uppercase font-extrabold pb-2 text-white">
+								Amazon Web Services
+							</div>
+							<div class="text-xs p-2 text-zinc-400">
+								Mastering Git is like being a Programmer who adeptly maintains
+								and upgrades the Imperium's vast arsenal, ensuring seamless
+								collaboration and control over technology.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </MainLayout>
-<script is:inline>
-function tiltEffectSettings() {
-	return {
-		max: 25,
-		perspective: 1000,
-		scale: 1.0,
+<script>
+	import tippy, { roundArrow } from "tippy.js";
+	import "tippy.js/dist/tippy.css";
+	import "tippy.js/dist/svg-arrow.css";
+
+	const aws_data = document.getElementById("aws_data");
+	const _aws = () =>
+		tippy("#aws", {
+			content: aws_data!.innerHTML,
+			allowHTML: true,
+			arrow: roundArrow,
+			delay: 0,
+		});
+
+	function initializeTippy() {
+		if (document.getElementById("skills-tooltips")) {
+			_aws();
+		}
 	}
-};
-function resetCard(event, card) {
-	card.style.transition = `all 0.2s`;
-	card.style.transform = `perspective(${tiltEffectSettings().perspective}px) rotateX(0deg) rotateY(0deg)`;
-	// card.style.transition = '';//TODO: reset transition after animation ends
-}
+	document.addEventListener("astro:after-swap", initializeTippy);
+	initializeTippy();
+</script>
+<script is:inline>
+	function tiltEffectSettings() {
+		return {
+			max: 25,
+			perspective: 1000,
+			scale: 1.0,
+		};
+	}
+	function resetCard(event, card) {
+		card.style.transition = `all 0.2s`;
+		card.style.transform = `perspective(${
+			tiltEffectSettings().perspective
+		}px) rotateX(0deg) rotateY(0deg)`;
+		// card.style.transition = '';//TODO: reset transition after animation ends
+	}
 
-function transformCard(event, card) {
-	const cardWidth = card.offsetWidth;
-	const cardHeight = card.offsetHeight;
+	function transformCard(event, card) {
+		const cardWidth = card.offsetWidth;
+		const cardHeight = card.offsetHeight;
 
-	const centerX = card.offsetLeft + cardWidth / 2;
-	const centerY = card.offsetTop + cardHeight / 2;
+		const centerX = card.offsetLeft + cardWidth / 2;
+		const centerY = card.offsetTop + cardHeight / 2;
 
-	const mouseX = event.clientX - centerX;
-	const mouseY = event.clientY - centerY;
+		const mouseX = event.clientX - centerX;
+		const mouseY = event.clientY - centerY;
 
-	const rotateX = (
-		(+0.3 * tiltEffectSettings().max * mouseY) /
-		(cardHeight / 2)
-	).toFixed(2);
-	const rotateY = (
-		(-0.3 * tiltEffectSettings().max * mouseX) /
-		(cardWidth / 2)
-	).toFixed(2);
+		const rotateX = (
+			(+0.3 * tiltEffectSettings().max * mouseY) /
+			(cardHeight / 2)
+		).toFixed(2);
+		const rotateY = (
+			(-0.3 * tiltEffectSettings().max * mouseX) /
+			(cardWidth / 2)
+		).toFixed(2);
 
-	// card.style.transform = ``;
-	card.style.transform = `perspective(${tiltEffectSettings().perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-}
+		// card.style.transform = ``;
+		card.style.transform = `perspective(${
+			tiltEffectSettings().perspective
+		}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+	}
 </script>

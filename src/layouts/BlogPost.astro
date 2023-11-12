@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { posts } from '../collection'
+import { posts } from "../collection";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -10,6 +10,16 @@ type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 	Astro.props;
+
+function slice2(array: any[], chunk: number, offset: number) {
+	var end = offset + chunk,
+		out = array.slice(offset, end); // Get the chunk
+	if (array.length < end) {
+		// If the chunk should wrap
+		out = out.concat(array.slice(0, end - array.length)); // Concatenate a the rest of the chunk, from the start of the array, to the output.
+	}
+	return out;
+}
 ---
 
 <html lang="en">
@@ -55,7 +65,8 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 						<div class="prose">
 							<a href="/blog/" class="text-gray-800">
 								<div
-									class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black " tabindex="0"
+									class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
+									tabindex="0"
 								>
 									<img
 										src="/icons/arrow-back-outline.svg"
@@ -99,28 +110,28 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 									class="pl-6 list-disc text-zinc-400 tracking-widest font-extralight pb-4"
 								>
 									{
-										posts.map((post) =>
-											post.data.title === title ? (
-												// PAGE▶▷▹▸►▻⇒ 
-												<li class="text-black list-[upper-roman]" style="">
-													<a
-														class="group-hover:text-black underline underline-offset-4 hover:text-black"
-														href=""
-													>
-														{post.data.title}
-													</a>
-												</li>
-											) : (
-												<li class="group hover:marker:text-black">
-													<a
-														class="group-hover:text-black"
-														href={`/blog/${post.slug}/`}
-													>
-														{post.data.title}
-													</a>
-												</li>
+										posts
+											.map((post) =>
+												post.data.title === title ? (
+													<li class="text-black list-[upper-roman]" style="">
+														<a
+															class="group-hover:text-black underline underline-offset-4 hover:text-black"
+															href=""
+														>
+															{post.data.title}
+														</a>
+													</li>
+												) : (
+													<li class="group hover:marker:text-black">
+														<a
+															class="group-hover:text-black"
+															href={`/blog/${post.slug}/`}
+														>
+															{post.data.title}
+														</a>
+													</li>
+												)
 											)
-										)
 									}
 								</ul>
 							</div>
@@ -138,7 +149,10 @@ const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
 														<span class="border-r-2 border-black text-black">
 															#{" "}
 														</span>
-														<span class="text-slate-400 pl-2 group-hover:text-slate-600"> {tag}</span>
+														<span class="text-slate-400 pl-2 group-hover:text-slate-600">
+															{" "}
+															{tag}
+														</span>
 													</>
 												</a>
 											))
