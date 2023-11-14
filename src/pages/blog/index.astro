@@ -72,7 +72,7 @@ import { posts } from "../../collection";
 	<body class="flex flex-row overflow-x-visible">
 		<MainLayout>
 			<main class="min-w-full min-h-full h-screen">
-				<div class="pb-2 sticky">
+				<div class="sticky">
 					<h2
 						class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white"
 					>
@@ -83,9 +83,19 @@ import { posts } from "../../collection";
 					>
 						A repository of obscure knoweledge
 					</p>
-					<hr class="border-green-500 pb-2" />
+					<hr class="border-green-500" />
 				</div>
-				<section class="sm:flex sm:flex-row sm:flex-wrap sm:gap-10 md:grid md:grid-cols-2">
+				<div class="min-w-full min-h-fit px-4 py-2 text-white">
+					<div class="flex flex-row gap-5">
+						<a href="/blog/tags/Leet%20Code" class="p-4 rounded-md bg-gradient-to-r from-yellow-500 to-violet-500">All Tags</a>
+						<div class="border-r-2"></div>
+						<a href="/blog/tags/Algorithms" class="p-4 rounded-md bg-gradient-to-r from-violet-500 to-emerald-500">Algorithms</a>
+						<a href="/blog/tags/Java" class="p-4 rounded-md bg-gradient-to-r from-emerald-500 to-sky-500">Java</a>
+						<a href="/blog/tags/Leet%20Code" class="p-4 rounded-md bg-gradient-to-r from-sky-500 to-fuchsia-500">Leet Code</a>
+					</div>
+				</div>
+				<hr>
+				<section class="sm:flex sm:flex-row sm:flex-wrap sm:gap-10 md:grid md:grid-cols-2 pt-4">
 						<!-- {
 							posts.filter(item => item.data.tags.includes("Leet Code"))
 							.map((post) => (
