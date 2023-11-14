@@ -7,9 +7,19 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 <MainLayout>
 	<div class="w-full">
 		<div class="pb-2">
-			<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
-				Search By Tags
-			</h2>
+			<div class="flex flex-row gap-4">
+				<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
+					Search By Tags :
+				</h2>
+				<input
+					id="searchString"
+					type="text"
+					class="bg-[#666] min-h-full mt-4 text-white bg-opacity-40 px-2"
+					placeholder="Enter a tag e.g. 'Java'"
+					too="enter a tag and press enter"
+					onkeypress="searchByTags(event)"
+				/>
+			</div>
 			<p
 				class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
 			>
@@ -22,6 +32,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 				<span class="text-white align-middle h-full py-1 px-3 uppercase"
 					>Tags :</span
 				>
+
 				<a href={`/blog/tags/`}>
 					<li
 						class="text-black uppercase bg-gradient-to-r from-orange-300 via-sky-300 to-purple-300 py-1 px-3 rounded-xl border-2 border-transparent hover:border-white"
@@ -39,7 +50,10 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 							>
 								<li>
 									<span class="border-r-2 border-black text-black"># </span>
-									<span class="text-slate-400 pl-2 group-hover:text-black"> {tag}</span>
+									<span class="text-slate-400 pl-2 group-hover:text-black">
+										{" "}
+										{tag}
+									</span>
 								</li>
 							</a>
 						))
@@ -53,3 +67,15 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 		<slot />
 	</div>
 </MainLayout>
+<script is:inline>
+	function searchByTags(event) {
+		if (event.key === "Enter") {
+			let str = document.getElementById("searchString").value;
+			str = str.trim();
+			let currentlocation = window.location.href.endsWith("tags/")
+				? window.location.href
+				: window.location.origin + "/blog/tags/";
+			window.location.href = currentlocation + encodeURIComponent(str);
+		}
+	}
+</script>

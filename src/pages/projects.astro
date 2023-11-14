@@ -21,8 +21,12 @@ import arcadiabg from "./project/arcadiabg.jpg";
 import suvidha from "./project/suvidha.png";
 import suvidhaicon from "./project/bloodicon.png";
 import suvidhabg from "./project/blooddonorbg.jpg";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
-
+<head>
+	<BaseHead title={"Projects | "+ SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
 <MainLayout>
 	<div class="min-w-full min-h-full px-2">
 		<div class="col-span-4 pb-2" style="perspective: 1000px;">

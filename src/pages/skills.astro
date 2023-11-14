@@ -1,12 +1,17 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
+<head>
+	<BaseHead title={"Skills | " + SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
 <MainLayout>
 	<div class="min-w-full min-h-full">
 		<div class="pb-2">
 			<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
-				Skills Acquired - Talent Tree
+				Skillset Mastery
 			</h2>
 			<p
 				class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
@@ -41,10 +46,11 @@ import MainLayout from "../layouts/MainLayout.astro";
 								<img
 									id="aws"
 									src="/skills/aws/amazon-web-services.svg"
-									class="m-auto h-full"
+									class="m-auto h-full bg-white group-hover:bg-inherit"
 									alt=""
 								/>
 							</div>
+							<div class="border-r-2 border-orange-600 group-hover:border-orange-950"></div>
 							<div class="">
 								<img
 									src="/skills/aws/awslambda.svg"
@@ -84,6 +90,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 							MICROSOFT AZURE CLOUD
 						</div>
 						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/azure/azure.svg"
+									class="m-auto h-[48px]"
+									alt=""
+								/>
+							</div>
+							<div class="border-r-2 border-sky-600 group-hover:border-sky-950"></div>
 							<div class="">
 								<img
 									src="/skills/azure/API-Management-Services.svg"
@@ -130,6 +144,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 							Google Cloud Platform
 						</div>
 						<div class="flex flex-row justify-center gap-3 p-4">
+							<div class="">
+								<img
+									src="/skills/gcp/google-cloud.svg"
+									class="m-auto h-full"
+									alt=""
+								/>
+							</div>
+							<div class="border-r-2 border-emerald-500 group-hover:border-emerald-950"></div>
 							<div class="">
 								<img
 									src="/skills/gcp/cloud-storage.svg"
@@ -434,22 +456,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 			<div class="hidden">
 				<div id="aws_data">
 					<div
-						class="w-52 h-fit bg-[#333] p-0 mb-0 -m-2 rounded-sm bg-opacity-90"
+						class="w-52 bg-[#333] rounded-sm bg-opacity-90 "
 					>
-						<img
-							src="/skillicon/lion_finger_of_death.png"
-							class="w-full shadow-2xl shadow-black"
-							alt=""
-						/>
-						<hr class="" />
 						<div class="object-center">
 							<div class="text-center uppercase font-extrabold pb-2 text-white">
 								Amazon Web Services
 							</div>
 							<div class="text-xs p-2 text-zinc-400">
-								Mastering Git is like being a Programmer who adeptly maintains
-								and upgrades the Imperium's vast arsenal, ensuring seamless
-								collaboration and control over technology.
+								AWS webservice is interesting to say the least Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, repellendus.
 							</div>
 						</div>
 					</div>
@@ -470,6 +484,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 			allowHTML: true,
 			arrow: roundArrow,
 			delay: 0,
+			hideOnClick: true,
+			inertia: true,
+			placement: "bottom",
 		});
 
 	function initializeTippy() {

@@ -1,10 +1,10 @@
 ---
-title: "Fibonacci"
+title: "Fibonacci Series"
 description: ""
 pubDate: "24 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 5 minutes
-tags: ["Leet Code Help", "Java"]
+tags: ["Leet Code Help", "Java","Algorithms"]
 ---
 
 # <b> Basic Fibonacci Code</b>

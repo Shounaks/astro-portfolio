@@ -1,4 +1,6 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import MainLayout from "../layouts/MainLayout.astro";
 
 const firstYearSyllabus: Array<String> = [
@@ -35,7 +37,9 @@ const fourthYearSyllabus: Array<String> = [
 	"Cyber Security",
 ];
 ---
-
+<head>
+	<BaseHead title={"Experience | "+ SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
 <MainLayout>
 	<div class="min-w-full min-h-full">
 		<div class="pb-2">

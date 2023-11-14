@@ -1,7 +1,11 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
-
+<head>
+	<BaseHead title={"About | "+ SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
 <MainLayout>
 	<div class="min-w-full min-h-full bg-slate-700 bg-opacity-5">
 		<div class="pb-2">
@@ -23,6 +27,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 		<div
 			class="px-4 min-w-full rounded-xl capitalize text-sm text-slate-300 pb-5"
 		>
+			<p>
+				Source Code: <a
+					class="text-sky-400 underline-offset-2 underline decoration-dashed"
+					href="https://github.com/Shounaks/astro-portfolio"
+					target="_blank">[Github] Shounak Bhalerao</a
+				>
+			</p>
 			<p>
 				Cards in Project Section: <a
 					class="text-sky-400 underline-offset-2 underline decoration-dashed"

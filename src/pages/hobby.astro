@@ -1,7 +1,11 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
-
+<head>
+	<BaseHead title={"Hobby | "+ SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
 <MainLayout>
 	<div class="min-w-full min-h-full">
 		<div class="col-span-4 pb-2">

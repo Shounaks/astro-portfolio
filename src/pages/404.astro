@@ -1,0 +1,18 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<div class="text-black relative">
+		<img src="/404_bg.jpg" class="object-fit" alt="">
+		<span class="absolute top-0 w-full text-9xl p-4 font-extrabold text-right">404</span>
+		<span class="absolute w-full top-1 text-5xl text-center p-4 font-extrabold " style="">~ Gaze the Abyss ~</span>
+		<a href="" onclick="window.history.go(-1); return false;">
+			
+			<span class="absolute top-0 text-3xl p-4 font-extrabold text-left decoration-wavy text-blue-600 bg-slate-800 hover:bg-slate-950 hover:text-blue-300 bg-opacity-40 rounded-br-md w-fit" style="">
+				Go Back
+			</span>
+		</a>
+
+	</div>
+</MainLayout>
