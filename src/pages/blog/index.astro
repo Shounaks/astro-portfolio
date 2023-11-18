@@ -1,215 +1,198 @@
 ---
+import { Image } from "astro:assets";
 import BaseHead from "../../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import FormattedDate from "../../components/FormattedDate.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { posts } from "../../collection";
+
+import aqua from "../project/aqua.png";
+import water from "../project/water.jpg";
+
+import avatar from "../project/avatar.png";
+import mage from "../project/mage.jpg";
+
+import black from "../project/black.png";
+import blackwp from "../project/black_wp.jpg";
+
+import archer from "../project/archer2.png";
+import archerwp from "../project/archerbg.jpg";
+
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={"Blog | "+ SITE_TITLE} description={SITE_DESCRIPTION} />
-		<!-- <style>
-			main {
-				min-width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style> -->
+		<BaseHead title={"Blog | " + SITE_TITLE} description={SITE_DESCRIPTION} />
+		<ViewTransitions />
 	</head>
-	<body class="flex flex-row overflow-x-visible">
-		<MainLayout>
-			<main class="min-w-full min-h-full h-screen">
-				<div class="sticky">
-					<h2
-						class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white"
-					>
-						Blog Posts
-					</h2>
-					<p
-						class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
-					>
-						A repository of obscure knoweledge
-					</p>
-					<hr class="border-green-500" />
-				</div>
-				<div class="min-w-full min-h-fit px-4 py-2 text-white">
-					<div class="flex flex-row gap-5">
-						<a href="/blog/tags/Leet%20Code" class="p-4 rounded-md bg-gradient-to-r from-yellow-500 to-violet-500">All Tags</a>
-						<div class="border-r-2"></div>
-						<a href="/blog/tags/Algorithms" class="p-4 rounded-md bg-gradient-to-r from-violet-500 to-emerald-500">Algorithms</a>
-						<a href="/blog/tags/Java" class="p-4 rounded-md bg-gradient-to-r from-emerald-500 to-sky-500">Java</a>
-						<a href="/blog/tags/Leet%20Code" class="p-4 rounded-md bg-gradient-to-r from-sky-500 to-fuchsia-500">Leet Code</a>
+
+	<MainLayout>
+		<div class="min-w-full" style="">
+			<div class="col-span-4 pb-2">
+				<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
+					Blog Posts
+				</h2>
+				<p
+					class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
+				>
+					A Repository of Obscure Knowledge
+					<hr class="border-yellow-500" />
+				</p>
+			</div>
+			<div class="grid grid-cols-4 grid-rows-1 gap-x-10 p-2 mx-20">
+				<a href="./java" transition:name="water" class="hover:z-10">
+					<div id="" class="card group">
+						<Image src={aqua} alt="" class="front-image" />
+						<Image src={water} alt="" class="bg-image" />
+						<div
+							class="logo w-full h-1/2 group-hover:h-[10%] min-w-full text-center text-7xl transition-transform duration-200 ease-in-out group-hover:text-sky-600"
+						>
+							JAVA
+						</div>
 					</div>
-				</div>
-				<hr>
-				<section class="sm:flex sm:flex-row sm:flex-wrap sm:gap-10 md:grid md:grid-cols-2 pt-4">
-						<!-- {
-							posts.filter(item => item.data.tags.includes("Leet Code"))
-							.map((post) => (
-								<li>
-									<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
-										<img width={720} height={360} src={post.data.heroImage} alt="" />
-										<span class="">
-											<FormattedDate date={post.data.pubDate} />
-										</span> | 
-										<span class="m-0 leading-4 text-xl text-white">
-											{post.data.title}
-										</span>
-										
-									</a>
-								</li>
-							))
-						} -->
-						<div class="w-auto">
-							<span class="text-4xl text-white">Leet Code</span>
-							<ul>
-								{posts.filter(item => item.data.tags.includes("Leet Code")).length <= 0 && <li class={"text-white text-center w-full"}>N.A.</li>}
-								{
-									posts
-									.filter(item => item.data.tags.includes("Leet Code"))
-									.map((post) => (
-										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
-												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
-												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
-												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
-												</span>
-												
-											</a>
-										</li>
-									)).slice(0,10)
-								}
-							</ul>
+				</a>
+				<a href="./system-design" transition:name="fire">
+					<div id="" class="card group">
+						<Image src={avatar} alt="" class="front-image" />
+						<Image src={mage} alt="" class="bg-image" />
+						<div
+							class="logo w-full h-1/2 group-hover:h-[20%] min-w-full text-center text-7xl transition-transform duration-200 ease-in-out group-hover:text-[#e9d8cb]"
+						>
+							System Design
 						</div>
-						<div class="w-auto">
-							<span class="text-4xl text-white">Algorithms</span>
-							<ul>
-								{posts.filter(item => item.data.tags.includes("Algorithms")).length <= 0 && <li class={"text-white text-center w-full"}>N.A.</li>}
-								{
-									posts.filter(item => item.data.tags.includes("Algorithms"))
-									.map((post) => (
-										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
-												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
-												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
-												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
-												</span>
-												
-											</a>
-										</li>
-									))
-								}
-							</ul>
+					</div>
+				</a>
+				<a href="./leet-code" transition:name="electricity">
+					<div id="" class="card group">
+						<Image src={archer} alt="" class="front-image" />
+						<Image src={archerwp} alt="" class="bg-image" />
+						<div
+							class="logo w-full h-1/2 group-hover:h-[10%] min-w-full text-center text-7xl transition-transform duration-200 ease-in-out group-hover:text-yellow-500"
+						>
+							Leet Code
 						</div>
-						<div class="w-auto">
-							<span class="text-4xl text-white">Technical Posts</span>
-							<ul class="w-full">
-								{posts.filter(item => item.data.tags.includes("Tech")).length <= 0 && <li class={"text-white text-center w-full"}>N.A.</li>}
-								{
-									posts.filter(item => item.data.tags.includes("Tech")).length > 0 &&
-									posts.filter(item => item.data.tags.includes("Tech"))
-									.map((post) => (
-										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
-												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
-												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
-												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
-												</span>
-												
-											</a>
-										</li>
-									))
-								}
-							</ul>
+					</div>
+				</a>
+				<a href="./algorithms" transition:name="shadow">
+					<div id="" class="card group">
+						<Image src={black} alt="" class="front-image" />
+						<Image src={blackwp} alt="" class="bg-image" />
+						<div
+							class="logo w-full h-1/2 group-hover:h-[10%] min-w-full text-center text-7xl transition-transform duration-200 ease-in-out"
+						>
+							Algorithms
 						</div>
-						<div class="w-auto">
-							<span class="text-4xl text-white">Others</span>
-							<ul class="w-full">
-								{posts.filter(item => item.data.tags.includes("Other")).length <= 0 && <li class={"text-white text-center w-full"}>N.A.</li>}
-								{
-									posts.filter(item => item.data.tags.includes("Tech")).length > 0 &&
-									posts.filter(item => item.data.tags.includes("Tech"))
-									.map((post) => (
-										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
-												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
-												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
-												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
-												</span>
-												
-											</a>
-										</li>
-									))
-								}
-							</ul>
-						</div>
-				</section>
-			</main>
-		</MainLayout>
-	</body>
+					</div>
+				</a>
+			</div>
+		</div>
+	</MainLayout>
+
+	<style is:inline>
+		a,
+		a:hover {
+			color: #fff;
+		}
+
+		:root {
+			--timing: 400ms;
+			--rotation: 20deg;
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		.card {
+			/* width: 200px; */
+			aspect-ratio: 9 / 16;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: rotate var(--timing) ease;
+			background: no-repeat;
+		}
+
+		.card:hover {
+			rotate: x var(--rotation);
+		}
+
+		.card::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: 100;
+			background-image: radial-gradient(circle, transparent 150px, black);
+			opacity: 0;
+			transition: opacity var(--timing);
+		}
+
+		.card:hover::before {
+			opacity: 1;
+		}
+
+		.card::after {
+			content: "";
+			position: absolute;
+			inset: 80% 0.5rem 0.5rem;
+			translate: 0;
+			transform: translateZ(-100px);
+			background: black;
+			filter: blur(1rem);
+			z-index: 1;
+			transition:
+				rotate var(--timing),
+				translate var(--timing);
+		}
+
+		.card:hover::after {
+			rotate: x calc(var(--rotation) * -1);
+			translate: 0 60px;
+		}
+
+		.bg-image {
+			position: absolute;
+			z-index: 10;
+			height: 100%;
+			object-fit: cover;
+			object-position: -250px center;
+		}
+
+		.logo,
+		.front-image {
+			position: absolute;
+		}
+
+		.logo {
+			z-index: 1000;
+			/* filter: invert(1); */
+			width: 65%;
+			margin-inline: auto;
+			inset: auto 0 2rem;
+			bottom: 1vh;
+			transform: translateY(0rem) translateZ(20px);
+			transition: var(--timing);
+		}
+
+		.card:hover .logo {
+			transform: translateY(-2rem) translateZ(20px);
+			rotate: x calc(var(--rotation) * -1);
+		}
+
+		.front-image {
+			bottom: 10vh;
+			scale: 1.25;
+			transform-origin: bottom;
+			opacity: 0;
+			z-index: 100;
+			transition: var(--timing);
+		}
+
+		.card:hover .front-image {
+			opacity: 1;
+			transform: translateY(-2rem) translateZ(-10px);
+			rotate: x calc(var(--rotation) * -1);
+		}
+	</style>
 </html>

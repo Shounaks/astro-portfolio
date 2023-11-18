@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import BaseHead from "../../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import FormattedDate from "../../components/FormattedDate.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { posts } from "../../collection";
+
+import black from "../project/black.png";
+import blackwp from "../project/black_wp.jpg";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={"Blog | " + SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+
+	<MainLayout>
+		<div class="min-h-full min-w-screen h-full max-h-full w-full">
+			<div
+				class="grid grid-cols-6 grid-rows-1 h-full max-h-full min-h-full gap-10"
+			>
+				<div
+					transition:name="shadow"
+					class="col-span-1 min-h-full h-full max-h-full"
+				>
+					<a href="/blog/">
+                <Image
+						src={black}
+						alt=""
+						class="front-image group-focus:hidden bg-[url('../black_wp.jpg')] min-h-full h-screen bg-no-repeat max-h-full object-contain"
+					/>
+                </a>
+					<!-- <Image src={water} alt="" class="bg-image group-focus:hidden h-full object-cover" /> -->
+				</div>
+				<div class="col-span-5 text-white" transition:animate="slide">
+					<div class="col-span-4 pb-2">
+						<h2
+							class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white"
+						>
+							Algorithms
+						</h2>
+						<p
+							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
+						>
+							Who knows, how the system is designed better than Adaptus Mechanicus?
+							<hr class="border-black" />
+						</p>
+					</div>
+                    {posts.filter(item => item.data.tags.includes("Algorithms")).length <= 0 && <span class={"text-white text-center w-full"}>N.A.</span>}
+                    {
+						posts
+                            .filter(item => item.data.tags.includes("Algorithms"))
+							.map((post) => (
+										<li>
+											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
+												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
+												<span class="">
+													<FormattedDate date={post.data.pubDate} />
+												</span> | 
+												<span class="m-0 leading-4 text-xl text-white px-2">
+													{post.data.title}
+												</span>
+												
+											</a>
+										</li>
+									)).slice(0,30)
+								}
+				</div>
+			</div>
+		</div>
+	</MainLayout>
+</html>
