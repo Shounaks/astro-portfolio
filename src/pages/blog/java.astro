@@ -28,7 +28,7 @@ import aqua from "../project/aqua.png";
                 <Image
 						src={aqua}
 						alt=""
-						class="front-image group-focus:hidden bg-[url('../water.jpg')] min-h-full h-full bg-no-repeat max-h-full object-contain"
+						class="front-image group-focus:hidden bg-[url('../water.jpg')] min-h-full h-screen bg-no-repeat max-h-full object-contain"
 					/>
                 </a>
 				</div>
@@ -40,12 +40,13 @@ import aqua from "../project/aqua.png";
 							Java / Kotlin / Groovy
 						</h2>
 						<p
-							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
+							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-sky-300 to-sky-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
 						>
 							By No means is this related to coffee beans
-							<hr class="border-yellow-500" />
+							<hr class="border-sky-500" />
 						</p>
 					</div>
+					{posts.filter(item => item.data.tags.includes("Java")).length <= 0 && <span class={"text-white text-center w-full"}>N.A.</span>}
                     {
 						posts
 									.filter(item => item.data.tags.includes("Java"))

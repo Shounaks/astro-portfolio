@@ -4,7 +4,7 @@ description: ""
 pubDate: "24 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 25 minutes
-tags: ["Leet Code", "Java","array"]
+tags: ["Leet Code","array"]
 ---
 
 # <b> LeetCode Problem #283 : Move Zeroes</b>

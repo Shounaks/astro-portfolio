@@ -1,13 +1,13 @@
 ---
-title: "LC#217 : Contains Duplicate"
+title: "LC#217 :Remove Duplicates from Sorted Array"
 description: ""
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 15 minutes
-tags: ["Leet Code", "Java", "Set"]
+tags: ["Leet Code", "Set"]
 ---
 
-# Question
+# LC#217 :Remove Duplicates from Sorted Array
 
 <p class="pl-6">
     Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.

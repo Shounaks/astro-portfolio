@@ -4,7 +4,7 @@ description: ""
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 25 minutes
-tags: ["Leet Code", "Java", "Maths"]
+tags: ["Leet Code", "Maths"]
 ---
 
 # <b> LeetCode Problem #136 : Single Number</b>

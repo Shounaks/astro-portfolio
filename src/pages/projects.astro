@@ -21,11 +21,15 @@ import arcadiabg from "./project/arcadiabg.jpg";
 import suvidha from "./project/suvidha.png";
 import suvidhaicon from "./project/bloodicon.png";
 import suvidhabg from "./project/blooddonorbg.jpg";
+
+import brainfuck from "./project/brainfuckicon.webp";
+
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
+
 <head>
-	<BaseHead title={"Projects | "+ SITE_TITLE} description={SITE_DESCRIPTION} />
+	<BaseHead title={"Projects | " + SITE_TITLE} description={SITE_DESCRIPTION} />
 </head>
 <MainLayout>
 	<div class="min-w-full min-h-full px-2">
@@ -42,241 +46,891 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				<hr class="border-blue-500" />
 			</p>
 		</div>
-		<div class="flex flex-row gap-10 pb-6">
+		<div class="items">
 			<div
-				class="text-white bg-gradient-to-b from-blue-500 -mt-2 pt-2"
-				style="writing-mode: vertical-rl;"
+				id="official"
+				class="item bg-gradient-to-r text-white w-full h-full object-center flex"
 			>
-				Official Projects
-			</div>
-			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<Image src={sabreico} alt="" class="logo" />
-				<Image src={sabreplane} alt="" class="front-image" />
-				<Image src={sabrebgplane} alt="" class="bg-image" />
-			</div>
-			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<Image src={manulife} alt="" class="logo" />
-				<Image src={manulifeicon} alt="" class="front-image" />
-				<Image src={manulifebg} alt="" class="bg-image" />
+				<div class="text-center w-full">
+					<p
+						class="self-center justify-center text-center text-white text-5xl font-bold px-10 top-1/2"
+					>
+						Official
+					</p>
+					<p
+						class="self-center justify-center text-white text-5xl font-bold px-10"
+					>
+						Projects
+					</p>
+				</div>
 			</div>
 			<div
-				class="text-white bg-gradient-to-b from-transparent text-right pb-4 to-orange-400 -mt-2 pt-2 -mb-6"
-				style="writing-mode: vertical-rl;"
+				id="sabre"
+				class="item bg-[url('../projects/planebg.jpeg')] bg-blue-100 group"
 			>
-				Personal Projects
 			</div>
-			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<Image src={khamangimage} alt="" class="logo" />
-				<Image src={khamangfood} alt="" class="front-image" />
-				<Image src={khamangfoodbg} alt="" class="" />
+			<div
+				id="manulife"
+				class="item bg-blue-200 bg-[url('../projects/financebg.webp')] group"
+			>
 			</div>
-			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<Image src={arcadia} alt="" class="logo" />
-				<Image src={arcadiaelement} alt="" class="front-image" />
-				<Image src={arcadiabg} alt="" class="bg-image" />
+			<div
+				id="unofficial"
+				class="item bg-gradient-to-r text-white w-full h-full object-center flex"
+			>
+				<div class="text-center w-full">
+					<p
+						class="self-center justify-center text-center text-white text-5xl font-bold px-10 top-1/2"
+					>
+						Unofficial
+					</p>
+					<p
+						class="self-center justify-center text-white text-5xl font-bold px-10"
+					>
+						Projects
+					</p>
+				</div>
 			</div>
-			<div id="card" class="bg-cover bg-center bg-no-repeat cursor-pointer">
-				<Image src={suvidha} alt="" class="logo" />
-				<Image src={suvidhaicon} alt="" class="front-image" />
-				<Image src={suvidhabg} alt="" class="bg-image" />
+			<div
+				id="digitalbooks"
+				class="item bg-blue-300 bg-[url('../projects/book_wall.jpg')]"
+			>
+			</div>
+			<div
+				id="khamang"
+				class="item bg-blue-300 bg-[url('../projects/foodbg.jpg')]"
+			>
+			</div>
+			<div
+				id="arcadia"
+				class="item bg-blue-300 bg-[url('../projects/arcadiabg.jpg')] group"
+			>
+				<Image
+					src={arcadia}
+					alt=""
+					class="align-middle h-full min-h-full group-hover:opacity-100 opacity-0 transition-all duration-200 ease-in-out"
+				/>
+			</div>
+			<div id="suvidha" class="item bg-blue-400 bg-[url('blooddonorbg.jpg')]">
+			</div>
+			<div id="present" class="item bg-blue-500 bg-[url('school.jpg')]"></div>
+			<div id="gladiator" class="item bg-blue-600 bg-[url('gladiator.webp')]">
+			</div>
+			<div id="brainfuck" class="item bg-blue-700 bg-[url('brainfuck.png')]">
 			</div>
 		</div>
-		<!-- <hr class="border border-orange-400"> -->
-		<div
-			class="bg-gradient-to-r from-orange-700 via-orange-400 min-w-full max-w-fit rounded-md px-2 text-white uppercase rounded-t-none"
-		>
-			Other Projects
-		</div>
-		<div class="mt-2 px-2 grid grid-rows-1 grid-cols-3 min-w-full min-h-fit">
-			<div class="min-h-full">
-				<!-- START -->
+		<hr class="border-orange-400" />
+
+		<div id="description" class="min-w-full text-white py-10 px-2">
+			<span class="min-w-full w-full animate-pulse"
+				>Select A project from above, to learn about it!</span
+			>
+			<div id="sabre_data" class="hidden h-full">
 				<div
-					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/src/pages/project/school.jpg')] bg-cover group transition-all ease-linear duration-700"
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75 flex flex-row"
 				>
-					<div
-						class="px-4 h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
-					>
-						<div class="font-bold text-xl">
-							PresenT-Attendance Management System
-						</div>
-						<p class="text-gray-700 text-base">
-							Created a system which is able to take attendance of Students,
-							process it, and store the report in XLS Format.
+					<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+						<img
+							src="/experience/sabreico.png"
+							class="w-60 h-full rounded bg-white px-2 object-scale-down"
+							alt=""
+						/>
+					</div>
+					<div>
+						<p>
+							<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+								Passenger Name Registration
+							</div>
+							<ul class="p-2 pl-10 text-md list-disc">
+								<li class="pb-2 text-justify">
+									Successfully created Shadow Service for a reservation system
+									that will replace client-facing system in upcoming years.
+								</li>
+								<li class="pb-2 text-justify">
+									Designed and Developed several micro-frameworks and critical
+									application functionalities Keyword Based blocking, Hook-based
+									functionality to interact with external API, Element-based
+									Data Flow, Introducing customized validation on API level
+								</li>
+								<li class="pb-2 text-justify">
+									Spearheaded the usage of Clean Coding and Review in the team
+									and ensured team codebase exceeds the present standard.
+									Improved code quality vastly by using Standardized Coding
+									Practices and Design Patterns
+								</li>
+								<li class="pb-2 text-justify">
+									Improved the quality of Automation Test by over 35-40% for
+									selected elements and configured multiple microservices to
+									ensure successful deployment on existing Armada Cluster
+								</li>
+								<li class="pb-2 text-justify">
+									Patched multiple vulnerabilities reported in deployment as
+									part of securing application from external threat actors
+								</li>
+								<li class="pb-2 text-justify">
+									The technologies / platforms that he worked on were: Java,
+									Groovy, Spring Boot, Mockito & Wiremock, Swagger Codegen,
+									BitBucket, Git, Google GCP Logs, Postman, Armada Deployment,
+									Jenkins.
+								</li>
+							</ul>
 						</p>
-						<div class="py-2">
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#JavaEE</span
-							>
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#HTML/#CSS/#JS</span
-							>
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#CSS</span
-							>
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#JS</span
-							>
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#ApachePOI</span
-							>
-						</div>
 					</div>
 				</div>
-				<!-- END -->
 			</div>
-			<div class="min-h-full">
-				<!-- START -->
+			<div id="manulife_data" class="hidden h-full">
 				<div
-					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/src/pages/project/gladiator.webp')] group bg-cover"
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75 flex flex-row"
 				>
-					<div
-						class="px-4 min-h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
-					>
-						<div class="font-bold text-xl">
-							Gladiator-Console based Dungeon crawler game
-						</div>
-						<p class="text-gray-700 text-base">
-							Gladiatoris an angband clonepurely built using C
+					<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+						<img
+							src="/experience/manulife.png"
+							class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+							alt=""
+						/>
+					</div>
+					<div>
+						<p>
+							<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+								Product Retrival / E-tax Form With Digital Signature / FAQ Page
+								with Salesforce integration
+							</div>
+							<ul class="p-2 pl-10 text-md list-disc">
+								<li class="pb-2 text-justify">
+									Implementation of multiple Microservices from scratch to cater
+									to millions of requests using and configuration of Auto
+									scaling Databases (SQL & No-SQL) to achieve high-performant
+									application.
+								</li>
+								<li class="pb-2 text-justify">
+									Implementation of triggers, metrics and observability using
+									Devo Log aggregation.
+								</li>
+								<li class="pb-2 text-justify">
+									Designing and handling a database with 1 crore taxpayers' data
+									involves implementing efficient indexing strategies to
+									optimize data retrieval, enabling a significant speed
+									improvement of approximately 30% in query performance and
+									overall database operations.
+								</li>
+								<li class="pb-2 text-justify">
+									Creating a QR based generation & retrieval service for tax
+									invoices making it available on the go.
+								</li>
+								<li class="pb-2 text-justify">
+									Generated an XML based signature service to the said tax
+									invoice form to interact with government tax portal.
+								</li>
+								<li class="pb-2 text-justify">
+									Building a real-time currency exchange-rate and Policy.
+								</li>
+							</ul>
 						</p>
-						<div class="py-2">
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#C</span
-							>
-						</div>
 					</div>
 				</div>
-				<!-- END -->
 			</div>
-			<div class="min-h-full">
-				<!-- START -->
+			<div id="digitalbooks_data" class="hidden h-full">
 				<div
-					class="max-w-sm rounded overflow-hidden shadow-lg bg-red-300 p-2 min-h-full bg-[url('/src/pages/project/brainfuck.png')] group bg-cover"
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
 				>
-					<div
-						class="px-4 min-h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100 invisible group-hover:visible"
-					>
-						<div class="font-bold text-xl">BrainFuck Interpreter</div>
-						<p class="text-white text-base">
-							Esoteric Language Interpreter written using basic C
-						</p>
-						<div class="py-2">
-							<span
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-								>#C</span
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/experience/digi_books.png"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									Digital Books - Virtual Library
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										A <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>3 tier microservice (Backend + Frontend + DB)</span
+										> hosted on AWS Infrastructure with its own loadbalancer +
+										Discovery client able to autoco-scale according to load.
+									</li>
+									<li class="pb-2 text-justify">
+										Uses Complex <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>Spring Security</span
+										> roles to give access to different types of user to peform
+										specific actions.
+									</li>
+									<li class="pb-2 text-justify">
+										Users can login and read a book or subscribe to an author,
+										authors can publish a book. and admins can manage
+										everything.
+									</li>
+									<li class="pb-2 text-justify">
+										Application is secured by <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>JWT token</span
+										> as well to handle user data security.
+									</li>
+									<li class="text-justify">
+										Frontend created in <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>Angular 15</span
+										> while backend uses Spring Boot with <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>Java 17</span
+										> connecting to <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>AWS RDS (MySQL)</span
+										> as its backend.
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
 							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">Java</span>
+								<span class="badge badge-outline">Gradle</span>
+								<span class="badge badge-outline">MySQL</span>
+								<span class="badge badge-outline">Google Firebase</span>
+								<span class="badge badge-outline">Android Studio</span>
+							</div>
 						</div>
 					</div>
 				</div>
-				<!-- END -->
+			</div>
+			<div id="official_data" class="hidden h-full">
+				List of Project/s I worked on, throughout my teneure in this industry!
+			</div>
+			<div id="unofficial_data" class="hidden h-full">
+				List of Project/s I worked on, In my personal time!!
+			</div>
+			<div id="khamang_data" class="hidden h-full">
+				<div
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
+				>
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/experience/khamangicon.png"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									Khamang - Android application to Save and Share recipes
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										Used <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>MySql + Firebase Integration</span
+										> to store user recipe data and handle user authentication.
+									</li>
+									<li class="pb-2 text-justify">
+										Sharing Functionality - share between any 2 type of
+										users.Recipe information can be shared by any of the users
+										inside the application, or outside the application.
+									</li>
+									<li class="pb-2 text-justify">
+										User Types - A user can register himself as a general user,
+										celebrity page or a chef due to which he gets to use
+										selected functionality
+									</li>
+									<li class="text-justify">
+										Send email + whatsapp notification when your subscribed
+										person adds a recipe.
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">Java</span>
+								<span class="badge badge-outline">Gradle</span>
+								<span class="badge badge-outline">MySQL</span>
+								<span class="badge badge-outline">Google Firebase</span>
+								<span class="badge badge-outline">Android Studio</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="arcadia_data" class="hidden">
+				<div
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
+				>
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/experience/arcadia.png"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									Arcadia - 2D DungeonCrawler
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										Arcania is a video game which is scripted in <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>C#</span
+										> and has elements of Role Playing Game and an Action Game
+										created using <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>Unity3D</span
+										>.
+									</li>
+									<li class="pb-2 text-justify">
+										User has 2 attacks, ranged and melee using which he can
+										defeat the enemies. Range attacks require user to find
+										arrows, hidden in the game world.
+									</li>
+									<li class="pb-2 text-justify">
+										The players objective is to find all the coins &
+										collectibles in the world and defeat as many enemies as they
+										can.
+									</li>
+									<li class="text-justify">
+										This game is inspired by Legend of Zelda and Pokemon
+										LeafGreen
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/akashpawar/"
+									title="Akash Pawar"
+								>
+									<img src="/projects/akash.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/sachinkapate/"
+									title="Sachin Kapate"
+								>
+									<img src="/projects/sachin.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/ratnesh-kumar-1nine9six/"
+									title="Ratnesh Kumar"
+								>
+									<img src="/projects/ratnesh.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">Unity 3D</span>
+								<span class="badge badge-outline">C#</span>
+								<span class="badge badge-outline">Github</span>
+								<span class="badge badge-outline">WebAssembly</span>
+								<span class="badge badge-outline">Heroku</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="suvidha_data" class="hidden">
+				<div
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
+				>
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/projects/suvidha.png"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									Suvidha - Blood Bank Management System
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										Suvidha is a basic ERM program written in <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>C# using .NET framework and MS-SQL with Bootstrap,
+											PopperJS</span
+										> and many other AWESOME libraries in frontend
+									</li>
+									<li class="pb-2 text-justify">
+										ERP showing the amount of each blood available, its expiry
+										date, donor data, etc
+									</li>
+									<li class="pb-2 text-justify">
+										Doctors can directly use this system to request for blood
+										retrival. while users can register themselves as a donor.
+										Management staff can peform <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>CRUD operations</span
+										> on the data. While Admin can generate the reports as well
+										as see the dashboard.
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/tejal-bhoge-9729081b7/"
+									title="Tejal Bhoge"
+								>
+									<img src="/projects/tejal.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/akshay-bhaskare-888519186/"
+									title="Akshay Bhaskare"
+								>
+									<img src="/projects/akshay.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">ASP.NET</span>
+								<span class="badge badge-outline">C#</span>
+								<span class="badge badge-outline">HTML</span>
+								<span class="badge badge-outline">CSS</span>
+								<span class="badge badge-outline">Bootstrap</span>
+								<span class="badge badge-outline">MS-SQL</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="present_data" class="hidden">
+				<div
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
+				>
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/projects/school.jpg"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									PresenT - Attendance Management System
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										Teachers can enter the report of present students and the
+										report can generated whenever you want to for any month
+										selected.
+									</li>
+									<li class="pb-2 text-justify">
+										Created a system which is able to take attendance of
+										Students, process it, and store the report in <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>XLS Format</span
+										>. Main Technology used was <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>JavaEE and Apache POI</span
+										>.
+									</li>
+									<li class="pb-2 text-justify">
+										Main Technology used was <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>JavaEE and Apache POI</span
+										>.
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/pratik-kurwalkar-91646713a/"
+									title="Pratik Kurwalkar"
+								>
+									<img src="/projects/pratik.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+							<span
+								class="mask mask-hexagon bg-base-content h-16 w-16 bg-opacity-10 p-px hover:scale-125"
+							>
+								<a
+									href="https://www.linkedin.com/in/shlok-k-442a96126/"
+									title="Shlok Kambhale"
+								>
+									<img src="/projects/shlok.jpg" class="mask mask-hexagon" />
+								</a>
+							</span>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">JavaEE</span>
+								<span class="badge badge-outline">Apache POI</span>
+								<span class="badge badge-outline">Microsoft Excel</span>
+								<span class="badge badge-outline">HTML</span>
+								<span class="badge badge-outline">CSS</span>
+								<span class="badge badge-outline">JS</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="gladiator_data" class="hidden">
+				<div
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
+				>
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/projects/gladiator.webp"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									Gladiator - Console Based Dungeon Crawler
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										Gladiatoris an angband clone purely built using <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>C</span
+										>
+									</li>
+									<li class="pb-2 text-justify">
+										Inspired by oldschool classics like rogue, but very very
+										limited in scope
+									</li>
+									<li class="text-justify">
+										Easter Egg: Nothing much to see here. but I appreciate you
+										coming this far to read this.
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">C</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="brainfuck_data" class="hidden">
+				<div
+					class="text-white bg-gradient-to-r from-slate-800 bg-slate-600 rounded-2xl p-2 bg-opacity-75"
+				>
+					<div class="flex flex-row w-full h-full">
+						<div class="list-none flex flex-row sm:gap-2 sm:mb-2">
+							<img
+								src="/projects/brainfuck.png"
+								class="w-60 h-full rounded bg-slate-400 px-2 bg-opacity-30 object-scale-down"
+								alt=""
+							/>
+						</div>
+						<div>
+							<p>
+								<div class="p-1 pl-5 pt-2 text-5xl font-bold">
+									BrainFuck - Console Based Dungeon Crawler
+								</div>
+								<ul class="p-2 pl-10 text-md list-disc">
+									<li class="pb-2 text-justify">
+										Esoteric Language Interpreter written using basic <span
+											class="text-emerald-400 hover:underline hover:decoration-wavy underline-offset-4"
+											>C</span
+										>
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+					<div class="w-full h-full grid grid-cols-4 grid-rows-1 grid-flow-row">
+						<div class="col-span-3 inline-flex gap-2 p-2">
+							<div class="h-full min-h-full flex items-center">
+								<span>Contributions :</span>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+							<div
+								class="border-8 border-black rounded-full px-2 mask mask-hexagon h-16 w-16 hover:rotate-180 transition-all ease-in-out duration-500"
+							>
+							</div>
+						</div>
+						<div class="col-span-1 min-w-full w-full gap-3">
+							<div>
+								<div class="h-full min-h-full flex items-center">
+									<span>Technologies Used :</span>
+								</div>
+								<span class="badge badge-outline">C</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </MainLayout>
 <style is:inline>
-	:root {
-		--timing: 400ms;
-		--rotation: 20deg;
+	.items {
+		height: 20vh;
+		overflow: hidden;
+		display: flex;
+		padding: 5px;
+		border-radius: 5px;
 	}
 
-	html {
-		color-scheme: dark;
-	}
-	img {
-		max-width: 100%;
-	}
-
-	#card {
-		width: 200px;
-		aspect-ratio: 9 / 16;
-		position: relative;
-		transform-style: preserve-3d;
-		transition: rotate var(--timing) ease;
-	}
-
-	#card:hover {
-		rotate: x var(--rotation);
-	}
-
-	#card::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		z-index: 100;
-		background-image: radial-gradient(circle, transparent 150px, black);
-		opacity: 0;
-		transition: opacity var(--timing);
-	}
-
-	#card:hover::before {
-		opacity: 1;
-	}
-
-	#card::after {
-		content: "";
-		position: absolute;
-		inset: 80% 0.5rem 0.5rem;
-		translate: 0;
-		transform: translateZ(-100px);
-		background: black;
-		filter: blur(1rem);
-		z-index: 1;
+	.item {
+		box-shadow: inset 0 0 0 1px #333;
+		align-items: center;
 		transition:
-			rotate var(--timing),
-			translate var(--timing);
+			flex 0.5s,
+			filter 0.2s,
+			transform 0.2s;
+		background-size: cover;
+		background-position: center;
+		flex: 1;
 	}
 
-	#card:hover::after {
-		rotate: x calc(var(--rotation) * -1);
-		translate: 0 60px;
+	/* Flex Items */
+	.item:hover {
+		flex-grow: 3 !important;
+		filter: blur(0);
+	}
+	.item.sibling {
+		flex: 2;
 	}
 
-	.bg-image {
-		position: absolute;
-		z-index: 10;
-		height: 100%;
-		object-fit: cover;
-		object-position: -250px center;
+	/* Items from Last Project */
+	.mask-hexagon {
+		-webkit-mask-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTgycHgiIGhlaWdodD0iMjAxcHgiIHZpZXdCb3g9IjAgMCAxODIgMjAxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA2MC4xICg4ODEzMykgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+aGV4YWdvbjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik01NS43ODU3ODg5LDE5MS40MDAyMDkgQzQ2LjU5MDM4NjYsMTkxLjQwMDIwOSAzNS43MjMwOTMsMTg0LjcxMjY0NCAzMC43MDc0MTksMTc3LjE4OTEzMyBMLTUuMjM4MjQ0NTEsMTE1LjMyOTE1NCBDLTEwLjI1MzkxODUsMTA2Ljk2OTY5NyAtMTAuMjUzOTE4NSw5NC40MzA1MTIgLTUuMjM4MjQ0NTEsODYuMDcxMDU1NCBMMzAuNzA3NDE5LDI0LjIxMTA3NjMgQzM1LjcyMzA5MywxNS44NTE2MTk2IDQ2LjU5MDM4NjYsMTAgNTUuNzg1Nzg4OSwxMCBMMTI2Ljg0MTE3LDEwIEMxMzYuMDM2NTczLDEwIDE0Ni45MDM4NjYsMTYuNjg3NTY1MyAxNTEuOTE5NTQsMjQuMjExMDc2MyBMMTg3Ljg2NTIwNCw4Ni4wNzEwNTU0IEMxOTIuMDQ0OTMyLDk0LjQzMDUxMiAxOTIuMDQ0OTMyLDEwNi45Njk2OTcgMTg3Ljg2NTIwNCwxMTUuMzI5MTU0IEwxNTEuOTE5NTQsMTc3LjE4OTEzMyBDMTQ3LjczOTgxMiwxODUuNTQ4NTg5IDEzNi4wMzY1NzMsMTkxLjQwMDIwOSAxMjYuODQxMTcsMTkxLjQwMDIwOSBMNTUuNzg1Nzg4OSwxOTEuNDAwMjA5IFoiIGlkPSJoZXhhZ29uIiBmaWxsPSIjMDAwMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxLjAwMDAwMCwgMTAwLjcwMDEwNCkgcm90YXRlKC0yNzAuMDAwMDAwKSB0cmFuc2xhdGUoLTkxLjAwMDAwMCwgLTEwMC43MDAxMDQpICI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=);
+		mask-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTgycHgiIGhlaWdodD0iMjAxcHgiIHZpZXdCb3g9IjAgMCAxODIgMjAxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA2MC4xICg4ODEzMykgLSBodHRwczovL3NrZXRjaC5jb20gLS0+CiAgICA8dGl0bGU+aGV4YWdvbjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik01NS43ODU3ODg5LDE5MS40MDAyMDkgQzQ2LjU5MDM4NjYsMTkxLjQwMDIwOSAzNS43MjMwOTMsMTg0LjcxMjY0NCAzMC43MDc0MTksMTc3LjE4OTEzMyBMLTUuMjM4MjQ0NTEsMTE1LjMyOTE1NCBDLTEwLjI1MzkxODUsMTA2Ljk2OTY5NyAtMTAuMjUzOTE4NSw5NC40MzA1MTIgLTUuMjM4MjQ0NTEsODYuMDcxMDU1NCBMMzAuNzA3NDE5LDI0LjIxMTA3NjMgQzM1LjcyMzA5MywxNS44NTE2MTk2IDQ2LjU5MDM4NjYsMTAgNTUuNzg1Nzg4OSwxMCBMMTI2Ljg0MTE3LDEwIEMxMzYuMDM2NTczLDEwIDE0Ni45MDM4NjYsMTYuNjg3NTY1MyAxNTEuOTE5NTQsMjQuMjExMDc2MyBMMTg3Ljg2NTIwNCw4Ni4wNzEwNTU0IEMxOTIuMDQ0OTMyLDk0LjQzMDUxMiAxOTIuMDQ0OTMyLDEwNi45Njk2OTcgMTg3Ljg2NTIwNCwxMTUuMzI5MTU0IEwxNTEuOTE5NTQsMTc3LjE4OTEzMyBDMTQ3LjczOTgxMiwxODUuNTQ4NTg5IDEzNi4wMzY1NzMsMTkxLjQwMDIwOSAxMjYuODQxMTcsMTkxLjQwMDIwOSBMNTUuNzg1Nzg4OSwxOTEuNDAwMjA5IFoiIGlkPSJoZXhhZ29uIiBmaWxsPSIjMDAwMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxLjAwMDAwMCwgMTAwLjcwMDEwNCkgcm90YXRlKC0yNzAuMDAwMDAwKSB0cmFuc2xhdGUoLTkxLjAwMDAwMCwgLTEwMC43MDAxMDQpICI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=);
 	}
 
-	.logo,
-	.front-image {
-		position: absolute;
+	.mask {
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition-property:
+			color,
+			background-color,
+			border-color,
+			fill,
+			stroke,
+			opacity,
+			box-shadow,
+			transform,
+			filter,
+			-webkit-text-decoration-color,
+			-webkit-backdrop-filter;
+		transition-property: color, background-color, border-color,
+			text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+			filter, backdrop-filter;
+		transition-property:
+			color,
+			background-color,
+			border-color,
+			text-decoration-color,
+			fill,
+			stroke,
+			opacity,
+			box-shadow,
+			transform,
+			filter,
+			backdrop-filter,
+			-webkit-text-decoration-color,
+			-webkit-backdrop-filter;
+		transition-duration: 0.2s;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		height: 1.25rem;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		width: -moz-fit-content;
+		width: fit-content;
+		padding-left: 0.563rem;
+		padding-right: 0.563rem;
+		border-width: 1px;
+		--tw-border-opacity: 1;
+		border-color: hsl(var(--n) / var(--tw-border-opacity));
+		--tw-bg-opacity: 1;
+		background-color: hsl(var(--n) / var(--tw-bg-opacity));
+		--tw-text-opacity: 1;
+		color: hsl(var(--nc) / var(--tw-text-opacity));
+		border-radius: var(--rounded-badge, 1.9rem);
 	}
 
-	.logo {
-		z-index: 1000;
-		/* filter: invert(1); */
-		width: 65%;
-		margin-inline: auto;
-		inset: auto 0 2rem;
-		bottom: 1vh;
-		transform: translateY(0rem) translateZ(20px);
-		transition: var(--timing);
-	}
-
-	#card:hover .logo {
-		transform: translateY(-2rem) translateZ(20px);
-		rotate: x calc(var(--rotation) * -1);
-	}
-
-	.front-image {
-		bottom: 10vh;
-		scale: 1.25;
-		transform-origin: bottom;
-		opacity: 0;
-		z-index: 100;
-		transition: var(--timing);
-	}
-
-	#card:hover .front-image {
-		opacity: 1;
-		transform: translateY(-2rem) translateZ(-10px);
-		rotate: x calc(var(--rotation) * -1);
+	.badge-outline {
+		border-color: currentColor;
+		--tw-border-opacity: 0.5;
+		background-color: transparent;
+		color: currentColor;
 	}
 </style>
+<script defer is:inline>
+	function updateData() {
+		let item = Array.from(document.getElementsByClassName("item"));
+
+		item.forEach((element) => {
+			element.addEventListener("mouseenter", (e) => {
+				let currentItem = e.target.id;
+				let data = document.getElementById(currentItem + "_data");
+				Array.from(document.getElementById("description").children).forEach(
+					(item) => {
+						item.classList.add("hidden");
+					}
+				);
+				data?.classList?.remove("hidden");
+
+				this.nextElementSibling?.classList.add("sibling");
+				this.previousElementSibling?.classList.add("sibling");
+			});
+		});
+		item.forEach((element) => {
+			element.addEventListener("mouseleave", (e) => {
+				this.nextElementSibling?.classList.remove("sibling");
+				this.previousElementSibling?.classList.remove("sibling");
+			});
+		});
+	}
+
+	updateData();
+	document.addEventListener("astro:after-swap", updateData);
+</script>

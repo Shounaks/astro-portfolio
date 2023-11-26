@@ -3,7 +3,9 @@ import MainLayout from "./MainLayout.astro";
 import { posts } from "../collection";
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
+<head transition:animate="none">
 
+</head>
 <MainLayout>
 	<div class="w-full">
 		<div class="pb-2">
@@ -16,7 +18,6 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 					type="text"
 					class="bg-[#666] min-h-full mt-4 text-white bg-opacity-40 px-2"
 					placeholder="Enter a tag e.g. 'Java'"
-					too="enter a tag and press enter"
 					onkeypress="searchByTags(event)"
 				/>
 			</div>
@@ -33,7 +34,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 					>Tags :</span
 				>
 
-				<a href={`/blog/tags/`}>
+				<a transition:name="tags" href={`/blog/tags/`}>
 					<li
 						class="text-black uppercase bg-gradient-to-r from-orange-300 via-sky-300 to-purple-300 py-1 px-3 rounded-xl border-2 border-transparent hover:border-white"
 					>

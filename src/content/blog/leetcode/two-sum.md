@@ -4,7 +4,7 @@ description: "Lorem ipsum dolor sit amet"
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 5 minutes
-tags: ["Leet Code","Java"]
+tags: ["Leet Code"]
 ---
 
 # <b> LeetCode Problem #1 : Two Sum </b>

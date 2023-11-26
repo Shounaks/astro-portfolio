@@ -1,0 +1,34 @@
+---
+title: "LC#83 : Remove Duplicates from Sorted List"
+description: ""
+pubDate: "25 Oct 2023"
+heroImage: "/blog-placeholder-3.jpg"
+readTime: 25 minutes
+tags: ["Leet Code", "Two Pointers"]
+---
+
+# {frontmatter.title}
+
+#### Using 2 fast-slow pointers.
+
+```java
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head == null || head.next == null) return head;
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast != null && slow != null){
+            if(slow.val != fast.val) {
+                slow.next = fast;
+                slow = fast;
+            }
+            if(slow.val == fast.val && fast.next == null){
+                slow.next = null;
+                return head;
+            }
+            fast = fast.next;
+        }
+        return head;
+    }
+}
+```

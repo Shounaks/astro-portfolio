@@ -4,7 +4,7 @@ description: ""
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 25 minutes
-tags: ["Leet Code", "Java"]
+tags: ["Leet Code"]
 ---
 
 # <b> LC#169 : Majority Element</b>

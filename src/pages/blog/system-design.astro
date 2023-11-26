@@ -41,10 +41,10 @@ import avatar from "../project/avatar.png";
 							System Design
 						</h2>
 						<p
-							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
+							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-purple-300 to-purple-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
 						>
 							Who knows, how the system is designed better than Adaptus Mechanicus?
-							<hr class="border-yellow-500" />
+							<hr class="border-purple-500" />
 						</p>
 					</div>
                     {posts.filter(item => item.data.tags.includes("System Design")).length <= 0 && <span class={"text-white text-center w-full"}>N.A.</span>}
@@ -53,7 +53,7 @@ import avatar from "../project/avatar.png";
                             .filter(item => item.data.tags.includes("System Design"))
 							.map((post) => (
 										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
+											<a href={`/blog/${post.slug}/`} class="hover:text-purple-500">
 												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
 												<span class="">
 													<FormattedDate date={post.data.pubDate} />

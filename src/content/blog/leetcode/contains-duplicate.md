@@ -4,7 +4,7 @@ description: ""
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 15 minutes
-tags: ["Leet Code", "Java", "Set"]
+tags: ["Leet Code", "Set"]
 ---
 
 # Question

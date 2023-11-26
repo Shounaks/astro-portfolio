@@ -4,7 +4,7 @@ description: ""
 pubDate: "24 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 5 minutes
-tags: ["Leet Code Help", "Java","Algorithms"]
+tags: ["Algorithms"]
 ---
 
 # <b> Basic Fibonacci Code</b>
