@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.3.1",
     "@astrojs/mdx": "^1.1.0",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
@@ -22,6 +23,7 @@
     "nanostores": "^0.9.3",
     "solid-js": "^1.7.12",
     "tailwindcss": "^3.3.3",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "typescript": "^5.3.2"
   }
 }
