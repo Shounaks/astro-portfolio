@@ -3,9 +3,7 @@ import MainLayout from "./MainLayout.astro";
 import { posts } from "../collection";
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
-<head transition:animate="none">
 
-</head>
 <MainLayout>
 	<div class="w-full">
 		<div class="pb-2">
