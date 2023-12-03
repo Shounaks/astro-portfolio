@@ -1,20 +1,9 @@
 ---
-import "../../../styles/global.css"
 import TagLayout from "../../../layouts/TagLayout.astro";
-import { getCollection } from "astro:content";
+import { posts } from "../../../collection";
 
-const posts = (await getCollection("blog"))
-    .filter(item => !item.data.draft && !item.data.hidden)
-    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-    .sort((a, b) => a.data.title.localeCompare(b.data.title));
-
-export async function getStaticPaths() {	
-	const tags = (await getCollection("blog"))
-    .filter(item => !item.data.draft && !item.data.hidden)
-    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-    .sort((a, b) => a.data.title.localeCompare(b.data.title))
-	.map((item) => item.data.tags)
-	.flat();
+export async function getStaticPaths() {
+	const tags = posts.map((item) => item.data.tags).flat();
 	return tags.map((tag) => ({ params: { tag: tag } }));
 }
 const { tag } = Astro.params;
@@ -25,7 +14,16 @@ const { tag } = Astro.params;
 	<div class="p-2">
 		<ul class="pl-5 flex flex-col gap-2">
 			{
-				posts.filter(post => tag && post.data.tags.includes(tag)).map(post => (<a href={`/blog/${post.slug}/`} class="hover:underline underline-offset-8 list-disc"><li class="text-white"> {post.data.title}</li></a>))
+				posts
+					.filter((post) => tag && post.data.tags.includes(tag))
+					.map((post) => (
+						<a
+							href={`/blog/${post.slug}/`}
+							class="hover:underline underline-offset-8 list-disc"
+						>
+							<li class="text-white"> {post.data.title}</li>
+						</a>
+					))
 			}
 		</ul>
 	</div>

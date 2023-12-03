@@ -1,15 +1,10 @@
 ---
-import "../../styles/global.css"
-import { getCollection, type CollectionEntry } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
+import { posts } from "../../collection";
 
 export async function getStaticPaths() {
-	return (await getCollection("blog"))
-    .filter(item => !item.data.draft && !item.data.hidden)
-    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-    .sort((a, b) => a.data.title.localeCompare(b.data.title))
-	.map((post) => ({
+	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
 	}));
@@ -20,6 +15,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<MainLayout {...post.data}>
-	<div class="text-white w-full h-full px-6"><Content /></div>
-</MainLayout>
+<BlogPost {...post.data}>
+	<Content />
+</BlogPost>
