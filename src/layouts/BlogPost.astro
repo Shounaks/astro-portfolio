@@ -111,6 +111,7 @@ function slice2(array: any[], chunk: number, offset: number) {
 								>
 									{
 										posts
+											.filter((post) => post.data.tags.includes(tags[0]))
 											.map((post) =>
 												post.data.title === title ? (
 													<li class="text-black list-[upper-roman]" style="">
@@ -140,7 +141,7 @@ function slice2(array: any[], chunk: number, offset: number) {
 								<div class="flex gap-3 pl-5 flex-wrap">
 									{
 										tags != null && tags.length !== 0 ? (
-											tags.map((tag) => (
+											tags.map((tag: string) => (
 												<a
 													href={`/blog/tags/${tag}`}
 													class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400"

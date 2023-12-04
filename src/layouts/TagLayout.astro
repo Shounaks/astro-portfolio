@@ -96,13 +96,13 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 						tags
 							.sort()
 							.filter(
-								(tag) =>
+								(tag:string) =>
 									[
 										"Algorithms",
 										"System Design",
 										"Leet Code",
 										"Java",
-										"Cloud",
+										"cloud",
 									].indexOf(tag) === -1
 							)
 							.map((tag) => (
