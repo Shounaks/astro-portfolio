@@ -1,5 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
+import angra from '/public/angraoutline.png';
+import java from '/public/java.svg';
+import kotlin from '/public/kotlin.svg';
 ---
 
 <MainLayout>
@@ -60,11 +64,11 @@ import MainLayout from "../layouts/MainLayout.astro";
 				</p>
 				<div class="flex flex-row gap-10 pl-1">
 					<div class="flex flex-row gap-2 h-[32px] align-center items-center">
-						<img src="java.svg" class="h-[32px]" />
+						<Image src={java} class="h-[32px]" alt="JAVA"></Image>
 						<p class="text-white uppercase text-sm tracking-widest">JAVA 14</p>
 					</div>
 					<div class="flex flex-row gap-2 h-[32px] align-center items-center">
-						<img src="kotlin.svg" class="h-[32px]" />
+						<Image src={kotlin} class="h-[32px]" alt="JAVA"></Image>						
 						<p class="text-white uppercase text-sm tracking-widest">Kotlin</p>
 					</div>
 				</div>
@@ -232,11 +236,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 		>
 			<div class="">
 				<div class="row-span-3 flex justify-center">
-					<img
-						src="angraoutline.png"
-						alt=""
-						class=" bg-[#ddd] object-contain"
-					/>
+					<Image src={angra} alt="" class="bg-[#ddd] object-contain"></Image>
 				</div>
 			</div>
 			<div class="relative bottom-24" id="ability-tooltips">
