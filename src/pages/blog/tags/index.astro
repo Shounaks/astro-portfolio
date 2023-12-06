@@ -4,16 +4,18 @@ import { posts } from "../../../collection";
 ---
 
 <TagLayout>
-	<div class="text-white p-4">
-		{
-			posts.map((post) => (
-				<a
-					href={`/blog/${post.slug}/`}
-					class="hover:underline underline-offset-8"
-				>
-					<li class="text-white">{post.data.title}</li>
-				</a>
-			))
-		}
+	<div class="p-2">
+		<ul class="pl-5 flex flex-col gap-2 list-disc">
+			{
+				posts.map((post) => (
+					<a
+						href={`/blog/${post.slug}/`}
+						class="hover:underline underline-offset-8 w-fit"
+					>
+						<li class="text-white">{post.data.title}</li>
+					</a>
+				))
+			}
+		</ul>
 	</div>
 </TagLayout>

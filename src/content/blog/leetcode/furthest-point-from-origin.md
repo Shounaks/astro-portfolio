@@ -4,7 +4,7 @@ description: ""
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 25 minutes
-tags: ["Leet Code", "HashMap","Array"]
+tags: ["Leet Code", "HashMap","Arrays"]
 ---
 
 # <b> LeetCode Problem #2833 : Furthest Point From Origin</b>

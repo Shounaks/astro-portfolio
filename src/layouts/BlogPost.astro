@@ -63,21 +63,40 @@ function slice2(array: any[], chunk: number, offset: number) {
 				<div class="md:grid md:grid-cols-10">
 					<div class="col-span-7">
 						<div class="prose">
-							<a href="/blog/" class="text-gray-800">
-								<div
-									class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
-									tabindex="0"
-								>
-									<img
-										src="/icons/arrow-back-outline.svg"
-										alt="⬅️"
-										class="w-[30px] h-[30px]"
-									/>
-									<span class="align-middle text-center group-hover:text-black"
-										>Blog Catalog</span
+							<div class="flex justify-around">
+								<a href="/blog/" class="text-gray-800">
+									<div
+										class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
+										tabindex="0"
 									>
-								</div>
-							</a>
+										<img
+											src="/icons/arrow-back-outline.svg"
+											alt="⬅️"
+											class="w-[30px] h-[30px]"
+										/>
+										<span
+											class="align-middle text-center group-hover:text-black"
+											>Back to Portfolio</span
+										>
+									</div>
+								</a>
+								<a href="/blog/tags/" class="text-gray-800">
+									<div
+										class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
+										tabindex="0"
+									>
+										<img
+											src="/icons/menu.svg"
+											alt="⬅️"
+											class="w-[30px] h-[30px]"
+										/>
+										<span
+											class="align-middle text-center group-hover:text-black"
+											>Tag Catalog</span
+										>
+									</div>
+								</a>
+							</div>
 							<div class="title">
 								<div class="text-gray-500">
 									<FormattedDate date={pubDate} />

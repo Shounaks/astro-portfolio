@@ -2,9 +2,9 @@
 title: "AWS Certified Cloud Practitioner Introduction"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Jul 08 2022"
-heroImage: "/blog-placeholder-3.jpg"
+heroImage: "/skills/aws/amazon-web-services.svg"
 readTime: 5 minutes
-tags: ["cloud", "AWS", "AWS CCP"]
+tags: ["cloud", "AWS"]
 ---
 
 # Welcome aboard!

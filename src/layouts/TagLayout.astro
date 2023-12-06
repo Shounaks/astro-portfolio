@@ -5,22 +5,26 @@ import { Image } from "astro:assets";
 import search from "/search-icon.svg";
 
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+const { tagName, tagColor } = Astro.props;
 ---
 
 <MainLayout>
-	<div class="w-full">
+	<div class="w-full pr-2">
 		<div class="pb-2">
 			<div class="flex flex-row gap-4">
 				<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
-					Search By Tags :
+					Search By Tags : <span class="capitalize"
+						>{tagName != null && tagName}</span
+					>
 				</h2>
 			</div>
 			<p
 				class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-teal-300 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
-			>
+			>tagColor
 				Makes life much easier
 			</p>
-			<hr class="border-amber-500 pb-2" />
+			<hr class="w-full bg-gradient-to-r from-orange-300 via-sky-300 to-purple-300 p-0.5 bg-no-repeat border-transparent">
+			
 		</div>
 		<section class="pb-5">
 			<ul class="flex flex-row flex-wrap gap-3">
@@ -54,35 +58,35 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 						# All
 					</li>
 				</a>
-				<a transition:name="tags" href={`/blog/tags/Java`}>
+				<a href={`/blog/tags/Java`}>
 					<li
 						class="text-black uppercase bg-gradient-to-r from-orange-300 via-orange-500 to-amber-700 py-1 px-3 rounded-xl bg-no-repeat border-2 border-transparent hover:border-white"
 					>
 						# Java / Kotlin
 					</li>
 				</a>
-				<a transition:name="tags" href={`/blog/tags/System%20Design`}>
+				<a href={`/blog/tags/System%20Design`}>
 					<li
 						class="text-black uppercase bg-gradient-to-r from-purple-300 via-purple-500 to-purple-700 py-1 px-3 rounded-xl bg-no-repeat border-2 border-transparent hover:border-white"
 					>
 						# System Design
 					</li>
 				</a>
-				<a transition:name="tags" href={`/blog/tags/Leet%20Code`}>
+				<a href={`/blog/tags/Leet%20Code`}>
 					<li
 						class="text-black uppercase bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 py-1 px-3 rounded-xl bg-no-repeat border-2 border-transparent hover:border-white"
 					>
 						# Leet Code
 					</li>
 				</a>
-				<a transition:name="tags" href={`/blog/tags/Algorithms`}>
+				<a href={`/blog/tags/Algorithms`}>
 					<li
 						class="text-black uppercase bg-gradient-to-r from-slate-400 via-slate-500 to-slate-700 py-1 px-3 rounded-xl bg-no-repeat border-2 border-transparent hover:border-white"
 					>
 						# Algorithms
 					</li>
 				</a>
-				<a transition:name="tags" href={`/blog/tags/cloud`}>
+				<a href={`/blog/tags/cloud`}>
 					<li
 						class="text-black uppercase bg-gradient-to-tr from-sky-300 via-blue-400 to-blue-800 py-1 px-3 rounded-xl bg-no-repeat border-2 border-transparent hover:border-white"
 					>
@@ -96,7 +100,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 						tags
 							.sort()
 							.filter(
-								(tag:string) =>
+								(tag: string) =>
 									[
 										"Algorithms",
 										"System Design",
@@ -125,8 +129,10 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 				}
 			</ul>
 		</section>
-		<hr class="w-full border-2 border-dashed border-amber-500" />
-		<slot />
+		<hr class=` w-full border-2 border-dashed ${tagColor || "border-slate-300"}` />
+		<div transition:animate="slide" class="p-4">
+			<slot />
+		</div>
 	</div>
 </MainLayout>
 <script is:inline>
@@ -135,7 +141,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 		if (event.key === "Enter" || event.button === 0) {
 			let str = document.getElementById("searchString").value;
 			str = str.trim();
-			if(str === "") return; 
+			if (str === "") return;
 			let currentlocation = window.location.href.endsWith("tags/")
 				? window.location.href
 				: window.location.origin + "/blog/tags/";

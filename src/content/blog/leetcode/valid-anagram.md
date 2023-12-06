@@ -4,7 +4,7 @@ description: ""
 pubDate: "25 Oct 2023"
 heroImage: "/blog-placeholder-3.jpg"
 readTime: 25 minutes
-tags: ["Leet Code", "array", "HashMap"]
+tags: ["Leet Code", "Arrays", "HashMap"]
 ---
 
 # <b> LeetCode Problem #242 : Valid Anagram</b>
