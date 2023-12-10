@@ -25,12 +25,12 @@ import archer from "../project/archer2.png";
 					class="col-span-1 min-h-full h-full max-h-full"
 				>
 					<a href="/blog/">
-                <Image
-						src={archer}
-						alt=""
-						class="front-image group-focus:hidden bg-[url('../archerbg.jpg')] min-h-full h-screen bg-no-repeat max-h-full object-contain"
-					/>
-                </a>
+						<Image
+							src={archer}
+							alt=""
+							class="front-image group-focus:hidden bg-[url('../archerbg.jpg')] min-h-full h-screen bg-repeat-y max-h-full object-contain"
+						/>
+					</a>
 				</div>
 				<div class="col-span-5 text-white" transition:animate="slide">
 					<div class="col-span-4 pb-2">
@@ -42,29 +42,40 @@ import archer from "../project/archer2.png";
 						<p
 							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-yellow-300 to-yellow-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
 						>
-							Who knows, how the system is designed better than Adaptus Mechanicus?
+							Who knows, how the system is designed better than Adaptus
+							Mechanicus?
 							<hr class="border-yellow-500" />
 						</p>
 					</div>
-                    {posts.filter(item => item.data.tags.includes("Leet Code")).length <= 0 && <span class={"text-white text-center w-full"}>N.A.</span>}
-                    {
-						posts
-                            .filter(item => item.data.tags.includes("Leet Code"))
-							.map((post) => (
-										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-amber-400">
-												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
-												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
-												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
-												</span>
-												
-											</a>
-										</li>
-									)).slice(0,30)
-								}
+					<ul class="pl-5 py-5 flex flex-col flex-wrap h-[100em] gap-2">
+						{
+							posts.filter((item) => item.data.tags.includes("Leet Code"))
+								.length <= 0 && (
+								<span class={"text-white text-center w-full"}>N.A.</span>
+							)
+						}
+						{
+							posts
+								.filter((item) => item.data.tags.includes("Leet Code"))
+								.map((post) => (
+									<li class="group">
+										<a
+											href={`/blog/${post.slug}/`}
+											class="min-w-max inline-flex pb-4 mx-5 [&:not(:last-child)]:border-b-2 border-slate-700"
+										>
+											<img src=`${post.data.heroImage}` class="h-8 w-8 rounded-none" alt="">
+											<span class="text-white pl-4 text-center">
+												<span class="group-hover:text-amber-400 ">
+													<FormattedDate date={post.data.pubDate} /> |
+												</span>{" "}
+												{post.data.title}
+											</span>
+										</a>
+									</li>
+								))
+								.slice(0, 30)
+						}
+					</ul>
 				</div>
 			</div>
 		</div>

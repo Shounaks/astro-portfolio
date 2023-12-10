@@ -40,7 +40,7 @@ import NavigationLink from "./NavigationLink.astro";
 		</div>
 		<NavigationLink
 			id="extra-padding"
-			text=""
+			text="Other"
 			href=""
 			color="#333"
 			iconName="apps-outline"
@@ -61,8 +61,11 @@ import NavigationLink from "./NavigationLink.astro";
 <!-- Script to toggle Navbar -->
 <script>
 	function updateNav() {
+		//Navbar works on location link so we need to extract current location, and check if it contains specific paths that we want to show.
+		let location = window.location.pathname.trim();
+		let location_link = location.split("/").map(l => l!=="" ? "/" + l +"/" : "/")[1];
 		const active_item = document.querySelector(
-			".Menulist li a[href='" + window.location.pathname + "']"
+			".Menulist li a[href='" + location_link + "']"
 		)?.parentElement;
 		if (active_item == null)
 			document.querySelector("#extra-padding")?.classList.add("active");

@@ -25,7 +25,7 @@ switch (tag) {
 <TagLayout tagName={tag} {tagColor}>
 	<!-- <p class="text-white p-2">Posts tagged with {tag}</p> -->
 	<div class="p-2">
-		<ul class="pl-5 flex flex-col gap-2 list-disc">
+		<ul class="pl-5 flex flex-col flex-wrap h-[50em] gap-2">
 			{
 				!["AWS"].includes(tag) ?
 					posts
@@ -33,13 +33,14 @@ switch (tag) {
 						.map((post) => (
 							<a
 								href={`/blog/${post.slug}/`}
-								class="hover:underline underline-offset-8 w-fit"
+								class="hover:underline decoration-slate-400 underline-offset-8 min-w-max inline-flex pb-4 mx-5 border-b-2 border-slate-700"
 							>
-								<li class="text-white"> {post.data.title}</li>
+								<img src=`${post.data.heroImage}` class="h-8 w-8 rounded-none" alt="">
+								<li class="text-white pl-4"> {post.data.title}</li>
 							</a>
 						))
 					: (
-						<div class="inline-flex gap-10">
+						<div class="grid auto-cols-auto gap-10 flex-wrap justify-between" style="grid-template-columns: repeat(auto-fill,8em)">
 							{
 								posts
 						.filter((post) => tag && post.data.tags.includes(tag))
@@ -52,7 +53,7 @@ switch (tag) {
 									? (
 										<>
 											<img src=`${post.data.heroImage}` class="max-w-16 min-w-16 max-h-16 min-h-16 h-16 w-16 mx-auto bg-white" alt="">
-											<div class="text-white max-w-32 min-w-32 max-h-32 min-h-32 h-32  w-32 text-clip pt-2 text-sm text-center">{post.data.title}</div>
+											<div class="text-white max-w-32 min-w-full max-h-32 min-h-32 h-32  w-full text-clip pt-2 text-sm text-center">{post.data.title}</div>
 										</>
 									) : (
 										<div class="text-white max-w-32 min-w-32 max-h-32 min-h-32 h-32  w-32 text-clip rounded-md p-2 text-sm">{post.data.title}</div>

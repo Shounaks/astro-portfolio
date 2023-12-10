@@ -42,7 +42,8 @@ import { fade } from "astro:transitions";
 
 		/* ---- particles.js config ---- */
 		function initializeParticles() {
-			return particlesJS("particles-js", {
+			try {
+				return particlesJS("particles-js", {
 				particles: {
 					number: {
 						value: 50,
@@ -152,6 +153,9 @@ import { fade } from "astro:transitions";
 				},
 				retina_detect: true,
 			});
+			} catch (error) {
+				console.info("ParticleJS Cannot be initialized for this view...")
+			}
 		}
 		document.addEventListener("astro:after-swap", initializeParticles);
 		initializeParticles();
