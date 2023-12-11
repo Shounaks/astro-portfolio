@@ -10,6 +10,6 @@ tags: ["cloud", "AWS"]
 # Welcome aboard!
 
 <br/>
-Placeholder for EC2 data
+Placeholder for EC2 data stuff
 <!-- ![amazon](/public/skills/aws/amazon-web-services.svg) -->
 <img src="/skills/aws/amazon-web-services.svg" class="w-full">
