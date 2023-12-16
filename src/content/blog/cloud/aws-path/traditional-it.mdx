@@ -1,31 +1,70 @@
 ---
-title: "AWS Certified Cloud Practitioner Introduction"
+title: "Lecture # 0 : Traditional IT Services"
 description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 08 2022"
+pubDate: "Dec 16, 2023"
 heroImage: "/skills/aws/amazon-web-services.svg"
 readTime: 5 minutes
-tags: ["cloud", "AWS"]
+tags: ["cloud", "AWS", "PATH:AWS"]
 ---
 
-# Welcome aboard!
+import Question from "../../../../components/Question.astro";
 
+Before we delve deep into Cloud Computing, we need to discuss what niche it fulfills.
+
+Traditional computing, also known as on-premises computing, means you have physical servers and hardware at your workplace. You buy and maintain this equipment, and you need IT experts to set it up and keep it running.
+
+<div>
+	<Question link="what-does-the-server-composes-of" question="What Does the Server Composes of?" />
+	<div class="list-disc pl-6">
+		<li>Compute: CPU</li>
+		<li>Memory: RAM</li>
+		<li>Storage: HDD / SSD</li>
+		<li>Database: Store data in a structured manner</li>
+		<li>Network: Router, Switches, DNS Server</li>
+	</div>
+</div>
 <br />
-<div class="">
-	<img src="/skills/aws/amazon-web-services.svg" class="w-32 float-left m-5" />
-	<span>
-		Are you ready to embark on an exciting journey into the world of AWS
-		Certified Cloud Practitioner (CCP)? Whether you're an aspiring cloud
-		enthusiast or a seasoned professional looking to expand your knowledge, this
-		blog is your ticket to unraveling the intricacies of AWS CCP certification.
-		Get ready to delve into the fundamentals of cloud computing, explore the AWS
-		services landscape, and equip yourself with the essential insights needed to
-		conquer the certification exam. Join us as we navigate through this
-		enriching learning expedition, empowering you to harness the power of the
-		cloud with confidence and expertise.
-	</span>
+<div>
+	<Question
+		link="problems-with-traditional-it"
+		question="What are the problems encountered by traditional IT?"
+	/>
+	<div class="list-disc pl-6">
+		<li>We pay for the rent of "Data Centers".</li>
+		<li>We pay for Power Supply,Cooling & Maintainence.</li>
+		<li>Adding and Replacing of Hardware takes time.</li>
+		<li>Scaling is limited to the amount of servers we have at the location.</li>
+		<li>Hire 24x7 team to monitor infrastructure.</li>
+		<li>How to deal with disasters? (earthquake,power shutdown, fire,etc.)</li>
+	</div>
 </div>
 
-# Following is the list of Services in this path:
+<br />
+We take all the risk, hence there was a requirement to externalize all of this. Cloud
+Service Providers, or CSP in short fill the gap between infrastructure and software
+requirement:
+<div class="pl-6">
+	<li>They provide access to servers.</li>
+	<li>They hire and manage staff to monitor the same.</li>
+	<li>They pay for all the real estate, power supply and all other CAPEX*.</li>
+	<li>We are only responsible for configuration of the cloud.</li>
+</div>
 
-2. <a href="/blog/cloud/aws-elastic-cloud-compute/">Cloud compute</a>
-3. <a href="/blog/cloud/aws-relational-database-service/">Relational Database</a>
+<br />
+<hr />
+<span>Further Reading:</span>
+<ul class="list-disc text-blue-600 pl-5">
+	<li>
+		[Official AWS Documentation - Traditional Web
+		Hosting](https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/an-overview-of-traditional-web-hosting.html)
+	</li>
+</ul>
+<span>References:</span>
+<span>Note:</span>
+
+<div class="pl-6">
+	CAPEX == Capital Expenditure
+	
+	CapEx is the spending of money on physical infrastructure upfront and then deducting that expense from your tax bill over time. CapEx is an upfront cost, which has a value that reduces over time and usually has no recurring cost.
+
+</div>

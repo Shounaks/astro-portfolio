@@ -1,16 +1,12 @@
 ---
-let {link} = Astro.props;
+let { link,question } = Astro.props;
 const href = `#${link}`;
 ---
 
 <a id=`${link}` {href}>
 	<div class="w-full min-w-full text-purple-700 group">
-		<span
-			class="group-hover:text-4xl text-2xl transition-all duration-500 ease-in-out pr-2"
-			>#</span
-		>
-		<slot>
-			<span class="text-black">DEFAULT QUESTION</span>
-		</slot>
+		<span class="italic text-2xl font-thin transition-all duration-500 ease-in-out pr-1">
+			Q. {question}
+		</span>
 	</div>
 </a>
