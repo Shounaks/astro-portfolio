@@ -1,8 +1,9 @@
 ---
-let {href} = Astro.props;
+let {link} = Astro.props;
+const href = `#${link}`;
 ---
 
-<a href={"#"+href}>
+<a id=`${link}` {href}>
 	<div class="w-full min-w-full text-purple-700 group">
 		<span
 			class="group-hover:text-4xl text-2xl transition-all duration-500 ease-in-out pr-2"
