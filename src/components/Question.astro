@@ -1,0 +1,15 @@
+---
+let {href} = Astro.props;
+---
+
+<a href={"#"+href}>
+	<div class="w-full min-w-full text-purple-700 group">
+		<span
+			class="group-hover:text-4xl text-2xl transition-all duration-500 ease-in-out pr-2"
+			>#</span
+		>
+		<slot>
+			<span class="text-black">DEFAULT QUESTION</span>
+		</slot>
+	</div>
+</a>
