@@ -1,0 +1,54 @@
+---
+title: "Lecture # 3 : Amazon and its services"
+description: ""
+pubDate: "Dec 16, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 3
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="amazon" title="What is Amazon?"/>
+<ul class="list-disc pl-6">
+    <li>Founded in 1994 by Jeff Bezos</li>
+    <li>Headquarters in Seattle, Washington DC, USA</li>
+    <li>Provides multiple services:</li>
+    <ul class="list-disc pl-6">
+        <li>Amazon.com</li>
+        <li>Prime Videos</li>
+        <li>Prime Music</li>
+        <li>Twitch.tv</li>
+        <li>Amazon Grocery Store</li>
+        <li>Amazon AI</li>
+        <li>Low Orbit Sattelites</li>
+    </ul>
+</ul>
+
+<br/>
+<Section link="aws" title="What is a Cloud Service Provider?"/>
+A cloud service provider (CSP) is a company which:
+<ul class="list-disc pl-6">
+    <li>Provides Multiple Cloud Services for example Compute, Storage,Database,Networking capablities, and much much more!</li>
+    <li>These cloud services can be chained together to create a cloud architecture!</li>
+    !["service chain"](/content/cloud/aws/service-chain.svg)
+    <li>All of these services are accessible via a Unified API.</li>
+    <li>These cloud services utilize metered billing based on usage. (miliseconds, seconds, hrs, etc)</li>
+    <li>They have righ monitored billing (AWS Cloudtrail)</li>
+    <li>They generally have a base Infrastructure As A Service (IAAS) offering on which the whole infrastructure is built upon.</li>
+    <li>They offer Automation via Infrastructure as Code (IaC)</li>
+</ul>
+
+<br/>
+<Section link="aws" title="What is AWS?"/>
+<ul class="list-disc pl-6">
+    <li>Launched in 2006</li>
+    <li>Simple Queue Service (SQS) was the first AWS Service to be launched for public use in 2006</li>
+    <li>Simple Storage Service (S3) was launched in March-2006</li>
+    <li>Elastic Compute Cloud (EC2) was launched in August-2006</li>
+    <li>In November-2010, it was reported that all of amazon.com was migrated to inhouse AWS</li>
+</ul>
+
+If a company offers multiple cloud services under a single UI, but does not meet all the above requirements, it would
+be referred to as a cloud platform (and not a CSP) Eg. Twilio, HashiCorp, Databricks.

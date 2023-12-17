@@ -1,0 +1,129 @@
+---
+title: "Lecture # 8 : AWS Global Infrastructure"
+description: ""
+pubDate: "Dec 17, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 8
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="intro-to-aws-infrastructure" title="Introduction" />
+The AWS global infrastructure consists of Globally distributed hardware & datacenters
+that are physically networked together to act as one large resource for the end user.
+AWS Global Infrastructure is made up of the following resources:
+<ul class="list-disc pl-6">
+	<li>32 Launch Regions</li>
+	<li>102 Availablity Zones</li>
+	<li>115 direct connections</li>
+	<li>500 points of presence</li>
+	<li>35+ Local Zones</li>
+	<li>29 Wavelength Zones</li>
+	<li>10+ regional Cache</li>
+	<li>Presence in 90+ cities & 40+ Countries</li>
+</ul>
+<br />
+<Section link="region" title="Region" />
+Regions are the biggest unit of region in AWS catelogue at this point. Regions are
+geographically distinct location consisting of one or more Availablity Zones.
+
+Each AWS Region is designed to be isolated (in case of disaster) from other AWS regions. This design achieves the greatest possible fault tolerance and stability.
+When you view your resources, you see only the resources that are tied to the AWS Region that you specified. This is because AWS Regions are isolated from each other, and we don't automatically replicate resources across AWS Regions.
+
+Example: ap-south-1
+
+| Region               | Name       | Endpoint                     | Protocol |
+| -------------------- | ---------- | ---------------------------- | -------- |
+| Asia Pacific(Mumbai) | ap-south-1 | rds.ap-south-1.api.aws       | HTTPS    |
+| Asia Pacific(Mumbai) | ap-south-1 | rds.ap-south-1.amazonaws.com | HTTPS    |
+
+<br />
+If you do not explicitly specify an endpoint, the US West (Oregon) endpoint is the
+default.
+
+VERY IMPORTANT NOTE: Every region has multiple Availablity Zones <mark>[Usually 3, minimum 3, maximum 6.]</mark>
+
+Note:
+
+<ul class="list-disc pl-6">
+	<li>Not all AWS Services are available in all the regions.</li>
+	<li>New Services almost exclusively become available in US-EAST</li>
+</ul>
+
+<br />
+<Section link="az" title="Availablity Zones" />
+An Availablity Zone (AZ) is a physical location made up of one or more
+datacenter. (A datacenter is a secure building that contains hundreds /
+thousands of computers).
+
+Datacenters within a region will be isolated from each other [Different Buildings], but they will be close enough to provide low latency [&lt; 10ms ping]
+
+Its common practice to run workloads in atleast 3AZs to ensure services remain available in case one or two datacenters fail (high availablity).
+
+AZs are represented by a Regional Code followed by a letter identifier:
+
+| Region               | Name       | Availablity Zone |
+| -------------------- | ---------- | ---------------- |
+| Asia Pacific(Mumbai) | ap-south-1 | ap-south-1a      |
+| Asia Pacific(Mumbai) | ap-south-1 | ap-south-1b      |
+| Asia Pacific(Mumbai) | ap-south-1 | ap-south-1c      |
+
+<br />
+!["Region with AZs"](/content/cloud/aws/region-with-azs.png)
+
+Subnet:
+A subnet is associated with an AZ. We never choose the AZ when launching the resource (as seen in image), rather we select the Subnet which is associated with the AZ.
+
+"All AZs in a region, are interconnected with high bandwidth low-latency networking, over fully redundant, dedicated metro fiber, providing high throughput networking between each of the AZ."
+a very complex sentence saying, AZ are connected, in a fault-tolorant manner providing high speed.
+
+Finally All AZs are within 100 Km (60 Miles) of each other and data travelling through the AZ network is encrypted.
+
+<Section link="az" title="Points of Presence" />
+For AWS, Points of Presence (POP) is an intermediate Datacenter between an AWS Region
+and the end users which is owned by AWS or Trusted Partner that is utilized by AWS
+Services related for Content Delivery / Expediate Upload. There are 2 types of POP
+in AWS Infrastructure:
+<ul class="list-disc pl-6">
+	<li>Edge Location</li>
+	<li>Regional Edge Caches</li>
+</ul>
+
+<br />
+<Section link="edge-location" title="Edge Location" />
+Edge Locations are datacenters that hold cache on the most popular files, so
+that delivery of distance to the end-user is reduced. (basically transfer
+website/images/large files to the user in a quick manner.)
+
+<br />
+<Section link="regional-edge-cache" title="Regional Edge Cache" />
+Regional Edge Cache are datactenter that hold much larger cache (as compared to
+edge-locations), of less popular files to reduce full round trip and also reduce
+the cost of transfer fees.
+
+!["Edge Location"](/content/cloud/aws/edge-location.svg)
+
+<br />
+<Section link="local-zones" title="Local Zones" />
+Local Zones are datacenters located very closely to a densely populated area to
+provide single digit milisecond latency peformance (eg 7ms) for that specific
+area.
+
+In these local zones, only specific AWS Services have been made available. For example, in LA, California following services are present:
+
+<ul class="list-disc pl-6">
+	<li>Amazon EC2 Instance Types (T3,C5,R5,R5D,I3en,G4)</li>
+	<li>Amazon EBS (io1,gp2)</li>
+	<li>Amazon FSx</li>
+	<li>Amazon Application Load Balancer (ALB)</li>
+	<li>Amazon VPC</li>
+</ul>
+
+The purpose of localzones is to protect/support highly-demanding application, which are sensitive to latencies.
+
+<br/>
+<Section link="wavelength-zones" title="Wavelength Zones" />
+AWS wavelength zones, allow for edge-computing on 5G-networks. Applications will have ultra low latency being as close as possible ot users.
+AWS has partnered with various telecom agencies to utilize their telecom network. Eg. Verizon, Vodaphone, KDDI, SK telecom,etc.

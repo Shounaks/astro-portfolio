@@ -1,0 +1,46 @@
+---
+title: "Lecture # 6 : Types of Cloud Computing Services"
+description: ""
+pubDate: "Dec 17, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 6
+---
+import Section from "../../../../components/Section.astro";
+
+<Section link="service-model-compairison" title="Compairison between Service Models" /><br/>
+
+| Items          | On Premise Hardware | Infrastructure as a Service | Platform as a Service | Software as a Service |
+| :------------- | :-----------------: | :-------------------------: | :-------------------: | :-------------------: |
+| Application    |         ❌          |             ❌              |          ❌           |          ✅           |
+| Data           |         ❌          |             ❌              |          ❌           |          ✅           |
+| Runtime        |         ❌          |             ❌              |          ✅           |          ✅           |
+| Middleware     |         ❌          |             ❌              |          ✅           |          ✅           |
+| OS             |         ❌          |             ❌              |          ✅           |          ✅           |
+| Virtualization |         ❌          |             ✅              |          ✅           |          ✅           |
+| Servers        |         ❌          |             ✅              |          ✅           |          ✅           |
+| Storage        |         ❌          |             ✅              |          ✅           |          ✅           |
+| Network        |         ❌          |             ✅              |          ✅           |          ✅           |
+<hr/>
+❌ handled by you, ✅ handled by CSP
+<br/>
+<Section link="iaas" title="Infrastructure As a Service" />
+<ul class="list-disc pl-6">
+    <li>Provides Building blocks for Cloud IT</li>
+    <li>Provides Networking, Computing and Data Storage Space</li>
+    <li>Gives us highest level of flexiblity</li>
+    <li>Easy to parallel with traditional on-premise IT</li>
+    <li>Example: Amazon EC2, GCP, Azure, Rackspace, Digital Ocean, Linode </li>
+</ul><br/>
+<Section link="paas" title="Platform As a Service" />
+<ul class="list-disc pl-6">
+    <li>Remove the need for our organisation to manage the underlaying IT infrastructure.</li>
+    <li>Focus on Deployment and Management of Applications.</li>
+    <li>Example: Amazon Elastic Beanstalk, Heroku, Google App Engine, Windows Azure</li>
+</ul><br/>
+<Section link="saas" title="Software As a Service" />
+<ul class="list-disc pl-6">
+    <li>Complete Service/Product, that is run and managed by the service provider.</li>
+    <li>Example: Gmail, Dropbox, Zoom</li>
+</ul>

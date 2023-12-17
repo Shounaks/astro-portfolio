@@ -131,6 +131,7 @@ function slice2(array: any[], chunk: number, offset: number) {
 									{
 										posts
 											.filter((post) => post.data.tags.includes(tags[0]))
+											.sort((x,y)=> (x.data.order && y.data.order)? x.data.order - y.data.order : x.data.title.localeCompare(y.data.title))
 											.map((post) =>
 												post.data.title === title ? (
 													<li class="text-black list-[upper-roman]" style="">

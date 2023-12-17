@@ -5,7 +5,7 @@ import { posts } from "../../../collection";
 
 <TagLayout>
 	<div class="p-2">
-		<ul class="pl-5 flex flex-col flex-wrap h-[50em] gap-2">
+		<ul class="pl-5 grid gap-2 justify-between" style="grid-template-columns: repeat(auto-fit,minmax(500px,1fr));grid-template-rows: repeat(auto-fit,1fr);">
 			{
 				posts.map((post) => (
 					<a
@@ -13,7 +13,7 @@ import { posts } from "../../../collection";
 						class="hover:underline decoration-slate-400 underline-offset-8 min-w-max inline-flex pb-4 mx-5 [&:not(:last-child)]:border-b-2 border-slate-700"
 					>
 						<img src=`${post.data.heroImage}` class="h-8 w-8 rounded-none" alt="">
-						<li class="text-white pl-4">{post.data.title}</li>
+						<li class="text-white pl-4">{(post.data.title.length > 40)? post.data.title.substring(0,40) +"...": post.data.title}</li>
 					</a>
 				))
 			}

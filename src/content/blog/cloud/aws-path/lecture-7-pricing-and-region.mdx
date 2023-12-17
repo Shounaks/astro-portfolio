@@ -1,0 +1,32 @@
+---
+title: "Lecture # 7 : Pricing & Region Selection"
+description: ""
+pubDate: "Dec 17, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 7
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="aws-pricing" title="Pricing in AWS Cloud" />
+AWS has 3 pricingfundamentals, based on the pay-as-you-go pricing model.
+<ul class="list-disc pl-6">
+	<li>Compute : Pay for Compute Time</li>
+	<li>Storage : Pay for the amount of data Stored in cloud</li>
+	<li>
+		Data transfered out of the cloud. (NOTE: Data transferred inside is FREE)
+	</li>
+</ul>
+<br />
+<Section link="aws-region" title="How to  Select an AWS Region?" />
+There are some questions we need to ask ourselves before selecting a region we want
+our application to run in.
+
+| Topic                 | Question                                          | Remarks                                                 |
+| --------------------- | ------------------------------------------------- | ------------------------------------------------------- |
+| Compliance            | What regulatory compliance does this region meet? | Data Governance/Legal Requirements                      |
+| Proximity to Customer | What is the distance/latency to my end-user?      |                                                         |
+| Available Services    | Is the service, available in the region?          | New AWS Services might not be available in some regions |
+| Pricing               | What is the cost of AWS Service in this region?   | It varies from region to region & is transparent        |

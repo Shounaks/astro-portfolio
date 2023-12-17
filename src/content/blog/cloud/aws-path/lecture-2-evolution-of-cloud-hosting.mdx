@@ -1,0 +1,35 @@
+---
+title: "Lecture # 2 : Evolution of Cloud Hosting"
+description: "Introduction to Information Technology Practices used before Cloud Computing"
+pubDate: "Dec 16, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 2
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="dedicated-server" title="Stage #1: Dedicated Server"/>
+Dedicated Servers are very Expensive to buy and require Capital Expenditure (CapEx) to purchase and setup.
+They require high maintainence since electricity bill, real estate is handelled by the company itself.
+The whole server runs a single web application.
+!["image of dedicated server"](/content/cloud/aws/dedicated_server.svg)
+
+<Section link="virtual-private-server" title="Stage #2: Virtual Private Servers"/>
+In this type of servers the single server is still used to a single business entity  but the physical machine is 
+virtualized into sub-machines allowing us to run multiple web-applications or websites parallely on a singular hardware.
+It has much better utilization of resources as compared to ["Dedicated Servers"](#dedicated-server) but also provides <mark> isolation
+of resources</mark> as well.
+
+!["image of Virtual Private Servers"](/content/cloud/aws/vps.svg)
+
+<Section link="shared-hosting" title="Stage #3: Shared Hosting"/>
+A single machine, in this paradigm can be used by hundreds of businesses and relies on most tenants under-utilization of their alloted
+resources. It is very cheap as compared to the first two stages but has <mark> limited functionality and has poor isolation. </mark>
+
+<Section link="cloud-hosting" title="Stage #4: Cloud Hosting"/>
+A <mark>multi-machine</mark> paradigm, that acts as one system. The system is abstracted into multiple cloud services.
+It is <mark> Flexible, Secure, Cost-Effective and Highly Configurable </mark>
+
+!["image of Virtual Private Servers"](/content/cloud/aws/cloud_hosting.svg)

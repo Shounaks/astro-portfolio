@@ -13,7 +13,8 @@ const blog = defineCollection({
 		readTime: z.string().optional(),
 		tags: z.array(z.string()),
 		draft: z.boolean().default(false).optional(),
-		hidden: z.boolean().default(false).optional()
+		hidden: z.boolean().default(false).optional(),
+		order: z.number().default(0).optional()
 	}),
 });
 

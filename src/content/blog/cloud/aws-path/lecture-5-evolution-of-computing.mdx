@@ -1,0 +1,51 @@
+---
+title: "Lecture # 5 : Evolution of Computing"
+description: ""
+pubDate: "Dec 16, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 5
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="dedicated-hosts" title="1️⃣ Dedicated Hosts"/>
+A physical server wholely utilized by a single customer. 
+You have to guess your capacity and need to overpay for underutilize servers.
+You cant vertically scale and need manual migration.
+Replacing a server is very difficult.
+Multiple apps can result in conflicts in resource sharing.
+
+BUT!!
+You have a gurantee of security privacy & full utility of underlaying resources.
+!["Dedicated Host Image"](/content/cloud/aws/dedicated_host.svg)
+
+<Section link="virtual-machines" title="2️⃣Virtual Machines"/>
+We can run multiple VM on one machine. Hypervisor is the software that handles/manages the VM Guest Operating Systems.
+Physical Server Shared by multiple customer.
+You need to pay a fraction of Capital Expenditure as compared to [🔗Dedicated Hosts](#dedicated-hosts).
+You still will overpay for underutilized VM.
+
+NOTE #1 : Multiple Applications on Same VM will cause conflicts in resource sharing. But It is much easier to export/import images for migration
+
+NOTE #2 : Easier to vertically and horizontally scale.
+
+!["Dedicated Host Image"](/content/cloud/aws/virtual_machine.svg)
+
+<Section link="docker-container" title="3️⃣ Docker Containers"/>
+VM running multiple containers.
+Docker Daemon is the name of the software layer that lets you run multiple containers
+You can maximize the utility of available capacity, which is more cost-effective, than multiple VMs.
+Multiple apps can run side-by-side without being limited to some OS requirement & will not cause conflicts during resource sharing.
+
+!["Dedicated Host Image"](/content/cloud/aws/docker_vm.svg)
+
+<Section link="serverless-functions" title="4️⃣ Serverless Functions"/>
+They are managed VM running managed containers. 
+You upload a piece of code.
+You are responsible to select the amount of memory, duration and the type of runtype.
+Only responsible for Code + Data.
+Very Cost Effective, only pay for the time the code is running.
+NOTE: <mark>Cold Start</mark> is a side-efffect of serverless.
+!["Dedicated Host Image"](/content/cloud/aws/serverless_functions.svg)
