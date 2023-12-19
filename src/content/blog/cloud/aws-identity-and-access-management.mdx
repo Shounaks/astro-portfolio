@@ -1,0 +1,129 @@
+---
+title: "AWS Identity and Access Management Service"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Identity-and-Access-Management_32.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="identity-access-management"
+	title="Identity And Access Management"
+/>
+<ul class="list-disc pl-6">
+	<li>It is a Global Service</li>
+	<li>Root Account is created by default, this shouldnt be used or shared since with great power comes great responsiblity!</li>
+	<li>Users are people within your organisation. [each user should have only one account]</li>
+	<li>Users can be grouped into a "User Group" <mark> A group cannot contain other groups</mark>.</li>
+	<li>User/Group can be assigned JSON documents called policies.</li>
+	<li>Policies define the permission of user/s or groups</li>
+	<li>
+		Note: In cloud we use "Principle of Least Privilage" which says, don't give
+		more permission than a user requires.
+	</li>
+</ul>
+<br />
+!["IAM Group"](/content/cloud/aws/iam_group.svg)
+
+Here is a good sample policy:
+
+```json
+{
+    "Id" : "S3-Account-permission",         //Id is optional
+    "Version" : "2023-05-17",               //Policy Language Version
+    "Statement": [                          // A statement field is mandatory and consists of one or more individual statements
+        {
+            "Effect" : "Allow",
+            "Action" : "ec2:Describe",
+            "Resource": "*"
+        },
+        {
+            "sid"       : "1",              //Sid is Statement ID and is optional
+            "Effect"    : "Allow",          //Effect can be: Allow/Deny
+            "Action"    : "elasticloadbalancing:Describe",
+            "Resource"  : "*"
+        },
+        {
+            "Effect" : "Allow",
+            "Action" : [                    //Action can also be an array
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricsStatistics",
+                "cloudwatch:Describe*"
+            ]
+            "Resource": "*"
+        },
+        {
+            "sid" : "2",
+            "Effect" : "Allow",
+            "Principal" : {
+                "AWS" : ["arn:aws:iam::123456789012:root"]
+            },
+            "Action" : [
+                "s3:getObject",
+                "s3:putObject"
+            ],
+            "Resource": ["arn:aws:s3::mybucket/*"]
+        }
+    ]
+}
+```
+
+Please do not be intimidated by the above monstrosity, you will get used to it once you understad what everything does.
+Here is an explaination of all the items in the Policy:
+
+| Item      | Explaination                                             |
+| --------- | -------------------------------------------------------- |
+| sid       | Identifier for Statement                                 |
+| Effect    | Wheather the statement allows/denies access (Allow/Deny) |
+| Principal | Account/User/Role to which policy is being applied to    |
+| Action    | List of action, this policy allows or denies             |
+| Resource  | List of Resource to which action is applied to           |
+| Condition | Condition for when the policy is in effect               |
+
+<br />
+<Section link="iam-mfa" title="IAM - Multifactor Authentication (MFA)" />
+User has access to your account & can possibly configure or delete resources in
+your AWS account. You want to protect your root account & IAM users. MFA =
+Password you know + Security Device you own.
+
+MFA supports the following MFAs:
+
+<ul class="list-disc pl-6">
+	<li>Google Authenticator (Phone)</li>
+	<li>Authy (any device)</li>
+	<li>YubiKey (3rd party physical key)</li>
+	<li>Hardware KeyFab Device</li>
+	<li>Hardware KeyFab Device for AWS GovCloud - United States (SurePassId)</li>
+</ul>
+
+<br />
+<Section link="aws-resource-access" title="How can a user access AWS" />
+To Access AWS, you have 3 options:
+<ul class="list-disc pl-6">
+	<li>AWS management console (protected by password + MFA)</li>
+	<li>AWS CLI - protected by access keys.</li>
+	<li>AWS SDK - for code, protected by access keys.</li>
+</ul>
+
+ACCESS_KEYS are generated using AWS Console and User manage their own access keys.
+
+Word of Warning : DO NOT SHARE ACCESS KEYS PLZ.!!
+
+<Section link="roles-in-iam" title="Roles in IAM" />
+<ul class="list-disc pl-6">
+	<li>Some AWS service need to peform action on your (User's) behalf.</li>
+	<li>To do so, we will assign permission to AWS services with IAM roles.</li>
+	<li>Note: Roles are assigned to services & not to users.</li>
+    <li><ul class="list-disc pl-6">
+            <li>Common Roles:</li>
+            <li>EC2 Instance Role</li>
+            <li>Lambda Function Role</li>
+            <li>Roles for CloudFormation</li>
+        </ul>
+    </li>
+</ul>
+<br/>
+!["EC2 with Policy"](/content/cloud/aws/ec2_with_policy.svg)
