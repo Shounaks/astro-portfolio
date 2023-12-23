@@ -1,14 +1,15 @@
 ---
-let { link, title } = Astro.props;
+let { link, title,imageUrl } = Astro.props;
 const href = `#${link}`;
 ---
 
 <a id=`${link}` {href}>
-	<div class="w-full min-w-full text-purple-700 group">
-		<span
-			class="italic text-2xl font-thin transition-all duration-500 ease-in-out"
+	<div class="w-full min-w-full text-purple-700 group flex align-middle items-center">
+		{imageUrl != null? <img class="mr-2" src={imageUrl}></img>: ""}
+		<div
+			class="italic text-2xl font-thin transition-all duration-500 ease-in-out align-middle h-full"
 		>
 			{title}
-		</span>
+		</div>
 	</div>
 </a>

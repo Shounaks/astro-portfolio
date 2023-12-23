@@ -1,0 +1,39 @@
+---
+title: "Lecture # 10 : Going Beyond Shared Responsiblity Model (Compute Services)"
+description: ""
+pubDate: "Dec 23, 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 15 minutes
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 10
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section
+	link="srm-compute"
+	title="Shared Respon siblity Model for Compute Services"
+/>
+
+Let us look at compute services as an example of how the SRM is applied to different services.
+
+| Service                   | Type            | Customer                                   | AWS                                       |
+| ------------------------- | --------------- | ------------------------------------------ | ----------------------------------------- |
+| AWS Bare Metal Instance   | Bare Metal      | - Host OS config,                          | Management of Physical Machine            |
+|                           |                 | - Hypervisor                               |                                           |
+| ---------------------     | --------------  | ---------------------------                | -------------------------                 |
+| EC2 Instance              | Virtual Machine | - Guest OS Configuration                   | Security                                  |
+|                           |                 | - Selection of Container Runtime           | Management of Physical Machine            |
+|                           |                 |                                            | Management of Hypervisor software         |
+| ---------------------     | --------------  | ---------------------------                | -------------------------                 |
+| Elastic Container Service | Container       | - Upload your code                         | Server, OS, Networking, Storage, Security |
+| (ECS)                     |                 | - Selection of Container Runtime           |                                           |
+|                           |                 | - Enviornment Configuration                |                                           |
+|                           |                 | - Deployment Strategies                    |                                           |
+|                           |                 | - Configuration of Associated Service/s    |                                           |
+| ---------------------     | --------------  | ---------------------------                | -------------------------                 |
+| AWS Content Collaboration | SaaS            | - Contents of Documents                    | Server, OS, Networking, Storage, Security |
+|                           |                 | - Management of Files                      |                                           |
+|                           |                 | - Configuration of Sharing Access Controls |                                           |
+
+!["aws"](/content/cloud/aws/srm.svg)

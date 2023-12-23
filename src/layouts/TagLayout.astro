@@ -93,7 +93,7 @@ const { tagName, tagColor } = Astro.props;
 						# Cloud
 					</li>
 				</a>
-				<div class="border-r-2 border-white"></div>
+				<div class="border-r-2 border-white lg:block hidden"></div>
 				{
 					tags == null || tags.length !== 0 ? (
 						//excludedItems.indexof() should return -1;
@@ -112,7 +112,7 @@ const { tagName, tagColor } = Astro.props;
 							.map((tag) => (
 								<a
 									href={`/blog/tags/${tag}`}
-									class="py-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 bg-gradient-to-r from-gray-600 to-gray-800 bg-no-repeat"
+									class="py-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 bg-gradient-to-r from-gray-600 to-gray-800 bg-no-repeat lg:block hidden"
 								>
 									<li>
 										<span class="border-r-2 border-black text-black"># </span>

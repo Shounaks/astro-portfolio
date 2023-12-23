@@ -1,0 +1,33 @@
+---
+title: "OWASP Top 10"
+description: ""
+pubDate: "22 Dec 2023"
+heroImage: "/blog-placeholder-3.jpg"
+readTime: 25 minutes
+tags: ["CyberSecurity"]
+---
+The Open Web Application Security Project
+
+it is a list of code flaws that are most actively being targetted by attackers. 
+
+# Access Control:
+Application typically require some form of rights management. This is built to reveal functionality or data only to users who have been approved to peform those actions, on that perticular resource.
+this is called access control and is often a source of vulnerablity for application.
+
+## Missing Function Level Access control.
+it happens when user is able to access functionality on your web app that they shouldnt.
+
+## Solution:
+- apply framework wide control filter,
+- write robust unit testing
+- Do not use presentation layer to hide privileged functionality such as admin/debug links.
+- Ensure enforcement mechanisms deny all access by default & require explicit grants to permitted users/roles.
+- Always apply principle of least privilegs.
+- Make access controls auditable and have a "deny all" policy
+- Evaluate your software framework's default function level access control mechanisms.
+
+# Cryptographic Failures
+Cryptography is a collection of mathematical disciplines and techiniques used to protect the secrecy and integrity of sensitive data.
+Cryptographic failures of ten lead to sensitive data exposure.
+It is also a widespread issue of topics including data encryption, password storage, key management mechanisms.
+

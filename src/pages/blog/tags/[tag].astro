@@ -30,6 +30,7 @@ switch (tag) {
 				!["AWS"].includes(tag) ?
 					posts
 						.filter((post) => tag && post.data.tags.includes(tag))
+						.sort((x,y)=> (x.data.order && y.data.order)? x.data.order - y.data.order : x.data.title.localeCompare(y.data.title))
 						.map((post) => (
 							<a
 								href={`/blog/${post.slug}/`}

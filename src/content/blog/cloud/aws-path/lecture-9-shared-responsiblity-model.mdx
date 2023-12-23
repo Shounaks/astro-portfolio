@@ -11,14 +11,38 @@ order: 9
 import Section from "../../../../components/Section.astro";
 
 <Section link="shared-responsiblity-model" title="Shared Responsiblity Model" />
+It is a cloud security framework that defines the security obligation of the customer
+as compared to the Cloud Service Provider. Note that Shared Responsiblity Model may
+vary across different CSPs as well as the service offerings of an individual CSP.
+
+Customers are responsible for <mark>Security IN the cloud</mark> while AWS is responsible for <mark>Security OF the cloud</mark>.
+
+<Section link="srm-customer" title="Responsiblities of a Customer" />
+Customers are responsible for <mark>Security IN the cloud</mark>, and
+configuration of all the required services.
+
+| Task                                                           | Item                                                                          |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+|                                                                |                                                                               |
+| Configuration of managed services and other 3rd party software | Platform/Application/IAM config                                               |
+| ---                                                            | ---                                                                           |
+| Configuration of Virtual Infrastructure and networking system  | O.S./Network/Firewall                                                         |
+| ---                                                            | ---                                                                           |
+| Security config of Data                                        | Client-Side Data, Server-Side Data, Network Traffic Protection, Customer Data |
+
+<Section link="srm-aws" title="Responsiblities of AWS" />
+AWS is responsible for <mark>Security OF the cloud</mark>, and making sure that
+services and hardware are physically secure and highly-available.
+
+| Task     | Item                                            |
+| -------- | ----------------------------------------------- |
+|          |                                                 |
+| Software | Compute, Storage, DB, Network                   |
+| ---      | ---                                             |
+| Hardware | Region, AZ, Edge Location and Physical Security |
+
+<br/>
 Author note: Open this image in new tab if it is not visible
 
-Nothing much to learn here, just know what items you are responsible for and what items AWS is responsible for.
-
-Customer Data is your responsiblity.
-same is platform, IA, Application config
-OS, NEtwork, Firewall Setup is on your head.
-Security of ClientSide Data + Security of Server Side Data + Security of data in transit is also something you need to take care of.
-<hr/>
-all other items are taken care of by AWS.
+<br />
 !["Edge Location"](/content/cloud/aws/shared_responsiblity_model.svg)
