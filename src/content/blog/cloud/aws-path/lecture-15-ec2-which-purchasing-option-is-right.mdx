@@ -1,0 +1,35 @@
+---
+title: "Lecture # 15 : Selecting a EC2 Instance depending on our need"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 15
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="introduction" title="Which Purchacing Option is right for me?" />
+<br />
+
+| Instance Type        | -   | Great Analogy usign Hotels                                                                                            |
+| -------------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
+| OnDemand             | -   | Coming and Staying in a resort, whenever we like,we pay the full price .                                              |
+| Reserved             | -   | (like planning ahead) and if we plan to stay for a long time, we may get a discount .                                 |
+| Saving Plan          | -   | Pay certain amount per hour for certain period & stay in romm of any type .                                           |
+| Spot Instance        | -   | Hotel allows people to bid for the empty rooms and the highest bidders keep the room. You can get kicked at any time. |
+| Dedicated Host       | -   | We book an entire building of the resort .                                                                            |
+| Capacity Reservation | -   | You book a room for a period with full price even if you dont stay in it.                                             |
+
+<br />
+<Section link="introduction" title="Shared Responsiblity Model for EC2" />
+
+| !["aws"](/content/cloud/aws/icons/amazon-web-services.svg) |     | !["aws"](/content/cloud/aws/icons/Res_Authenticated-User_48_Light.svg) |
+| :--------------------------------------------------------: | --- | :--------------------------------------------------------------------: |
+|                            AWS                             |     |                                  User                                  |
+|          Infrastructure (global Network Security)          | ↔️  |                          Security Group Rules                          |
+|                Isolation on Physical Hosts                 | ↔️  |                          OS Patches & Updates                          |
+|                 Replacing faulty Hardware                  | ↔️  |             Software & Utilities installed on EC2 instance             |
+|                   Compliance Validation                    | ↔️  |         IAM roles assigned to EC2 & IAM user access management         |
+|                                                            | ↔️  |                     Data Security of your instance                     |

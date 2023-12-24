@@ -1,0 +1,102 @@
+---
+title: "Lecture # 14 : AWS Elastic Cloud Compute - Instance Purchase Options"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 14
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="iam-security-tools" title="Introduction" />
+<mark>[On-Demand Instances](#ec2-on-demand-instance)</mark>
+- short workload, predictable pricing, pay by seconds used. <br />
+<br/>
+
+<mark>[Reserved Instances (1 year & 3 years)](#ec2-reserved-instance)</mark>
+- they can be divided into "Reserved Instances" which are used for long workloads
+for around 1year or 3years; But not for something like 2 yars or 1.5 years. only
+for 1 & 3 and the second is "Convertible Reserved Instances" which can be scaled
+up or down as per the changing requirements i.e. the instances should be of same
+type (ec2) but the size can be changed. (t2.micro to t2.2xlarge) <br />
+<br/>
+
+<mark>[Savings Plan (1 & 3 years only; nothing between)](#ec2-savings-plan)</mark>
+- Commitment to an amount of usage on a long workload.
+
+<br/>
+<mark>[Spot Instances](#ec2-spot-instance)</mark>
+- Short Workload, cheap but can loose instances amidst working hence less reliable.
+
+<br/>
+<mark>EC2 Bare Metal - ???</mark>
+
+<br /><br />
+<Section link="ec2-on-demand-instance" title="EC2 On-Demand Instances" />
+
+- Pay for what you use.
+- Linux or Windows : billing per second, after the first minute.
+- All other O.S. (eg. MacOS): billing per hour.
+- Has highest cost but no upfront payment.
+- No longterm Commitment.
+- Recommended for <mark> short-term </mark> un-interrupted workloads.
+
+<br />
+<Section link="ec2-reserved-instance" title="EC2 Reserved Instances" />
+- ($$$) Upto 72% Discount compared to OnDemand Instances. 
+- You reserve a specific instance attribute (Instance Type, Region, Tenancy, OS) 
+- Your reservation period is 1($$$)
+to 3($$$$$) years.
+
+| Payment Options:         |
+| ------------------------ |
+| No Upfront Cost(+)       |
+| Partial Upfront Cost ($) |
+| All Upfront ($$$)        |
+
+<br />
+- Reserved Instance scope: Regional or Zonal (Reserved Capacity in AZ) 
+- Recommended for Steady state usage: Think Databases
+
+<br />
+<Section link="ec2-savings-plan" title="EC2 Savings Plan" />
+
+- Get a Discount based on long-term usage (upto 72%, which issame as reserved instances.)
+- Commit to a certain type of usage (800Rs/hr for 1 to 3 years.)
+- Locked to a specific instance families & AWS region (eg. M5 in us-east-1)
+- Flexible across:
+  1. Instance Size (m5.xlarge, m5.2xlarge)
+  2. Operating System (Linux, Windows)
+  3. Tenancy (Host, Dedicated, Default)
+
+<br />
+<Section link="ec2-spot-instance" title="EC2 Spot Instance" />
+
+- Can get a discount of upto 90% (HIGHEST in EC2) as compared to on-demand.
+- Instance that you can "lose" at any point of time if your max price is less than the current spot instance.
+- The most cost-efficient instance in AWS.
+- Useful for workload that are resilient to failure:
+  1. Batch Jobs.
+  2. Data Analytics.
+  3. Image Processing.
+  4. Any Distributed workloads.
+  5. Workloads with flexible start & end time.
+- Not suitable for critical jobs/database.
+
+<br/>
+<Section link="ec2-dedicated-instance" title="EC2 Dedicated Instance" />
+- We have instance run on hardware that dedicated to you.
+- May share hardware with other instances, in the same account.
+- No control over instance placement (can move hardware after stop/start)
+
+<br/>
+<Section link="ec2-capacity-reservation" title="EC2 Capacity Reservation" />
+
+- Reserve on-demand instances capacity in a specific AZ for any duration.
+- You always have access to EC2 capacity when you need it.
+- You always have access to EC2 capacity when you need it.
+- No time commitment (Create/Cancel Anytime), no billing discount.
+- Combine with regional reserve instance & saving plans to benifit from billing discount.
+- You're charged at on-demand rate wheather you run instance or not.

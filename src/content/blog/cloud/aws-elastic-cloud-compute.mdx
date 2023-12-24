@@ -7,8 +7,193 @@ readTime: "5 minutes"
 tags: ["cloud", "AWS"]
 ---
 
-# Welcome aboard!
+import Section from "../../../components/Section.astro";
 
+<Section
+	link="ec2-intro"
+	title="Introduction to Elastic Cloud Compute"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+<ul class="list-disc pl-6">
+	<li>EC2 is one of the most popular AWS Service Offerings</li>
+	<li>
+		EC2 == Elastic Cloud Compute, it is a{" "}
+		<mark>Infrastructure as as Service</mark>
+	</li>
+	<li>
+		It mainly consists in the capablity of: Renting Virtual Machine (EC2),
+		Storing Data on Virtual Drive (EBS), Distributing Load across machines
+		(ELB), and Scaling the services using Auto Scaling Group(ASG){" "}
+	</li>
+</ul>
+
+Knowing EC2 is fundamental to understand how the cloud works!!
+
+<Section
+	link="ec2-intro"
+	title="EC2 Configuration Options"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+
+| Configuration Item                  |                                              Options |
+| :---------------------------------- | ---------------------------------------------------: |
+| Operating System                    |                                Linux, Windows, MacOS |
+| How much compute power (cores)      |                                     1,2,4,8,16 cores |
+| How much random-access memory (RAM) |                                       4GB, 8GB, 16GB |
+| Which type of storage               |                                                      |
+|                                     |                     Persistent Network Storage (EBS) |
+|                                     |    Persistent Network Storage with File System (EFS) |
+|                                     | Non-Persistent Hardware Storage (EC2 Instance Store) |
+| Network Card                        |    Speed of Card, Public IP Address (AWS Elastic IP) |
+| Security Group                      |                                   EC2 Security Group |
+| Bootstrap/Startup Script            |                                        EC2 User Data |
+
+<br />
+<Section
+	link="ec2-user-data"
+	title="EC2 User Data"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+It is possible to bootstrap our instances using an EC2 User Data Script, or
+simply known as Startup Script. Bootstrap means launching commands when the
+machine starts up. Note: EC2 user data is used to automate boot tasks such as:
+<ul class="list-disc pl-6">
+	<li>Install Updates</li>
+	<li>Install Softwares</li>
+	<li>Download common files from the internet</li>
+	<li>other things...</li>
+</ul>
+
+Note: EC2 UserData script with root user privilages.
+
+<br />
+<Section
+	link="ec2-instance-type"
+	title="EC2 - Instance Type"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+Specialized EC2 instance can be used for different requirements. It follows the
+following naming convensions.
+
+!["Sample Instance Type"](/content/cloud/aws/m52xlarge.svg)
+
+Following is the list of popular instance type:
+
+<ul class="list-disc pl-6">
+	<li>General Purpse</li>
+	<li>Compute Optimized</li>
+	<li>Memory Optmized</li>
+	<li>Acclerated Computing</li>
+	<li>Storage Optimized</li>
+	<li>Instance Feature</li>
+	<li>Measuring Instance</li>
+</ul>
+
+<br />
+<Section
+	link="ec2-instance-type-general-purpose"
+	title="General Purpose"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+Great for diversity of workload such as web servers or code repositories. It is
+a balance between: Compute, Memory, Network.
+<b>E.g. "t2.micro"</b>.
+
+<br />
+<br />
+<Section
+	link="ec2-instance-type-compute-optimized"
+	title="Compute Optimized"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+It is great for compute-intensive tasks that require high peformance processors.
+Some common tasks done using compute instance are as follows:
+<ul class="list-disc pl-6">
+	<li>Batch Processing Workload</li>
+	<li>Media Transcoding</li>
+	<li>High Peformance Web Servers</li>
+	<li>High Peformance Computing (HPC)</li>
+	<li>Scientific Modeling & Machine Learning</li>
+	<li>Dedicated Gaming Servers</li>
+</ul>
+
+<br />
+<br />
+<Section
+	link="ec2-instance-type-memory-optimized"
+	title="Memory Optimized"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+Fast peformance for workload that process large datasets in memory.
+<ul class="list-disc pl-6">
+	<li>High Peformance for relational/non-relational DB</li>
+	<li>Distributed Web Scale Cache Store</li>
+	<li>In-memory database optimized for BI (business intelligence)</li>
+	<li>Application peformance real-time processing of big unstructured data.</li>
+</ul>
+
+<br />
+<br />
+<Section
+	link="ec2-instance-type-storage-optimized"
+	title="Storage Optimized"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+Great for storage intensive tasks, that require high, sequential read & write access
+to large datasets on local storage.
+<ul class="list-disc pl-6">
+	<li>High Frequency Online Transaction Processing (OLTP) Systems</li>
+	<li>Relational & No-SQL DB</li>
+	<li>Cache for In-Memory Databases like "Redis"</li>
+	<li>Data Warehousing</li>
+	<li>Distributed file system</li>
+</ul>
+
+<br />
+<br />
+
+<Section
+	link="ec2-security-groups"
+	title="Introduction to Security Groups"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+They are fundamental of network and security in AWS. They control how traffic is
+allowed into or out of our EC2 Instance (only!).
+
+!["Sample Instance Type"](/content/cloud/aws/security-group.svg)
+
+<ul class="list-disc pl-6">
+	<li>
+		Security group contains <mark>ONLY ALLOW</mark> rules
+	</li>
+	<li>Security group can reference IP or other Security Groups</li>
+	<li>Security groups act as a simple firewall on EC2 instances. </li>
+
+</ul>
 <br/>
-Placeholder for EC2 data stuff
-<img src="/skills/aws/amazon-web-services.svg" class="w-full"/>
+
+| They Regulate the following items:                           |
+| :----------------------------------------------------------- |
+| 1. Access to Port                                            |
+| 2. Authorised IP ranges - IPv4 & IPv6                        |
+| 3. Control of inbound network (from other to the instances)  |
+| 4. Control of outbound network (from the instance to others) |
+
+<br />
+<br />
+<Section
+	link="ec2-security-groups-notes"
+	title="Security Groups - Notes"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2_32.svg"
+/>
+
+| Notes:                                                                                                            |
+| :---------------------------------------------------------------------------------------------------------------- |
+| 1. SG can be attached to multiple instances                                                                       |
+| 2. SGs are locked down to a region/VPC combination                                                                |
+| 3. Does "live outside" the EC2 - if traffic is blocked by an SG, then EC2 will not see/log it                     |
+| 4. It's good to maintain one seperate security group for SSH access.                                              |
+| 5. If your application is not accessible (timeout), then its might be a security group issue                      |
+| 6. If your application gives a "connection refused" error, then its an Application issue or it hasn't started up. |
+| 7. All INBOUND traffic is BLOCKED by default                                                                      |
+| 8. All OUTBOUND traffic is AUTHORISED by default                                                                  |
