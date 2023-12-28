@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry } from "astro:content";
 import { posts } from "../collection";
-import BaseHead from "../components/BaseHead.astro";
+import BlogPostHead from "../components/BlogPostHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -22,40 +22,10 @@ function slice2(array: any[], chunk: number, offset: number) {
 }
 ---
 
+<head>
+	<BlogPostHead title={title} description={description} />
+</head>
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-
 	<body>
 		<Header />
 		<main>
@@ -64,10 +34,13 @@ function slice2(array: any[], chunk: number, offset: number) {
 					<div class="col-span-7">
 						<div class="prose">
 							<div class="flex justify-around">
-								<a href="" class="text-gray-800" onclick="window.history.go(-1)">
+								<a
+									href=""
+									class="text-gray-800"
+									onclick="window.history.go(-1)"
+								>
 									<div
 										class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
-										tabindex="0"
 									>
 										<img
 											src="/icons/arrow-back-outline.svg"
@@ -83,7 +56,6 @@ function slice2(array: any[], chunk: number, offset: number) {
 								<a href="/blog/" class="text-gray-800">
 									<div
 										class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
-										tabindex="0"
 									>
 										<img
 											src="/icons/user.svg"
@@ -99,7 +71,6 @@ function slice2(array: any[], chunk: number, offset: number) {
 								<a href="/blog/tags/" class="text-gray-800">
 									<div
 										class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
-										tabindex="0"
 									>
 										<img
 											src="/icons/menu.svg"
@@ -147,7 +118,11 @@ function slice2(array: any[], chunk: number, offset: number) {
 									{
 										posts
 											.filter((post) => post.data.tags.includes(tags[0]))
-											.sort((x,y)=> (x.data.order && y.data.order)? x.data.order - y.data.order : x.data.title.localeCompare(y.data.title))
+											.sort((x, y) =>
+												x.data.order && y.data.order
+													? x.data.order - y.data.order
+													: x.data.title.localeCompare(y.data.title)
+											)
 											.map((post) =>
 												post.data.title === title ? (
 													<li class="text-black list-[upper-roman]" style="">

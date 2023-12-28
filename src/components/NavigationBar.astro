@@ -58,26 +58,58 @@ import NavigationLink from "./NavigationLink.astro";
 	nomodule
 	src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<!-- Script to toggle Navbar -->
+<!-- Script to store thestate of navbar -->
+<script is:inline>
+	let navName = "s-nav";
+	let menuToggle = document.querySelector(".menuToggle");
+	let sidebar = document.querySelector(".sidebar");
+	let isOpen = localStorage.getItem(navName);
+
+	function changeNavbarState() {
+		console.log("Clicked Navbar toggle...");
+		let state = menuToggle.classList.toggle("active");
+		sidebar.classList.toggle("active");
+		localStorage.setItem(navName, state.toString());
+	}
+
+	function persistNavbarState() {
+		if (isOpen === null) {
+			localStorage.setItem(navName, "false");
+		} else {
+			if (isOpen === "true") {
+				menuToggle.classList.add("active");
+				sidebar.classList.add("active");
+			} else if (isOpen === "false") {
+				menuToggle.classList.remove("active");
+				sidebar.classList.remove("active");
+			}
+		}
+	}
+	document.addEventListener("astro:page-load", persistNavbarState, {
+		once: true,
+	});
+	persistNavbarState();
+	document.addEventListener(
+		"astro:page-load",
+		() => menuToggle.addEventListener("click", changeNavbarState),
+		{ once: true }
+	);
+</script>
+
+<!-- Script to toggle Navbars Active Component -->
 <script>
 	function updateNav() {
 		//Navbar works on location link so we need to extract current location, and check if it contains specific paths that we want to show.
 		let location = window.location.pathname.trim();
-		let location_link = location.split("/").map(l => l!=="" ? "/" + l +"/" : "/")[1];
+		let location_link = location
+			.split("/")
+			.map((l) => (l !== "" ? "/" + l + "/" : "/"))[1];
 		const active_item = document.querySelector(
 			".Menulist li a[href='" + location_link + "']"
 		)?.parentElement;
 		if (active_item == null)
 			document.querySelector("#extra-padding")?.classList.add("active");
 		else active_item?.classList.add("active");
-		let menuToggle = document.querySelector(".menuToggle") as HTMLElement;
-		let sidebar = document.querySelector(".sidebar") as HTMLElement;
-		if (menuToggle) {
-			menuToggle.onclick = function () {
-				menuToggle.classList.toggle("active");
-				sidebar.classList.toggle("active");
-			};
-		}
 	}
 	document.addEventListener("astro:after-swap", updateNav);
 	updateNav();

@@ -1,0 +1,75 @@
+---
+title: "AWS Elastic Block Storage"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Elastic-Block-Store_32.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="ebs-intro"
+	title="What is an Elastic Block Storage Volume?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Elastic-Block-Store_32.svg"
+/>
+
+- An EBS volume is a network volume/drive that you can attach to your EC2 instances while they run.
+- It allows your instance to persist data, even after termination of the EC2 instance.
+- They can only mounted to one instance at a time.
+- They are bound to specific AZs.
+
+<br />
+NOTE: Think of them as Network USB Sticks
+
+FREE TIER: 30GB of free EBS storage of General Purpose SSD or Magnetic Drive per month.
+
+
+1. It is a Network Drive (i.e. Not a Physical Drive):
+    - It uses network to communicate with EC2 instance, which means there might be a bit of latency. 
+    - It can also be detached from EC2 instance and can be attached to another quickly.
+
+2. Its locked to An Availablity Zone:
+    - An EBS in a "us-east1a" cannot be attached to "us-east-1b". 
+    - To move a volume across an AZ you need to take snapshot of it.
+
+3. Have a provisioned capacity(size in GB & IOPS)
+    - You get billed for all the provisioned capacity.
+
+4. By Default, the root EBS volume is deleted when an attached EC2 instance is terminated.
+
+5. By Default, any other EBS volume linked to that EC2 instance isn't deleted. This can be enabled by checking delete on termination.
+
+# Note: Multiple EBS can be attached to a single EC2 instance & and EBS instance can exist without EC2 as well.
+
+<br/>
+
+<Section
+	link="ebs-snapshot"
+	title="Elastic Block Storage Snapshots"
+/>
+
+<br/>
+!["EBS Snapshot"](/content/cloud/aws/ebs_snapshot.svg)
+<br/>
+
+- Make a backup (snapshot) of your EBS volume at a point in time.
+- Not necessary to detach volume, to do snapshot, but its recommended.
+- Can copy snapshots across AZs as well as Regions.
+
+<br/>
+<Section
+	link="ebs-snapshot-archive"
+	title="EBS Snapshot Feature - EBS Snapshot Archive"
+/>
+- Move a snapshot to an archive tier that is 75% cheaper.
+- Takes within 24 to 72 hours for restoring the archives.
+
+<br/>
+<Section
+	link="ebs-snapshot-recycle-bin"
+	title="EBS Snapshot Feature - EBS Snapshot Recycle Bin"
+/>
+- Setup rules to retain deleted snapshots, so you can recover them after accidental deletion.
+- Specify retention period (from 1 day to 1 year)
