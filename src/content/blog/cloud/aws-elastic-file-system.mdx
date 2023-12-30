@@ -1,0 +1,51 @@
+---
+title: "AWS Elastic File System"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 29 2023"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-EFS_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="efs-intro"
+	title="What is Elastic File System?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EFS_32.svg"
+/>
+
+- It is a "shared" managed Network File System (NFS) that can be mounted on hundreds of EC2 instances.
+- EFS works with Linux EC2 instances in a multi-AZ.
+
+<br />
+<Section link="efs-features" title="Features" />
+
+- High Available
+- Scalable
+- EXPENSIVE ($$$)
+- Pay Per Use
+- No Capacity Planning
+
+<br />
+<Section link="efs-vs-ebs" title="Difference Between EBS & EFS" />
+EBS data is not accessible across AZs and Regions(directly, without snapshoting)
+while EFS can connect to any EC2 instance across AZs & regions for the same.
+
+<Section link="efs-ia" title="Elastic File System - Infrequent Access (IA)" />-
+Storage class that is cost-optimized for files not accessed everyday. - Upto 92%
+lower cost as compared to EFS (standard). - EFS will automatically move your
+files to EFS-IA based on the last time they were accessed. - We can enable
+EFS-IA with a lifecycle policy - E.G. Move files not accessed for 60 days to
+EFS-IA - Transparent to the application accessing EFS (i.e. the app will not
+need to know if the data is stored in EFS or EFS-IA)
+
+<Section link="efs-ia" title="Elastic File System - Shared Responsiblity" />
+<br />
+
+| Responsiblity of AWS                            |                          Responsiblity of Customer |
+| :---------------------------------------------- | -------------------------------------------------: |
+| Infrastructure                                  |              Setting up Backup/Snapshot procedures |
+| Replication od fata for EBS volume & EFS drives |            Responsiblity of any data on the drives |
+| Replacing faulty hardware                       | Understanding the risk of using EC2 Instance Store |
+| Ensuring AWS Employee cannot access client Data |                                                    |

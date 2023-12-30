@@ -1,0 +1,30 @@
+---
+title: "AWS Amazon Machine Image"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 28 2023"
+heroImage: "/content/cloud/aws/icons/Res_Amazon-EC2_AMI_48.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="ami-intro"
+	title="What is an Amazon Machine Image?"
+	imageUrl="/content/cloud/aws/icons/Res_Amazon-EC2_AMI_48.svg"
+/>
+
+- AMI are customization of an EC2 instance in which we can add our own softwares,
+configurations, OS, monitoring, etc. - It has faster boot time and configuration
+because all your software is pre-packed (as compared to putting it into EC2 User
+Data). - AMI are built for a specific region (and can be copied across regions as).
+- You can launch EC2 instance from: - A public AMI - Your own AMI - An AMI from Amazon
+MarketPlace
+
+<Section link="ami-creation" title="How to build an Amazon Machine Image?" />
+Following is the list of steps that need to be completed, in order, to create AMI.
+1. Start an EC2 instance and customize it.
+2. Stop the instance (for data integrity)
+3. Build an AMI - this will also create EBS snapshot.
+4. Launch instance from other AMIs.

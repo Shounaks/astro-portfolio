@@ -1,0 +1,38 @@
+---
+title: "AWS EC2 Instance Store"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 28 2023"
+heroImage: "/content/cloud/aws/icons/Res_Amazon-EC2_DB-Instance_48.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="ec2-instance-store-intro"
+	title="What is an Amazon EC2 Instance Store?"
+	imageUrl="/content/cloud/aws/icons/Res_Amazon-EC2_DB-Instance_48.svg"
+/>
+- We already have EBS volumes which act as network drives with good but limited peformance.
+- If you require even higher peformance hardware disis, we can use EC2 instance store. (for BEST I/O Peformance)
+- EC2 Instance Stores (Unlike EBS and EFS)lose their stored data if they are stopped (ephemeral)
+- Risk of dataloss if hardware failure.
+- EC2 instance storage is extremely extremely high peformance/fast as compared to EBS/EFS!!
+
+<br/>
+<Section
+	link="ec2-instance-store-usecases"
+	title="Usecases"
+/>
+- Good For Buffer
+- Cache
+- Scratch data
+- Temporary content
+
+<br/>
+<Section
+	link="ec2-instance-store-warning"
+	title="Not Suitable For"
+/>
+- Longterm Storage

@@ -1,0 +1,53 @@
+---
+title: "AWS     FSx for Windows & Lustre"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 28 2023"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-FSx_32.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="fsx-intro"
+	title="What is Amazon FSx?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-FSx_32.svg"
+/>
+- Launch 3rd party high peformance FileSystems on AWS. - Note that unlike EFS, Amazon
+does not own this FileSystem. - It is a fully managed service.
+
+<br />
+<Section
+	link="fsx-wfs"
+	title="What is Amazon FSx for Windows File Server?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-FSx-for-WFS_32.svg"
+/>
+Amazon FSx for Windows File Server provides fully managed shared storage built
+on Windows Server, and delivers a wide range of data access, data management,
+and administrative capabilities.
+- It is a fully managed, highly reliable & scalable Windows-native shared file system.
+- Built on Windows File Server
+- Supports SMB (samba) Protocols & Windows NTFS (New Technology File System) [which basic FSx doesn't]
+- Integrates with Microsoft's Active Directory! [which basic FSx doesn't]
+- your on-premise infrastructure file system can be accessed via this service, on AWS Cloud!!
+
+<br />
+<Section
+	link="fsx-lustre"
+	title="What is Amazon FSx for Lustre?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-FSx-for-Lustre_32.svg"
+/>
+
+- Linux + Cluster => Lustre
+- A fully managed, high peformance, scalable, file system, for High Peformance Computing (HPC).
+- Scales upto 100s of GB/s, million IOPS and sub-microsecond latencies!
+- | Usages              |
+  | ------------------- |
+  | Machine Learning    |
+  | Analytics           |
+  | Video Processing    |
+  | financial Modelling |
+
+<br/>
+!["AWS Lustre FSx"](/content/cloud/aws/lustre.svg)
