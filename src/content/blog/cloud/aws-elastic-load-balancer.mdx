@@ -1,0 +1,58 @@
+---
+title: "AWS Elastic Load Balancer (ELB)"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 31 2023"
+heroImage: "/content/cloud/aws/icons/Arch_Elastic-Load-Balancing_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="elb-intro"
+	title="Why use Amazon Elastic Load Balancer?"
+	imageUrl="/content/cloud/aws/icons/Arch_Elastic-Load-Balancing_32.svg"
+/>
+<br/>
+- An ELB is a managed load balancer.
+- AWS gurantees that it will be working.
+- AWS takes care of upgrades, maintainance, high availablity.
+- AWS provides only a few configuration knobs.
+- it costs less to setup our own load balancer but it will be a lot more effort on your end (maintainence, integration).
+<br/>
+
+!["Load Balancing"](/content/cloud/aws/elb.svg)
+
+<br/>
+There are 4 kinds of load balancer offered by AWS:
+
+| Name                            | Layer     | Remark                            |
+| ------------------------------- | --------- | --------------------------------- |
+| Application Load Balancer (ALB) | Layer 7   | HTTP/HTTPs only                   |
+| Network Load Balancer (NLB)     | Layer 4   | Ultra-High Peformance, allows TCP |
+| Gateway Load Balancer (GLB)     | Layer 3   | routing on IPs                    |
+| Classic Load Balancer           | Layer 4&7 |                                   |
+
+<br/>
+<Section link="elb-alb" title="Application Load Balancer" />
+
+- HTTP / HTTPs / GRPC protocol
+- Layer 7
+- Http Routing Features
+- Static DNS (URL)
+
+<br/>
+<Section link="elb-nlb" title="Network Load Balancer" />
+
+- TCP / UDP protocols
+- Layer 4
+- Static IP through AWS ElasticIP.
+
+<br/>
+<Section link="elb-glb" title="Gateway Load Balancer" />
+
+- GENEVE Protocol on IP Packets.
+- Layer 3
+- Route traffic to firewalls that you manage on EC2 instance.
+- Good for Intrusion Detection.

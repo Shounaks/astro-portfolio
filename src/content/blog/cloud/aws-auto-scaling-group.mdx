@@ -1,0 +1,46 @@
+---
+title: "AWS Auto Scaling Group (ASG)"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 31 2023"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-EC2-Auto-Scaling_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="asg-intro"
+	title="Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2-Auto-Scaling_32.svg"
+/>
+
+- In real life, the load on your website and application can change.
+- In the cloud, you can create & get rid of servers very quickly.
+- The goal of an ASG is to:
+  - Scale Out (add EC2 Instances) to match an increasing load
+  - Scale In (remove EC2 Instance) to match a decreasing load.
+  - Ensure we have a minimum & maximum number of machine running.
+  - Automatically register new instances to a load balancer
+  - Automatically <mark>Replaces unhealthy instances</mark>!!
+- Cost Saving: Only run at an optimal capacity (principal of the cloud)
+
+<br />
+!["asg"](/content/cloud/aws/asg.svg)
+
+<br />
+<Section link="asg-scaling-strategy" title="Scaling Strategies" />
+There are 2 types of strategies which we can implement. Manual & Dynamic Scaling
+(using ASGs). - Manual Scaling : Update the size of ASG Manually.
+
+| Strategy Name                             | Explaination                                                                                                                                                  |
+| :---------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Simple/Step Scaling (AKA Dynamic Scaling) | When CloudWatch Alarm is triggered (example CPU > 70%), then add 2 EC2 Instances.                                                                             |
+|                                           | When CloudWatch Alarm is triggered (example CPU < 30%), then remove 1 EC2 Instances.                                                                          |
+|                                           |                                                                                                                                                               |
+| Target Tracking Scaling                   | "I want the AVERAGE ASG CPU to stay at 40%" (we use CloudWatch's parameters to make decision by <mark> tracking a specific parameters of the target. </mark>) |
+|                                           |                                                                                                                                                               |
+| Scheduled Scaling                         | <mark>Anticipate scaling</mark> based on known usage patterns.                                                                                                |
+|                                           |                                                                                                                                                               |
+| Predictive Scaling                        | <mark>Using ML</mark> to predict future traffic ahead of time.                                                                                                |
+|                                           | Automatically provision the right amount of EC2 instances in advance.                                                                                         |

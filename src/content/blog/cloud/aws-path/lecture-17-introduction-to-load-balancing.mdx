@@ -1,0 +1,31 @@
+---
+title: "Lecture # 17 : Introduction to Load Balancing"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 31 2023"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "5 minutes"
+tags: ["cloud", "PATH:AWS"]
+order: 16
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="lb-intro" title="Introduction" />
+<br />
+
+- Load Balancing are servers that follow internet traffic to multiple servers (EC2 Instances) downstream.
+- AWS has 3 entries in Load Balancer Categories: Application Load Balancer (ALB), Network Load Balancer (NLB), Gateway Load Balancer (GLB).
+<br />
+
+<Section link="lb-why" title="Why use a LoadBalancer" />
+
+- Spread Load Across Multiple Downstream Instances.
+- Expose a single point of access (DNS) to your application.
+- Seamlessly handle failure of downstream instances.
+- Do regular health checks to your instances.
+- Provide SSL termination (HTTPs) for your websites.
+- High Availablity across Regional Zones.
+<br />
+
+<Section link="lb-why" title="Why use a Amazon ELB?" />
+check the specific paged dedicated for ELB will add link here!
