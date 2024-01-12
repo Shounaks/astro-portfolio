@@ -1,0 +1,52 @@
+---
+title: "Lecture # 17 : Cost and Capacity Management for Compute Services"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 1 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "5 minutes"
+tags: ["cloud", "PATH:AWS"]
+order: 17
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="cost-management-intro" title="Introduction" />
+<br />
+Cost Management tackles the question of "how to save money?", while Capacity
+Management answers "How do we meet the demand of traffic & usage through
+adding/upgrading services?".
+
+<Section
+	link="ec2-cost-mgmt"
+	title="EC2 Spot Instances / Reserved Instances / Savings Plan"
+/>
+One way to save on compute services is by paying up in full or partially(Saving Plan),
+or by commiting to yearly contracts (RI), or by being flexible about availablity
+and interruptions to compute services (spot instances).
+<br />
+
+<Section link="batch-cost-mgmt" title="AWS Batch" imageUrl="/content/cloud/aws/icons/Arch_AWS-Batch_32.svg"/>
+Plan schedules and execute your batch computing workloads across full range of AWS
+compute services, can utilize spot instances to save money.
+<br />
+
+<Section link="aws-compute-optimizer" title="AWS Compute Optimizer" />
+It is a service which goes through your historic usage and suggests how to reduce
+costs and improve peformance, by using ML to analyze your previous usage history.
+<br />
+
+<Section link="asg-cost-mgmt" title="AWS Auto-Scaling-Group" imageUrl="/content/cloud/aws/icons/Arch_Amazon-EC2-Auto-Scaling_32.svg"/>
+Automatically adds/removes EC2 servers to meet the current demand of traffic. Will
+save you money and meet the capacity since you only run the amount of servers you
+actually require.
+<br />
+
+<Section link="elb-cost-mgmt" title="AWS Elastic Load Balancer" imageUrl="/content/cloud/aws/icons/Arch_Elastic-Load-Balancing_32.svg"/>
+Distribute traffic to multiple instances, can reroute traffic from unhealthy instance
+to healthy instance. Can route traffic to EC2 instance running in different AvailablityZones.
+<br />
+
+<Section link="elastic-beanstalk-cost-mgmt" title="AWS Elastic Beanstalk" imageUrl="/content/cloud/aws/icons/Arch_AWS-Elastic-Beanstalk_32.svg"/>
+It is for easily deploying web applications without developers having to worry about
+understanding the underlaying AWS service. Similar to Heroku.
+<br />

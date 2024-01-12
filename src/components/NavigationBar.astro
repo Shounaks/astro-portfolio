@@ -58,44 +58,6 @@ import NavigationLink from "./NavigationLink.astro";
 	nomodule
 	src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<!-- Script to store thestate of navbar -->
-<script is:inline>
-	let navName = "s-nav";
-	let menuToggle = document.querySelector(".menuToggle");
-	let sidebar = document.querySelector(".sidebar");
-	let isOpen = localStorage.getItem(navName);
-
-	function changeNavbarState() {
-		console.log("Clicked Navbar toggle...");
-		let state = menuToggle.classList.toggle("active");
-		sidebar.classList.toggle("active");
-		localStorage.setItem(navName, state.toString());
-	}
-
-	function persistNavbarState() {
-		if (isOpen === null) {
-			localStorage.setItem(navName, "false");
-		} else {
-			if (isOpen === "true") {
-				menuToggle.classList.add("active");
-				sidebar.classList.add("active");
-			} else if (isOpen === "false") {
-				menuToggle.classList.remove("active");
-				sidebar.classList.remove("active");
-			}
-		}
-	}
-	document.addEventListener("astro:page-load", persistNavbarState, {
-		once: true,
-	});
-	persistNavbarState();
-	document.addEventListener(
-		"astro:page-load",
-		() => menuToggle.addEventListener("click", changeNavbarState),
-		{ once: true }
-	);
-</script>
-
 <!-- Script to toggle Navbars Active Component -->
 <script>
 	function updateNav() {

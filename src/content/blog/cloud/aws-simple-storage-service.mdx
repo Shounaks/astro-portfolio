@@ -1,0 +1,65 @@
+---
+title: "AWS Simple Storage Service (S3)"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 08 2022"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="s3-intro"
+	title="Introduction to Simple Storage Service"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- It is one of the main building blocks of AWS. 
+- It's advertized as "infinitely scaling" storage. 
+- Many website use Amazon S3 as a backbone. 
+- Many AWS service use AWS S3 as an integration as well.
+<br />
+
+```markdown
+- Usecase:
+  - Backup & Storage
+  - Disaster Recovery
+  - Archival
+  - Hybrid cloud storage
+  - Application Hosting
+  - Media Hosting
+  - Datalake and Big data analysis
+  - Software delivery
+  - Static Website Hosting
+```
+
+<br />
+<Section
+	link="s3-object"
+	title="S3 Object"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- Object contain your data. 
+- They are like files. 
+- an object must consists of:
+
+| Property  | Information                                                                          |
+| :-------- | :----------------------------------------------------------------------------------- |
+| Key       | This is the name of the object.                                                      |
+|           | It is the full path.                                                                 |
+|           | Key is composed of prefix + Object Name:                                             |
+|           | E.g. s3://mybucket/my_file.txt                                                       |
+|           | E.g. s3://mybucket/myfolder/anotherfolder/myfile.txt                                 |
+| Value     | MAX OBJECT SIZE: 5TB                                                                 |
+|           | Object values are the contents of the body, it is just stored as a sequence of bytes |
+|           | If upload more than 5GB, must use "must-part" upload                                 |
+| VersionId | When versioning is available, its the version identifier.                            |
+| MetaData  | Additional information attached to object.                                           |
+|           | It is the list of test key-value pairs                                               |
+|           | 2 types of metadata: System or User Metadata                                         |
+| Tags      | Unicode key-value pair, upto 10                                                      |
+|           | Useful security/lifecycle                                                            |

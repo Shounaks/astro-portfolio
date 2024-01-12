@@ -33,7 +33,7 @@ function slice2(array: any[], chunk: number, offset: number) {
 				<div class="md:grid md:grid-cols-10">
 					<div class="col-span-7">
 						<div class="prose">
-							<div class="flex justify-around">
+							<div class="flex justify-around print:hidden">
 								<a
 									href=""
 									class="text-gray-800"
@@ -103,17 +103,27 @@ function slice2(array: any[], chunk: number, offset: number) {
 					</div>
 					<div class="col-span-3 pt-40 print:hidden">
 						<div class="md:sticky md:top-10">
-							<div id="minute-read" class="">
+							<input
+								class="hover:cursor-help w-full bg-zinc-300 rounded-t-md"
+								type="button"
+								value="Print this page"
+								onclick="window.print()"
+							/>
+							<hr />
+							<div id="minute-read" class="pl-2 border-x-2 border-zinc-300">
 								<p>Minutes Read</p>
 								<div class="inline-flex gap-2 pl-5">
 									<img src="/icons/timer.svg" class="w-[30px]" alt="" />
 									<p class="pl-1">{readTime ? readTime : "N/A"}</p>
 								</div>
 							</div>
-							<div id="other_links" class="pb-4">
-								<span> Other Posts:</span>
+							<div
+								id="other_links"
+								class="border-x-2 border-zinc-300 bg-zinc-300"
+							>
+								<span class="pb-4 pl-2"> Other Posts:</span>
 								<ul
-									class="pl-6 list-disc text-zinc-400 tracking-widest font-extralight pb-4"
+									class="px-6 list-disc text-zinc-400 tracking-widest font-extralight pb-4 rounded-b-3xl bg-zinc-100"
 								>
 									{
 										posts
@@ -123,9 +133,23 @@ function slice2(array: any[], chunk: number, offset: number) {
 													? x.data.order - y.data.order
 													: x.data.title.localeCompare(y.data.title)
 											)
+											.filter((post) => {
+												const count = 5;
+												let p = posts
+													.filter((post) => post.data.tags.includes(tags[0]))
+													.sort((x, y) =>
+														x.data.order && y.data.order
+															? x.data.order - y.data.order
+															: x.data.title.localeCompare(y.data.title)
+													)
+													.flatMap((post) => post.data.title);
+												if (post.data.title === title) return true;
+												return p.indexOf(post.data.title) - p.indexOf(title) < count && p.indexOf(post.data.title) - p.indexOf(title) > -1 * count;
+											})
 											.map((post) =>
 												post.data.title === title ? (
-													<li class="text-black list-[upper-roman]" style="">
+													<li value={posts.filter((post) => post.data.tags.includes(tags[0])).sort((x, y) => x.data.order && y.data.order ? x.data.order - y.data.order: x.data.title.localeCompare(y.data.title)).flatMap((post) => post.data.title).indexOf(post.data.title) + 1} 
+														class="text-black list-[upper-roman] overflow-hidden" style="list-style-position:inside">
 														<a
 															class="group-hover:text-black underline underline-offset-4 hover:text-black"
 															href=""
@@ -147,15 +171,15 @@ function slice2(array: any[], chunk: number, offset: number) {
 									}
 								</ul>
 							</div>
-							<div id="tags">
-								<p class="pb-2">Tags:</p>
+							<div id="tags" class="bg-zinc-300 rounded-b-md">
+								<p class="p-2">Tags:</p>
 								<div class="flex gap-3 pl-5 flex-wrap">
 									{
 										tags != null && tags.length !== 0 ? (
 											tags.map((tag: string) => (
 												<a
 													href={`/blog/tags/${tag}`}
-													class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400"
+													class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 border-white mb-2"
 												>
 													<>
 														<span class="border-r-2 border-black text-black">
