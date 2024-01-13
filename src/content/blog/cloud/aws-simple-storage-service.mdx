@@ -16,11 +16,11 @@ import Section from "../../../components/Section.astro";
 />
 <br />
 
-- It is one of the main building blocks of AWS. 
-- It's advertized as "infinitely scaling" storage. 
-- Many website use Amazon S3 as a backbone. 
+- It is one of the main building blocks of AWS.
+- It's advertized as "infinitely scaling" storage.
+- Many website use Amazon S3 as a backbone.
 - Many AWS service use AWS S3 as an integration as well.
-<br />
+  <br />
 
 ```markdown
 - Usecase:
@@ -43,8 +43,8 @@ import Section from "../../../components/Section.astro";
 />
 <br />
 
-- Object contain your data. 
-- They are like files. 
+- Object contain your data.
+- They are like files.
 - an object must consists of:
 
 | Property  | Information                                                                          |
@@ -63,3 +63,195 @@ import Section from "../../../components/Section.astro";
 |           | 2 types of metadata: System or User Metadata                                         |
 | Tags      | Unicode key-value pair, upto 10                                                      |
 |           | Useful security/lifecycle                                                            |
+
+<br />
+<Section
+	link="s3-bucket"
+	title="S3 Bucket"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- S3 allows people to store files/objects in "buckets" (directories)
+- Buckets must have a <mark>Globally Unique Name.</mark>
+- Buckets are defined at a regional level.
+- S3 look's like a global service, BUT, buckets are created in a region.
+
+<br />
+
+| Naming Convension for bucket                  |
+| --------------------------------------------- |
+| - No Uppercase (A-Z)                          |
+| - No Underscores(-)                           |
+| - 3 to 63 characters long                     |
+| - Not an IP                                   |
+| - Must start with lowercase letter or numbers |
+| - Must not start with prefix (xn--)           |
+| - Must not end with suffix (-s3alias)         |
+
+<br />
+<Section
+	link="s3-security"
+	title="S3 Security"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- User Based:
+```markdown
+AWS S3 has IAM Policies:
+Which API should be allowed for a specific user from API
+```
+
+- Resource Based:
+```markdown
+- Bucket Policies: 
+  These are bucket wide rules from the S3 console.
+- Object Acces Control List (ACL): 
+  Finer grain control (can be disabled).
+- Bucket Access Control List (ACL): 
+  Less Common (can be disabled).
+```
+
+Note: An IAM Principal can access an S3 object if the user permission allows it or the resource policy allows its & there is no explicit deny.
+
+- Encryption: Encrypt objects in S3 using Encryption Keys.
+
+<br />
+<Section
+	link="s3-website-hosting"
+	title="S3 Website Hosting"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- S3 can host static websites and have them accessible on the internet.
+- The website URL will be (dependent on region).
+- If you get a 403 error make sure the bucket policy allows public read.
+- Note: If you want to host a website, every file related to it should be publicly accessible.
+
+<br />
+<Section
+	link="s3-versioning"
+	title="S3 Versioning"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- You can version your files in Amazon S3.
+- It is enabled at bucket level.
+- Files before versioning is enabled will have NULL as their version.
+- Different versions of some files will still be available even after versioning is disabled afterwards.
+
+<br />
+<Section
+	link="s3-replication"
+	title="Amazon S3 Replication [Cross Region Replication(CRR) & Same Region Replication (SRR)]"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+
+- To use this feature, versioning needs to be enabled.
+- Bucket can be in different AWS accounts.
+- Copying is Asynchronous
+- To copy successfully, it must have proper read & write (to S3) permission in IAM.
+- Usecase:
+  - CRR - Complicance, Low Latency Access, Replication Across Accounts.
+  - SRR - Log Aggregation, Live replication PROD & TEST Accounts.
+
+<br />
+<Section
+	link="s3-storage-access"
+	title="S3 Storage Access"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+There are 5 types of storage access provided by S3.
+
+<br />
+<Section
+	link="s3-standard"
+	title="S3 Standard (General Purpose)"
+/>
+
+- 99.99% Availablity
+- Used for frequently available data.
+- Low latency & High Throughput.
+- Can Sustain 2 concurrent facility failures.
+- Usecase: Big Data Analytics, Mobile & Gaming Application, Content Distribution, ....
+
+<br />
+<Section
+	link="s3-infrequent-access"
+	title="S3 Infrequent Access"
+/>
+
+- 99.9% Availablity
+- Lower cost (of retrival) than S3 standard
+- For data that is less frequently accessed but require rapid access when needed.
+- Usecase: Disaster Recovery, Backups
+- A special Case:
+```markdown
+  # Amazon S3 OneZone Infrequent Access
+  - High Durablity 99.99999999999% (11 9s Durablity) in a 
+  single AZ.
+  - Data Loss when AZ is destroyed.
+```
+
+<br />
+<Section
+	link="s3-glacier-storage"
+	title="S3 Glacier Storage"
+/>
+- Low cost object storage meant for archiving & backup.
+- Pricing: Price for storage, object retrival cost.
+```markdown
+  - Amazon S3 Glacier Instant Retrival:
+    - Amazon S3 Glacier Instant Retrival:
+      - Milliseconds retrival, 
+        great for data access once in a quarter.
+      - Minimum storage duration of 90 days.
+    - Amazon S3 Flexible Retrival:
+      - Minimum storage duration = 90 days
+      - Expedite (1-5 mins)
+      - Standard (3-5 hours)
+      - bulk (5-12 hours)
+```
+<br />
+<Section
+	link="s3-glacier-deep-archive"
+	title="S3 Glacier Deep Archive (For LongTerm Storage)"
+/>
+- standard: 12 hours retrival delay
+- bulk: 48 hours retrival delay
+- Minimum storage duration = 180 days.
+
+<br />
+<Section
+	link="s3-intelligent-tiering"
+	title="Amazon S3 Intelligent Tiering"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+- small monthly monitoring fees.
+- Moves object automatically between Access Tiers
+- There is no retrival charges.
+
+<br />
+<Section
+	link="s3-encryption"
+	title="Amazon S3 Encryption"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+<br />
+There are 2 type of encryptions, Client Side Encryptions of which user is responsible, and server side encryption
+(which is default mode in the cloud.)
+!["S3 Encryption"](/content/cloud/aws/s3_encryption.svg)
+
+<br/>
+<Section
+	link="s3-shared-responsiblity"
+	title="Shared Responsiblity for Amazon S3"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Storage-Service_32.svg"
+/>
+!["S3 Encryption"](/content/cloud/aws/srm_s3.svg)
