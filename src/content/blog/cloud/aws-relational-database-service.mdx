@@ -1,0 +1,80 @@
+---
+title: "AWS Relational Database Service"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 15, 2024"
+heroImage: "/skills/aws/Arch_Amazon-RDS_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="fsx-intro"
+	title="What is a Amazon Relational Database Service (AWS RDS)?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-RDS_32.svg"
+/>
+
+- It is a <mark>managed DB service</mark> for DB that use <mark>SQL to query data (OLTP)</mark>
+- It allows you to create following dbs in the cloud:
+
+| RDS                               |
+| --------------------------------- |
+| Postgres                          |
+| MariaDB                           |
+| Microsoft SQL                     |
+| MySQL                             |
+| Oracle                            |
+| Aurora (AWS PROPRIATERY OFFERING) |
+
+<br />
+<Section
+	link="rds-compared-to-ec2-db-instance"
+	title="What is the advantage of using Amazon RDS over EC2 Database Instance?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-RDS_32.svg"
+/>
+
+- Automated Provisioning and OS Patching
+- Continious Backup & Restore to specific timestamp (point-in-time-restore)
+- Monitoring Dashboard
+- Read replicas for improved read peformance
+- Multi-AZ setup for Disaster Recovery
+- Scaling Capablity
+- Storage backed by EBS
+- Maintainance window for updates (updates are handelled by AWS!!)
+
+<br />
+<Section
+	link="rds-deployment-options"
+	title="RDS Deployment Options - Read Replicas (Read Scalablity) & Multi-AZ (High-Availablity)"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-RDS_32.svg"
+/>
+
+# Read Replicas:
+
+- Scale the read workload of your DB.
+- Can create upto 15 Read Replicas
+
+<br />
+!["Read Replicas"](/content/cloud/aws/read_replica.svg)
+<br />
+
+# Failover Multi-AZ:
+
+- Failover in case of AZ outage (High-Availablity)
+- Data is only read/written into the main Database (DO NOT CONFUSE MULTI-AZ WITH WRITE-REPLICAS!!)
+- Can only have 1 other AZ as failover.
+
+<br />
+!["Read Replicas"](/content/cloud/aws/failover.svg)
+<br />
+
+# Multi-Region Read Replicas:
+
+- Disaster Recovery in case of Region Issues.
+- Local Peformance for global reads.
+- Replication Costs.
+
+<br />
+!["Read Replicas"](/content/cloud/aws/multiregion_read_replica.svg)
+<br />

@@ -5,11 +5,20 @@ import BlogPostHead from "../components/BlogPostHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import YoutubeEmbed from "../components/YoutubeEmbed.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, readTime, tags } =
-	Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	readTime,
+	tags,
+	yt,
+} = Astro.props;
 
 function slice2(array: any[], chunk: number, offset: number) {
 	var end = offset + chunk,
@@ -144,12 +153,32 @@ function slice2(array: any[], chunk: number, offset: number) {
 													)
 													.flatMap((post) => post.data.title);
 												if (post.data.title === title) return true;
-												return p.indexOf(post.data.title) - p.indexOf(title) < count && p.indexOf(post.data.title) - p.indexOf(title) > -1 * count;
+												return (
+													p.indexOf(post.data.title) - p.indexOf(title) <
+														count &&
+													p.indexOf(post.data.title) - p.indexOf(title) >
+														-1 * count
+												);
 											})
 											.map((post) =>
 												post.data.title === title ? (
-													<li value={posts.filter((post) => post.data.tags.includes(tags[0])).sort((x, y) => x.data.order && y.data.order ? x.data.order - y.data.order: x.data.title.localeCompare(y.data.title)).flatMap((post) => post.data.title).indexOf(post.data.title) + 1} 
-														class="text-black list-[upper-roman] overflow-hidden" style="list-style-position:inside">
+													<li
+														value={
+															posts
+																.filter((post) =>
+																	post.data.tags.includes(tags[0])
+																)
+																.sort((x, y) =>
+																	x.data.order && y.data.order
+																		? x.data.order - y.data.order
+																		: x.data.title.localeCompare(y.data.title)
+																)
+																.flatMap((post) => post.data.title)
+																.indexOf(post.data.title) + 1
+														}
+														class="text-black list-[upper-roman] overflow-hidden"
+														style="list-style-position:inside"
+													>
 														<a
 															class="group-hover:text-black underline underline-offset-4 hover:text-black"
 															href=""
@@ -198,6 +227,15 @@ function slice2(array: any[], chunk: number, offset: number) {
 									}
 								</div>
 							</div>
+							{
+								yt != null ? (
+									<div id="yt_embed" class="pt-2 w-full h-full shadow-md">
+										<YoutubeEmbed link={yt} title={title} />
+									</div>
+								) : (
+									""
+								)
+							}
 						</div>
 					</div>
 				</div>

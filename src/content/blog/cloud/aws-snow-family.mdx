@@ -1,0 +1,62 @@
+---
+title: "AWS Snow Family - Snowball, Snow Cone, Snow Mobile"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 28 2023"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Snowmobile_32.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+yt: "https://www.youtube.com/embed/QvB5B_vVM9c?si=IcBlw-31n5kjY_FA"
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="snow-family"
+	title="AWS Snow Family"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Snowmobile_32.svg"
+/>
+
+- There is a scenario where our complete data is on on-premise servers, so in order to migrate it to AWS cloud, simple cable might not be the fastest method.
+  So in such case, this requirement is fulfilled by AWS Snow Family.
+- Data Migration
+- Highly Secure, Portable Device to collect to process data at the edge & Migrate data into & out of AWS.
+- <mark>
+  	The edge compute is present in snow cone and snowball edge but not in
+  	snowmoble
+  </mark>
+
+<br />
+
+| Challenges to transfer for data over network |
+| -------------------------------------------- |
+| - Limited Connectivity                       |
+| - Limited Bandwidth                          |
+| - High Network Cost                          |
+| - Shared Bandwidth                           |
+| - Connection Stablity                        |
+
+<br />
+<Section
+	link="why-snow-family"
+	title="Why do we require AWS Snow Family to transfer data?"
+/>
+
+|       |     | Time To Transfer |          |          |
+| ----- | --- | ---------------- | -------- | -------- |
+|       |     | 100mbps          | 1Gbps    | 10Gbps   |
+| ----  |     | ---------------- | -------  | -------  |
+| 10TB  |     | 12 days          | 30 hours | 3 hours  |
+| 100TB |     | 124 days         | 12 days  | 30 hours |
+| 1PB   |     | 3 years          | 124 days | 12 days  |
+
+<br/>
+<Section
+	link="snowball-edge"
+	title="AWS Snowball Edge"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Snowball-Edge_32.svg"
+/>
+
+- Snowball Edge (Storage Optimized) : 80TB of HDD Capacity.
+- Snowball Edge (Compute Optimize) : 42TB of HDD or 28TB NVMe Capacity.
+- Pay per data job.
+- Usecase: Large Data cloud migration, DC decomission, Disaster Recovery.

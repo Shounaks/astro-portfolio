@@ -1,0 +1,30 @@
+---
+title: "AWS Storage Gateway"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Dec 28 2023"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Storage-Gateway_32.svg"
+readTime: "5 minutes"
+tags: ["cloud", "AWS"]
+# yt: ""
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="storage-gateway-intro"
+	title="AWS Storage Gateway"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Storage-Gateway_32.svg"
+/>
+
+- AWS is pushing for Hybrid Solutions in cloud, using S3 although it's a proprietary storage technology unlike EFS/NFS.
+- So how do we expose AWS S3 Data to on-premise datacenters??
+- The answer is AWS Storage Gateway!!
+
+<br />
+
+- Storage Gateway is a bridge between On-Premise Data and cloud data (Stored in S3).
+- Hybrid Storage Service allow on-prem applications to seamlessly use the AWS Cloud (and its data.)
+- Types of Service Gateways:
+  - File Gateway
+  - Volume Gateway
+  - Tape Gateway
