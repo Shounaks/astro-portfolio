@@ -1,0 +1,44 @@
+---
+title: "AWS DynamoDB"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 19, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-DynamoDB_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="dynamodb-intro"
+	title="What is Dynamo DB?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-DynamoDB_32.svg"
+/>
+
+- Fully managed, highly available alternative to NoSQL Database.
+- Replication is done across 3 Availablity Zones (AZs).
+- Scales to massive workloads, distributed "<mark>serverless</mark>" databases.
+- Millions of requests per second, trillion of rows, and over 100s of TBs of storage.
+- Fast and Consistent in peformance!
+- Single digit milisecond latency (Extremely Low Latency).
+- Integrated with IAM for Security, Authorization and Authentication.
+- Low cost & Autoscaling capablities.
+- Standard & Infrequent-Access (IA) Table Class.
+- DynamoDB is a key/value Database
+
+
+<br/>
+!["aws_elasticache"](/content/cloud/aws/dynamo_table.svg)
+<br/>
+
+<Section
+	link="dynamodb-global-table"
+	title="Feature: DynamoDb Global Table"
+/>
+
+- Make a dynamodb table accessible with low latency in multiple region.
+- Active/Active replication (Read/Write can be done from any region.)
+
+<br/>
+!["aws_elasticache"](/content/cloud/aws/dynamodb_global_tables.svg)
+<br/>

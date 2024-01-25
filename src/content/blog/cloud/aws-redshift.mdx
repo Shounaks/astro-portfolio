@@ -1,0 +1,26 @@
+---
+title: "AWS Redshift"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 22, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Redshift_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="redshift-intro"
+	title="What is RedShift?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Redshift_32.svg"
+/>
+
+- It is based on PostGreSQL (Relational Database), but is not used for OLTP (Online Transactional Processing, basically normal database).
+- Its OLAP, or simply Online Analytical Processing (Analytics & Data Warehousing).
+- Load Data once every hour, not every second.
+- It is 10x better peformance than other data warehouses, scales to PBs of data.
+- Columnar Storage of Data (instead of rows).
+- Masisvely Parallel query execution (MPP), in simple words, Highly Available.
+- Pay as you go, based on instance provisioned.
+- Has an SQL interface for peforming queries.
+- BI Tools such as AWS Quicksight & Tableau integrated with it.

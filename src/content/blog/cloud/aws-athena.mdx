@@ -1,0 +1,29 @@
+---
+title: "AWS Athena"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 22, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Athena_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="athena-intro"
+	title="What is Athena?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Athena_32.svg"
+/>
+
+- Serverless query service to peform analytics against S3 Objects.
+- Use standard SQL language to query the files.
+- Supports CSV, JSON, ORC, AVRO, Parquet (with on Presto)
+- Pricing: 5.00$/TB of data scanned
+- Used compressed/columnar data for cost-saving (less scanning of data)
+- Usecases: Business Intelligence, Analytics, reporting, Analyzing & Query VPC, Flow Logs, ELB logs, CloudTrail trails, etc 
+- <mark>BASICALLY BI ON S3 Data!!</mark>
+
+
+<br/>
+!["athena_usecase"](/content/cloud/aws/athena.svg)
+<br/>
