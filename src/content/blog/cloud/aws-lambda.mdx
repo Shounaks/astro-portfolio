@@ -1,0 +1,64 @@
+---
+title: "AWS Lambda"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 26, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Lambda_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="lambda-intro"
+	title="Why do we need Amazon Lambda?"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Lambda_32.svg"
+/>
+
+The disadvantage of AMAZON EC2 is that there are virtual servers in the cloud which
+need to be managed and which have limited RAM and CPU.
+
+Another Drawback is the cost of continiously running EC2 instance and the extra steps required to scale (add/remove servers)
+
+<br />
+Advantages of Lambda Over EC2:
+
+- Virtual Function: No Servers to manage
+- Limited by time: Short Execution
+- Run On-Demand
+- Scaling is automated
+
+<br />
+Benifits of Lambda (in-general):
+
+- Easy Pricing
+
+  - Pay per request & compute time
+  - Free tier of 1,000,000 AWS Lambda Requests & 400,000 GBs of Compute time
+
+- Integrated with whole AWS Suite of Services.
+- Event Driven Function gets invoked by AWS when needed.
+- Integrated with many Programming Languages.
+- Easy Monitoring through AWS Cloudwatch
+- Easy to get more resources per function (upto 10GB RAM)
+- Increasing RAM will also improve CPU & Network
+
+<br />
+AWS Lambda Supports following Languages:
+
+- Node.JS (Javascript)
+- Java (Java 8+)
+- Python
+- C# (.NET Core)
+- C# / PowerShell
+- Golang
+- Ruby
+- Custom Runtime API (Eg. Rust)
+
+```markdown
+# Lambda Container Image
+
+    If the docker image is compliant (& Implements Lambda Runtime API),
+    We can run it as a LAMBDA! Although ECS/Fargate are preferred way 
+    if you want to use it.
+```

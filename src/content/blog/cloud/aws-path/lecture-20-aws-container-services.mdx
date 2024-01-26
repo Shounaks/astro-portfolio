@@ -1,0 +1,44 @@
+---
+title: "Lecture # 20 : AWS Container Service Group"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 26, 2024"
+heroImage: "/content/cloud/aws/icons/Arch-Category_Containers_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "AWS", "PATH:AWS"]
+order: 20
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section
+	link="aws-ecs"
+	title="Elastic Container Service"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Elastic-Container-Service_32.svg"
+/>
+
+- It elables you to launch Docker Containers on AWS (inside EC2 containers)
+- <mark>You must provision and maintain the infrastructure!</mark>
+- AWS takes care of starting and stopping the containers.
+- Has integration with ALB (Application Load Balancer)
+- New Docker Containers will be created in one of the connected EC2 instances. EC2 is smart enough toknow which one!
+
+<br />
+!["ecs"](/content/cloud/aws/ecs_service.svg)
+<br />
+
+<Section
+	link="aws-fargate"
+	title="AWS Fargete"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Fargate_32.svg"
+/>
+
+- It is also used to launch Docker Images on AWS <mark>BUT!! you do not provision the infrastructure (i.e. NO EC2 Instance to manage)</mark>, hence simpler.
+- It is a <mark>Serverless</mark> offering.
+- AWS just runs containers for your requirements, based on teh CPU/RAM you need
+
+<br />
+!["fargate"](/content/cloud/aws/fargate_sample.svg)
+<br />
+
+<Section link="container-registery" title="AWS Elastic Container Registery" />
+It is used to store Docker Images, so they can be run by ECS or fargate.
