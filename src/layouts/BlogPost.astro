@@ -119,11 +119,23 @@ function slice2(array: any[], chunk: number, offset: number) {
 								onclick="window.print()"
 							/>
 							<hr />
-							<div id="minute-read" class="pl-2 border-x-2 border-zinc-300">
-								<p>Minutes Read</p>
-								<div class="inline-flex gap-2 pl-5">
-									<img src="/icons/timer.svg" class="w-[30px]" alt="" />
-									<p class="pl-1">{readTime ? readTime : "N/A"}</p>
+							<div class="border-x-2 border-zinc-300 lg:flex w-full">
+								<div id="minute-read" class="w-full">
+									<p class="pl-2">Minutes Read</p>
+									<div class="inline-flex gap-2 pl-5">
+										<img src="/icons/timer.svg" class="w-[30px]" alt="" />
+										<p class="pl-1">{readTime ? readTime : "N/A"}</p>
+									</div>
+									<p class="pl-2">Description</p>
+									<div class="inline-flex gap-2 pl-5">
+										{description}
+									</div>
+								</div>
+								<div class="w-full pb-2">
+									<p class="pl-2">QR Code</p>
+									<div class="gap-2 w-full flex justify-center">
+										<div id="qr_code" class=""></div>
+									</div>
 								</div>
 							</div>
 							<div
@@ -244,3 +256,16 @@ function slice2(array: any[], chunk: number, offset: number) {
 		<Footer />
 	</body>
 </html>
+<script src="/qrcode.js" is:inline></script>
+<script type="text/javascript" defer is:inline>
+	const generateQR = () =>
+		new QRCode(document.getElementById("qr_code"), {
+			width: 128,
+			height: 128,
+			colorDark: "#000000",
+			colorLight: "#ffffff",
+			correctLevel: QRCode.CorrectLevel.H,
+		}).makeCode(window.location.href);
+	generateQR();
+	document.addEventListener("astro:after-swap", generateQR);
+</script>
