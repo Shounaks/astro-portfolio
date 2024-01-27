@@ -1,0 +1,40 @@
+---
+title: "AWS Batch"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Batch_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="batch-intro"
+	title="AWS Batch Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Batch_32.svg"
+/>
+
+- Fully managed Batch Processing at any scale.
+- Efficiently run 100,000s of computing batch jobs on AWS.
+
+<br />
+<Section link="batch" title="Batch" />
+
+A "Batch Job" is a Job with a Start and an
+End (Opposed to Continious)!
+
+- AWS Provisions the right amount of compute & memory.
+- You submit/schedule batch jobs & AWS batch does the rest.
+- Each Batch Job are defined as Docker Images & run on ECS (Elastic Container Service)
+- Helpful for optimization & focussing less on infrastructure.
+
+<mark>
+	Please do read the difference between a AWS Batch and AWS Lambda on its
+	dedicated page.
+</mark>
+
+<br />
+AWS Batch Example:
+<br />
+!["Batch Example"](/content/cloud/aws/batch_workflow.svg)

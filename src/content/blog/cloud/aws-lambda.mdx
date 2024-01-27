@@ -59,6 +59,13 @@ AWS Lambda Supports following Languages:
 # Lambda Container Image
 
     If the docker image is compliant (& Implements Lambda Runtime API),
-    We can run it as a LAMBDA! Although ECS/Fargate are preferred way 
+    We can run it as a LAMBDA! Although ECS/Fargate are preferred way
     if you want to use it.
 ```
+
+Following is a nice workflow of an Lambda picking up images from one bucket and creating thumbnail.
+
+<br />
+!["Lambda Workflow"](/content/cloud/aws/lambda_workflow.svg){" "}
+
+But this requires a Trigger (like upload in Bucket), if you want to do a scheduled task, you can use a Serverless CronJob every 1 hour!

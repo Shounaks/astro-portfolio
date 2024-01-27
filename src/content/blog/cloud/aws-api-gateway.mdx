@@ -1,0 +1,37 @@
+---
+title: "AWS API Gateway"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-API-Gateway_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="api-gateway-intro"
+	title="API Gateway"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-API-Gateway_32.svg"
+/>
+Until now we were sending data to Lambda/EC2, etc. Intenrally, what if you want anexternal
+client to hit your services? In that case, Amazon's API Gateway allows us to interact
+with AWS resources from outside the AWS Network. Please note that we can assign a
+public outside the AWS Network. Please note that we can assign a public IP to most
+(EC2 Static IPs), AWS Services, But that is not the recommended way of doing things
+elegantly!
+
+<br/>
+<br />
+!["Gatway Workflow"](/content/cloud/aws/gateway_workflow.svg)
+
+<br />
+<Section
+	link="api-gateway-advantages"
+	title="API Gateway Advantages"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-API-Gateway_32.svg"
+/>
+
+- Fully Managed Service for Developers to easily, create publish & maintain, monitor & secure APIs.
+- Serverless & Scalable.
+- Supports Security, User Authentication, API Throttling, API Keys, Monitoring.

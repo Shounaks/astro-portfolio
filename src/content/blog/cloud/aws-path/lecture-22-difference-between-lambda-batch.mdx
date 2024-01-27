@@ -1,0 +1,32 @@
+---
+title: "Lecture # 22 : Difference Between Lambda and Batch"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 26, 2024"
+heroImage: "/content/cloud/aws/icons/Arch-Category_Compute_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH:AWS"]
+order: 22
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section
+	link="lambda-vs-batch"
+	title="What is a difference between Lambda & Batch?"
+	imageUrl="/content/cloud/aws/icons/Arch-Category_Compute_32.svg"
+/>
+
+Following are the points which differentiate between 2 services.
+
+<Section link="lambda-points" title="Lambda" />
+
+- Time Limit (in which task should be processed)
+- Limited Runtime (Programming Language) Options (as compared to AWS Batch)
+- Limited Temporary disk space.
+- Serverless
+
+<Section link="batch-points" title="Batch" />
+- No Time Limit
+- Any runtime as long as it's packaged as docker image.
+- Rely on EBS/Instance Store for disk space.
+- Relies on EC2. (Spot Instance or dedicated.. whatever..)
