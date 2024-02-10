@@ -1,0 +1,49 @@
+---
+title: "AWS Systems Manager"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 4, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Systems-Manager_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="intro"
+	title="AWS Systems Manager (AWS SSM) Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Systems-Manager_32.svg"
+/>
+AWS Systems Manager is a <mark>Hybrid Service</mark> that helps us to manage our
+EC2 and on-prem systems at scale. We can also get operational insights about the
+state of our infrastructure while using this service. It is most importantly used
+for the following features:
+
+```mdx
+- <mark> Patching & Automation</mark> : For enhanced compliance
+- <mark> Run commands across entire fleet of servers</mark>
+- <mark> Store parameter configuration</mark> with <mark>
+  	SSM Parameter Store
+  </mark>
+- It works with linux, windows, macOS, RaspberryPi OS (Raspian)
+```
+
+<br />
+<Section link="usecase" title="Trivia" />
+
+- We need to install SSM agent onto the system we control.
+- It is already installed by default on Amazon Linux AMI & Some Ubunti AMI
+- If instance cannot be controlled with SSM, there is probably an issue with SSM Agent.
+- Thanks to SSM Agent wecan run commands, patch & configure our servers.
+
+<br />
+- Allows you to start a secure shell on your EC2 and op-prem servers.
+- No SSH Access, Bastion Hosts or SSH Keys REQUIRED!
+- No Port 22 Access Needd (better security)
+- Supports Linux, MacOS, Windows
+- Sends Session log data to S3 or Cloudwatch Logs
+
+<mark>
+	Any time you see a way to patch EC2 instances, or run command across all the
+	servers (be it on AWS or private servers) then think of Session Namager
+</mark>

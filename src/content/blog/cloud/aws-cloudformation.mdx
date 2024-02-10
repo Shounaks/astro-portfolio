@@ -1,0 +1,131 @@
+---
+title: "AWS CloudFormation"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jan 31, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-CloudFormation_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="intro"
+	title="AWS CloudFormation Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-CloudFormation_32.svg"
+/>
+CloudFormation is a declairative way of outlining your AWS infrastructure for any
+resources (most of them are supported!).
+
+For example with a cloud example you can say:
+
+- I want a security group
+- I want 2 EC2 instances using this security group
+- I want an S3 Bucket
+- I want a Load Balancer (ELB) in front of these resources.
+
+Then cloudformation creates those things for you in the right order with the exact configuration that you specify!
+
+<br />
+<Section link="iac" title="Infrastructure as a code" />
+
+- No resources are manually created, which is excellent for control.
+- Changes to infrastructure are reveled through code.
+
+<br />
+<Section link="cost" title="Cost" />
+
+- Each resource within your stack is tagged with an identifier so you can easily see how much a stack costs to you!
+- We can easily estimate the cost of your resources using the cloud formation template.
+- Saving Strategy: In some enviornment you automate deletion of templates at 5:00pm & recreate at 8:00AM safely.
+
+<br />
+<Section link="productivity" title="Productivity" />
+
+- Ability to destroy & recreate an infrastructure on the cloud on the fly.
+- Automated generation of diagram for your templates.
+- Declarative programming (No need to figure out ordering & orchestration)
+
+<br />
+<Section link="wheel" title="Dont re-invent the wheel" />
+
+- Leverage existing templates to the web.
+- Leverage the documentation
+
+<br />
+<Section link="productivity" title="Productivity" />
+
+- Everything we will see in the course is supported.
+- You can use custom resources, for the resources that aren't supported.
+
+<br />
+<Section
+	link="cf-stack-designer"
+	title="CloudFormation Stack Designer"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-CloudFormation_32.svg"
+/>
+
+- Design IaaC using GUI & Images
+- We can see all the resources
+- We can see the relationship between components.
+
+# For example :
+
+```yaml
+# o-just-ec2.yaml file
+Parameters:
+	SecurityGroupDescription:
+		Description: "Security group lorem ipsum other text"
+		Type: String
+
+Resources:
+	MyInstance:
+		Type: AWS::EC2::Instance
+		properties:
+			AvailablityZones: us-east-1a
+			ImageId: ami-a4c7edb2
+			InstanceType: t2.micro
+			SecurityGroups:
+				- !Ref SSHSecurityGroup
+				- !Ref ServerSecurityGroup
+	# An Elastic IP For our instance
+	MyEIP:
+		Type: AWS::EC2::EIP
+		Properties:
+			InstanceId: !Ref MyInstance
+	# Our EC2 Security Group
+	SSHSecurityGroup:
+		Type: AWS::EC2::SecurityGroup
+		Properties:
+			GroupDescription: "Enable SSH access via ort 22"
+			SecurityGroupIngress:
+				- CidrIP: 0.0.0.0/0
+				- FromPort: 22
+				- IpProtocol: TCP
+				- ToPort: 22
+	# Our Second EC2 Security Group
+	ServerSecurityGroup:
+		Type: AWS::EC2::SecurityGroup
+		Properties:
+			GroupDescription: "Security Grp"
+			SecurityGroupIngress:
+				- IpProtocol: TCP
+				FromPort: 80
+				ToPort: 80
+				CidrIP: 0.0.0.0/0
+				- IpProtocol: TCP
+				FromPort: 22
+				ToPort: 22
+				#your localmachine IP For SSH
+				CidrIP: 192.168.1.1/32
+# This section will print out allocated Elastic IP!
+Outputs:
+	ElasticIP:
+		Description: ElasticIP Value
+		Value: !Ref MyEIP
+```
+
+<br />
+<Section link="productivity" title="Visual Representation" />
+<br />
+!["cloudformation"](/content/cloud/aws/cloudformation.svg)

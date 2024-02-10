@@ -1,0 +1,58 @@
+---
+title: "AWS Elastic Beanstalk"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 1, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Elastic-Beanstalk_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="intro"
+	title="AWS Elastic Beanstalk"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Elastic-Beanstalk_32.svg"
+/>
+
+- Platform as a Service (PaaS)
+
+A Typical Web Application (3-tier) has an ELB and a ASG & a Database (+Cache). This is a standard design.
+This Application can be made using 3 ways!
+
+<br />
+!["ebs"](/content/cloud/aws/elastic_beanstalk.svg)
+
+<br />- Manually setting up resources (HARDEST!) - Using CloudFormation or
+Amazon CDK (Mid Complexity but better to maintain) - Using Amazon Beanstalk
+(Simplest!)
+
+<br />
+<Section link="dev-problems" title="Developer Problems on AWS" />
+
+- Managing Infrastructure
+- Deploying code
+- Configuring all Databases, Loadbalancers, exact
+- Scaling Concerns
+- Most WebApp have same architecture (ALB + ASG)
+- All developers want is for their code to run
+
+<br />
+Elastic Beanstalk is a sdeveloper centric view of deploying an application on AWS.
+It uses all the components we've seen before. (EC2, ASG, ELB, ROS). But its all in
+1 view, that's easy to make sense of.
+<mark> We still have full control of the configuration!!</mark>
+
+<br />
+There are 3 architecture models: - Single Instance Deployment: Good for DEV env.
+- LB + ASG: Great for Production & Pre-Production. - ASG Only: Great for non-webApps
+in production [other intermediate microservices!]
+
+Elastic Beanstalk suppports many platforms: <mark>Go, Java SE, Java with Tomcat, .NET with windows server, Node JS, PHP, Python, Ruby, Packer Builder</mark>
+If not supported you can write custom platforms as well!
+
+<br/>
+<Section link="questions" title="Exam Questions Asked on Beanstalk" />
+
+- Health agent pushes metrics to cloudwatch as well
+- check for app health, publish health events.

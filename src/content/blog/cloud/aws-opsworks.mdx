@@ -1,0 +1,34 @@
+---
+title: "AWS OpsWorks"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 10, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Systems-Manager_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="intro"
+	title="AWS OpsWorks Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Systems-Manager_32.svg"
+/>
+
+Chef & Puppet help us peform server configurations automatically or via repetative actors.
+They work great with either EC2 instances or on-prem VMs.
+
+<mark>AWS OpsWork == Managed Chef & Puppet</mark>
+
+Its an alternative to AWS SSM!
+It is only used to provision standard AWS Resources (EC2 Instances, Database, Load Banancer, EBS Volume)
+
+<br />
+<mark>
+	The Only reason you want to use AWS OpsWork is that you were using Chef &
+	Puppet before migrating to the cloud and you want to reuse your Chef & Puppet
+	Templates.
+</mark>
+
+<br />
+!["IAM Group"](/content/cloud/aws/opswork.svg)
