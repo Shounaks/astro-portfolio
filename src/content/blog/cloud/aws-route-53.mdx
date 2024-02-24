@@ -1,0 +1,42 @@
+---
+title: "AWS Route 53"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 17, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Route-53_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="route-53-intro"
+	title="What is Route53?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Route-53_32.svg"
+/>
+
+- Route53 is a managed DNS (Domain Name System)
+- DNS is a collection of rules & records which helps clients understand how to reach a server through URLs.
+- In AWS, the most common records are:
+  - `www.google.com` => `12.34.56.78` => <mark> A record (IPv4) </mark>
+  - `www.google.com` => `2001:0db8:85a3:0000:0000:8a2e:0370:7334` => <mark> AAAA record (IPv6) </mark>
+  - `search.google.com` => `www.google.com` => <mark> CNAME (hostname to hostname) </mark>
+  - `example.com` => AWS Resource => <mark> ALIAS (Eg. ELB, CloudFront, S3, RDS, etc) </mark>
+
+<br />
+<Section link="routing-policies" title="Routing Policies in Route53" />
+
+- Simple Routing Policy (No Health Checks)
+- Weighted Routing Policy (Weights can be allocated load balancing):
+  <br />
+  !["weighted"](/content/cloud/aws/weighted.svg)
+  <br />
+- Latency Routing Policy: the location (or closenessof the position of user's Device-IP) is used to calibrate which server is closer to his location.
+  And then the address of closest server is sent back!
+  <br />
+  !["latency"](/content/cloud/aws/latency.svg)
+  <br />
+- Failover Routing Policy (Used for disaster Recovery): In this type of routing policy, Route53 will do health checks on the primary application sserver Andif it fails it will reroute to the secondary/failover server.
+  <br />
+  !["failover"](/content/cloud/aws/failover_53.svg)
+  <br />

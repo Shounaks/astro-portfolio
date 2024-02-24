@@ -6,14 +6,11 @@ heroImage: "/blog-placeholder-3.jpg"
 readTime: 25 minutes
 tags: ["Java"]
 ---
+
 Do you really not know this?
 this is just a placeholder for upcoming java items.
 
 ## Initial Solution:
-```java
-class Solution {
-    public int hello(int num) {
-        System.out.println("Hello World")
-    }
-}
-```
+
+<br/>
+<script src="https://gist.github.com/Shounaks/031c9013fc1afbdc0eaea01c2fa268d5.js"></script>

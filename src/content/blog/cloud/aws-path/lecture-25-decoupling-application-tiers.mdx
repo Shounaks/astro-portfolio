@@ -1,0 +1,18 @@
+---
+title: "Lecture # 25 : Decoupling between Application Tier"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 10, 2024"
+heroImage: "/content/cloud/aws/icons/Arch-Category_Compute_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH:AWS"]
+order: 25
+---
+
+import Section from "../../../../components/Section.astro";
+
+Let's say we have a website hosted on WebServers, and it provides a video processing service.
+The second set of ASG EC2 will be reading from the SQS Queue and processing data. The WebServer act as producers and
+put data into SQS queue while VideoProcessing Servers act as consumers. The AWESOME THING, about it is that we can
+scale the second ASG independently from the first ( & Thats why its called de-coupling)!
+
+And on the top of it, AutoScaling can happen on how many messages there are currently in the Queue of AWS SQS!!

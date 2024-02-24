@@ -1,0 +1,34 @@
+---
+title: "Lecture # 24 : Communication & Cloud Integration"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 10, 2024"
+heroImage: "/content/cloud/aws/icons/Arch-Category_Compute_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH:AWS"]
+order: 24
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="cloud-integration" title="Cloud Integration" />
+
+When we start deploying multiple application, they will inevitably need to communicate with one-another.
+There are 2 types of communication pattern:
+
+- Synchronous Communication (Application to Application)
+- Asynchronous / Event Based (App -> Queue -> App)
+
+```markdown
+# Few Technologies that help us with Event Based Architecture
+
+    1. Amazon SQS       : Queue Model
+    2. Apache Kafka     : Publisher/Subscriber Model
+    3. RabbitMQ         : Realtime Data Streaming Model
+    ...
+```
+
+Synchronous Applications/Communication can be problematic if there is a sudden spike in traffic. What if you suddenly need to encode 1000s of videos instead of 10?
+(assume 10 is usual load)
+
+In that case it is better to decouple(for eg. Buyer & Seller) your application.
+Their services (Buyer/Shipping), once decoupled can scale independently.

@@ -1,0 +1,35 @@
+---
+title: "AWS CloudFront"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 18, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-CloudFront_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="cloudfront-intro"
+	title="What is CloudFront?"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-CloudFront_32.svg"
+/>
+
+- Its a Content Delivery Network
+- Improves read peformance, content is cached at the edge.
+- Improve user experience.
+- Made up of 216 Points of Presence (PoP) globally and other Edge Locations.
+- DDoS protection (because worldwide), integration with shield, AWS web App Firewall.
+
+<br />
+<Section
+	link="cloudfront-origins"
+	title="CloudFront - Origins (HTTP Backend)"
+/>
+
+- S3 bucket: For distributed file & caching at the edge.
+- Enhanced Security with CloudFront Origin Access Controll (OAC)
+- CloudFront <mark>can be used as ingress (i.e. to upload S3 files)</mark>
+
+<br />
+<Section link="cloudfront-highlevel" title="CloudFront - Diagram" />

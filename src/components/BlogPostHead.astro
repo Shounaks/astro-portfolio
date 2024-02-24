@@ -61,6 +61,106 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <style is:inline>
+	@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Code:wght@300..700&display=swap");
+
+	.blob-code::selection,
+	.pl-k::selection,
+	.pl-en::selection,
+	.pl-s::selection,
+	.pl-s1::selection,
+	.pl-smi::selection,
+	.pl-c::selection,
+	.pl-c1::selection {
+		/* color: red; */
+		background-color: #114957 !important;
+	}
+	.gist .gist-data {
+		line-height: 0px;
+		border-radius: 6px 6px 6px 6px !important;
+	}
+	.gist .gist-file {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+	.gist .gist-file .blob-code {
+		line-height: 1.2;
+		color: #bcbec4;
+		background-color: #1e1f22;
+		padding: 0;
+	}
+	.gist .gist-file .blob-code::after {
+		width: auto;
+		height: max-content;
+		/* width: max-content; */
+		white-space: pre;
+		/* content: "# "; */
+	}
+	.gist .gist-file .blob-code:hover {
+		/* color: #bcbec4; */
+		background-color: #26282e;
+	}
+	.gist .blob-wrapper {
+		border-radius: 0;
+	}
+	.gist .highlight {
+		background-color: transparent;
+		font-family: "Droid Sans Mono", monospace;
+		font-size: 14px;
+	}
+	.gist .highlight td {
+		padding: 5px 15px !important;
+		line-height: 1;
+		font-family: inherit;
+		font-size: inherit;
+	}
+	body .gist tr:first-child td {
+		padding-top: 15px !important;
+	}
+
+	body .gist tr:last-child td {
+		padding-bottom: 15px !important;
+	}
+
+	body .gist .blob-num {
+		/* color: #ced4da; */
+		/* background-color: #4b5059; */
+		color: #4b5059;
+		border-right: 3px solid #4b5059;
+		/* pointer-events: none; */
+	}
+	.gist tbody .blob-num:hover {
+		color: #bcbec4;
+	}
+	.gist tbody {
+		color: #bcbec4;
+		background-color: #1e1f22;
+	}
+	.gist .gist-file .pl-k {
+		color: #cf8e6d;
+	}
+	.gist .gist-file .pl-en {
+		color: #56a8f5;
+	}
+	.gist .gist-file .pl-s1 {
+		color: #c77dbb;
+	}
+	.gist .gist-file .pl-smi {
+		color: #bcbec4;
+	}
+	.gist .gist-file .pl-c {
+		color: #5f826b;
+	}
+	.gist .gist-file .pl-c1 {
+		color: #c77dbb;
+	}
+	.gist .gist-file .pl-s {
+		color: #6aab73;
+	}
+
+	.gist .gist-meta {
+		display: none;
+	}
+
 	li {
 		list-style-type: " - ";
 	}
