@@ -65,37 +65,58 @@ function slice2(array: any[], chunk: number, offset: number) {
 						value="Print this page"
 						onclick="window.print()"
 					/>
-					<div class="flex justify-around print:hidden">
-						<a href="" class="text-gray-800" onclick="window.history.go(-1)">
+					<div class="grid grid-cols-3 grid-rows-1 justify-around print:hidden">
+						<a
+							href=""
+							class="text-gray-800 hover:bg-slate-300 w-full h-full"
+							onclick="window.history.go(-1)"
+						>
 							<div
-								class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
+								class="inline-flex gap-x-2 justify-center group py-2 align-middle text-center self-center w-full h-full"
 							>
 								<img
 									src="/icons/arrow-back-outline.svg"
 									alt="⬅️"
-									class="w-[30px] h-[30px]"
+									class="w-[30px] h-[30px] self-center"
 								/>
-								<span class="align-middle text-center group-hover:text-black"
+								<span
+									class="align-middle text-center self-center group-hover:text-black"
 									>Go Back</span
 								>
 							</div>
 						</a>
-						<a href="/blog/" class="text-gray-800">
+						<a
+							href="/blog/"
+							class="text-gray-800 hover:bg-slate-300 w-full h-full"
+						>
 							<div
-								class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
+								class="inline-flex gap-x-2 justify-center group py-2 align-middle text-center self-center w-full h-full"
 							>
-								<img src="/icons/user.svg" alt="⬅️" class="w-[30px] h-[30px]" />
-								<span class="align-middle text-center group-hover:text-black"
+								<img
+									src="/icons/user.svg"
+									alt="⬅️"
+									class="w-[30px] h-[30px] self-center"
+								/>
+								<span
+									class="align-middle text-center self-center group-hover:text-black"
 									>Home</span
 								>
 							</div>
 						</a>
-						<a href="/blog/tags/" class="text-gray-800">
+						<a
+							href="/blog/tags/"
+							class="text-gray-800 hover:bg-slate-300 w-full h-full"
+						>
 							<div
-								class="inline-flex gap-x-1 group hover:bg-slate-300 p-2 rounded-md border-2 border-transparent focus:border-black"
+								class="inline-flex gap-x-2 justify-center group py-2 align-middle text-center self-center w-full h-full"
 							>
-								<img src="/icons/menu.svg" alt="⬅️" class="w-[30px] h-[30px]" />
-								<span class="align-middle text-center group-hover:text-black"
+								<img
+									src="/icons/menu.svg"
+									alt="⬅️"
+									class="w-[30px] h-[30px] self-center"
+								/>
+								<span
+									class="align-middle text-center self-center group-hover:text-black"
 									>Tag Catalog</span
 								>
 							</div>

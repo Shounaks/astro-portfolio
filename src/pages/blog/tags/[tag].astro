@@ -33,6 +33,7 @@ switch (tag) {
 							.sort((x,y)=> (x.data.order && y.data.order)? x.data.order - y.data.order : x.data.title.localeCompare(y.data.title))
 							.map((post) => (
 								<a
+									data-astro-reload
 									href={`/blog/${post.slug}/`}
 									class="hover:underline decoration-slate-400 underline-offset-8 min-w-max inline-flex pb-4 mx-5 border-b-2 border-slate-700"
 								>
