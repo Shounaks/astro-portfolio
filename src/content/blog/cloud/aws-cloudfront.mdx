@@ -33,3 +33,25 @@ import Section from "../../../components/Section.astro";
 
 <br />
 <Section link="cloudfront-highlevel" title="CloudFront - Diagram" />
+<br />
+!["weighted"](/content/cloud/aws/cloudfront_architecture.svg)
+<br />
+<Section link="cloudfront-vs-s3-cross-origin" title="CloudFront vs S3 Cross-Origin replication" />
+
+# CloudFront
+```
+- Global Edge Network
+- Files are cached for a TimeToLive (TTL) [eg. Maybe a day]
+- Great for static content that must be available everywhere.
+```
+# S3 Cross Region Replication
+```
+- Must be setup for each region, you want replication to happen
+- Files are updated in real-TimeToLive
+- Files are read-only
+- Great for dynamic content that needs to be available at low latency in few regions.
+```
+
+<br />
+<Section link="s3-transfer-accleration" title="S3 Transfer Acclerator" />
+Increase the transfer speed by transfering the file to an AWS Location which will forward the data to the S3 bucket in the target Region!

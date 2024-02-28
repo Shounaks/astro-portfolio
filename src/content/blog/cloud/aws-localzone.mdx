@@ -1,0 +1,34 @@
+---
+title: "AWS Local Zones"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 25, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Local-Zones_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section
+	link="intro"
+	title="AWS Local Zones Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_AWS-Local-Zones_32.svg"
+/>
+Places AWS Compute, storage, database & other selected AWS Services closer to end
+user to run latency sensitive Application. Extend your VPC to more location.
+<mark>its an extension of AWS Region</mark>
+
+- It is compatible with EC2, RDS, ECS, EBS, Elasticache, direct-connect, etc.
+
+EG:
+
+```
+AWS Region: N.Vierginia (US-EAST-1)
+AWS Local Zones:
+    -   Boston
+    -   Chicago
+    -   Dallas
+    -   Houston
+    -   Miami
+    -   ...
+```

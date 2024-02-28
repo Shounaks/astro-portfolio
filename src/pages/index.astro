@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
-import angra from '/public/angraoutline.png';
-import java from '/public/java.svg';
-import kotlin from '/public/kotlin.svg';
+import angra from "/public/angraoutline.png";
+import java from "/public/java.svg";
+import kotlin from "/public/kotlin.svg";
 ---
 
 <MainLayout>
@@ -38,9 +38,18 @@ import kotlin from '/public/kotlin.svg';
                 </p> -->
 				<p class="text-justify">
 					The Code-Magus is the architect of the digital Imperium, a master of
-					both front-end and back-end sorcery. With keystrokes that resonate
-					like incantations, they summon intricate spells of code to mend the
-					fractured tapestry of a crumbling digital realm.
+					both front-end and back-end sorcery. With <span
+						class="font-bold uppercase bg-gradient-to-r from-red-600 via-violet-500 to-blue-500 text-transparent bg-clip-text whitespace-nowrap"
+						>keystrokes</span
+					>
+					that resonate like <span
+						class="font-bold uppercase bg-gradient-to-r from-orange-300 via-emerald-400 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap"
+						>incantations</span
+					>, they summon intricate spells of code to mend the fractured tapestry
+					of a crumbling <span
+						class="animate-pulse hover:animate-none font-bold uppercase bg-gradient-to-r from-blue-800 via-cyan-800 to-gray-500 inline-block text-transparent bg-clip-text whitespace-nowrap"
+						>digital realm</span
+					>.
 				</p>
 				<a
 					href="resume/Shounak_Bhalerao_Resume.pdf"
@@ -56,6 +65,20 @@ import kotlin from '/public/kotlin.svg';
 					></span
 				>
 			</div>
+			<div class="group">
+				<a
+					href="/blog/tags/"
+					class="text-zinc-400 hover:text-zinc-200 underline text-sm"
+					>Musings over Technology</a
+				>
+				<span class="invisible group-hover:visible">
+					👈<span
+						class="text-sm font-bold sm:text-xs text-md uppercase bg-gradient-to-r from-orange-300 via-emerald-400 to-teal-500 inline-block text-transparent bg-clip-text whitespace-nowrap"
+					>
+						(blog link)</span
+					></span
+				>
+			</div>
 			<div class="pt-10 h-full">
 				<p
 					class="text-zinc-400 uppercase text-sm tracking-widest font-extralight pb-4"
@@ -64,11 +87,11 @@ import kotlin from '/public/kotlin.svg';
 				</p>
 				<div class="flex flex-row gap-10 pl-1">
 					<div class="flex flex-row gap-2 h-[32px] align-center items-center">
-						<Image src={java} class="h-[32px]" alt="JAVA"></Image>
+						<Image src={java} class="h-[32px]" alt="JAVA" />
 						<p class="text-white uppercase text-sm tracking-widest">JAVA 14</p>
 					</div>
 					<div class="flex flex-row gap-2 h-[32px] align-center items-center">
-						<Image src={kotlin} class="h-[32px]" alt="JAVA"></Image>						
+						<Image src={kotlin} class="h-[32px]" alt="JAVA" />
 						<p class="text-white uppercase text-sm tracking-widest">Kotlin</p>
 					</div>
 				</div>
@@ -236,7 +259,7 @@ import kotlin from '/public/kotlin.svg';
 		>
 			<div class="">
 				<div class="row-span-3 flex justify-center">
-					<Image src={angra} alt="" class="bg-[#ddd] object-contain"></Image>
+					<Image src={angra} alt="" class="bg-[#ddd] object-contain" />
 				</div>
 			</div>
 			<div class="relative bottom-24" id="ability-tooltips">
@@ -503,82 +526,82 @@ import kotlin from '/public/kotlin.svg';
 	initializeTippy();
 </script>
 <script defer is:inline>
-function recommendationData() {
-	return [
-		{
-			name: "Aashiya Singhal",
-			occupation: "Software Developer",
-			text: "Shounak and I started working in the project together 2 years back . He has amazing technical skills. He is definitely a team player , always ready to help other and resolve their doubts .",
-		},
-		{
-			name: "Agrim Maheshwari",
-			occupation: "Specialist Programmer",
-			text: "Shounak Bhalerao is a fantastic person to work with, and is not only a multi-skilled and insightful colleague, but also an inspiring strategist. Very good person. Great employee with a very strong problem solving skills. Shounak Bhalerao is an asset to any company.",
-		},
-		{
-			name: "Ayush Kumar",
-			occupation: "SAP Consultant",
-			text: "I and Shounak worked together during our training when we started our careers. Shounak was one of the most valuable member in the group we had back then with unmatched skills is Java and SQL. Although post training we were assigned to different projects and technologies, but his domain skills can only be matched by how good a friend he is outside work.",
-		},
-	];
-}
-function before() {
-	var id = document.querySelector("div[data-recommendation-id]");
-	var text = document.getElementById("recommendation-text");
-	var name = document.getElementById("recommendation-name");
-	var occupation = document.getElementById("recommendation-occupation");
-
-	var currentId = parseInt(
-		id.getAttribute("data-recommendation-id").toString()
-	);
-	var nextId =
-		(currentId + recommendationData().length - 1) %
-		recommendationData().length;
-	var newData = recommendationData()[nextId];
-	text.innerText = minimizeRecommendation(newData.text);
-	name.innerText = newData.name;
-	occupation.innerText = newData.occupation;
-	id.setAttribute("data-recommendation-id", nextId.toString());
-}
-
-function after() {
-	if (document.querySelector('div[data-recommendation-id])' === null)) return;
-	var id = document.querySelector("div[data-recommendation-id]");
-	var text = document.getElementById("recommendation-text");
-	var name = document.getElementById("recommendation-name");
-	var occupation = document.getElementById("recommendation-occupation");
-
-	if (!id || !text || !name || !occupation) {
-		return;
+	function recommendationData() {
+		return [
+			{
+				name: "Aashiya Singhal",
+				occupation: "Software Developer",
+				text: "Shounak and I started working in the project together 2 years back . He has amazing technical skills. He is definitely a team player , always ready to help other and resolve their doubts .",
+			},
+			{
+				name: "Agrim Maheshwari",
+				occupation: "Specialist Programmer",
+				text: "Shounak Bhalerao is a fantastic person to work with, and is not only a multi-skilled and insightful colleague, but also an inspiring strategist. Very good person. Great employee with a very strong problem solving skills. Shounak Bhalerao is an asset to any company.",
+			},
+			{
+				name: "Ayush Kumar",
+				occupation: "SAP Consultant",
+				text: "I and Shounak worked together during our training when we started our careers. Shounak was one of the most valuable member in the group we had back then with unmatched skills is Java and SQL. Although post training we were assigned to different projects and technologies, but his domain skills can only be matched by how good a friend he is outside work.",
+			},
+		];
 	}
-	var currentId = parseInt(
-		id.getAttribute("data-recommendation-id").toString()
-	);
-	var nextId = (currentId + 1) % recommendationData().length;
-	var newData = recommendationData()[nextId];
-	text.innerText = minimizeRecommendation(newData.text);
-	name.innerText = newData.name;
-	occupation.innerText = newData.occupation;
-	id.setAttribute("data-recommendation-id", nextId.toString());
-}
+	function before() {
+		var id = document.querySelector("div[data-recommendation-id]");
+		var text = document.getElementById("recommendation-text");
+		var name = document.getElementById("recommendation-name");
+		var occupation = document.getElementById("recommendation-occupation");
 
-function minimizeRecommendation(item) {
-	const wordLimit = 35;
-	const addEllipse = item.split(" ").length > wordLimit ? "..." : "";
-	return (
-		item
-			.split(" ")
-			.slice(0, wordLimit)
-			.reduce((a, b) => a + " " + b, "") +
-		" " +
-		addEllipse
-	);
-}
+		var currentId = parseInt(
+			id.getAttribute("data-recommendation-id").toString()
+		);
+		var nextId =
+			(currentId + recommendationData().length - 1) %
+			recommendationData().length;
+		var newData = recommendationData()[nextId];
+		text.innerText = minimizeRecommendation(newData.text);
+		name.innerText = newData.name;
+		occupation.innerText = newData.occupation;
+		id.setAttribute("data-recommendation-id", nextId.toString());
+	}
 
-//Initialize Data after first page load
-after();
-//Initialize Data after astro swaps between page
-document.addEventListener("astro:after-swap", after);
+	function after() {
+		if (document.querySelector("div[data-recommendation-id])" === null)) return;
+		var id = document.querySelector("div[data-recommendation-id]");
+		var text = document.getElementById("recommendation-text");
+		var name = document.getElementById("recommendation-name");
+		var occupation = document.getElementById("recommendation-occupation");
+
+		if (!id || !text || !name || !occupation) {
+			return;
+		}
+		var currentId = parseInt(
+			id.getAttribute("data-recommendation-id").toString()
+		);
+		var nextId = (currentId + 1) % recommendationData().length;
+		var newData = recommendationData()[nextId];
+		text.innerText = minimizeRecommendation(newData.text);
+		name.innerText = newData.name;
+		occupation.innerText = newData.occupation;
+		id.setAttribute("data-recommendation-id", nextId.toString());
+	}
+
+	function minimizeRecommendation(item) {
+		const wordLimit = 35;
+		const addEllipse = item.split(" ").length > wordLimit ? "..." : "";
+		return (
+			item
+				.split(" ")
+				.slice(0, wordLimit)
+				.reduce((a, b) => a + " " + b, "") +
+			" " +
+			addEllipse
+		);
+	}
+
+	//Initialize Data after first page load
+	after();
+	//Initialize Data after astro swaps between page
+	document.addEventListener("astro:after-swap", after);
 </script>
 <style>
 	.skillicon {

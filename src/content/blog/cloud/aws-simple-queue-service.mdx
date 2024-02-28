@@ -2,7 +2,7 @@
 title: "AWS Simple Queue Service"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Feb 4, 2024"
-heroImage: "/content/cloud/aws/icons/Arch_AWS-Systems-Manager_32.svg"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Simple-Queue-Service_32.svg"
 readTime: 5 minutes
 tags: ["cloud", "AWS"]
 ---
@@ -11,6 +11,33 @@ import Section from "../../../components/Section.astro";
 
 <Section
 	link="intro"
-	title="AWS Systems Manager (AWS SSM) Introduction"
-	imageUrl="/content/cloud/aws/icons/Arch_AWS-Systems-Manager_32.svg"
+	title="AWS Simple Queue Service Introduction"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Queue-Service_32.svg"
 />
+
+- It is the Oldest AWS Offering (over 15 years as of 2024)
+- <mark>Used to decouple applications.</mark>
+- Scales from 1 message/second to 10,000 messages/second
+- Default Retention of message: <mark>4 days (but it can go upto 14 days)</mark>
+- No Limit how many messages can be in the Queue.
+- Messages are deleted after they are read by comsumers
+- Low Latency (&lt; 10ms on publish/recieve)
+- consumer share the work to read message & scale horizontally
+
+<mark>Note: It is a pull based system!</mark>
+
+<br />
+!["sqs"](/content/cloud/aws/sqs.svg)
+<br />
+
+<Section
+	link="sqs-decouple-apps"
+	title="SQS to decouple between application tiers"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Queue-Service_32.svg"
+/>
+
+Lets say we have a website hosted on webservers, and it provides a video processing service. The 2nd set og ASG EC2, will be reading
+from the SQS queue and processing data. The webservers act as producers and put data into SQS Queue while Video Processing Servers act
+as consumers. The Awesome thing about it is that we can scale the second ASG independently from the first (& thats why its called coupling)
+
+<mark> And on top of it, AutoScaling can happen on how many messages there are in the SQS!!</mark>

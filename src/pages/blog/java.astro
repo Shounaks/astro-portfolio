@@ -52,7 +52,7 @@ import aqua from "../project/aqua.png";
 									.filter(item => item.data.tags.includes("Java"))
 									.map((post) => (
 										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-sky-500">
+											<a data-astro-reload href={`/blog/${post.slug}/`} class="hover:text-sky-500">
 												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
 												<span class="">
 													<FormattedDate date={post.data.pubDate} />

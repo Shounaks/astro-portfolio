@@ -1,0 +1,44 @@
+---
+title: "Lecture # 26 : AWS Global Acclerator"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 10, 2024"
+heroImage: "/content/cloud/aws/icons/Arch-Category_Compute_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH:AWS"]
+order: 26
+---
+
+import Section from "../../../../components/Section.astro";
+
+Improve global application availablity & Peformance using teh AWS Global Network.
+Leverage the AWS internal network to optimize the route to your application. (60% improvement)
+
+2 Static AnycastIPs are created for your application & is sent through Edge Location. The edge location will send this traffic to your Application.
+
+<Section
+	link="global-aclerator-vs-cf"
+	title="# What is the difference Between Global Acclerator & Cloud Front"
+/>
+
+<br />
+!["Global Architecture"](/content/cloud/aws/global_acclerator.svg)
+<br />
+
+- They both use the AWS Global Network & its edge location around the world. - Both
+  service integrates with AWS Shield (DDoS Protection Service)
+
+```
+- CloudFront is a CDN
+- It improves your peformance by cacheing
+- Content is served at the edge.
+```
+
+<br />
+while
+
+```
+- Global Acclerator involves no cacheing,
+- but proxying packets at the edge to application running in one or more regions.
+- Thereby improving peformance for a wide range of applications over TCP/UDP.
+- It is good for HTTP usecase that require static IP address
+```
