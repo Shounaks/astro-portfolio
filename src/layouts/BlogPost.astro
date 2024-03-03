@@ -6,6 +6,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import YoutubeEmbed from "../components/YoutubeEmbed.astro";
+import { Image } from 'astro:assets';
+
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -29,205 +31,90 @@ function slice2(array: any[], chunk: number, offset: number) {
 	}
 	return out;
 }
+const images = import.meta.glob<{ default: ImageMetadata }>('/public/**/*.{jpeg,jpg,png,gif,svg}')
+const heroImagePath = "/public"+ heroImage;
+if (!images[heroImagePath]) throw new Error(`"${heroImagePath}" does not exist in glob: "public/**/*.{jpeg,jpg,png,gif,svg}"`);
+
 ---
 
 <head>
 	<BlogPostHead title={title} description={description} />
 </head>
 <html lang="en">
-	<body class="md:text-base sm:text-xs">
-		<Header />
-		<main class="w-full md:grid md:grid-cols-10">
-			<article class="col-span-6">
-				<div class="prose">
-					<div class="title">
-						<div class="text-gray-500">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+	<body class="bg-[#26282e] text-[#ffffff] md:grid grid-cols-12 grid-row-1 w-full h-full min-w-full min-h-full">
+		<div class="col-span-3 min-h-max h-full bg-[#393b40] p-4 hidden lg:block print:hidden">
+			<div id="cardz" class="rounded-xl p-4" style=`background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(${heroImagePath}) no-repeat;background-size:cover;background-position:center;`>
+				<div class=`flex justify-between w-full 2xl:pb-5`>
+					<div class="font-extralight">Blog Post : </div>
+					<div class="gap-4 align-middle self-center snap-center hidden 2xl:inline-flex">
+						<a href="" onclick="window.history.go(-1)">
+							<img src="/intellij_icon_pack/left_dark.svg" alt="go back" class="w-[32px]"></img>
+						</a>
+						<a href="" onclick="window.print()">
+							<img src="/intellij_icon_pack/print_dark.svg" alt="go back" class="w-[32px]"></img>
+						</a>
+						<a href="/blog/tags/">
+							<img src="/icons/menu.svg" alt="go back" class="w-[32px] invert"></img>
+						</a>
+						<a href="/blog/">
+							<img src="/intellij_icon_pack/home.svg" alt="home" class="w-[32px]"></img>
+						</a>
 					</div>
-					<slot />
 				</div>
-			</article>
-			<aside class="col-span-3 pt-40 print:hidden">
-				<div class="md:sticky md:top-10 border-x-2">
-					<input
-						class="hover:cursor-help w-full bg-zinc-300 rounded-t-md"
-						type="button"
-						value="Print this page"
-						onclick="window.print()"
-					/>
-					<div class="grid grid-cols-3 grid-rows-1 justify-around print:hidden">
-						<a
-							href=""
-							class="text-gray-800 hover:bg-slate-300 w-full h-full"
-							onclick="window.history.go(-1)"
-						>
-							<div
-								class="inline-flex gap-x-2 justify-center group py-2 align-middle text-center self-center w-full h-full"
-							>
-								<img
-									src="/icons/arrow-back-outline.svg"
-									alt="⬅️"
-									class="w-[30px] h-[30px] self-center"
-								/>
-								<span
-									class="align-middle text-center self-center group-hover:text-black"
-									>Go Back</span
-								>
-							</div>
-						</a>
-						<a
-							href="/blog/"
-							class="text-gray-800 hover:bg-slate-300 w-full h-full"
-						>
-							<div
-								class="inline-flex gap-x-2 justify-center group py-2 align-middle text-center self-center w-full h-full"
-							>
-								<img
-									src="/icons/user.svg"
-									alt="⬅️"
-									class="w-[30px] h-[30px] self-center"
-								/>
-								<span
-									class="align-middle text-center self-center group-hover:text-black"
-									>Home</span
-								>
-							</div>
-						</a>
-						<a
-							href="/blog/tags/"
-							class="text-gray-800 hover:bg-slate-300 w-full h-full"
-						>
-							<div
-								class="inline-flex gap-x-2 justify-center group py-2 align-middle text-center self-center w-full h-full"
-							>
-								<img
-									src="/icons/menu.svg"
-									alt="⬅️"
-									class="w-[30px] h-[30px] self-center"
-								/>
-								<span
-									class="align-middle text-center self-center group-hover:text-black"
-									>Tag Catalog</span
-								>
-							</div>
+				<div class="pl-5 py-5 gap-4 pr-5 align-middle self-center snap-center 2xl:hidden flex flex-col gap-y-4">
+					<div class="">
+						<a href="" onclick="window.history.go(-1)" class="inline-flex gap-2 snap-center align-middle text-center">
+							<img src="/intellij_icon_pack/left_dark.svg" alt="go back" class="w-[32px]"></img>
+							<div class="text-center self-center align-middle">Go Back</div>
 						</a>
 					</div>
-					<hr />
-					<div class="border-x-2 border-zinc-300 lg:flex w-full">
-						<div id="minute-read" class="w-full">
-							<p class="pl-2">Minutes Read</p>
-							<div class="inline-flex gap-2 pl-5">
-								<img src="/icons/timer.svg" class="w-[30px]" alt="" />
-								<p class="pl-1">{readTime ? readTime : "N/A"}</p>
-							</div>
-							<p class="pl-2">Description</p>
-							<div class="inline-flex gap-2 pl-5">
-								{description}
-							</div>
+					<div class="">
+						<a href="" onclick="window.print()" class="inline-flex gap-2 snap-center align-middle text-center">
+							<img src="/intellij_icon_pack/print_dark.svg"alt="print" class="w-[32px]"></img>
+							<div class="text-center self-center align-middle">Print</div>
+						</a>
+					</div>
+					<div class="">
+						<a href="/blog/" class="inline-flex gap-2 snap-center align-middle text-center">
+							<img src="/icons/menu.svg" alt="go back" class="w-[32px] invert"></img>
+							<div class="text-center self-center align-middle">Tag Content</div>
+						</a>
+					</div>
+					<div class="">
+						<a href="/blog/" class="inline-flex gap-2 snap-center align-middle text-center">
+							<img src="/intellij_icon_pack/home.svg"alt="home" class="w-[32px]"></img>
+							<div class="text-center self-center align-middle">Home</div>
+						</a>
+					</div>
+				</div>
+				<div class="pl-5 2xl:inline-flex justify-end w-full">
+					<div class="w-fit whitespace-nowrap">Minutes Read:</div>
+					<div class="inline-flex pl-5 self-center items-center w-full">
+						<img src="/intellij_icon_pack/timeline.svg" class="hidden lg:block w-[32px]" alt="" />
+						<p class="pl-1">{readTime ? readTime : "N/A"}</p>
+					</div>
+				</div>
+				<div class="pl-5 w-full">
+					<div class="w-fit whitespace-nowrap">Summary:</div>
+					<div class="inline-flex pl-5 self-center items-center w-full italic">
+						<p class="pl-1">{description}</p>
+					</div>
+				</div>
+				<div class="pb-10"></div>
+				<div class="2xl:flex 2xl:flex-1 2xl:gap-2 2xl:justify-between">
+					<div class="2xl:pb-0 pb-5">
+						<div class="inline-flex justify-between w-full">
+							<div>Tags:</div>
 						</div>
-						<div class="w-full pb-2">
-							<p class="pl-2">QR Code</p>
-							<div class="gap-2 w-full flex justify-center">
-								<div id="qr_code" class=""></div>
-							</div>
-						</div>
-					</div>
-					<div id="other_links" class="border-x-2 border-zinc-300 bg-zinc-300">
-						<span class="pb-4 pl-2"> Other Posts:</span>
-						<ul
-							class="px-6 list-disc text-zinc-400 tracking-widest font-extralight pb-4 rounded-b-3xl bg-zinc-100"
-						>
-							{
-								posts
-									.filter((post) => post.data.tags.includes(tags[0]))
-									.sort((x, y) =>
-										x.data.order && y.data.order
-											? x.data.order - y.data.order
-											: x.data.title.localeCompare(y.data.title)
-									)
-									.filter((post) => {
-										const count = 5;
-										let p = posts
-											.filter((post) => post.data.tags.includes(tags[0]))
-											.sort((x, y) =>
-												x.data.order && y.data.order
-													? x.data.order - y.data.order
-													: x.data.title.localeCompare(y.data.title)
-											)
-											.flatMap((post) => post.data.title);
-										if (post.data.title === title) return true;
-										return (
-											p.indexOf(post.data.title) - p.indexOf(title) < count &&
-											p.indexOf(post.data.title) - p.indexOf(title) > -1 * count
-										);
-									})
-									.map((post) =>
-										post.data.title === title ? (
-											<li
-												value={
-													posts
-														.filter((post) => post.data.tags.includes(tags[0]))
-														.sort((x, y) =>
-															x.data.order && y.data.order
-																? x.data.order - y.data.order
-																: x.data.title.localeCompare(y.data.title)
-														)
-														.flatMap((post) => post.data.title)
-														.indexOf(post.data.title) + 1
-												}
-												class="text-black list-[upper-roman] overflow-hidden"
-												style="list-style-position:inside"
-											>
-												<a
-													class="group-hover:text-black underline underline-offset-4 hover:text-black"
-													href=""
-												>
-													{post.data.title}
-												</a>
-											</li>
-										) : (
-											<li class="group hover:marker:text-black">
-												<a
-													class="group-hover:text-black"
-													href={`/blog/${post.slug}/`}
-												>
-													{post.data.title}
-												</a>
-											</li>
-										)
-									)
-							}
-						</ul>
-					</div>
-					<div id="tags" class="bg-zinc-300 rounded-b-md">
-						<p class="p-2">Tags:</p>
 						<div class="flex gap-3 pl-5 flex-wrap">
 							{
 								tags != null && tags.length !== 0 ? (
 									tags.map((tag: string) => (
-										<a
-											href={`/blog/tags/${tag}`}
-											class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 border-white mb-2"
-										>
-											<>
-												<span class="border-r-2 border-black text-black">
-													#{" "}
-												</span>
-												<span class="text-slate-400 pl-2 group-hover:text-slate-600">
-													{" "}
-													{tag}
-												</span>
-											</>
+										<a href={`/blog/tags/${tag}`} class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 border-white mb-2 inline-flex">
+										<img src="/intellij_icon_pack/localBranch_dark.svg" class="w-[16px]" alt="" />
+											<span class="text-white pl-2 group-hover:text-slate-300">
+												{" " + tag}
+											</span>
 										</a>
 									))
 								) : (
@@ -236,19 +123,96 @@ function slice2(array: any[], chunk: number, offset: number) {
 							}
 						</div>
 					</div>
-					{
-						yt != null ? (
-							<div id="yt_embed" class="pt-2 w-full h-full shadow-md">
-								<YoutubeEmbed link={yt} title={title} />
-							</div>
-						) : (
-							""
-						)
-					}
+					<div class="">
+						<p class="2xl:hidden block">QR Code</p>
+						<div class="p-1 rounded-sm align-middle snap-center self-center justify-center flex bg-white">
+							<div id="qr_code" class=""></div>
+						</div>
+					</div>
 				</div>
-			</aside>
-		</main>
-		<Footer />
+			</div>
+			
+			<div class="pb-5"></div>
+			<div class="inline-flex justify-between w-full">
+				<div>Related Blogs</div>
+			</div>
+			<div class="pl-5 ">
+				{
+					posts
+						.filter((post) => post.data.tags.includes(tags[0]))
+						.sort((x, y) =>
+							x.data.order && y.data.order
+								? x.data.order - y.data.order
+								: x.data.title.localeCompare(y.data.title)
+						)
+						.filter((post) => {
+							const count = 5;
+							let p = posts
+								.filter((post) => post.data.tags.includes(tags[0]))
+								.sort((x, y) =>
+									x.data.order && y.data.order
+										? x.data.order - y.data.order
+										: x.data.title.localeCompare(y.data.title)
+								)
+								.flatMap((post) => post.data.title);
+							if (post.data.title === title) return true;
+							return (
+								p.indexOf(post.data.title) - p.indexOf(title) < count &&
+								p.indexOf(post.data.title) - p.indexOf(title) > -1 * count
+							);
+						})
+						.map((post) =>
+							post.data.title === title ? (
+								<li value={
+										posts
+											.filter((post) => post.data.tags.includes(tags[0]))
+											.sort((x, y) =>
+												x.data.order && y.data.order
+													? x.data.order - y.data.order
+													: x.data.title.localeCompare(y.data.title)
+											)
+											.flatMap((post) => post.data.title)
+											.indexOf(post.data.title) + 1
+									}
+									class="text-[#cf8e6d] list-none overflow-hidden inline-flex gap-2"
+									style=""
+								>
+									<img src='/public/intellij_icon_pack/fold_dark.svg' alt=""></img>
+									<a class=" hover:underline underline-offset-4 inline-flex gap-2" href="">
+										<img src='/public/intellij_icon_pack/module_dark.svg' alt=""></img>
+										<span>{post.data.title}</span></a>
+								</li>
+							) : (
+								<li class="underline-offset-4 inline-flex gap-2 w-full">
+									<img src='/public/intellij_icon_pack/unfold_dark.svg' alt=""></img>
+									<a class="group hover:underline inline-flex gap-2" href={`/blog/${post.slug}/`}>
+										<img src='/public/intellij_icon_pack/module_dark.svg' alt=""></img>
+										<span class="whitespace-break-spaces">{post.data.title}</span>
+									</a>
+								</li>
+							)
+						)
+				}
+			</div>
+			<div class="pb-5"></div>
+			{
+				yt != null ? (
+					<div id="yt_embed" class="pt-2 w-full shadow-md">
+						<YoutubeEmbed link={yt} title={title} />
+					</div>
+				) : (
+					""
+				)
+			}
+		</div>
+		<div class="lg:col-span-9 col-span-full min-h-screen h-screen px-10 py-4 overflow-y-scroll print:col-span-12 print:overflow-y-visible">
+			<span class="text-[#cf8e6d] w-full min-w-full pl-5 text-5xl">{title}</span>
+			<hr class="border-[#393b40] border-2">
+			<div class="pl-5 pt-5 print:text-black">
+				<slot />
+			</div>
+			<Footer />
+		</div>
 	</body>
 </html>
 <script src="/qrcode.js" defer is:inline></script>
