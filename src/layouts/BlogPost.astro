@@ -4,6 +4,7 @@ import BlogPostHead from "../components/BlogPostHead.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import YoutubeEmbed from "../components/YoutubeEmbed.astro";
+import { getImage } from "astro:assets";
 
 const {
 	title,
@@ -25,8 +26,8 @@ function slice2(array: any[], chunk: number, offset: number) : any[] {
 	}
 	return out;
 }
-const images = import.meta.glob<{ default: ImageMetadata }>('/public/(content/cloud/**/*.{jpeg,svg}|*.{jpeg,jpg})');
-const bg_image = await images["/public" + heroImage]();
+
+const bg_img = await getImage({src: heroImage, format: 'webp',width:1, height:1})
 ---
 
 <head>
@@ -35,7 +36,7 @@ const bg_image = await images["/public" + heroImage]();
 <html lang="en">
 	<body class="bg-[#26282e] text-[#ffffff] md:grid grid-cols-12 grid-row-1 w-full h-full min-w-full min-h-full">
 		<div class="col-span-3 min-h-max h-full bg-[#393b40] p-4 hidden lg:block print:hidden">
-			<div id="cardz" class="rounded-xl p-4" style=`background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(${bg_image.default.src}) no-repeat;background-size:cover;background-position:center;`>
+			<div id="cardz" class="rounded-xl p-4" style=`background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(${bg_img.src}) no-repeat;background-size:cover;background-position:center;`>
 				<div class=`flex justify-between w-full 2xl:pb-5`>
 					<div class="font-extralight">Blog Post : </div>
 					<div class="gap-4 align-middle self-center snap-center hidden 2xl:inline-flex">
