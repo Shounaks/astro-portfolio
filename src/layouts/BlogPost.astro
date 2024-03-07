@@ -1,15 +1,9 @@
 ---
-import { type CollectionEntry } from "astro:content";
 import { posts } from "../collection";
 import BlogPostHead from "../components/BlogPostHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import YoutubeEmbed from "../components/YoutubeEmbed.astro";
-import { Image } from 'astro:assets';
-
-
-type Props = CollectionEntry<"blog">["data"];
 
 const {
 	title,
@@ -22,7 +16,7 @@ const {
 	yt,
 } = Astro.props;
 
-function slice2(array: any[], chunk: number, offset: number) {
+function slice2(array: any[], chunk: number, offset: number) : any[] {
 	var end = offset + chunk,
 		out = array.slice(offset, end); // Get the chunk
 	if (array.length < end) {
@@ -31,10 +25,8 @@ function slice2(array: any[], chunk: number, offset: number) {
 	}
 	return out;
 }
-const images = import.meta.glob<{ default: ImageMetadata }>('/public/**/*.{jpeg,jpg,png,gif,svg}')
-const heroImagePath = "/public"+ heroImage;
-if (!images[heroImagePath]) throw new Error(`"${heroImagePath}" does not exist in glob: "public/**/*.{jpeg,jpg,png,gif,svg}"`);
-
+const images = import.meta.glob<{ default: ImageMetadata }>('/public/(content/cloud/**/*.{jpeg,svg}|*.{jpeg,jpg})');
+const bg_image = await images["/public" + heroImage]();
 ---
 
 <head>
@@ -43,7 +35,7 @@ if (!images[heroImagePath]) throw new Error(`"${heroImagePath}" does not exist i
 <html lang="en">
 	<body class="bg-[#26282e] text-[#ffffff] md:grid grid-cols-12 grid-row-1 w-full h-full min-w-full min-h-full">
 		<div class="col-span-3 min-h-max h-full bg-[#393b40] p-4 hidden lg:block print:hidden">
-			<div id="cardz" class="rounded-xl p-4" style=`background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(${heroImagePath}) no-repeat;background-size:cover;background-position:center;`>
+			<div id="cardz" class="rounded-xl p-4" style=`background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(${bg_image.default.src}) no-repeat;background-size:cover;background-position:center;`>
 				<div class=`flex justify-between w-full 2xl:pb-5`>
 					<div class="font-extralight">Blog Post : </div>
 					<div class="gap-4 align-middle self-center snap-center hidden 2xl:inline-flex">
@@ -208,6 +200,7 @@ if (!images[heroImagePath]) throw new Error(`"${heroImagePath}" does not exist i
 		<div class="lg:col-span-9 col-span-full min-h-screen h-screen px-10 py-4 overflow-y-scroll print:col-span-12 print:overflow-y-visible">
 			<span class="text-[#cf8e6d] w-full min-w-full pl-5 text-5xl">{title}</span>
 			<hr class="border-[#393b40] border-2">
+			<FormattedDate date={pubDate}/>
 			<div class="pl-5 pt-5 print:text-black">
 				<slot />
 			</div>
