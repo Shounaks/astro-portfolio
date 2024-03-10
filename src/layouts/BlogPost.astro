@@ -37,10 +37,21 @@ function getRndInteger(min : number, max : number) : number {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-//const bg_img = await getImage({src: heroImage, format: 'webp',width:1, height:1})
+function minimizeRecommendation(item : string) {
+		const wordLimit = 4;
+		const addEllipse = item.split(" ").length > wordLimit ? "..." : "";
+		return (
+			item
+				.split(" ")
+				.slice(0, wordLimit)
+				.reduce((a, b) => a + " " + b, "") +
+			" " +
+			addEllipse
+		);
+	}
+
 const bg_num = getRndInteger(2,5);
 const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
-// const category_img = //await getImage({src: categoryImage, format: 'svg',width:1, height:1})
 ---
 
 <head>
@@ -142,10 +153,10 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 			<hr class="border-2 my-5 border-[#26282e]"/>
 			
 			<div class="flex flex-col gap-2">
-				<details class="inline-flex justify-between [&_img[alt=unfold]]:open:rotate-90 w-full select-none cursor-pointer" open>
+				<details class="inline-flex justify-between [&_img[alt=unfoldgrp]]:open:rotate-90 w-full select-none cursor-pointer" open>
 				<summary class="list-none">
 					<div class=`inline-flex gap-2 p-2 border-2 border-[${bg_css[bg_num]}] rounded-md w-full bg-slate-800`>
-						<Image src={unfold_dark} alt="unfold" class="rotate-0 transform transition-all duration-400 ease-in-out "/>
+						<Image src={unfold_dark} alt="unfoldgrp" class="rotate-0 transform transition-all duration-400 ease-in-out "/>
 						<div>Youtube</div>
 					</div>
 				</summary>
@@ -160,14 +171,14 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 				}
 				</ul>
 			</details>
-			<details class="inline-flex justify-between [&_img[alt=unfold]]:open:rotate-90 w-full select-none cursor-pointer">
+			<details class="inline-flex justify-between [&_img[alt=unfoldgrp]]:open:rotate-90 w-full select-none cursor-pointer group">
 				<summary class="list-none">
-					<div class="inline-flex gap-2 p-2 border-2 border-[#FDAA12] rounded-md w-full bg-slate-800">
-						<Image src={unfold_dark} alt="unfold" class="rotate-0 transform transition-all duration-400 ease-in-out "/>
+					<div class="inline-flex gap-2 p-2 border-2 border-[#FDAA12] rounded-md w-full bg-slate-800 group-open:border-b-0 group-open:rounded-b-none">
+						<Image src={unfold_dark} alt="unfoldgrp" class="rotate-0 transform transition-all duration-400 ease-in-out "/>
 						<div>Related Blogs</div>
 					</div>
 				</summary>
-				<ul class="pl-5 overflow-y-auto overflow-x-clip">
+				<ul class="pt-3 overflow-y-auto overflow-x-clip bg-slate-950 border-2 border-t-0 border-[#FDAA12] rounded-b-md">
 				{
 					posts
 						.filter((post) => post.data.tags.includes(tags[0]))
@@ -205,31 +216,32 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 											.flatMap((post) => post.data.title)
 											.indexOf(post.data.title) + 1
 									}
-									class="w-full text-[#cf8e6d] list-none overflow-hidden inline-flex gap-2 underline-offset-4 select-none cursor-pointer"
+									class="p-1 w-full h-full text-[#cf8e6d] list-none overflow-hidden inline-flex gap-2 underline-offset-4 select-none cursor-pointer bg-slate-700 items-center align-middle self-center"
 									style="">
-									<details class="[&_img[alt=unfold]]:open:rotate-90 w-full" open>
-										<summary class="list-none w-full inline-flex gap-2">
+									<details class="[&_img[alt=unfold]]:open:rotate-90 w-full h-full" open>
+										<summary class="list-none w-full h-full items-center align-middle self-center inline-flex gap-2">
 											<Image src={unfold_dark} alt="unfold" class="rotate-0 transform transition-all duration-400 ease-in-out"/>
-											<Image src={module_dark} alt="module"/>
-											<span class="whitespace-break-spaces text-md hover:underline underline-offset-4 inline-flex gap-2">{post.data.title}</span> 
+											<img src=`${post.data.heroImage}` class="h-8 w-8 rounded-none" alt=`${post.data.title}` />
+											<span class="whitespace-break-spaces text-md hover:underline underline-offset-4 inline-flex gap-2">{minimizeRecommendation(post.data.title)}</span> 
 										</summary>
-										<a href={`/blog/${post.slug}/`} class="border-l-4 border-gray-800 pl-3 ml-5 inline-flex gap-2 w-full">
-											<!--<Image src={{src: post.data.heroImage == null? bg_img.src : post.data.heroImage, format:'jpg', height:58, width:58}} alt="IMG"/> -->
+										<a href={`/blog/${post.slug}/`} class="border-l-4 border-gray-800 pl-3 mt-3 ml-5 inline-flex gap-2 w-full">
+											<Image src={module_dark} alt="module"/>
 											{post.data.description}
 										</a>
 									</details>
 								</li>
 							) : (
-								<li class="underline-offset-4 list-none select-none cursor-pointer">
-									<details class="[&_img[alt=unfold]]:open:rotate-90 ">
-										<summary class="list-none w-full inline-flex gap-2">
+								<li class="p-1 underline-offset-4 list-none select-none cursor-pointer items-center align-middle self-center">
+									<details class="[&_img[alt=unfold]]:open:rotate-90 w-full h-full">
+										<summary class="list-none w-full h-full items-center align-middle self-center inline-flex gap-2">
 											<Image src={unfold_dark} alt="unfold" class="rotate-0 transform transition-all duration-400 ease-in-out"/>
-											<Image src={module_dark} alt="module"/>
-											<span class="whitespace-break-spaces text-md">{post.data.title}</span>
+											<a href={`/blog/${post.slug}/`} class="inline-flex gap-2 w-full">
+												<img src=`${post.data.heroImage}` class="h-8 w-8 rounded-none" alt=`${post.data.title}` />
+												<span class="whitespace-break-spaces text-md">{minimizeRecommendation(post.data.title)}</span>
+											</a>
 										</summary>
-										<!-- TODO: do not ask why did i set format as jpg, its working and hence, dont touch it -->
-										<a href={`/blog/${post.slug}/`} class="border-l-4 border-gray-800 pl-3 ml-5 inline-flex gap-2 w-full"> 
-											<!-- <Image src={{src: post.data.heroImage == null? bg_img.src : post.data.heroImage,format:'jpg',height:58,width:58}} alt="IMG"/> -->
+										<a href={`/blog/${post.slug}/`} class="border-l-4 border-gray-800 pl-3 mt-3 ml-5 inline-flex gap-2 w-full">
+											<Image src={module_dark} alt="module"/>
 											{post.data.description}
 										</a>
 									</details>
