@@ -1,0 +1,24 @@
+---
+title: "AWS Event Bridge"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 18, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-EventBridge_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="eb-intro" title="Introduction" />
+- Perticularly used to schedule CRON Jobs (Scheduled Script, for eg. a program that runs every 3 hrs.) 
+- Event Pattern: Event rules to react to a service doing something. (E.g. Event when someone logins as a Root User)
+- Can Trigger Following: Lambda Functions, Send SQS or SNS message, etc
+
+<br />
+!["eb"](/content/cloud/aws/eb.svg)
+<br />
+
+- Schema Registry is used to model an event schema.
+- You can archive events (all/filter) sent to an event bus (indefinately or for set period)
+- Ability to Replay archive events.
+

@@ -1,0 +1,29 @@
+---
+title: "AWS Simple Notification Service"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "17 March, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Simple-Notification-Service_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="sns-intro" title="Introduction" />
+
+What if you want to send 1 message to many different recievers (or services)?
+In that case this is the service you are looking for.
+
+<br />
+!["sns"](/content/cloud/aws/sns1.svg)
+<br />
+
+
+- The event publishers only send message to one SNS topic.
+- We can have as many event-subscribers as we want to the SNS topic Notification.
+- Each Subscriber to the topic will get all the messages.
+- Upto 12,500,000 subscription/topics & Upto 100,000 topics limit for each account
+
+<br />
+!["sns3"](/content/cloud/aws/sns3.svg)
+<br />

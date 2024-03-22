@@ -1,0 +1,30 @@
+---
+title: "AWS VPC Flow Logs"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 21, 2024"
+heroImage: "/content/cloud/aws/icons/Res_Amazon-VPC_Flow-Logs_48.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+---
+import Section from "../../../components/Section.astro";
+
+<Section link="vpc-flow-logs-introduction" title="Introduction"/>
+It captures information about IP traffic going into your interfaces.
+- VPC Flow Logs
+- Subnet Flow Logs
+- Elastic Network Interface (ENI) Flow Logs.
+
+```markdown
+Helps to monitor & troubleshoot connectivity issues. Examples: subnet.
+    - Subnet to Internet
+    - Subnet to Subnet
+    - Internet to Subnet
+
+Capture network information from AWS managed interfaces too:
+    - ELB
+    - ElastiCache
+    - RDS
+    - Aurora
+    - etc.
+```
+VPC flow logs data can goto S3, CloudWatch Logs, Kinesis Data Firehouse (which then goes to S3, Redshift, ElastiSearch)

@@ -1,0 +1,43 @@
+---
+title: "AWS Code Guru"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 20, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-CodeGuru_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="code-guru-intro" title="Introduction" />
+
+- An Machine Learning (ML)-powered service for automated code review & application peformance recommendation.
+
+```markdown
+- It provides 2 functionalities:
+    - CodeGuru Reviewer: Automated Code Review for static code analysis.
+    - CodeGuru Profiler: Visiblity/recommendation about application peformance during runtime (production)
+```
+
+<br/>
+<Section link="code-guru-reviewer" title="Code Guru Reviewer" />
+- Identify Critical Issues, Security Vulnerablities, & hard to find bugs. E.g. Common Coding Best Practices, Resource Leak, Security Detection, Input Validation.
+- Use ML & Automated reasoning.
+- Hard Lessons learned across millions of code review on 1000s of open source & Amazon Repositories.
+- Supports Java & Python.
+- Integrates with Github, Bitbucket, & AWS Code Commit.
+
+<br/>
+<Section link="code-guru-profiler" title="Code Guru Profiler" />
+- <mark>Help understand the runtime behaviour of your applications.</mark>
+- Example: Identify if your application is consuming excessive CPU usage capacity on a logging routine.
+- Feature:
+```markdown
+    - Identify & Remove code efficiencies
+    - Improve application peformance (reduce CPU utilization)
+    - Decrease Compute Cost
+    - Provide Heap Summary
+    - Anamoly Detection
+```
+- Support Application running on AWS or on-premise.
+- Minimal Overhead Application.

@@ -1,0 +1,37 @@
+---
+title: "AWS Message Queue"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "17 March, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-MQ_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="mq-intro" title="Introduction" />
+
+SNS and SQS are "Cloud Native" services & Propriatery from AWS.
+Traditional Application runnign from On-Premise may use open protocols such as:
+- MQTT
+- STOMP
+- WSS
+- AMQP
+- OpenWine
+
+When Migrating to the cloud, instead of re-engineering the applications to use SQS or SNS we can use Amazon MQ.
+It is a managed Message Broker Service for :
+
+```markdown
+- Rabbit MQ
+- Active MQ
+```
+<br/>
+<Section link="mq-drawbacks" title="Drawbacks" />
+```markdown
+- Amazon MQ doesn't "Scale" as much as SQS or SNS
+- Amazon MQ runs on servers, can run in Multi-AZ with FailOvers
+- Amazon MQ comes with both:
+    - Queue Features (~ SQS)
+    - Topic Features (~ SNS)
+```

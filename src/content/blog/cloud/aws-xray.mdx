@@ -1,0 +1,31 @@
+---
+title: "AWS X-Ray"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 20, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-X-Ray_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="x-ray-intro" title="Introduction" />
+<mark>Debugging in Production the good <span class="underline">OLD WAY!</span>😆😆</mark>
+
+- Test Locally
+- Add Logs Statements Everywhere
+- Redeploy in Production
+- Log format differs across applications and Log Analysis is hard
+- No common view of your entire architecture
+
+<br/>
+
+- AWS X-Ray provides a visual representation of all the requests.
+- It is used to troubleshoot peformance issues.
+- Understand Dependencies in a microservice applications/architecture.
+- Pinpoint Service Issues.
+- Review Request Behaviour (through the system & network)
+- Find errors & exceptions
+- Are we meeting time SLA?
+- Where am I getting Throttled? 😆
+- Identify users that are impacted

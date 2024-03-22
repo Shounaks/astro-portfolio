@@ -1,0 +1,47 @@
+---
+title: "Lecture # 28 : Security in VPC"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 20, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Networking-Content-Delivery_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 28
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="security-in-vpc-introduction" title="Introduction" /> 
+[Network Access Control List & Security Group]
+
+<span class="text-emerald-400"> NACL (Network ACL)</span>
+- It is a firewall which controls traffic from & to the subnet.
+- ⭐⭐⭐ <mark>Can have ALLOW & DENY RULES</mark>
+- They are attached at Network Subnet level.
+- ⭐ Rules only include IP Addresses
+
+<br/>
+<span class="text-emerald-400"> Security Groups</span>
+- A firewall that controls traffic to and from an ENI/EC2 Instance
+- ⭐⭐⭐ <mark>Can have only ALLOW rules (DENY BY DEFAULT!)</mark>
+- Roles include IP Addresses and other security groups
+
+!["security_group"](/content/cloud/aws/security_group.svg)
+
+<br/>
+<Section link="security-in-vpc-introduction" title="Difference between NACL and Security Group" /> 
+
+
+<span class="text-emerald-400"> Security Groups</span>
+- Operates at instance level
+- Supports ALLOW rules only
+- Is Stateful: return traffic is allowed automatically regardless of any rules.
+- We evaluate all the rules before deciding wheather to allow traffic.
+- Applies to an instance only if someone specifies the security group while launching an instance. or attaching security group with instance later on.
+
+<br/>
+<span class="text-emerald-400"> Network ACL</span>
+- Operates at subnet level
+- Supports ALLOW & DENY rules
+- Is Stateless: Return traffic must be explicitly allowed by rules.
+- We process rules in number order.
+- Automatically Applies to all instance in a subnet, its associated with, (you dont have to rely on users to specify security group)

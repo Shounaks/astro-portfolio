@@ -1,0 +1,66 @@
+---
+title: "Lecture # 27 : VPC Introduction"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 20, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Networking-Content-Delivery_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 27
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="vpc-introduction" title="Introduction"/>
+VPC is something you should know in-depth for AWS Certified Solution Architect Associate Exam & AWS Certified SysOps Exams.
+
+At the poit of AWS Certified cloud practitioner level, you should know about:
+- VPC, Subnet, Internet Gateways, NAT Gateways
+- Security Groups, Network Gateways, VPC Flow Logs,
+- VPC Peering & VPC Endpoints
+- Site to Site VPN & Direct Connect
+- Transit Gateways.
+which will be covered in this blogpost.
+
+<br/>
+<Section link="ip-address" title="IP Address in AWS"/>
+<span class="text-emerald-400"> IPv4 - Internet Protocol Version 4 (Has 4.3 Billion Addresses) </span>
+- Public IPv4 - can be used on the Internet.
+- EC2 instance gets a new PublicIP every time you stop and start it <mark>(default behaviour)</mark>
+- Private IPv4 - can be used on private network(LAN) such as internal AWS Server/Networking.
+- Private IPv4 is fixed for EC2 instance even if you start or stop them.
+
+<br/>
+<span class="text-emerald-400"> IPv6 - Internet Protocol Version 6 (Has 3.4 x 10<sup>38</sup> Addresses) </span>
+- Every IP is public
+
+<br/>
+<Section link="elastic-ip" title="Elastic IP"/>
+It allows you to attach a fixed public IPv4 address to an EC2 instance.
+Note: It has ongoing cost if not attached to EC2 instance or if the EC2 instance is stopped!
+
+<br/>
+<Section link="vpc-and-subnets" title="VPC & Subnets"/>
+<span class="text-emerald-400"> VPC = Virtual Private Cloud  </span>
+Private Network to deploy your resources (regional AWS Service)
+
+!["subnet"](/content/cloud/aws/subnet.svg)
+<br/>
+<span class="text-emerald-400"> Subnet  </span>
+Allows you to partition of your network inside your VPC (AZ Resources)
+There are 2 types of subnets:
+
+<span class="text-emerald-400">Public Subnet =  </span>
+It is a subnet that is accessible from the internet
+
+
+<span class="text-emerald-400">Private Subnet =  </span>
+It is a subnet that is <mark>not</mark> accessible from the internet
+
+To define access to the internet and between subnets <mark>we use route table.</mark>
+
+
+<br/>
+<Section link="internet-gateway-and-nat-gateway" title="Internet Gateway & NAT Gateway"/>
+- Internet Gateway helps our VPC instance connect with the Internet.
+- Public Subnet have a route to internet gateway.
+- NAT gateways (AWS Managed) & NAT Instances (Self Managed) allow your instances in your private subnet to access internet while remaining private.

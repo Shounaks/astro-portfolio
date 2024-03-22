@@ -40,12 +40,16 @@ Lets say we have a website hosted on webservers, and it provides a video process
 from the SQS queue and processing data. The webservers act as producers and put data into SQS Queue while Video Processing Servers act
 as consumers. The Awesome thing about it is that we can scale the second ASG independently from the first (& thats why its called coupling)
 
-<mark>
-	{" "}
-	And on top of it, AutoScaling can happen on how many messages there are in the
-	SQS!!
-</mark>
+<mark>And on top of it, AutoScaling can happen on how many messages there are in the SQS!!</mark>
+<br />
 
 <br />
 !["sqs"](/content/cloud/aws/sqs_decouple_two.svg)
 <br />
+
+<Section
+	link="sqs-fifo-queue"
+	title="SQS Queue - Fifo Queue"
+	imageUrl="/content/cloud/aws/icons/Arch_Amazon-Simple-Queue-Service_32.svg"
+/>
+As its name suggests, FIFO preserves the order of items coming in the queue, unlike normal queue. Thats all!

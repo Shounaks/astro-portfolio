@@ -5,7 +5,6 @@ import BlogPostHead from "../components/BlogPostHead.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import YoutubeEmbed from "../components/YoutubeEmbed.astro";
-import { Picture, getImage } from "astro:assets";
 
 import  unfold_dark  from "../assets/unfold_dark.svg"
 import  module_dark from "../assets/module_dark.svg"
@@ -254,7 +253,10 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 			</div>
 		</div>
 		<div class="lg:col-span-9 col-span-full min-h-screen h-screen px-10 py-4 overflow-y-scroll print:col-span-12 print:overflow-y-visible"  style=`background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('/blog-placeholder-${bg_num}.jpg') no-repeat;background-size:cover;background-position:center;`>
+			<span class="inline-flex">
+				{heroImage != null? <img class="hover:animate-pulse transition-all duration-500 rounded-lg max-h-32 max-w-32" src={heroImage}></img>: ""}
 			<span class="text-[#cf8e6d] w-full min-w-full pl-5 text-5xl">{title}</span>
+			</span>
 			<hr class="border-[#393b40] border-2">
 			<FormattedDate date={pubDate}/>
 			<div class="pl-5 pt-5 print:text-black">
