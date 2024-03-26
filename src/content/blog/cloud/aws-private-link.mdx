@@ -1,0 +1,20 @@
+---
+title: "AWS Private Link"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Feb 23, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-PrivateLink_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="privatelink-intro" title="What is Private Link?" />
+- Most secure & scalable way to expose a secure to 1000s of VPCs.
+- Does not require VPC peering , internet gateway , NAT, route table, etc.
+
+<br />
+!["aws_elasticache"](/content/cloud/aws/privatelink.svg)
+<br />
+
+- <mark>It requires your 3rd party service provider to use a Network Load Balancer on their VPC & for us to have a ENI to interact with their NLB.</mark>

@@ -1,0 +1,34 @@
+---
+title: "Lecture # 29 : Direct Connect & site-to-site VPN"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 23, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Networking-Content-Delivery_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS", "AWS"]
+order: 29
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="site-to-site" title="Site-to-Site VPN" imageUrl="/content/cloud/aws/icons/Arch_AWS-Site-to-Site-VPN_32.svg"/> 
+- Used to create a <mark>Hybrid Setup</mark>
+- Connect on on-premise VPN to AWS.
+- unlike private link, this connect on-prem server and not any VPC/3rd Party Amazon Stuff.
+- <mark> Goes over Public Internet </mark>
+
+<br/>
+<Section link="direct-connect" title="Direct Connect (DX)" imageUrl="/content/cloud/aws/icons/Arch_AWS-Direct-Connect_32.svg" /> 
+- Establish a Physical Connection.
+- <mark> Connection is Private, Secure & Fast </mark>
+- Goes over private Network
+- A bit more expensive due to physical connection.
+- Takes atleast a month to establish.
+- Dedicated Fibre optics needs to be layed underground! in order to make this connection
+- We require a customer gateway in on-prem data center to interact with a Virtual Private Gateway in order to establish a site-to-site VPN.
+
+<br />
+!["sqs"](/content/cloud/aws/site_vpn.svg)
+<br />
+
+
+<mark>NOTE: For site-to-site VPN we require 2 components: Customer Gateway & Virtual Private Gateway!</mark>

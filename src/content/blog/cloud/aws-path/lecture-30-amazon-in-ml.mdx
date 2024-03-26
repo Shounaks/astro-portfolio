@@ -1,0 +1,144 @@
+---
+title: "Lecture # 30 : Machine Learning & AWS"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 23, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Machine-Learning_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS", "AWS"]
+order: 30
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="ml-introduction" title="Introduction" /> 
+Following are the ML services provided by AWS:
+- Amazon Recognition    - find objects/people-text in images & videos
+- Amazon Transcribe     - speech to text
+- Amazon Polly          - Text to speech
+- Amazon Translate      - Translation from on langauge to another
+- Amazon Lex            - Chatbot by Auto Speech Recognition
+- Amazon Connect        - Contact Center Automation using ML
+- AWS Comprihend        - NLP & finding inferences from data
+- Amazon SageMaker      - Building ML Models
+- Amazon Forecast       - Predicting data
+- Amazon Kendra         - Document Search Service
+- Amazon Personalize    - Personalized Recommendation for each user!!
+- Amazon Textract       - Extracting text,handwriting,data from document using AI/ML
+
+<br/>
+<Section link="aws-recognition" title="Amazon Recognition" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Rekognition_32.svg"/> 
+- Create a <mark>DB of familiar faces or compare against celebrities</mark>
+- <span class="text-emerald-400"> Usecases</span>
+```markdown
+    - Labeling
+    - Content Moderation
+    - Text Detection
+    - Face Detection & Analysis
+    - Face Search
+    - Celebrity Recognition
+    - Pathing
+```
+<br/>
+<Section link="aws-transcribe" title="Amazon Transcribe" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Transcribe_32.svg"/> 
+- Automatically converts speech to text
+- Uses a deep learning process called Automatic Speech Recognition (ASR).
+- Automatically removes personally identifyable information (PII) using redaction.
+- Supports multilanguage Identification for multilingual audio.
+- Usecase:
+    - Transcribe Customer service calls.
+    - Automate close captioning & sustainablity.
+    - Generate metadata for media assets to create fully searchable archives.
+
+<br/>
+<Section link="aws-polly" title="Amazon Polly" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Polly_32.svg"/> 
+- Turn text to lifelike speech using deep learning.
+- Allow you to create application that talks.
+
+<br/>
+<Section link="aws-translate" title="Amazon Translate" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Translate_32.svg"/> 
+- Natural & Accurate Language Translation
+- It alows you to localize context: such as website application for international users & to easily translate large volume of lexts effectively.
+
+<br/>
+<Section link="aws-lex" title="Amazon Lex" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Lex_32.svg"/> 
+- Lex is an automatic Speech Recognition (ASR) to convert speech to text.
+- Natural Language Understanding to recognize the intent of text callers.
+- Help to build a chatbot.
+
+<br/>
+<Section link="aws-connect" title="Amazon Connect"/> 
+- Recieve Calls, Create contact flows, Cloud-based contact center.
+- Can integrate with other CRMs or AWS.
+- No Upfront Payment, 80% cheaper than traditional contact-center-solutions.
+
+!["AWS_connect"](/content/cloud/aws/connect.svg)
+
+
+<br/>
+<Section link="aws-comprihend" title="Amazon Comprihend" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Comprehend_32.svg"/> 
+- Used for NLP
+- Fully Managed / Serverless Service
+- Use ML to find insight & relationship in text.
+```markdown
+- Language of the text
+- Extract key phases, places, people, brands, or events
+- understandable how positive/negative the text is.
+- Analyzes texts using tokenization & parts of speech
+- Automatically organises a collection of text files by topic.
+```
+<span class="text-emerald-400">Simple Usecases</span>
+- Analyze customer interactions (email,etc) to find what leads to a positive/negative experience.
+- Create & Group articles by topics that comprehend will uncover.
+
+<br/>
+<Section link="aws-sagemaker" title="Amazon SageMaker" imageUrl="/content/cloud/aws/icons/Arch_Amazon-SageMaker_32.svg"/> 
+- Fully Managed services for developers/data structure to build ML models.
+- Typically difficult to do all the process in one place + provision server.
+- ML Process: Predicting your exam scores.
+- Historical data:
+```markdown
+    # of years of experience in IT
+    # of years of experience of AWS
+    Time Spent on the course.
+```
+!["sagemaker"](/content/cloud/aws/sagemaker.svg)
+
+
+<br/>
+<Section link="aws-forecast" title="Amazon Forecast" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Forecast_32.svg"/> 
+- Fully Managed service that uses ML to deliver highly accurate forecast.
+- Example: predict the future sales of a raincoat.
+- 50% more accurate than looking at data itself.
+- Reduce forcasting time from months to hours.
+- Usecases:
+```markdown
+    - Product Demand Planning
+    - Financial Planning
+    - Resource Planning
+```
+!["forecast"](/content/cloud/aws/forecast.svg)
+
+<br/>
+<Section link="aws-kendra" title="Amazon Kendra" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Kendra_32.svg"/> 
+Fully managed document search service powered by ML. Used to extract answers from within a document(text, pdf, HTML, PowerPoint, MS Word, FAQs, etc).
+
+!["kendra"](/content/cloud/aws/kendra.svg)
+
+<br/>
+<Section link="aws-personalize" title="Amazon Personalize" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Personalize_32.svg"/> 
+- Fully Managed ML-service to build apps with realtime personalized recommendation.
+- Example: Personalize product recommendation/ re-ranking, customized direct marketing. 
+- Another E.G: User brought gardening tools, provide recommendation on the next one to buy.
+- Some technology used by amazon.com
+- Integrate into existing websites, application, sms, email, marketing system.
+- Implement in days, & not months (you dont need to build, train and deploy ML Solutions)
+
+!["personalize"](/content/cloud/aws/personalize.svg)
+
+
+<br/>
+<Section link="aws-textract" title="Amazon Textract" imageUrl="/content/cloud/aws/icons/Arch_Amazon-Textract_32.svg"/> 
+- Automatically extract texts, handwriting & data from any scanned document usign AI & ML.
+- Extract data from forms, tables, etc.
+- Read & Process types of document.
+- Financial Service (Invoices) & Healthcare (Reports)

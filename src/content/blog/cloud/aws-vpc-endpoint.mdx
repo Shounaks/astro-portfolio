@@ -1,0 +1,24 @@
+---
+title: "AWS VPC Endpoint"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 22, 2024"
+heroImage: "/content/cloud/aws/icons/Res_Amazon-VPC_Endpoints_48.svg"
+readTime: "15 minutes"
+tags: ["cloud", "AWS"]
+---
+import Section from "../../../components/Section.astro";
+
+<Section link="vpc-endpoint-introduction" title="Introduction"/>
+Endpoint allows us to connect to AWS Services using a private network instead of the Public WWW network.
+<br/>
+tldr. 2 private networks or a private network and another Service (S3, DynamoDB) can now talk to each other using VPC Endpoint Gateway.
+
+There are 2 types of endpoints:
+
+- VPC Endpoint Gateway: Connect to <mark>S3 & DynamoDB</mark>
+- VPC Endpoint Interface: Connect to <mark>other services</mark>
+
+
+<br />
+!["vpc_diagram"](/content/cloud/aws/vpc_diagram.svg)
+<br />
