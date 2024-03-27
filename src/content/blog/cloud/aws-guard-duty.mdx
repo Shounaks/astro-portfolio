@@ -1,0 +1,33 @@
+---
+title: "AWS Guard Duty"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-GuardDuty_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="introduction" title="Introduction" />
+- Intelligent threat discovery to protect your AWS Account.
+- Uses ML Algorithm, Anamoly detection, 3rd party data.
+- One click to enable (30 days trial), no need to install software!
+- Input Data Includes:
+```markdown
+- CloudTrail Event Logs - unusal API calls, Unauthorised deployments.
+- CloudTrail Management Email - Create VPC subnet, Create Trail
+- CloudTrail Data Events - Get Object, List Object, Unusual IP Traffic
+- DNS Logs - Compromised EC2 instance sending encoded data within DNS Queries.
+- Optional Features - EKS audit logs, RDS & arora, EBS, Lambda, S3 Data Events.
+```
+- Can setup EventBridge rules to be notified in case of finding.
+- Can protect against cryptocurrency attacks as well.
+
+<br />
+!["guard_duty"](/content/cloud/aws/guard_duty.svg)
+<br />
+
+<Section link="notes" title="Important Notes" />
+- Whenever you read "ML Based Security" think of GuardDuty.
+- Guard Duty continiously monitors your data (logs,etc).

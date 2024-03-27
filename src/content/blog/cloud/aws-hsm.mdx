@@ -1,0 +1,34 @@
+---
+title: "AWS Hardware Security Module (CloudHSM)"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-WAF_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="introduction" title="Introduction" />
+It is to be noted that AWS KMS manages the software for encryption while HSM manages/ provisions/encryption hardware.
+
+- Dedicated Hardware (HSM) - Its a Literal Hardware like a physical "Key"
+- You manage your own encryption (software) key entirely.
+- HSM Device is tamper resistant, FIPS, 140-2, Level 3 compliance.
+
+<Section link="key-types" title="Types of Customer Master Keys" />
+<span class="text-emerald-400"> Customer Managed CMK</span>
+- Create, managed and used by the customer, can enable/disable.
+- Possiblity of rotation policy.
+- Possible to bring your own key.
+<span class="text-emerald-400"> AWS Managed CMK</span>
+- Created managed & used on customer's behalf by AWS
+- Used by AWS Service (S3, EBS, Redshift)
+<span class="text-emerald-400"> AWS Owned CMK</span>
+- Collection of CMKs owned by AWS Service & managed to be used in multiple account.
+- AWS Can be use those to protect the resources in your account.
+<span class="text-emerald-400"> Cloud HSM Keys</span>
+- Keys generated from your own CloudHSM Hardware Device.
+- Cryptographic Operations peformed within CloudHSM Cluster.
+- Might be a security requirement on some companies.
+

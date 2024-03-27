@@ -1,0 +1,53 @@
+---
+title: "Lecture # 32 : Security in AWS"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 26, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Security-Identity-Compliance_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS", "AWS"]
+order: 32
+---
+
+import Section from "../../../../components/Section.astro";
+
+<br/>
+<Section link="ddos" title="DDoS Attack" /> 
+- Distributed denial of service.
+- 1st way to protect: AWS Shield Standard (free service): This protects against DDOS Attacks for your website & Application for all customers at no additional costs.
+- 2nd Way ($$$) to protext: AWS Shield Advanced -> 24/7 DDOS Protections
+
+
+<Section link="pen-test" title="Penetration Testing on AWS" /> 
+- AWS Customes are welcome to carry out security assessment or pen-test against their AWS Infrastructure without prior approval for 8 services.
+```markdown
+- AWS EC2 instances, NAT gateway, ELB
+- RDS
+- CloudFront
+- Aurora
+- API gateway
+- Lambda & Lambda EdgeFunction
+- Lightsail Resources
+- EBS Environment
+```
+
+<Section link="prohibited-activities" title="Prohibited Activities on AWS" /> 
+- DNS Zone-walking via AWS Route53 Hosted Zones.
+- DoS, DDoS, Simulated DoS, Simulated DDOS on our own system.
+- Port Flooding
+- Protocol Flooding
+- Request Flooding
+
+<Section link="data-at-rest" title="Data At Rest" /> 
+- Data stored/archived on a device
+    - On a hard-disk
+    - on a RDS instance
+    - in S3 Glacier Deep Archive
+
+<Section link="data-at-rest" title="Data At Rest" /> 
+- (In Motion) data being moved from one location to another
+- Transfer from on-premise to AWS
+- Transfer from EC2 to DynamoDB
+- Means data transfer on Network
+
+- We want to encrypt data in both states.
+- For this we use Encryption Keys (probably using AWS KMS)

@@ -1,0 +1,57 @@
+---
+title: "Lecture # 31 : Shared Responsiblity Model"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 26, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Security-Identity-Compliance_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS", "AWS"]
+order: 31
+---
+
+import Section from "../../../../components/Section.astro";
+
+<br/>
+<Section link="security-srm" title="Shared Responsiblity Model for EC2" /> 
+<span class="text-emerald-400"> AWS's Responsiblity</span>
+- Protecting Infrastructure (Hardware/Software Facilities & Networking)
+- Managed services like S3, DynamoDB, RDS, etc
+
+<br/>
+<span class="text-emerald-400"> Customer Responsiblity</span>
+- For EC2 instance, customer is responsible for management of GuestOS including Security Patches, & Updates Firewall & Network Configuration
+- IAM rules & Encrypting Application Data
+
+<br/>
+<span class="text-emerald-400"> Shared Control</span>
+- Patch Management, Config Management
+- Awareness & Training
+
+<br/>
+<Section link="security-srm" title="Shared Responsiblity Model for RDS" /> 
+<span class="text-emerald-400"> AWS's Responsiblity</span>
+- Manage the underlaying EC2 instance, disable SSH Access
+- Automated DB Patching
+- OS Patching
+- Audit the underlaying instance & disk & gurantee its function
+
+<br/>
+<span class="text-emerald-400"> Customer Responsiblity</span>
+- Check the ports/IP/Security group inbound rules in DB's Security Group,
+- In-database user creation & Permission.
+- Create DB without/with Public database.
+- Ensure parameter groups/DB is configured only to allow SSL Connection.
+
+<br/>
+<Section link="security-srm" title="Shared Responsiblity Model for S3" /> 
+<span class="text-emerald-400"> AWS's Responsiblity</span>
+- Gurantee you get unlimited storage
+- Gurantee you get encryption
+- Ensure seperation of data between different customers.
+- Ensure AWS employee cannot access your data.
+
+<br/>
+<span class="text-emerald-400"> Customer Responsiblity</span>
+- Bucket Config
+- Bucket Policy/Public Setting
+- IAM User/Roles
+- Enable versioning/Encryption

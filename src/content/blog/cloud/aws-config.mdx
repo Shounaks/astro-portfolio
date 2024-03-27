@@ -1,0 +1,22 @@
+---
+title: "AWS Config"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Config_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="introduction" title="Introduction" />
+- Helps with auditing & compliance of our AWS Resources
+- Helps record config and changes over time.
+- Possiblity of storing the configuration data into S3 (analyzed by Athena)
+- You can recieve alerts (SNS Notification) for any changes
+- AWS Config is a per-region services- Can be aggregated across region and account.
+
+<Section link="introduction" title="Problems/Questions solved by AWS Config" />
+- Is there un-restricted SSH access to my security group?
+- Do my bucket have any public access.
+- How has my ALB configuration changed over time.

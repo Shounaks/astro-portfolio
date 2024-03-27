@@ -1,0 +1,41 @@
+---
+title: "AWS Inspector"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_Amazon-Inspector_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="introduction" title="Introduction" />
+- Automated Security Assessment
+- The difference between Inspector and Guard Duty is that guard duty checks logs (using ML), while Inspector checks network, as well as services (ONLY COMPUTE SERVICES)
+<br />
+
+<Section link="inspector-ec2" title="Inspector for EC2" />
+- Leveraging the AWS system Manager Agent (SSM Agent)
+- Analyze unintended network accessablity
+<br />
+
+<Section link="inspector-ecr" title="Inspector for ECR" />
+- Assessment of Container Images as they are pushed
+<br />
+
+<Section link="inspector-lambda" title="Inspector for Lambda" />
+- Identifies software vulnerablities in function code and package dependencies.
+- Assessment of function those are deployed.
+<br />
+
+<Section link="inspector-report" title="Reports finding to AWS Security Hub or AWS Event Bridge" />
+<br/>
+<Section link="inspector-lambda" title="What does the AWS Inspector Evaluate?" />
+- Only for EC2 Instance : Container Images & Lambda functions.
+- Package Vulnerablities,
+- Network Reachablity
+- A risk score will be associated with each infra.
+
+<br />
+!["inspector"](/content/cloud/aws/inspector.svg)
+<br />

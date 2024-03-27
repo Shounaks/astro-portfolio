@@ -1,0 +1,24 @@
+---
+title: "AWS Key Management Service (KMS)"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 27, 2024"
+heroImage: "/content/cloud/aws/icons/Arch_AWS-Shield_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="introduction" title="Introduction" />
+- Anytime you hear "encryption" for an AWS Service, its most likely KMS.
+- KMS - AWS Manages the encryption key for us.
+- Encryption Opt-In:
+```markdown
+    - EBS Volume: Encrypt Volume
+    - S3 Bucket: Server Side Encryption
+    - Redshift Database: Encryption of Database
+    - RDS Database: Encryption of Database
+    - EFS: Encryption of FileSystem
+```
+
+Encryption is automatically enabled for : Cloud Trail Logs, S3 Glacier, Storage Gateway!
