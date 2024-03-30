@@ -1,0 +1,47 @@
+---
+title: "Lecture # 38 : Six R's of Migration"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 29, 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 38
+---
+
+import Section from "../../../../components/Section.astro";
+
+<br />
+<Section link="rehost" title="ReHosting (a.k.a Lift & Shift)" /> 
+- NO CODE CHANGE
+- It involves moving application without changes.
+- In the scenario of Large legacy application migration, the company is looking to impliment the migration & scale quickly to meet a business case.
+- The majority of Applications can be Re-Hosted.
+
+<br />
+<Section link="replatforming" title="ReHosting (a.k.a Lift, Tinker & Shift)" /> 
+- NO CODE CHANGE
+- It is similar to rehosting but it can involve a few cloud optimizations to realize a tangible benifit,
+- Optimization is achieved without tangible core architecture.
+- Eg. Take on-prem MySQL & re-platform it on RDS or Aurora. This gives improved peformance on RDS without any code change.
+
+<br />
+<Section link="retire" title="Retire" /> 
+- NO CODE CHANGE
+- Thre process of removing apps that are no longer needed.
+
+<br />
+<Section link="retain" title="Retain" /> 
+- NO CODE CHANGE
+- It consists of keeping the applications that are critical for the business in the source environment.
+- This includes application that require major refactoring before they can be migrated or work that can be postponed for later.
+
+<br />
+<Section link="refactor" title="ReFactor / ReArchitecture" /> 
+- <mark> CODE CHANGE </mark>
+- It is driven by strong business needs to add features, scales, or peformance that would otherwise be difficult to achieve in applications existing environment.
+
+<br />
+<Section link="repurchase" title="RePurchase" /> 
+- The total upfront cost goes up.
+- It involves moving from a traditional liscence to SaaS model.
+- E.g. a business might choose to implement repurchase strategy by migrating from a CRM (Customer Relationship Management) tool to SalesForce.com

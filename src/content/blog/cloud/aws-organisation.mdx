@@ -1,0 +1,61 @@
+---
+title: "AWS Organisation"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Mar 30, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Management-Governance_32.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+- Global Services
+- Allows to manage multiple AWS account
+- The main account is the master account.
+- Cost Benifit:
+    - Consolidated billing across all account - Single payment method.
+    - Pricing benifit from aggregated usage (Volume discount for EC2, S3)
+    - Pooling of reserved EC2 instance for Optimal Saving
+- API is available to automate AWS account creation
+- Restricted account privilages using Service Control Policies (SCP)
+
+<br />
+<Section link="multiaccount-strategy" title="MultiAccount Strategies" /> 
+- Create account per department, per cost center or per dev/test/prod.
+- It is based on regulatory restriction using SCP, for better resources isolation. (EG. VPC), to have seperate per-account service limits, isolated account for logging.
+- MultiAccount vs OneAccountMultiVPC
+- Use tagging standard for billing purposes.
+- Enable CloudTrail on all accounts, send logs to central S3 accounts.
+
+<br />
+!["OU"](/content/cloud/aws/aws_ou.svg)
+
+<br />
+<Section link="scp" title="What is Service Control Policy?" /> 
+- Whitelist/Blacklist IAM Action.
+- Applied at OU (Organisational Unit) or Account Level
+- DOES NOT APPLY TO MASTER ACCOUNT
+- SCP is applied to all the users and roles of the account including ROOT.
+- SCP does not affect server linked roles.
+- Server linked roles enable other AWS services to integrate with AWS organisations and cannot be restricted by SCPs.
+- <mark> SCP MUST have and explicit ALLOW (does not allow anything by default, DENY_ALL by default) </mark>
+- Usecase (For Exam) : 
+    - Restrict Access to certain Services (for eg. cannot use EMR)
+    - Enforce PCI Compliance by Explicitly disabling services.
+
+<br />
+!["SCP_OU"](/content/cloud/aws/aws_scp_ou.svg)
+
+<Section link="aws-org-consolidated-billing" title="AWS Organisation - Consolidated Billing" /> 
+```markdown
+- When enabled, provide you with:
+    - Combined Usage: Combined the usage across all AWS accounts in the AWS Organisation to share the volume pricing,
+        Reserved Instance & Saving Plus Discount.
+    - OneBill: Get one bill for all AWS Account in the organisation.
+```
+The management account can turn off Reserved Instance discount sharing for any account in the AWS Organisation, including itself.
+
+<br />
+<Section link="note" title="Note:" /> 
+Controls 2 items: OU and individual accounts, does not control IAM users & groups.
+

@@ -1,0 +1,34 @@
+---
+title: "Lecture # 35.2 : Security"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 26, 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 35
+---
+
+import Section from "../../../../components/Section.astro";
+
+It includes the ability to protect information system & assets while delivering business value through risk assessment & mitigation strategies.
+<Section link="design-principles" title="Design Principles" /> 
+```markdown
+1. Implement a Strong Identity Foundation.
+    - Centralize privilage management and reduce (or even eliminate) on long term credentials
+    - Follow Principle of least privilage. (using AWS IAM)
+2. Enable Tracablity.
+    - Integrate logs & metrics with systems to automate responses & take action.
+3. Apply Security at all layers
+    - Like Edge Networks, VPC, Subnets, Load Balancers, every EC2 instance, OS and applications.
+4. Automate Security Best Practices
+5. Protect data (at-rest & in-transit) : Encryption, Tokenization, Access Control.
+6. Keep people away form data: Reduce or eliminate need for direct access or manual processing of data.
+7. Prepare for Security Events: Run Incident Response Simulations & use tools with automation to increase your speed for detection, investigation & recovery.
+```
+<br />
+<Section link="aws-services-for-security" title="AWS Services For Security" /> 
+- IAM (Access Management) : AWS IAM, AWS STS, MFA Token, AWS Organization
+- Detective Controls: AWS Config, AWS CloudTrail, AWS CloudWatch
+- Infrastructure Protection: Amazon CloudFront, AWS VPC, AWS Shield, AWS WAF , AWS Inspector
+- Data Protection: KMS, S3, ELB, EBS, RDS
+- Incident Response: IAM, CloudFormation, CloudWatch Events.

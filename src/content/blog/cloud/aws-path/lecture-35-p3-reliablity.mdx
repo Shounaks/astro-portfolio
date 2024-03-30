@@ -1,0 +1,36 @@
+---
+title: "Lecture # 35.3 : Reliablity"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 26, 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 35
+---
+
+import Section from "../../../../components/Section.astro";
+
+The ability of a system recover from infrastructure or service desruption,
+and dynamically acquire computing resources to meet demand & migrate desruptions
+such as misconfiguration or transient network issues.
+
+<Section link="design-principles" title="Design Principles" /> 
+```markdown
+- Test "Recovery Procedure" : 
+    Use automation to simulate different failures or recreate scenarios that led to failovers before.
+- Automatically Recover from failure : 
+    Anticipate & remidiate failures before they occur.
+- Scale Horizontally to increase Aggregate System Availablity:
+    Distribute Request across multiple smaller resources to ensure that they dont share a common point of failure.
+- Stop Guessing Capacity:
+    Maintain the optimal level to satisfy demand without over/under provisioning it. i.e. Use AutoScaling
+- Manage Change in Automation: Use Automation to make changes to infrastructure.
+``` 
+
+<br />
+<Section link="aws-services-for-reliablity" title="AWS Services For Reliablity" /> 
+```markdown
+- Foundation:           IAM, VPC, Service Limits, Trusted Advisor
+- Change Management:    AWS AutoScaling, CloudWatch, CloudTrail, Config
+- Failure Management:   AWS Backs, CloudFormation, S3, S3 Glacier, Route53
+```

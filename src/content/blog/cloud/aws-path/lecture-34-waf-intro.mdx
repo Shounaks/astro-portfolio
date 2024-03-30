@@ -1,0 +1,44 @@
+---
+title: "Lecture # 34 : Well Architectured Framework"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 26, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Security-Identity-Compliance_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 34
+---
+
+import Section from "../../../../components/Section.astro";
+
+<Section link="General Guidelines" title="Introduction" /> 
+- Stop Guessing your capacity needs
+- Test System at production grade
+- Automate to make architectural experimentation easier
+- Allow for evolutionary Architecture
+- Design based on changing requirement.
+- Drive architecture using data
+- Improve through game days -> Simulate Application for flash sale days.
+
+<Section link="design-principles" title="Design Principles" /> 
+```markdown
+- Scalable: Vertically & Horizontally
+- Disposable Resources: Server should be Disposable and easily configurable.
+- Automation: Serverless, Infrastructure as a Service (IaaS), Scaling ...
+- Loose Coupling: 
+    - Monoliths are applications that do more and more over time. i.e. they become bigger and bigger.
+    - We need to break this monolith down into smaller components.
+    - A change/failure in one components should not cascade to other components.
+- Services not servers:
+    - Dont just use EC2
+    - Use managed services, Databases, Serverless, etc.
+```
+
+<Section link="pillars" title="Pillars of Well Architectured Framework" /> 
+```markdown
+1. Operational Excellence
+2. Security
+3. Reliablity
+4. Peformance Efficiency
+5. Cost Optimization
+6. Sustainablity
+```

@@ -1,0 +1,37 @@
+---
+title: "Lecture # 33 : Root User Privilages"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 26, 2024"
+heroImage: "/content/cloud/aws/category/Arch-Category_Security-Identity-Compliance_32.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 33
+---
+
+import Section from "../../../../components/Section.astro";
+
+- Root User == Account Owner (Created when the account is created)
+- Has complete access to all the AWS Services & Resources
+- Lock away your AWS account "root user access keys"
+- Do not use root access for everyday's tasks.
+
+<Section link="actions" title="Actions that can only be peformed by Root user:" /> 
+```markdown
+- Change Account Name:
+    - Account Name
+    - Email Address
+    - Root User Password
+    - Root User Access Keys
+- Close your AWS Account
+- Change/Cancel AWS Support Plan
+- Register as a seller in Reserved instance Marketplace
+- View certain Tax invoices
+- Configure AWS S3 bucket to enable MFA
+- Edit/Delete S3 Bucket policy that include invalid VPC ID or VPC Endpoint ID.
+- SignUp for GovCloud.
+```
+
+<Section link="iam-access-analyzer" title="IAM Access analyzer" /> 
+This tool is used to find out which Resources are shared externally like: S3 buckets, KMS keys, SQS keys, IAM Roles, Lambda Functions, Secret Manager's secrets.
+- Define Zone of trust ==> AWS Account/ AWS Organisation
+- Access outside Zone of Trust ==> Findings.
