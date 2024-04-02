@@ -1,0 +1,86 @@
+---
+title: "Lecture # 41 : Pricing Model in AWS Cloud"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 30, 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 41
+---
+
+import Section from "../../../../components/Section.astro";
+
+1. Pay as you go:
+    Pay for what you use, remain, agile, meet, scale demands.
+2. Save when you reserve:
+    - Minimize risks, predictably manage budget, comply with longterm requirements.
+    - Reservation are required for : EC2 Reserved Instance, DynamoDB reserved capacity, ElastiCache ReservedNodes
+3. Pay less by using more: Volume based discount
+4. Pay less as AWS Grows
+
+<br />
+<Section link="billing-tools" title="Billing & Costign Tools" /> 
+- <mark>Pricing Calculator: </mark> Estimate Costs in cloud (pre Usage of resources)
+- <mark>Billing Dashboard, Cost Allocation Tag, cost and usage reports, cost explorer :</mark> Tracking costs in cloud (Ongoing usage or post usage of resources)
+- <mark>Billing alarm, Budget :</mark> Monitoring Against cost plans, track usage wrt perUsage Estimation.
+
+<br />
+<Section link="aws-pricing-calculator" title="AWS Pricing Calculator: Estimate the cost for your solution architecture" /> 
+```markdown
+- Estimate == before using a service
+- Cost Allocation Tag: Use tags to track your AWS on a details level.
+- AWS Generated Tags:
+    - Automatically applied to the resources you create.
+- User Defined Tags:
+    - "Defined by the users"
+    - Starts with Prefix "user:"
+```
+
+<br />
+<Section link="tag-and-resource" title="Tagging & Resource Group" /> 
+```markdown
+- Tags: They are used for organising resources.
+    - EC2: Instances, Images, LoadBalancer, Security Group.
+    - RDS, VPC, Route53, IAM Users, etc
+    - Resources created by Cloud Formation are all tagged in same way.
+- Naming is Free, Common tags are: Name, Environment, Team, ...
+- Tags can be used to create resource group:
+    - Create/Maintain/View a collection of resources that share common tags.
+    - Manage Tags using tag editor.
+```
+
+<br />
+<Section link="cost-usage-report" title="Cost & Usage Report" /> 
+- Dive deeper into your AWS Cost & Usage.
+- AWS Cost and Usage report contains most comprehensive set of data available, including additional metadata, about AWS services, prices, & reservations (e.g. Amazon EC2, Reserved Instances (RI))
+- It lists usage for each service category used by account and its IAM Users.
+
+<br />
+<Section link="Cost Explorer" title="Cost Explorer" /> 
+- Visualize, Understand, and manage your AWS Costs & usage over time.
+- Create custom report that analyze cost & usage data across all account, or monthly, hourly, resource level granularity
+- Choose an optimal saving plan (to lower your build)
+- Forecast usage upto 12 months based on previous usage.
+
+<br />
+<Section link="aws-budget" title="AWS Budget" /> 
+- Create a budget and sends alarm when cost exceeds the budget.
+- 4 types of budget: Usage, Cost, Reservation, Saving Plan,
+- For Reserved Instance  (RI): Track Utilization, Supports EC2 , ElastiCache, RDS, RedShift
+- Upto 5 SNS Notification per budget.
+Can filter by:  Service, Tag, Instance Type, LinkedAccount, PurchaseOption, Region & AZ, ApiOperations, etc.
+
+<br />
+<Section link="aws-cost-anamoly-detection" title="AWS Cost Anamoly Detection" /> 
+- Continiously monitor your cost and usage using ML to detect unusal spends.
+- It learns your unique historical spend pattern to detect one-time cost spike and/or continious cost increments.
+- Monitor AWS account, services, cost allocation, tags ,cost category.
+- Sends you the Anamoly Detection report with Root Cause Analysis.
+- Get Notified with individual alerts or a daily/weekly summary  (Using SNS).
+
+<br />
+<Section link="aws-service-quotas" title="AWS Service Quotas" /> 
+- Notifies you when you're close to a service quota value threshold.
+- Create cloudwatch Alarms on the service quotas console.
+- E.G. Lambda Concurrent Execution
+- Request a quota increase from AWS Service Quotas or Shutdown before limit is reached.

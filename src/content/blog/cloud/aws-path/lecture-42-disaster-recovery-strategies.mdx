@@ -1,0 +1,32 @@
+---
+title: "Lecture # 42 : Disaster Recovery Strategies"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 30, 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: "15 minutes"
+tags: ["cloud", "PATH-AWS"]
+order: 42
+---
+
+import Section from "../../../../components/Section.astro";
+
+<br />
+<Section link="backup-and-restore" title="Backup & Restore" /> 
+- (Minimum Cost)
+
+<br />
+<Section link="pilot-light" title="Pilot Light" /> 
+- (a bit more Cost)
+- If you need to do a Disaster Recovery Strategy, Upgrade a DB type & Start App Server.
+
+<br />
+<Section link="warm-standby" title="Warm Standby" /> 
+- we need to increase the size of the App as a disaster Recovery Method
+
+<br />
+<Section link="hotsite" title="MultiSite/Hotsite" /> 
+- Most Expensive
+
+<br />
+!["dr"](/content/cloud/aws/dr.svg)
+<br />

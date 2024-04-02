@@ -1,0 +1,31 @@
+---
+title: "AWS Directory Services"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "March 31, 2024"
+heroImage: "/skills/aws/amazon-web-services.svg"
+readTime: 5 minutes
+tags: ["cloud", "AWS"]
+---
+
+import Section from "../../../components/Section.astro";
+
+<Section link="active-directory" title="What is Microsoft Active Directory?" />
+- Found on any windows server with AD domain security.
+- It is a database of objects computers, printers, fileshare, security groups.
+- It has centralized security management, create account assign permissions.
+
+<Section link="aws-active-directory" title="AWS Directory Services" />
+AWS Managed Microsoft Active Directory.
+- Create your own AD in AWS, managed users locally, supports MFA
+- Establish trust connections with your on-premise AD
+
+!["aws-ad"](/content/cloud/aws/aws_ad.svg)
+
+<Section link="aws-ad-connector" title="AWS AD Connector" />
+- Directory Gateway (proxy) to redirect to on-premise AD, Supports MFA.
+- Users are managed on the on-prem AD.
+
+<Section link="aws-simple-ad" title="AWS Simple AD" />
+- AD compatible Managed Directory on AWS
+- Cannot be joined with On-prem AD
+- NO MFA! 😔
