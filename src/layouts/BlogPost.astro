@@ -58,99 +58,18 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 </head>
 <html lang="en">
 	<body class="bg-[#26282e] text-[#ffffff] md:grid grid-cols-12 grid-row-1 w-full h-full min-w-full min-h-full">
-		<div class="col-span-3 min-h-max h-full bg-[#393b40] p-4 hidden lg:block print:hidden ">
+		<div class="col-span-3 min-h-max h-full bg-[#393b40] p-4 hidden lg:block print:hidden">
 			<div id="cardz" class="rounded-xl p-4" style=`background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('/blog-placeholder-${bg_num}.jpg') no-repeat;background-size:cover;background-position:center;`>
-				<aside class=`flex justify-between w-full 2xl:pb-5`>
-					<div class="font-extralight">Blog Post : </div>
-					<div class="gap-4 align-middle self-center snap-center hidden 2xl:inline-flex">
-						<a href="#" onclick="window.history.go(-1)">
-							<img src="/intellij_icon_pack/left_dark.svg" alt="go back" class="w-[32px]"></img>
-						</a>
-						<a href="#" onclick="window.print()">
-							<img src="/intellij_icon_pack/print_dark.svg" alt="go back" class="w-[32px]"></img>
-						</a>
-						<a href="/blog/tags/">
-							<img src="/icons/menu.svg" alt="go back" class="w-[32px] invert"></img>
-						</a>
-						<a href="/blog/">
-							<img src="/intellij_icon_pack/home.svg" alt="home" class="w-[32px]"></img>
-						</a>
-					</div>
-				</aside>
-				<div class="pl-5 py-5 gap-4 pr-5 align-middle self-center snap-center 2xl:hidden flex flex-col gap-y-4">
-					<div class="">
-						<a href="" onclick="window.history.go(-1)" class="inline-flex gap-2 snap-center align-middle text-center">
-							<img src="/intellij_icon_pack/left_dark.svg" alt="go back" class="w-[32px]"></img>
-							<div class="text-center self-center align-middle">Go Back</div>
-						</a>
-					</div>
-					<div class="">
-						<a href="" onclick="window.print()" class="inline-flex gap-2 snap-center align-middle text-center">
-							<img src="/intellij_icon_pack/print_dark.svg"alt="print" class="w-[32px]"></img>
-							<div class="text-center self-center align-middle">Print</div>
-						</a>
-					</div>
-					<div class="">
-						<a href="/blog/" class="inline-flex gap-2 snap-center align-middle text-center">
-							<img src="/icons/menu.svg" alt="go back" class="w-[32px] invert"></img>
-							<div class="text-center self-center align-middle">Tag Content</div>
-						</a>
-					</div>
-					<div class="">
-						<a href="/blog/" class="inline-flex gap-2 snap-center align-middle text-center">
-							<img src="/intellij_icon_pack/home.svg"alt="home" class="w-[32px]"></img>
-							<div class="text-center self-center align-middle">Home</div>
-						</a>
-					</div>
-				</div>
-				<div class="pl-5 2xl:inline-flex justify-end w-full">
-					<div class="w-fit whitespace-nowrap">Minutes Read:</div>
-					<div class="inline-flex pl-5 self-center items-center w-full">
-						<img src="/intellij_icon_pack/timeline.svg" class="hidden lg:block w-[32px]" alt="" />
-						<p class="pl-1">{readTime ? readTime : "N/A"}</p>
-					</div>
-				</div>
-				<div class="pl-5 w-full">
-					<div class="w-fit whitespace-nowrap">Summary:</div>
-					<div class="inline-flex pl-5 self-center items-center w-full italic">
-						<p class="pl-1">{description}</p>
-					</div>
-				</div>
-				<div class="pb-10"></div>
 				<div class="2xl:flex 2xl:flex-1 2xl:gap-2 2xl:justify-between">
-					<div class="2xl:pb-0 pb-5">
-						<div class="inline-flex justify-between w-full">
-							<div>Tags:</div>
-						</div>
-						<div class="flex gap-3 pl-5 flex-wrap">
-							{
-								tags != null && tags.length !== 0 ? (
-									tags.map((tag: string) => (
-										<a href={`/blog/tags/${tag}`} class="p-1 px-3 rounded-xl border-2 border-transparent group hover:border-slate-400 border-white mb-2 inline-flex">
-										<img src="/intellij_icon_pack/localBranch_dark.svg" class="w-[16px]" alt="" />
-											<span class="text-white pl-2 group-hover:text-slate-300">
-												{tag}
-											</span>
-										</a>
-									))
-								) : (
-									<span class="">N / A</span>
-								)
-							}
-						</div>
-					</div>
 					<div class="">
-						<p class="2xl:hidden block">QR Code</p>
-						<div class="p-1 rounded-sm align-middle snap-center self-center justify-center flex bg-white">
-							<div id="qr_code" class=""></div>
-						</div>
+						<p class="">{description}</p>
+						
 					</div>
 				</div>
 			</div>
 			
 			<!-- <div class="pb-5"></div> -->
 			<hr class="border-2 my-5 border-[#26282e]"/>
-			
 			<div class="flex flex-col gap-2">
 				<details class="inline-flex justify-between [&_img[alt=unfoldgrp]]:open:rotate-90 w-full select-none cursor-pointer" open>
 				<summary class="list-none">
@@ -166,7 +85,7 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 							<YoutubeEmbed link={yt} title={title} />
 						</div>
 						<div class="pb-5"></div>
-					) : (<></>)
+					) : ""
 				}
 				</ul>
 			</details>
@@ -253,12 +172,53 @@ const bg_css = ["#ffffff","#56A8F5","#642247","#FDAA12","#FDAA12"]
 			</div>
 		</div>
 		<div class="lg:col-span-9 col-span-full min-h-screen h-screen px-10 py-4 overflow-y-scroll print:col-span-12 print:overflow-y-visible"  style=`background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('/blog-placeholder-${bg_num}.jpg') no-repeat;background-size:cover;background-position:center;`>
-			<span class="inline-flex">
-				{heroImage != null? <img class="hover:animate-pulse transition-all duration-500 rounded-lg max-h-32 max-w-32" src={heroImage}></img>: ""}
-			<span class="text-[#cf8e6d] w-full min-w-full pl-5 text-5xl">{title}</span>
-			</span>
+			<div class="inline-flex w-full">
+				{heroImage != null? <img class="hover:animate-pulse transition-all duration-500 rounded-lg max-h-full h-full w-24" src={heroImage}></img>: ""}
+				<div class="flex gap-3 pl-5 flex-wrap">
+					<div class="text-[#cf8e6d] max-w-full w-full md:text-5xl">{title}</div>
+					{
+						tags != null && tags.length !== 0 ? (
+							tags.map((tag: string) => (
+								<a href={`/blog/tags/${tag}`} class="inline-flex">
+									<img src="/intellij_icon_pack/localBranch_dark.svg" class="w-[16px]" alt="" />
+									<span class="text-white pl-2">
+										{tag}
+									</span>
+								</a>
+							))
+						) : (
+							<span class="hidden"></span>
+						)
+					}
+				</div>
+			</div>
+			<div class="inline-flex w-full justify-end">
+				<FormattedDate date={pubDate}/>
+				<div class="inline-flex pl-5 self-center items-center w-full justify-end">
+					<img src="/intellij_icon_pack/timeline.svg" class="hidden lg:block w-[32px]" alt="" />
+					<p class="pl-1">{readTime ? readTime : "N/A"}</p>
+				</div>
+			</div>
 			<hr class="border-[#393b40] border-2">
-			<FormattedDate date={pubDate}/>
+			<div class="grid grid-cols-4 grid-rows-1 w-full gap-4 align-middle self-center snap-center">
+				<a href="#" onclick="window.history.go(-1)" class="w-full hover:bg-[#393b40] self-center items-center inline-flex justify-center gap-1">
+					<img src="/intellij_icon_pack/left_dark.svg" alt="go back" class="w-[32px]"></img>
+					Go Back
+				</a>
+				<a href="#" onclick="window.print()" class="w-full hover:bg-[#393b40] self-center items-center inline-flex justify-center gap-1">
+					<img src="/intellij_icon_pack/print_dark.svg" alt="go back" class="w-[32px]"></img>
+					Print
+				</a>
+				<a href="/blog/tags/" class="w-full hover:bg-[#393b40] self-center items-center inline-flex justify-center gap-1">
+					<img src="/icons/menu.svg" alt="go back" class="w-[32px] invert"></img>
+					Blog
+				</a>
+				<a href="/blog/" class="w-full hover:bg-[#393b40] self-center items-center inline-flex justify-center gap-1">
+					<img src="/intellij_icon_pack/home.svg" alt="home" class="w-[32px]"></img>
+					Home
+				</a>
+			</div>
+			<hr class="border-[#393b40] border-2">
 			<div class="pl-5 pt-5 print:text-black">
 				<slot />
 			</div>
