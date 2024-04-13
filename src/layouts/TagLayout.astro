@@ -1,21 +1,17 @@
 ---
 import MainLayout from "./MainLayout.astro";
 import { posts } from "../collection";
-import { Image } from "astro:assets";
-import search from "/search-icon.svg";
 
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 const { tagName, tagColor } = Astro.props;
 ---
-
+<title>Shounak's Blog | {tagName != null? tagName:"All"}</title>
 <MainLayout>
 	<div class="w-full pr-2">
 		<div class="pb-2">
 			<div class="flex flex-row gap-4">
 				<h2 class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white">
-					Search By Tags : <span class="capitalize"
-						>{tagName != null && tagName}</span
-					>
+					Search By Tags : <span class="capitalize">{tagName != null && tagName}</span>
 				</h2>
 			</div>
 			<p
