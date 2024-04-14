@@ -56,10 +56,18 @@ import avatar from "../project/avatar.png";
 											<a href={`/blog/${post.slug}/`} class="hover:text-purple-500">
 												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
 												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
+													<time datetime={post.data.pubDate.toISOString()} class="w-max min-w-max">
+														{
+															post.data.pubDate.toLocaleDateString("en-us", {
+																year: "numeric",
+																month: "short",
+																day: "numeric",
+															})
+														}
+													</time>
+												</span> 
 												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
+													{"| " + post.data.title}
 												</span>
 												
 											</a>

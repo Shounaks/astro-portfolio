@@ -1,0 +1,44 @@
+---
+import Image from "astro/components/Image.astro";
+import unfold_dark from "../assets/unfold_dark.svg";
+import module_dark from "../assets/module_dark.svg";
+
+const { id, open, title, bg_num } = Astro.props;
+---
+
+<button
+	onclick={`window.${id}.showModal()`}
+	class="w-full hover:bg-[#393b40] self-center items-center inline-flex justify-center gap-1"
+>
+	<img
+		src="/intellij_icon_pack/start.svg"
+		alt="go back"
+		class="w-[32px]"
+	/>
+	{open}
+</button>
+
+<dialog
+	id=`${id}`
+	class="text-white w-1/2 backdrop:bg-opacity-30 backdrop:bg-slate-700"
+	style=`background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('/blog-placeholder-${bg_num}.jpg') no-repeat;background-size:cover;background-position:center;`
+>
+	<div class="w-full inline-flex justify-between">
+		<div class="p-2 inline-flex gap-2">
+			<Image src={module_dark} alt="module" />
+			{title}
+		</div>
+		<div>
+			<a
+				class="p-2 hover:bg-yellow-700 cursor-pointer"
+				title="coming soon">📎</a
+			>
+			<button
+				title="close"
+				class="p-2 hover:bg-red-300"
+				onclick={`window.${id}.close()`}>❌</button
+			>
+		</div>
+	</div>
+	<slot />
+</dialog>

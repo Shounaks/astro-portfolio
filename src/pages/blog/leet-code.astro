@@ -66,9 +66,17 @@ import archer from "../project/archer2.png";
 											<img src=`${post.data.heroImage}` class="h-8 w-8 rounded-none" alt="">
 											<span class="text-white pl-4 text-center">
 												<span class="group-hover:text-amber-400 ">
-													<FormattedDate date={post.data.pubDate} /> |
-												</span>{" "}
-												{post.data.title}
+													<time datetime={post.data.pubDate.toISOString()} class="w-max min-w-max">
+														{
+															post.data.pubDate.toLocaleDateString("en-us", {
+																year: "numeric",
+																month: "short",
+																day: "numeric",
+															})
+														}
+													</time>
+												</span>
+												{"| " + post.data.title}
 											</span>
 										</a>
 									</li>

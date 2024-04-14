@@ -13,7 +13,10 @@ import blackwp from "../project/black_wp.jpg";
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={"Blog | " + SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={"Blog | " + SITE_TITLE}
+			description={SITE_DESCRIPTION}
+		/>
 	</head>
 
 	<MainLayout>
@@ -26,12 +29,12 @@ import blackwp from "../project/black_wp.jpg";
 					class="col-span-1 min-h-full h-full max-h-full"
 				>
 					<a href="/blog/">
-                <Image
-						src={black}
-						alt=""
-						class="front-image group-focus:hidden bg-[url('../black_wp.jpg')] min-h-full h-screen bg-no-repeat max-h-full object-contain"
-					/>
-                </a>
+						<Image
+							src={black}
+							alt=""
+							class="front-image group-focus:hidden bg-[url('../black_wp.jpg')] min-h-full h-screen bg-no-repeat max-h-full object-contain"
+						/>
+					</a>
 					<!-- <Image src={water} alt="" class="bg-image group-focus:hidden h-full object-cover" /> -->
 				</div>
 				<div class="col-span-5 text-white" transition:animate="slide">
@@ -44,29 +47,54 @@ import blackwp from "../project/black_wp.jpg";
 						<p
 							class="font-bold sm:text-xs text-md uppercase bg-gradient-to-b from-slate-300 to-slate-500 inline-block text-transparent bg-clip-text whitespace-nowrap w-full"
 						>
-							Who knows, how the system is designed better than Adaptus Mechanicus?
+							Who knows, how the system is designed better than
+							Adaptus Mechanicus?
 							<hr class="border-black" />
 						</p>
 					</div>
-                    {posts.filter(item => item.data.tags.includes("Algorithms")).length <= 0 && <span class={"text-white text-center w-full"}>N.A.</span>}
-                    {
+					{
+						posts.filter((item) =>
+							item.data.tags.includes("Algorithms"),
+						).length <= 0 && (
+							<span class={"text-white text-center w-full"}>
+								N.A.
+							</span>
+						)
+					}
+					{
 						posts
-                            .filter(item => item.data.tags.includes("Algorithms"))
+							.filter((item) =>
+								item.data.tags.includes("Algorithms"),
+							)
 							.map((post) => (
-										<li>
-											<a href={`/blog/${post.slug}/`} class="hover:text-slate-500">
-												<!-- <img width={720} height={360} src={post.data.heroImage} alt="" /> -->
-												<span class="">
-													<FormattedDate date={post.data.pubDate} />
-												</span> | 
-												<span class="m-0 leading-4 text-xl text-white px-2">
-													{post.data.title}
-												</span>
-												
-											</a>
-										</li>
-									)).slice(0,30)
-								}
+								<li>
+									<a
+										href={`/blog/${post.slug}/`}
+										class="hover:text-slate-500"
+									>
+										<span class="">
+											<time
+												datetime={post.data.pubDate.toISOString()}
+												class="w-max min-w-max"
+											>
+												{post.data.pubDate.toLocaleDateString(
+													"en-us",
+													{
+														year: "numeric",
+														month: "short",
+														day: "numeric",
+													},
+												)}
+											</time>
+										</span>
+										<span class="m-0 leading-4 text-xl text-white px-2">
+											{"| " + post.data.title}
+										</span>
+									</a>
+								</li>
+							))
+							.slice(0, 30)
+					}
 				</div>
 			</div>
 		</div>
