@@ -2,37 +2,125 @@
 import { Image } from "astro:assets";
 import BaseHead from "../../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import FormattedDate from "../../components/FormattedDate.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { posts } from "../../collection";
 
-import aqua from "../project/aqua.png";
-import water from "../project/water.jpg";
+import beidou from './assets/720x1080/beidou.mp4'
+import Ibeidou from './assets/Images/Beidou.webp'
 
-import avatar from "../project/avatar.png";
-import mage from "../project/mage.jpg";
+import hutao from './assets/720x1080/hu-tao.mp4'
+import Ihutao from './assets/Images/HuTao.webp'
 
-import black from "../project/black.png";
-import blackwp from "../project/black_wp.jpg";
+import raiden from './assets/720x1080/raiden-shogun.mp4'
+import Iraiden from './assets/Images/Shogun.webp'
 
-import archer from "../project/archer2.png";
-import archerwp from "../project/archerbg.jpg";
+import shenhe from './assets/720x1080/shenhe.mp4'
+import Ishenhe from './assets/Images/Shenhe.webp'
 
-import { ViewTransitions } from "astro:transitions";
+import yelan from './assets/720x1080/yelan.mp4'
+import Iyelan from './assets/Images/Yelan.webp'
+
+import knave from './assets/720x1080/knave.mp4'
+import Iknave from './assets/Images/Arlecchino.webp'
+
+import kinich from './assets/720x1080/kinich.mp4'
+import Ikinich from './assets/Images/kinich.webp'
+
+let cards = [
+	{
+		id: 1,
+		name: "Java",
+		url: beidou,
+		character: Ibeidou,
+		motif: "#3E1250",
+		"motif-light": "#FF84FF",
+		link: "./java",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		id: 2,
+		name: "Systems Design",
+		url: hutao,
+		character: Ihutao,
+		motif: "#FBEDE9",
+		"motif-light": "#FFD5A6",
+		link: "./system-design/",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		id: 3,
+		name: "Leetcode Goblin",
+		url: raiden,
+		character: Iraiden,
+		motif: "#B7A1EF",
+		"motif-light": "#F9D1FF",
+		link: "./leet-code",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		id: 4,
+		name: "Algorithms",
+		url: shenhe,
+		character: Ishenhe,
+		motif: "#E19398",
+		"motif-light": "#41404C",
+		link: "./algorithms",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		id: 5,
+		name: "Cloud Services",
+		url: yelan,
+		character: Iyelan,
+		motif: "#08123B",
+		"motif-light": "#36D2E0",
+		link: "./tags/cloud",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		id: 6,
+		name: "Path:(AWS)",
+		url: knave,
+		character: Iknave,
+		motif: "#3B0719",
+		"motif-light": "#9E3F5B",
+		link: "./tags/AWS",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		id: 7,
+		name: "[WIP] Machine Learning",
+		url: kinich,
+		character: Ikinich,
+		motif: "#3B0719",
+		"motif-light": "#f06067",
+		link: "./tags/AWS",
+		description:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={"Blog | " + SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={"Blog | " + SITE_TITLE}
+			description={SITE_DESCRIPTION}
+		/>
 	</head>
 
 	<MainLayout>
 		<div class="min-w-full" style="">
-			<div class="flex flex-row justify-between w-full min-w-full pb-2">
-				<div>
+			<div class="flex flex-row justify-between w-full min-w-full pb-2 gap-12">
+				<div class="w-fit">
 					<h2
-						class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white"
+						class="font-sans font-bold text-3xl md:text-6xl gap-10 text-white text-nowrap"
 					>
 						Blog Posts
 					</h2>
@@ -42,163 +130,90 @@ import { ViewTransitions } from "astro:transitions";
 						A Repository of Obscure Knowledge
 					</p>
 				</div>
-				<a transition:name="tags" href="/blog/tags/" class="font-bold text-center align-middle min-h-full snap-center self-center mr-24 uppercase bg-gradient-to-r from-blue-400 via-purple-600 to-yellow-400 p-4  border-2 group border-black hover:border-white transition-all ease-in-out duration-200">
-					<span class="font-bold text-md uppercase inline-block whitespace-nowrap w-full text-black group-hover:text-white group-focus:text-white transition-[color] ease-in-out duration-200">Deep Dive</span>
+				
+				<a
+					transition:name="tags"
+					href="/blog/tags/"
+					class="w-full 	font-bold text-center min-h-full snap-center self-center mr-6 uppercase bg-gradient-to-r from-blue-400 via-purple-600 to-yellow-400 p-4 border-2 group border-black hover:border-white transition-all ease-in-out duration-200"
+				>
+					<span
+						class="font-bold text-md uppercase inline-block whitespace-nowrap w-full text-black group-hover:text-white group-focus:text-white transition-[color] ease-in-out duration-200"
+						>Deep Dive</span
+					>
 				</a>
+				
 			</div>
-			<hr class="border-yellow-500" />
-			<div class="grid grid-cols-4 grid-rows-1 gap-x-10 p-2 mx-20">
-				<a href="./java" transition:name="water" class="hover:z-10">
-					<div id="" class="card group">
-						<Image src={aqua} alt="" class="front-image" />
-						<Image src={water} alt="" class="bg-image" />
-						<div
-							class="logo w-full h-1/2 group-hover:h-[10%] min-w-full text-center sm:text-sm md:text-5xl lg:text-7xl transition-transform duration-200 ease-in-out group-hover:text-sky-600"
-						>
-							JAVA
-						</div>
+			<hr class="border-yellow-500 pb-2" />
+			<div id="container" class="w-full grid grid-flow-row-dense justify-center px-6" style="grid-template-columns: repeat(auto-fit,minmax(360px,1fr));" onload="fillGridWithDummies()">
+				{cards.map(card => {
+					const generatedElement =
+					<div class="grid-item relative min-w-[360px]  md:max-w-[360px] lg:max-w-full w-full h-fit flex-[1_1_360px] group cursor-pointer" onmouseenter="this.querySelector('video').play()" onmouseleave="this.querySelector('video').pause()">
+						<video class="w-full group-hover:opacity-15" paused loop muted playsinline data-video>
+							<source src={card.url} type="video/mp4">
+						</video>
+						<a href={card.link}>
+							<div id="filter" class="absolute inset-0 w-full h-full mix-blend-exclusion bg-black"></div>
+							<div id="overlay" class="absolute inset-0 w-full flex flex-col">
+								<div class="w-full flex-grow"></div>
+								<Image transition:name={card.name} src={card.character?card.character:Ibeidou} class="group-hover:visible invisible group-hover:block hidden opacity-0 group-hover:opacity-100 w-full h-fit transition-all duration-750" alt={card.name}></Image>
+								<span class="w-full text-center font-extrabold text-6xl transition-all duration-200 h-3/4 group-hover:h-1/4 p-2" style={{color: card["motif-light"]}}>{card.name}</span>
+								<p class="w-full text-justify p-4 invisible opacity-0 group-hover:visible group-hover:opacity-95 fade duration-300 ease-in-out text-white" >
+									{card.description}
+								</p>
+							</div>
+						</a>
 					</div>
-				</a>
-				<a href="./system-design" transition:name="fire">
-					<div id="" class="card group">
-						<Image src={avatar} alt="" class="front-image" />
-						<Image src={mage} alt="" class="bg-image" />
-						<div
-							class="logo w-full h-1/2 group-hover:h-[20%] min-w-full text-center sm:text-sm md:text-5xl lg:text-7xl transition-transform duration-200 ease-in-out group-hover:text-[#e9d8cb]"
-						>
-							Design
-						</div>
-					</div>
-				</a>
-				<a href="./leet-code" transition:name="electricity">
-					<div id="" class="card group">
-						<Image src={archer} alt="" class="front-image" />
-						<Image src={archerwp} alt="" class="bg-image" />
-						<div
-							class="logo w-full h-1/2 group-hover:h-[10%] min-w-full text-center sm:text-sm md:text-5xl lg:text-7xl transition-transform duration-200 ease-in-out group-hover:text-yellow-500"
-						>
-							Leet Code
-						</div>
-					</div>
-				</a>
-				<a href="./algorithms" transition:name="shadow">
-					<div id="" class="card group">
-						<Image src={black} alt="" class="front-image" />
-						<Image src={blackwp} alt="" class="bg-image" />
-						<div
-							class="logo w-full h-1/2 group-hover:h-[10%] min-w-full text-center sm:text-sm md:text-5xl lg:text-7xl transition-transform duration-200 ease-in-out"
-						>
-							Algorithms
-						</div>
-					</div>
-				</a>
+					return generatedElement;
+				})}
 			</div>
 		</div>
 	</MainLayout>
+	<script defer is:inline>
+		function fillGridWithDummies() {
+			const gridContainer = document.getElementById('container');
+			const gridItem = document.querySelector('.grid-item');
+			const gridContainerWidth = gridContainer.offsetWidth;
+			const gridItemWidth = gridItem.offsetWidth;
+			const columns = Math.floor(gridContainerWidth / gridItemWidth);
+			
+			const items = gridContainer.querySelectorAll('.grid-item:not(.dummy)');
+			const totalSlots = columns * Math.ceil(items.length / columns);
+			const dummyCount = totalSlots - items.length;
 
-	<style is:inline>
-		a,
-		a:hover {
-			color: #fff;
+			// Remove existing dummy items
+			const existingDummies = gridContainer.querySelectorAll('.grid-item.dummy');
+			existingDummies.forEach(dummy => dummy.remove());
+			// Append dummy items
+			for (let i = 0; i < dummyCount; i++) {
+				const dummy = document.createElement('div');
+				dummy.className = 'grid-item dummy';
+				dummy.innerHTML = `<div style='width: 100%;height:100%;position:relative;'><img src='/dummy/dummy-${Math.floor(Math.random()*2)}.jpg' alt='placeholder' style='width: 100%;height:100%;opacity: 20%; border: 0px solid gray;border-style: dashed;'><p style='position:absolute;inset:0;color:white;text-align:center;height:100%;width:100%;vertical-align: middle;top:50%'>TO BE ANNOUNCED</p></div>`
+				dummy.style.color = 'bg-white'
+				gridContainer.appendChild(dummy);
+			}
 		}
 
-		:root {
-			--timing: 400ms;
-			--rotation: 20deg;
+		function debounce(func, timeout = 100) {
+			let timer;
+			return (...args) => {
+				clearTimeout(timer);
+				timer = setTimeout(() => { func.apply(this, args); }, timeout);
+			};
 		}
+		const debouncedFillGridWithDummies = debounce(fillGridWithDummies); // Delay of 1 second
 
-		img {
-			max-width: 100%;
-		}
-
-		.card {
-			/* width: 200px; */
-			aspect-ratio: 9 / 16;
-			position: relative;
-			transform-style: preserve-3d;
-			transition: rotate var(--timing) ease;
-			background: no-repeat;
-		}
-
-		.card:hover {
-			rotate: x var(--rotation);
-		}
-
-		.card::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			z-index: 100;
-			background-image: radial-gradient(circle, transparent 150px, black);
-			opacity: 0;
-			transition: opacity var(--timing);
-		}
-
-		.card:hover::before {
-			opacity: 1;
-		}
-
-		.card::after {
-			content: "";
-			position: absolute;
-			inset: 80% 0.5rem 0.5rem;
-			translate: 0;
-			transform: translateZ(-100px);
-			background: black;
-			filter: blur(1rem);
-			z-index: 1;
-			transition:
-				rotate var(--timing),
-				translate var(--timing);
-		}
-
-		.card:hover::after {
-			rotate: x calc(var(--rotation) * -1);
-			translate: 0 60px;
-		}
-
-		.bg-image {
-			position: absolute;
-			z-index: 10;
-			height: 100%;
-			object-fit: cover;
-			object-position: -250px center;
-		}
-
-		.logo,
-		.front-image {
-			position: absolute;
-		}
-
-		.logo {
-			z-index: 1000;
-			/* filter: invert(1); */
-			width: 65%;
-			margin-inline: auto;
-			inset: auto 0 2rem;
-			bottom: 1vh;
-			transform: translateY(0rem) translateZ(20px);
-			transition: var(--timing);
-		}
-
-		.card:hover .logo {
-			transform: translateY(-2rem) translateZ(20px);
-			rotate: x calc(var(--rotation) * -1);
-		}
-
-		.front-image {
-			bottom: 10vh;
-			scale: 1.25;
-			transform-origin: bottom;
-			opacity: 0;
-			z-index: 100;
-			transition: var(--timing);
-		}
-
-		.card:hover .front-image {
-			opacity: 1;
-			transform: translateY(-2rem) translateZ(-10px);
-			rotate: x calc(var(--rotation) * -1);
-		}
-	</style>
+		
+		// Create a ResizeObserver instance
+		const resizeObserver = new ResizeObserver(entries => {
+			//fillGridWithDummies();
+			debouncedFillGridWithDummies();
+		});
+		
+		
+		// Start observing the grid container
+		resizeObserver.observe(document.getElementById('container'));
+		
+		// Initial Call
+		window.addEventListener("DOMContentLoaded",fillGridWithDummies);
+	</script>
 </html>

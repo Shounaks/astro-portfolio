@@ -161,34 +161,43 @@ import { fade } from "astro:transitions";
 			initializeParticles();
 		</script>
 		<!-- Script to store thestate of navbar -->
-		<script is:inline defer>
-			console.log("Loading Navbar State");
+		<script is:inline defer >
+			// console.log("Loading Navbar State");
 			let navName = "s-nav";
 			let menuToggle = document.querySelector(".menuToggle");
 			let sidebar = document.querySelector(".sidebar");
 			let isOpen = localStorage.getItem(navName);
-
-			function changeNavbarState(skip) {
-				console.log("Clicked Navbar toggle...");
-				let state = menuToggle.classList.toggle("active");
-				sidebar.classList.toggle("active");
-				localStorage.setItem(navName, state.toString());
-			}
+			
+			// DO NOT DELETE - For Documentation Reasons
+			// function changeNavbarState(skip) {
+			// 	console.log("Clicked Navbar toggle...");
+			// 	let state = menuToggle.classList.toggle("active");
+			// 	sidebar.classList.toggle("active");
+			// 	localStorage.setItem(navName, state.toString());
+			// }
+			
 			document.addEventListener(
 				"astro:page-load",
 				() => {
-					console.log("Adding Event Listener post page loading");
-
-					document.querySelector(".menuToggle").addEventListener("click", changeNavbarState);
+					// console.log("PAGE_LOAD: Adding Event Listener post page loading");
+					document.querySelector(".menuToggle").addEventListener("click", ()=> {
+						let state = document.querySelector(".menuToggle").classList.toggle("active");
+						document.querySelector(".sidebar").classList.toggle("active");
+						localStorage.setItem(navName, state.toString());
+					});
 				},
 				{ once: true }
 			);
 			document.addEventListener(
 				"astro:after-swap",
 				() => {
-					menuToggle.addEventListener("click", changeNavbarState);
-				},
-				{ once: true }
+						// console.log("PAGE_LOAD: Adding Event Listener post page loading");
+						document.querySelector(".menuToggle").addEventListener("click", ()=> {
+						let state = document.querySelector(".menuToggle").classList.toggle("active");
+						document.querySelector(".sidebar").classList.toggle("active");
+						localStorage.setItem(navName, state.toString());
+					});
+				}
 			);
 
 			function persistNavbarState() {
@@ -204,6 +213,7 @@ import { fade } from "astro:transitions";
 					}
 				}
 			}
+			
 			document.addEventListener("astro:page-load", persistNavbarState, {
 				once: true,
 			});
